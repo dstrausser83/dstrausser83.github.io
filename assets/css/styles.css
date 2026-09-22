@@ -218,3 +218,13 @@ body {
   .social-grid { grid-template-columns: 1fr; }
   .section { padding: 4rem 0; }
 }
+
+/* ---- Contact form + meeting CTA ---- */
+.meeting-cta { margin: 1.75rem 0 2.5rem; }
+.meeting-cta .btn { font-size: 1.05rem; padding: 1rem 2rem; }
+.contact-form { display: grid; gap: 1.1rem; margin: 0 0 2.5rem; text-align: left; }
+.form-row { display: grid; gap: 1.1rem; grid-template-columns: 1fr 1fr; }
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+.field label { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted); margin-bottom: 0.45rem; }
+.field input, .field textarea { width: 100%; padding: 0.85rem 1rem; border-radius: 10px; border: 1.5px solid var(--line); background: rgba(255,255,255,0.03); color: var(--ink); font: inherit; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
