@@ -16,7 +16,7 @@
   "use strict";
 
   // >>> PASTE THE GOOGLE APPS SCRIPT WEB APP URL HERE <<<
-  var MAILING_LIST_ENDPOINT = "";
+  var MAILING_LIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbwnOSosh68et8uOajfznNiDPSvVFFJjE-EZ0yNvNTr_uPsWjP_jj0ZNJnJfDJzb6gMm/exec";
 
   var SHOW_DELAY_MS = 5000;    // delay after landing before the popup appears
   var VISIBLE_MS = 10000;      // how long it stays up before auto-dismiss
