@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """Build a blog post page from a markdown draft with frontmatter.
 
-Usage: build_post.py <draft.md> [--image <file.jpg>]
-Reads frontmatter (title, date, tags, excerpt), converts markdown body to HTML,
-writes blog/posts/<slug>.html, and updates blog/posts.json.
+Usage: build_post.py <draft.md> [--image <file.jpg>] [--video <file.mp4>]
+Reads frontmatter (title, date, tags, excerpt, description, keywords, slug,
+image, video, lane), converts markdown body to HTML, writes blog/posts/<slug>.html,
+copies media into blog/images/ and blog/videos/, and updates blog/posts.json.
+
+SEO/AEO features:
+  - <title>, meta description, meta keywords, canonical, Open Graph / article tags
+  - "## Quick answer" section wrapped in a styled callout (AEO direct-answer)
+  - "## Frequently asked questions" -> FAQPage JSON-LD (AEO)
 """
 import json, re, sys, os
 from datetime import date
@@ -11,6 +17,7 @@ from datetime import date
 BLOG_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_DIR = os.path.join(BLOG_DIR, "posts")
 IMAGES_DIR = os.path.join(BLOG_DIR, "images")
+VIDEOS_DIR = os.path.join(BLOG_DIR, "videos")
 INDEX_JSON = os.path.join(BLOG_DIR, "posts.json")
 
 def slugify(title):
@@ -37,7 +44,14 @@ def md_inline(t):
     return t
 
 def md_to_html(body):
+    """Markdown -> HTML. Wraps '## Quick answer' in a styled callout div."""
     out, in_list, list_tag = [], False, ""
+    in_quick = False
+    def close_quick():
+        nonlocal in_quick
+        if in_quick:
+            out.append("</div>")
+            in_quick = False
     for line in body.split("\n"):
         s = line.strip()
         if s.startswith("### "):
@@ -45,10 +59,15 @@ def md_to_html(body):
             out.append(f"<h3>{md_inline(s[4:])}</h3>")
         elif s.startswith("## "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
+            close_quick()
             out.append(f"<h2>{md_inline(s[3:])}</h2>")
+            if s[3:].strip().lower() == "quick answer":
+                out.append('<div class="quick-answer">')
+                in_quick = True
         elif s.startswith("# "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            out.append(f"<h2>{md_inline(s[2:])}</h2>")
+            close_quick()
+            out.append(f"<h1>{md_inline(s[2:])}</h1>")
         elif s.startswith("> "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
             out.append(f"<blockquote>{md_inline(s[2:])}</blockquote>")
@@ -62,11 +81,49 @@ def md_to_html(body):
             out.append(f"<li>{md_inline(re.sub(r'^\d+\. ', '', s))}</li>")
         elif s == "":
             if in_list: out.append(f"</{list_tag}>"); in_list = False
+        elif s == "---":
+            if in_list: out.append(f"</{list_tag}>"); in_list = False
+            close_quick()
+            out.append("<hr />")
         else:
             if in_list: out.append(f"</{list_tag}>"); in_list = False
             out.append(f"<p>{md_inline(s)}</p>")
     if in_list: out.append(f"</{list_tag}>")
+    close_quick()
     return "\n".join(out)
+
+def extract_faq(body):
+    """Pull (question, answer) pairs from '## Frequently asked questions'."""
+    faqs, in_faq, q, a = [], False, None, []
+    for line in body.split("\n"):
+        s = line.strip()
+        if s.startswith("## "):
+            if q:
+                faqs.append((q, " ".join(a).strip())); q, a = None, []
+            in_faq = (s[3:].strip().lower() == "frequently asked questions")
+        elif in_faq and s.startswith("### "):
+            if q:
+                faqs.append((q, " ".join(a).strip()))
+            q, a = s[4:].strip(), []
+        elif in_faq and q and s and not s.startswith("#"):
+            a.append(re.sub(r"\*\*(.+?)\*\*", r"\1", s))
+    if q:
+        faqs.append((q, " ".join(a).strip()))
+    return [(q, an) for q, an in faqs if q and an]
+
+def faq_jsonld(faqs):
+    if not faqs:
+        return ""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in faqs
+        ],
+    }
+    return '<script type="application/ld+json">\n' + json.dumps(data, indent=2) + "\n</script>"
 
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -74,21 +131,26 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} — David Strausser</title>
-  <meta name="description" content="{excerpt}" />
+  <meta name="description" content="{description}" />
+  {meta_keywords}
   <link rel="canonical" href="https://dstrausser83.github.io/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{title}" />
-  <meta property="og:description" content="{excerpt}" />
+  <meta property="og:description" content="{description}" />
   {og_image}
   <link rel="stylesheet" href="../../assets/css/styles.css" />
   <style>
     .post-hero img {{ width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }}
+    .post-hero video {{ width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }}
     .post-meta {{ color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }}
     .post-tags span {{ display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }}
     .post-body h2 {{ margin-top: 2rem; }} .post-body h3 {{ margin-top: 1.5rem; }}
     .post-body blockquote {{ border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }}
+    .quick-answer {{ background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }}
+    .quick-answer p {{ margin: 0.4rem 0; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
   </style>
+  {faq_jsonld}
 </head>
 <body>
   <header class="site-header">
@@ -126,7 +188,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
-def build(draft_path, image_src=None):
+def build(draft_path, image_src=None, video_src=None):
     with open(draft_path, encoding="utf-8") as f:
         text = f.read()
     fm, body = parse_frontmatter(text)
@@ -135,8 +197,11 @@ def build(draft_path, image_src=None):
     post_date = fm.get("date", date.today().isoformat())
     tags = [t.strip() for t in fm.get("tags", "").split(",") if t.strip()]
     excerpt = fm.get("excerpt", body[:160].replace("\n", " ") + "...")
+    description = fm.get("description", excerpt)
+    keywords = fm.get("keywords", "")
+    meta_keywords = (f'<meta name="keywords" content="{keywords}" />' if keywords else "")
 
-    hero, og_image, image_rel = "", "", None
+    hero, og_image, image_rel, video_rel = "", "", None, None
     img_file = image_src or fm.get("image")
     if img_file and os.path.exists(img_file):
         os.makedirs(IMAGES_DIR, exist_ok=True)
@@ -144,12 +209,27 @@ def build(draft_path, image_src=None):
         with open(img_file, "rb") as a, open(dest, "wb") as b:
             b.write(a.read())
         image_rel = f"../images/{slug}.jpg"
-        hero = f'<figure class="post-hero"><img src="{image_rel}" alt="{title}" /></figure>'
         og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
+    vid_file = video_src or fm.get("video")
+    if vid_file and os.path.exists(vid_file):
+        os.makedirs(VIDEOS_DIR, exist_ok=True)
+        vdest = os.path.join(VIDEOS_DIR, f"{slug}.mp4")
+        with open(vid_file, "rb") as a, open(vdest, "wb") as b:
+            b.write(a.read())
+        video_rel = f"../videos/{slug}.mp4"
 
+    if video_rel:
+        poster = f' poster="{image_rel}"' if image_rel else ""
+        hero = (f'<figure class="post-hero"><video controls preload="metadata"{poster} '
+                f'src="{video_rel}"><source src="{video_rel}" type="video/mp4"></video></figure>')
+    elif image_rel:
+        hero = f'<figure class="post-hero"><img src="{image_rel}" alt="{title}" /></figure>'
+
+    faqs = extract_faq(body)
     html = PAGE_TEMPLATE.format(
-        title=title, slug=slug, date=post_date, excerpt=excerpt,
-        hero=hero, og_image=og_image, body=md_to_html(body),
+        title=title, slug=slug, date=post_date, description=description,
+        meta_keywords=meta_keywords, hero=hero, og_image=og_image,
+        body=md_to_html(body), faq_jsonld=faq_jsonld(faqs),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
     )
     os.makedirs(POSTS_DIR, exist_ok=True)
@@ -158,8 +238,9 @@ def build(draft_path, image_src=None):
         f.write(html)
 
     entry = {"slug": slug, "title": title, "date": post_date,
-             "tags": tags, "excerpt": excerpt,
-             "image": image_rel or "", "url": f"posts/{slug}.html"}
+             "tags": tags, "excerpt": excerpt, "description": description,
+             "image": image_rel or "", "video": video_rel or "",
+             "url": f"posts/{slug}.html"}
     posts = []
     if os.path.exists(INDEX_JSON):
         with open(INDEX_JSON, encoding="utf-8") as f:
@@ -168,13 +249,12 @@ def build(draft_path, image_src=None):
     posts.sort(key=lambda p: p["date"], reverse=True)
     with open(INDEX_JSON, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=2)
-    print(f"built {out_path}")
+    print(f"built {out_path} (faqs={len(faqs)}, video={'yes' if video_rel else 'no'})")
     return slug
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("usage: build_post.py <draft.md> [--image <file.jpg>]"); sys.exit(1)
-    img = None
-    if "--image" in sys.argv:
-        img = sys.argv[sys.argv.index("--image") + 1]
-    build(sys.argv[1], img)
+        print("usage: build_post.py <draft.md> [--image <file.jpg>] [--video <file.mp4>]"); sys.exit(1)
+    img = sys.argv[sys.argv.index("--image") + 1] if "--image" in sys.argv else None
+    vid = sys.argv[sys.argv.index("--video") + 1] if "--video" in sys.argv else None
+    build(sys.argv[1], img, vid)
