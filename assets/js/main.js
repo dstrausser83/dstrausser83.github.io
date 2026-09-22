@@ -53,7 +53,7 @@
   }
 
   // Active nav link
-  var sections = ["about", "work", "life", "shop", "contact"]
+  var sections = ["about", "career", "work", "podcast", "life", "shop", "faq", "contact"]
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
   var navLinks = nav ? Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')) : [];
