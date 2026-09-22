@@ -1,19 +1,5 @@
 [
   {
-    "slug": "welcome-to-the-blog-tips-tricks-and-straight-talk",
-    "title": "Welcome to the blog \u2014 tips, tricks, and straight talk",
-    "date": "2026-09-22",
-    "tags": [
-      "welcome",
-      "dead-brands"
-    ],
-    "excerpt": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
-    "description": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
-    "image": "images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg",
-    "video": "",
-    "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html"
-  },
-  {
     "slug": "odoo-implementation-7-things-nobody-tells-you",
     "title": "Odoo Implementation: 7 Things Nobody Tells You Before You Start",
     "date": "2026-09-22",
@@ -24,7 +10,7 @@
     ],
     "excerpt": "Odoo can replace a dozen apps and save you a fortune \u2014 if you implement it right. Seven hard-won lessons from the trenches.",
     "description": "Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.",
-    "image": "",
+    "image": "images/odoo-implementation-7-things-nobody-tells-you.jpg",
     "video": "",
     "url": "posts/odoo-implementation-7-things-nobody-tells-you.html"
   },
@@ -39,7 +25,7 @@
     ],
     "excerpt": "QuickBooks is great \u2014 until it isn't. Five unmistakable signs your business has outgrown it, and why SAP Business One is the natural next step.",
     "description": "Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.",
-    "image": "",
+    "image": "images/5-signs-youve-outgrown-quickbooks.jpg",
     "video": "",
     "url": "posts/5-signs-youve-outgrown-quickbooks.html"
   },
@@ -54,7 +40,7 @@
     ],
     "excerpt": "Thirty years of playing guitar taught me more about business than any MBA case study. Practice, timing, listening, and knowing when to solo.",
     "description": "Lessons from decades of playing guitar applied to business: deliberate practice, timing, listening before soloing, and playing with people better than you.",
-    "image": "",
+    "image": "images/what-playing-guitar-taught-me-about-business.jpg",
     "video": "",
     "url": "posts/what-playing-guitar-taught-me-about-business.html"
   },
@@ -69,7 +55,7 @@
     ],
     "excerpt": "CRM here, accounting there, inventory somewhere else \u2014 the average SMB pays for a dozen disconnected apps. Odoo puts them under one roof for less.",
     "description": "How consolidating a dozen disconnected SaaS subscriptions into Odoo cuts costs, kills double data entry, and gives you one version of the truth.",
-    "image": "",
+    "image": "images/stop-paying-for-12-apps-odoo-replaces-them.jpg",
     "video": "",
     "url": "posts/stop-paying-for-12-apps-odoo-replaces-them.html"
   },
@@ -83,7 +69,7 @@
     ],
     "excerpt": "The B1 add-on marketplace is huge and uneven. Here's how to tell the ones worth paying for from the shelfware \u2014 plus the categories that deliver.",
     "description": "A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on.",
-    "image": "",
+    "image": "images/sap-business-one-add-ons-worth-the-money.jpg",
     "video": "",
     "url": "posts/sap-business-one-add-ons-worth-the-money.html"
   },
@@ -98,8 +84,22 @@
     ],
     "excerpt": "Single dad, CEO, podcaster, guitarist \u2014 here's the actual morning system that lets me run a business and be present for my kid.",
     "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
-    "image": "",
+    "image": "images/single-dad-playbook-productive-mornings.jpg",
     "video": "",
     "url": "posts/single-dad-playbook-productive-mornings.html"
+  },
+  {
+    "slug": "welcome-to-the-blog-tips-tricks-and-straight-talk",
+    "title": "Welcome to the blog \u2014 tips, tricks, and straight talk",
+    "date": "2026-09-22",
+    "tags": [
+      "welcome",
+      "dead-brands"
+    ],
+    "excerpt": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
+    "description": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
+    "image": "images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg",
+    "video": "",
+    "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html"
   }
 ]
