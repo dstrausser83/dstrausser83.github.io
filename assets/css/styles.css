@@ -34,6 +34,8 @@ body {
 }
 
 ::selection { background: var(--accent-hot); color: #fff; }
+/* Buttons are red with white text — invert selection so highlighted text stays readable. */
+.btn::selection { background: #fff; color: var(--accent-deep); }
 
 .wrap { width: min(1120px, 92%); margin: 0 auto; }
 .wrap.narrow { width: min(760px, 92%); }
