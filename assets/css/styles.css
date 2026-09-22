@@ -1,0 +1,220 @@
+/* David Strausser — personal brand site. Dark rock theme. */
+
+:root {
+  --bg: #0d0b09;
+  --bg-raised: #161210;
+  --bg-alt: #120e0c;
+  --ink: #f4efe8;
+  --muted: #b3a89b;
+  --faint: #7d7468;
+  --accent: #f5a524;
+  --accent-hot: #ff6b35;
+  --line: #2a231e;
+  --card: #171310;
+  --radius: 14px;
+  --font-display: "Anton", "Arial Black", Impact, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: #14100c; }
+
+.wrap { width: min(1120px, 92%); margin: 0 auto; }
+.wrap.narrow { width: min(760px, 92%); }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: #14100c;
+  padding: 0.6rem 1rem; z-index: 200; font-weight: 700;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  background: rgba(13, 11, 9, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+.site-header.scrolled { border-bottom-color: var(--line); }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--ink); }
+.brand-mark {
+  display: inline-grid; place-items: center;
+  width: 38px; height: 38px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hot));
+  color: #14100c; font-family: var(--font-display); font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+.brand-name { font-weight: 700; letter-spacing: 0.01em; }
+
+.site-nav { display: flex; align-items: center; gap: 1.75rem; }
+.site-nav a {
+  color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+.site-nav a:hover, .site-nav a.active { color: var(--ink); }
+.site-nav .nav-cta {
+  color: #14100c; background: var(--accent); font-weight: 700;
+  padding: 0.55rem 1.1rem; border-radius: 999px;
+}
+.site-nav .nav-cta:hover { background: var(--ink); color: #14100c; }
+
+.nav-toggle {
+  display: none; background: none; border: 0; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 0.5rem;
+}
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  padding: 9.5rem 0 5.5rem;
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgba(245, 165, 36, 0.14), transparent 60%),
+    radial-gradient(50rem 26rem at 8% 10%, rgba(255, 107, 53, 0.10), transparent 60%),
+    var(--bg);
+}
+.hero-glow {
+  position: absolute; inset: auto -10% -40% -10%; height: 60%;
+  background: radial-gradient(closest-side, rgba(245, 165, 36, 0.07), transparent);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+
+.eyebrow {
+  text-transform: uppercase; letter-spacing: 0.22em;
+  font-size: 0.78rem; font-weight: 700; color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 11vw, 7.5rem);
+  line-height: 0.95; letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.tagline {
+  margin-top: 1.1rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  font-weight: 600; color: var(--ink);
+}
+.hero-sub { margin-top: 1rem; max-width: 620px; color: var(--muted); }
+
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2rem; }
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 700;
+  padding: 0.85rem 1.7rem; border-radius: 999px; font-size: 1rem;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: #14100c; }
+.btn-primary:hover { background: var(--ink); }
+.btn-ghost { border: 1.5px solid var(--line); color: var(--ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-stats {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 2.2rem;
+  margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line);
+}
+.hero-stats li { display: flex; flex-direction: column; gap: 0.15rem; }
+.hero-stats strong { font-family: var(--font-display); font-size: 1.35rem; letter-spacing: 0.02em; color: var(--accent); }
+.hero-stats span { font-size: 0.85rem; color: var(--faint); }
+
+/* ---------- Sections ---------- */
+.section { padding: 5.5rem 0; }
+.section-alt { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.section h2 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 0.01em;
+  margin-bottom: 1.25rem; line-height: 1.05;
+}
+.section-lede { color: var(--muted); max-width: 640px; margin-bottom: 2.5rem; font-size: 1.1rem; }
+
+.prose p { margin-bottom: 1.2rem; color: #ddd5c9; }
+.prose strong { color: var(--ink); }
+
+/* ---------- Cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.75rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.card h3 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: 1.3rem; letter-spacing: 0.02em; margin-bottom: 0.7rem; color: var(--accent);
+}
+.card p { color: var(--muted); font-size: 0.98rem; }
+
+.work-note { margin-top: 2.5rem; color: var(--muted); font-size: 1.05rem; }
+.work-note a { color: var(--accent); font-weight: 700; text-decoration: none; }
+.work-note a:hover { text-decoration: underline; }
+
+.shop-inner { text-align: left; }
+
+/* ---------- Social ---------- */
+.social-grid {
+  list-style: none; display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; margin-top: 2.25rem;
+}
+.social-grid a {
+  display: flex; flex-direction: column; gap: 0.15rem;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.3rem 1.5rem;
+  text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.social-grid a:hover { transform: translateY(-3px); border-color: var(--accent); }
+.social-grid strong { color: var(--ink); font-size: 1.05rem; }
+.social-grid span { color: var(--faint); font-size: 0.9rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 2rem 0; }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.footer-inner p { color: var(--faint); font-size: 0.88rem; }
+
+/* ---------- Reveal animation ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .cards { grid-template-columns: 1fr; }
+  .nav-toggle { display: flex; }
+  .site-nav {
+    position: absolute; top: 68px; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: rgba(13, 11, 9, 0.98);
+    border-bottom: 1px solid var(--line);
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+  }
+  .site-nav.open { max-height: 340px; }
+  .site-nav a { padding: 1rem 4%; border-top: 1px solid var(--line); }
+  .site-nav .nav-cta { margin: 0.75rem 4% 1.25rem; text-align: center; }
+  .hero { padding: 7.5rem 0 4rem; }
+  .social-grid { grid-template-columns: 1fr; }
+  .section { padding: 4rem 0; }
+}
