@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — David Strausser | Dead Brands</title>
+  <meta name="description" content="Helpful tips and straight talk on Odoo, SAP Business One, tech, AI, sales, and business growth — from David Strausser, CEO of Dead Brands, LLC." />
+  <link rel="canonical" href="https://dstrausser83.github.io/blog/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog — David Strausser" />
+  <meta property="og:description" content="Helpful tips and straight talk on Odoo, SAP Business One, tech, AI, sales, and business growth." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    .blog-search { width: 100%; max-width: 560px; padding: 0.85rem 1.1rem; font-size: 1rem; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); color: var(--text); margin: 1.5rem 0 2rem; }
+    .blog-search:focus { outline: none; border-color: var(--accent); }
+    .post-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .post-card { border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--card); transition: transform 0.15s ease; }
+    .post-card:hover { transform: translateY(-3px); }
+    .post-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .post-card-body { padding: 1.1rem 1.2rem 1.3rem; }
+    .post-card-body h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+    .post-card-body h3 a { color: var(--text); text-decoration: none; }
+    .post-card-body h3 a:hover { color: var(--accent); }
+    .post-card-date { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .post-card-excerpt { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.7rem; }
+    .post-card-tags span { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; margin: 0 0.3rem 0.3rem 0; color: var(--muted); }
+    .no-results { color: var(--muted); padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="wrap nav">
+      <a class="brand" href="../index.html">David Strausser</a>
+      <div class="nav-links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Blog</p>
+        <h1>Tips, tricks &amp; straight talk</h1>
+        <p class="section-lede">
+          Odoo how-tos, SAP Business One wisdom, and one wild card a day —
+          tech, AI, sales, business growth, and whatever else is on my mind.
+          New posts daily.
+        </p>
+        <input id="search" class="blog-search" type="search" placeholder="Search posts… (try &quot;Odoo&quot;, &quot;inventory&quot;, &quot;AI&quot;)" aria-label="Search blog posts" />
+        <div id="cards" class="post-cards"></div>
+        <p id="no-results" class="no-results" hidden>Nothing matched. Try a different search.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    let posts = [];
+    const cardsEl = document.getElementById('cards');
+    const noResults = document.getElementById('no-results');
+    const searchEl = document.getElementById('search');
+
+    function card(p) {
+      const img = p.image ? `<img src="${p.image}" alt="" loading="lazy" />` : '';
+      const tags = (p.tags || []).map(t => `<span>${t}</span>`).join('');
+      return `<article class="post-card">
+        ${img}
+        <div class="post-card-body">
+          <h3><a href="${p.url}">${p.title}</a></h3>
+          <p class="post-card-date">${p.date}</p>
+          <p class="post-card-excerpt">${p.excerpt}</p>
+          <div class="post-card-tags">${tags}</div>
+        </div>
+      </article>`;
+    }
+
+    function render(filter) {
+      const q = (filter || '').toLowerCase().trim();
+      const shown = posts.filter(p => !q || (p.title + ' ' + p.excerpt + ' ' + (p.tags || []).join(' ')).toLowerCase().includes(q));
+      cardsEl.innerHTML = shown.map(card).join('');
+      noResults.hidden = shown.length > 0;
+    }
+
+    fetch('posts.json')
+      .then(r => r.json())
+      .then(data => { posts = data; render(''); })
+      .catch(() => { cardsEl.innerHTML = '<p class="no-results">Posts are on the way — check back soon.</p>'; });
+
+    searchEl.addEventListener('input', e => render(e.target.value));
+  </script>
+</body>
+</html>
