@@ -121,6 +121,7 @@ body {
   text-transform: uppercase;
 }
 .hero h1 .hl { color: var(--accent); }
+.odoo { color: #714B67; font-weight: 700; }
 .tagline {
   margin-top: 1.1rem;
   font-size: clamp(1.15rem, 2.6vw, 1.5rem);
