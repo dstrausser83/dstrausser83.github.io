@@ -81,6 +81,8 @@ body {
   padding: 0.55rem 1.1rem; border-radius: 999px;
 }
 .site-nav .nav-cta:hover { background: var(--accent); color: #fff; }
+/* Scroll-spy adds .active to the CTA in the contact section — keep its text white. */
+.site-nav .nav-cta.active { color: #fff; background: var(--accent-deep); }
 
 .nav-toggle {
   display: none; background: none; border: 0; cursor: pointer;
