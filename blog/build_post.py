@@ -138,6 +138,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta property="og:title" content="{title}" />
   <meta property="og:description" content="{description}" />
   {og_image}
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
   <style>
     .post-hero img {{ width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }}
