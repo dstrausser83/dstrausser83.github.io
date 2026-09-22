@@ -240,10 +240,15 @@ def build(draft_path, image_src=None, video_src=None):
     if img_file and os.path.exists(img_file):
         os.makedirs(IMAGES_DIR, exist_ok=True)
         dest = os.path.join(IMAGES_DIR, f"{slug}.jpg")
-        with open(img_file, "rb") as a, open(dest, "wb") as b:
-            b.write(a.read())
-        image_rel = f"images/{slug}.jpg"
-        og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
+        # Never copy a file onto itself — open(dest,'wb') truncates before read
+        if os.path.abspath(img_file) == os.path.abspath(dest):
+            image_rel = f"images/{slug}.jpg"
+            og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
+        else:
+            with open(img_file, "rb") as a, open(dest, "wb") as b:
+                b.write(a.read())
+            image_rel = f"images/{slug}.jpg"
+            og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
     vid_file = video_src or fm.get("video")
     if vid_file and os.path.exists(vid_file):
         os.makedirs(VIDEOS_DIR, exist_ok=True)
