@@ -67,16 +67,22 @@
 </script>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="wrap nav">
-      <a class="brand" href="../../index.html">David Strausser</a>
-      <div class="nav-links">
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="David Strausser — home">
+        <img class="brand-photo" src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="76" height="76" />
+        <span class="brand-name">David Strausser</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="../../index.html#about">About</a>
         <a href="../../index.html#work">Work</a>
-        <a href="../index.html">Blog</a>
-        <a href="../../index.html#contact">Contact</a>
-      </div>
-    </nav>
+        <a href="../index.html" class="active">Blog</a>
+        <a href="../../index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
   </header>
   <main>
     <article class="section">
@@ -129,5 +135,6 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
 </body>
 </html>
