@@ -210,7 +210,7 @@ def build(draft_path, image_src=None, video_src=None):
         dest = os.path.join(IMAGES_DIR, f"{slug}.jpg")
         with open(img_file, "rb") as a, open(dest, "wb") as b:
             b.write(a.read())
-        image_rel = f"../images/{slug}.jpg"
+        image_rel = f"images/{slug}.jpg"
         og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
     vid_file = video_src or fm.get("video")
     if vid_file and os.path.exists(vid_file):
@@ -221,11 +221,11 @@ def build(draft_path, image_src=None, video_src=None):
         video_rel = f"../videos/{slug}.mp4"
 
     if video_rel:
-        poster = f' poster="{image_rel}"' if image_rel else ""
+        poster = f' poster="../{image_rel}"' if image_rel else ""
         hero = (f'<figure class="post-hero"><video controls preload="metadata"{poster} '
                 f'src="{video_rel}"><source src="{video_rel}" type="video/mp4"></video></figure>')
     elif image_rel:
-        hero = f'<figure class="post-hero"><img src="{image_rel}" alt="{title}" /></figure>'
+        hero = f'<figure class="post-hero"><img src="../{image_rel}" alt="{title}" /></figure>'
 
     faqs = extract_faq(body)
     html = PAGE_TEMPLATE.format(

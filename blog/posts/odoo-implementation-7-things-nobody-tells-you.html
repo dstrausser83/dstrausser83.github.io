@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start — David Strausser</title>
+  <meta name="description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
+  <meta name="keywords" content="Odoo implementation, Odoo tips, ERP implementation, Odoo setup" />
+  <link rel="canonical" href="https://dstrausser83.github.io/blog/posts/odoo-implementation-7-things-nobody-tells-you.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start" />
+  <meta property="og:description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
+  <meta property="og:image" content="https://dstrausser83.github.io/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+    .quick-answer p { margin: 0.4rem 0; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does an Odoo implementation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A focused SMB implementation of core apps takes 4\u20138 weeks. Companies that try to customize everything first routinely stretch past 6 months. Speed comes from scope discipline, not from rushing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Odoo good for small businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 that's its sweet spot. Small businesses get enterprise-grade tools (accounting, CRM, inventory, e-commerce) at a fraction of traditional ERP cost. Start with a [free 15-day trial](https://quaintbusiness.com/tryodoo) and prove it to yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the biggest Odoo implementation mistake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Migrating dirty data and customizing before understanding the standard flows. Both are avoidable, and both account for the majority of painful implementations I've seen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I implement Odoo myself or hire a consultant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you have someone technical and process-minded in-house, a simple setup is very doable. For multi-app rollouts with inventory and accounting, a consultant pays for itself. Either way, start with the trial and map your processes first. --- Thinking about Odoo for your business? [Book a free meeting with me](https://app.apollo.io/#/meet/david_strausser_175) and we'll talk through whether it's the right fit \u2014 no pitch, just straight talk. Or spin up the [free 15-day Odoo trial](https://quaintbusiness.com/tryodoo) and kick the tires yourself."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="wrap nav">
+      <a class="brand" href="../../index.html">David Strausser</a>
+      <div class="nav-links">
+        <a href="../../index.html#about">About</a>
+        <a href="../../index.html#work">Work</a>
+        <a href="../index.html">Blog</a>
+        <a href="../../index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <h1>Odoo Implementation: 7 Things Nobody Tells You Before You Start</h1>
+        <p class="post-meta">2026-09-22 &middot; by David Strausser</p>
+        <figure class="post-hero"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Odoo Implementation: 7 Things Nobody Tells You Before You Start" /></figure>
+        <div class="post-body prose">
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>Odoo implementations succeed when you clean your data first, lock the scope early, train your people before go-live, and resist customizing everything on day one. Most failures come from bad data and scope creep — not from the software.</p>
+<p>I've watched Odoo implementations go sideways more times than I can count. The software is almost never the problem. It's everything around the software. Here's what nobody puts in the sales deck.</p>
+</div>
+<h2>1. Your data is worse than you think</h2>
+<p>Every company believes their spreadsheets are "pretty clean." They're not. Duplicate customers, three different spellings of the same vendor, products with no SKUs, inventory counts from 2019 — Odoo will faithfully import all of it, and then you'll spend months untangling the mess inside a live system instead of in a spreadsheet where it's cheap to fix.</p>
+<p>Clean it before migration. Dedicate real hours. This is the single highest-ROI activity in the whole project.</p>
+<h2>2. Scope creep is the silent killer</h2>
+<p>"We'll just add this one custom field... and this workflow... and can it also do that thing our old system did?" Every "just" adds days. Odoo does 80% of what most businesses need out of the box. Implement the 80%, go live, then iterate on the 20%.</p>
+<p>The companies that go live in 6 weeks beat the ones still "perfecting" their setup at month 8. Every time.</p>
+<h2>3. Out-of-the-box beats custom every time (at first)</h2>
+<p>Odoo's standard flows exist because thousands of companies refined them. Your "unique process" is usually a workaround for a limitation in your old system. Adopt the standard flow first. Customize only after you've lived with it for a quarter and can prove the standard way costs you money.</p>
+<h2>4. Training isn't a one-hour Zoom call</h2>
+<p>The number one predictor of implementation success isn't the consultant — it's whether your team actually uses the system. Budget real training time. Name a champion in each department. And accept that the first two weeks after go-live will feel slower. That's normal. Week three is when it clicks.</p>
+<h2>5. Start with fewer apps, not more</h2>
+<p>Odoo has 40+ apps and the temptation is to turn them all on. Don't. Start with the core: CRM or Sales, Invoicing, Inventory, Purchase. Get those humming, then layer in Project, Helpdesk, Marketing Automation. Each app you add multiplies testing and training.</p>
+<h2>6. The community vs. enterprise decision matters</h2>
+<p>Odoo Community is free and powerful. Odoo Enterprise adds the upgrade path, mobile apps, and features like multi-company accounting that growing businesses eventually need. My rule: if you're growing and plan to be on this system in 3 years, Enterprise pays for itself in the first upgrade you don't have to rebuild from scratch.</p>
+<h2>7. Get help before you're drowning</h2>
+<p>The most expensive consultant is the one you call after the failed go-live. A few hours of expert guidance during planning saves weeks of cleanup later. This is literally what I do — I've seen the movie, I know where the bodies are buried.</p>
+<h2>Frequently asked questions</h2>
+<h3>How long does an Odoo implementation take?</h3>
+<p>A focused SMB implementation of core apps takes 4–8 weeks. Companies that try to customize everything first routinely stretch past 6 months. Speed comes from scope discipline, not from rushing.</p>
+<h3>Is Odoo good for small businesses?</h3>
+<p>Yes — that's its sweet spot. Small businesses get enterprise-grade tools (accounting, CRM, inventory, e-commerce) at a fraction of traditional ERP cost. Start with a <a href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">free 15-day trial</a> and prove it to yourself.</p>
+<h3>What's the biggest Odoo implementation mistake?</h3>
+<p>Migrating dirty data and customizing before understanding the standard flows. Both are avoidable, and both account for the majority of painful implementations I've seen.</p>
+<h3>Should I implement Odoo myself or hire a consultant?</h3>
+<p>If you have someone technical and process-minded in-house, a simple setup is very doable. For multi-app rollouts with inventory and accounting, a consultant pays for itself. Either way, start with the trial and map your processes first.</p>
+<hr />
+<p>Thinking about Odoo for your business? <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a free meeting with me</a> and we'll talk through whether it's the right fit — no pitch, just straight talk. Or spin up the <a href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">free 15-day Odoo trial</a> and kick the tires yourself.</p>
+        </div>
+        <p class="post-tags"><span>odoo</span> <span>erp</span> <span>implementation</span></p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
