@@ -824,10 +824,36 @@
     <div class="wrap footer-inner">
       <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
       <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a></p>
-      <p class="footer-note">Built loud. No ads.</p>
+      <p class="footer-note">Built loud. No ads, no trackers.</p>
     </div>
   </footer>
 
+  <div class="popup-overlay" id="mailing-popup" hidden>
+    <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <button class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
+      <p class="eyebrow">Dead Brands mailing list</p>
+      <h2 id="popup-title">Get the loud stuff first.</h2>
+      <p class="popup-sub">New posts, drops, and things worth your inbox. No spam, ever.</p>
+      <form id="popup-form" novalidate>
+        <div class="popup-row">
+          <label>First name
+            <input type="text" name="firstName" autocomplete="given-name" required maxlength="80">
+          </label>
+          <label>Last name
+            <input type="text" name="lastName" autocomplete="family-name" required maxlength="80">
+          </label>
+        </div>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required maxlength="160" placeholder="you@example.com">
+        </label>
+        <button type="submit" class="btn btn-primary popup-submit">Join the list</button>
+        <p class="popup-status" id="popup-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="popup-fine">We never sell your info. Unsubscribe anytime.</p>
+    </div>
+  </div>
+
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/mailing-popup.js" defer></script>
 </body>
 </html>
