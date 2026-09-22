@@ -125,6 +125,30 @@ def faq_jsonld(faqs):
     }
     return '<script type="application/ld+json">\n' + json.dumps(data, indent=2) + "\n</script>"
 
+def article_jsonld(title, description, slug, post_date, image_rel, tags):
+    data = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": description,
+        "datePublished": post_date,
+        "author": {
+            "@type": "Person",
+            "name": "David Strausser",
+            "url": "https://dstrausser83.github.io/",
+            "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)",
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Dead Brands, LLC",
+        },
+        "mainEntityOfPage": f"https://dstrausser83.github.io/blog/posts/{slug}.html",
+        "keywords": ", ".join(tags),
+    }
+    if image_rel:
+        data["image"] = f"https://dstrausser83.github.io/blog/{image_rel}"
+    return '<script type="application/ld+json">\n' + json.dumps(data, indent=2) + "\n</script>"
+
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,6 +177,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
   </style>
   {faq_jsonld}
+  {article_jsonld}
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -239,6 +264,7 @@ def build(draft_path, image_src=None, video_src=None):
         title=title, slug=slug, date=post_date, description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
         body=md_to_html(body), faq_jsonld=faq_jsonld(faqs),
+        article_jsonld=article_jsonld(title, description, slug, post_date, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
     )
     os.makedirs(POSTS_DIR, exist_ok=True)
