@@ -369,3 +369,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .card-quote .testimonial-name a { color: inherit; }
 .card-quote .testimonial-role { font-size: 0.88rem; color: var(--muted); margin: 0.15rem 0 0; }
 .card-quote .testimonial-role a { color: var(--muted); }
+.cards-testimonials { grid-template-columns: repeat(2, 1fr); }
+.testimonial-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.9rem; }
+.testimonial-head > div { min-width: 0; }
+.testimonial-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid var(--accent); }
+@media (max-width: 860px) {
+  .cards-testimonials { grid-template-columns: 1fr; }
+}
