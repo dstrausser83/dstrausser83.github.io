@@ -316,6 +316,9 @@ body {
 /* ---- Contact form + meeting CTA ---- */
 .meeting-cta { margin: 1.75rem 0 2.5rem; }
 .meeting-cta .btn { font-size: 1.05rem; padding: 1rem 2rem; }
+.call-cta { margin: 0 0 2.5rem; }
+.call-cta p { margin-bottom: 1rem; }
+.call-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .contact-form { display: grid; gap: 1.1rem; margin: 0 0 2.5rem; text-align: left; }
 .form-row { display: grid; gap: 1.1rem; grid-template-columns: 1fr 1fr; }
 @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
