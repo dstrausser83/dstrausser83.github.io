@@ -357,3 +357,12 @@ button.btn-ghost[type="submit"] { justify-self: start; }
 a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 3px solid var(--accent-hot); outline-offset: 2px;
 }
+
+/* ---- Testimonials ---- */
+.card-quote { display: flex; flex-direction: column; }
+.card-quote blockquote { margin: 0 0 1rem; font-size: 1.02rem; line-height: 1.6; font-style: italic; }
+.card-quote blockquote::before { content: "\201C"; display: block; font-size: 2.4rem; line-height: 1; color: var(--accent); font-style: normal; margin-bottom: 0.35rem; }
+.card-quote .testimonial-name { font-weight: 700; margin: 0; }
+.card-quote .testimonial-name a { color: inherit; }
+.card-quote .testimonial-role { font-size: 0.88rem; color: var(--muted); margin: 0.15rem 0 0; }
+.card-quote .testimonial-role a { color: var(--muted); }
