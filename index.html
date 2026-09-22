@@ -192,9 +192,35 @@
         <div class="prose reveal">
           <p>
             ERP project, automation idea, or just want to argue about the
-            Eagles&rsquo; secondary &mdash; fastest way to reach me is a DM.
+            Eagles&rsquo; secondary &mdash; pick your weapon: book time
+            with me directly, or send a message straight to my inbox.
           </p>
         </div>
+        <div class="meeting-cta reveal">
+          <!-- APOLLO: replace href="#" with David's Apollo scheduling link -->
+          <a class="btn btn-primary" id="book-meeting" href="#" target="_blank" rel="noopener">Book a meeting with me now</a>
+        </div>
+        <form class="contact-form reveal" action="https://formsubmit.co/david@deadbrands.co" method="POST">
+          <input type="hidden" name="_subject" value="New message from dstrausser83.github.io">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" type="text" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" type="email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" rows="5" required></textarea>
+          </div>
+          <button class="btn btn-ghost" type="submit">Send message</button>
+        </form>
         <ul class="social-grid reveal">
           <li>
             <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">
