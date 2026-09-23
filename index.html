@@ -360,33 +360,31 @@
           Your business runs on processes. I make sure the systems underneath
           them aren&rsquo;t held together with spreadsheets and hope.
         </p>
-        <div class="cards" id="home-blog-cards">
-          <!-- Populated from blog/posts.json — newest first. No manual edits needed. -->
-        </div>
-        <script>
-        (function () {
-          var el = document.getElementById("home-blog-cards");
-          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-          function fmtDate(iso) {
-            try { return new Date(iso + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }); }
-            catch (e) { return iso; }
-          }
-          fetch("blog/posts.json").then(function (r) { return r.json(); }).then(function (posts) {
-            posts.sort(function (a, b) { return String(b.published_at || b.date).localeCompare(String(a.published_at || a.date)); });
-            var html = "";
-            posts.slice(0, 6).forEach(function (p) {
-              var img = p.image ? "blog/" + p.image : "";
-              html += '<article class="card">'
-                + (img ? '<img class="card-photo" src="' + esc(img) + '" alt="' + esc(p.title) + '" loading="lazy" />' : "")
-                + '<h3><a href="blog/' + esc(p.url) + '">' + esc(p.title) + "</a></h3>"
-                + '<p class="post-card-date">' + esc(fmtDate(p.date)) + "</p>"
-                + "<p>" + esc(p.excerpt || p.description || "") + "</p>"
-                + "</article>";
-            });
-            el.innerHTML = html;
-          });
-        })();
-        </script>
+        <div class="cards">
+          <article class="card reveal">
+            <h3>ERP Implementations</h3>
+            <p>
+              <strong>SAP Business One</strong> &mdash; from selection and
+              scoping through go-live and beyond &mdash; via
+              <a href="https://quaintbusiness.com?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=homepage-partner-link" target="_blank" rel="noopener">Quaint Business Solutions</a>,
+              a boutique ERP consulting and implementation firm. Done right,
+              done on purpose, no death marches.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>Process Automation</h3>
+            <p>
+              Kill the swivel-chair work. I find the manual, repetitive stuff
+              eating your team&rsquo;s week and automate it out of existence.
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>AI &amp; SaaS</h3>
+            <p>
+              Practical AI and modern SaaS that earn their keep &mdash; not
+              buzzwords, not science projects. Real tools, real ROI.
+            </p>
+          </article>
         </div>
         <p class="work-note reveal">
           If your ERP project feels like it&rsquo;s on fire,
@@ -537,44 +535,33 @@
           New posts every day &mdash; Odoo how-tos, SAP Business One wisdom,
           and one wild card. Straight talk, zero fluff.
         </p>
-        <div class="cards">
-          <article class="card reveal">
-            <img class="card-photo" src="blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Odoo Implementation: 7 Things Nobody Tells You Before You Start" loading="lazy" />
-            <h3><a href="blog/posts/odoo-implementation-7-things-nobody-tells-you.html">Odoo Implementation: 7 Things Nobody Tells You</a></h3>
-            <p class="post-card-date">September 22, 2026</p>
-            <p>Odoo can replace a dozen apps and save you a fortune &mdash; if you implement it right. Seven hard-won lessons from the trenches.</p>
-          </article>
-          <article class="card reveal">
-            <img class="card-photo" src="blog/images/5-signs-youve-outgrown-quickbooks.jpg" alt="5 Signs You've Outgrown QuickBooks" loading="lazy" />
-            <h3><a href="blog/posts/5-signs-youve-outgrown-quickbooks.html">5 Signs You&rsquo;ve Outgrown QuickBooks</a></h3>
-            <p class="post-card-date">September 22, 2026</p>
-            <p>QuickBooks is great &mdash; until it isn&rsquo;t. Five unmistakable signs your business has outgrown it, and why SAP Business One is the natural next step.</p>
-          </article>
-          <article class="card reveal">
-            <img class="card-photo" src="blog/images/what-playing-guitar-taught-me-about-business.jpg" alt="What Playing Guitar Taught Me About Running a Business" loading="lazy" />
-            <h3><a href="blog/posts/what-playing-guitar-taught-me-about-business.html">What Playing Guitar Taught Me About Business</a></h3>
-            <p class="post-card-date">September 22, 2026</p>
-            <p>Thirty years of playing guitar taught me more about business than any MBA case study. Practice, timing, listening, and knowing when to solo.</p>
-          </article>
-          <article class="card reveal">
-            <img class="card-photo" src="blog/images/stop-paying-for-12-apps-odoo-replaces-them.jpg" alt="You're Paying for 12 Apps. Odoo Replaces All of Them." loading="lazy" />
-            <h3><a href="blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html">You&rsquo;re Paying for 12 Apps. Odoo Replaces Them.</a></h3>
-            <p class="post-card-date">September 22, 2026</p>
-            <p>CRM here, accounting there, inventory somewhere else &mdash; the average SMB pays for a dozen disconnected apps. Odoo puts them under one roof for less.</p>
-          </article>
-          <article class="card reveal">
-            <img class="card-photo" src="blog/images/sap-business-one-add-ons-worth-the-money.jpg" alt="SAP Business One Add-Ons Actually Worth Your Money" loading="lazy" />
-            <h3><a href="blog/posts/sap-business-one-add-ons-worth-the-money.html">SAP Business One Add-Ons Worth Your Money</a></h3>
-            <p class="post-card-date">September 22, 2026</p>
-            <p>The B1 add-on marketplace is huge and uneven. How to tell the ones worth paying for from the shelfware &mdash; plus the categories that deliver.</p>
-          </article>
-          <article class="card reveal">
-            <img class="card-photo" src="blog/images/single-dad-playbook-productive-mornings.jpg" alt="The Single Dad's Playbook for Getting More Done Before 9 AM" loading="lazy" />
-            <h3><a href="blog/posts/single-dad-playbook-productive-mornings.html">The Single Dad&rsquo;s Playbook: Done Before 9 AM</a></h3>
-            <p class="post-card-date">September 22, 2026</p>
-            <p>Single dad, CEO, podcaster, guitarist &mdash; here&rsquo;s the actual morning system that lets me run a business and still be present for my kid.</p>
-          </article>
+        <div class="cards" id="home-blog-cards">
+          <!-- Populated from blog/posts.json — newest first. No manual edits needed. -->
         </div>
+        <script>
+        (function () {
+          var el = document.getElementById("home-blog-cards");
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          function fmtDate(iso) {
+            try { return new Date(iso + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }); }
+            catch (e) { return iso; }
+          }
+          fetch("blog/posts.json").then(function (r) { return r.json(); }).then(function (posts) {
+            posts.sort(function (a, b) { return String(b.published_at || b.date).localeCompare(String(a.published_at || a.date)); });
+            var html = "";
+            posts.slice(0, 6).forEach(function (p) {
+              var img = p.image ? "blog/" + p.image : "";
+              html += '<article class="card">'
+                + (img ? '<img class="card-photo" src="' + esc(img) + '" alt="' + esc(p.title) + '" loading="lazy" />' : "")
+                + '<h3><a href="blog/' + esc(p.url) + '">' + esc(p.title) + "</a></h3>"
+                + '<p class="post-card-date">' + esc(fmtDate(p.date)) + "</p>"
+                + "<p>" + esc(p.excerpt || p.description || "") + "</p>"
+                + "</article>";
+            });
+            el.innerHTML = html;
+          });
+        })();
+        </script>
         <p class="work-note reveal">
           <a href="blog/index.html">Read all posts &rarr;</a>
         </p>
