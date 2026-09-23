@@ -24,6 +24,9 @@ var MAIL_SHEET_PROP = "MAIL_SHEET_NAME";
 // getActiveSpreadsheet() returns null. Open the sheet explicitly by ID.
 // (ID of the "Dead Brands mailing list" Google Sheet.)
 var SPREADSHEET_ID = "1KoSBo1jZFjKeTaj8XIvpdSg6RKJHrZFJH-CRVbQ0XjI";
+// Email David the moment someone signs up. Needs the gmail.send scope —
+// Google will ask for a fresh authorization tap on first run after deploy.
+var NOTIFY_EMAIL = "dstrausser83@gmail.com";
 
 // The one and only way this script opens the spreadsheet. Standalone
 // projects have no "active" spreadsheet, so this is the fix for the
@@ -67,6 +70,7 @@ function doPost(e) {
       sheet.appendRow(MAIL_HEADER);
     }
     sheet.appendRow([new Date(), first, last, email]);
+    notifySignup_(first, last, email);
     return json({ ok: true });
   } catch (err) {
     return json({ ok: false, error: "server" });
@@ -254,6 +258,21 @@ function sheet_(name, header) {
 
 function str_(v, n) {
   return String(v == null ? "" : v).slice(0, n);
+}
+
+// ---- instant email to David on each signup. Never breaks the signup
+//      itself: any failure here is swallowed so the user still gets ok:true.
+function notifySignup_(first, last, email) {
+  try {
+    MailApp.sendEmail({
+      to: NOTIFY_EMAIL,
+      subject: "New mailing list signup: " + first + " " + last,
+      body: "Name:  " + first + " " + last +
+            "\nEmail: " + email +
+            "\nTime:  " + new Date().toString() +
+            "\n\n— Dead Brands mailing list"
+    });
+  } catch (e) { /* notify is best-effort */ }
 }
 
 function json(obj) {
