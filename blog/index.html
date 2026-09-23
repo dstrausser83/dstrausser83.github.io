@@ -93,6 +93,17 @@
     const noResults = document.getElementById('no-results');
     const searchEl = document.getElementById('search');
 
+    function fmtCardDate(p) {
+      try {
+        if (p.published_at) {
+          const d = new Date(p.published_at);
+          const date = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" });
+          const time = d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" });
+          return date + " \u00B7 " + time + " ET";
+        }
+      } catch (e) {}
+      return p.date;
+    }
     function card(p) {
       const img = p.image ? `<img src="${p.image}" alt="" loading="lazy" />` : '';
       const tags = (p.tags || []).map(t => `<span>${t}</span>`).join('');
@@ -100,7 +111,7 @@
         ${img}
         <div class="post-card-body">
           <h3><a href="${p.url}">${p.title}</a></h3>
-          <p class="post-card-date">${p.date}</p>
+          <p class="post-card-date">${fmtCardDate(p)}</p>
           <p class="post-card-excerpt">${p.excerpt}</p>
           <div class="post-card-tags">${tags}</div>
         </div>

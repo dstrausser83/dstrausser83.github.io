@@ -546,6 +546,17 @@
             try { return new Date(iso + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }); }
             catch (e) { return iso; }
           }
+          function fmtCardDate(p) {
+            try {
+              if (p.published_at) {
+                var d = new Date(p.published_at);
+                var date = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" });
+                var time = d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" });
+                return date + " \u00B7 " + time + " ET";
+              }
+            } catch (e) {}
+            return fmtDate(p.date);
+          }
           fetch("blog/posts.json").then(function (r) { return r.json(); }).then(function (posts) {
             posts.sort(function (a, b) { return String(b.published_at || b.date).localeCompare(String(a.published_at || a.date)); });
             var html = "";
@@ -554,7 +565,7 @@
               html += '<article class="card">'
                 + (img ? '<img class="card-photo" src="' + esc(img) + '" alt="' + esc(p.title) + '" loading="lazy" />' : "")
                 + '<h3><a href="blog/' + esc(p.url) + '">' + esc(p.title) + "</a></h3>"
-                + '<p class="post-card-date">' + esc(fmtDate(p.date)) + "</p>"
+                + '<p class="post-card-date">' + esc(fmtCardDate(p)) + "</p>"
                 + "<p>" + esc(p.excerpt || p.description || "") + "</p>"
                 + "</article>";
             });

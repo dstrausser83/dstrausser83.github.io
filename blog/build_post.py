@@ -12,7 +12,19 @@ SEO/AEO features:
   - "## Frequently asked questions" -> FAQPage JSON-LD (AEO)
 """
 import json, re, sys, os, hashlib
-from datetime import date
+from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
+
+ET = ZoneInfo("America/New_York")  # David's rule: real ET, not UTC-4 approx
+
+def format_pub_display(published_at_iso, post_date):
+    """'September 23, 2026 at 3:12 PM ET'; falls back to the plain date."""
+    try:
+        dt = datetime.fromisoformat(
+            published_at_iso.replace("Z", "+00:00")).astimezone(ET)
+        return dt.strftime("%B %d, %Y at %I:%M %p ET").replace(" 0", " ")
+    except Exception:
+        return post_date
 
 BLOG_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_DIR = os.path.join(BLOG_DIR, "posts")
@@ -288,7 +300,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
         <h1>{title}</h1>
-        <p class="post-meta">{date} &middot; by <a href="../author.html">David Strausser</a></p>
+        <p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p>
         {hero}
         <div class="post-body prose">
 {body}
@@ -321,6 +333,10 @@ def build(draft_path, image_src=None, video_src=None):
     title = fm.get("title", "Untitled")
     slug = fm.get("slug", slugify(title))
     post_date = fm.get("date", date.today().isoformat())
+    # David's rule 2026-09-23: every post shows its publish timestamp.
+    # Stamped at build (= publish) time; frontmatter may override for backfills.
+    published_at = fm.get("published_at") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    pub_display = format_pub_display(published_at, post_date)
     tags = [t.strip() for t in fm.get("tags", "").split(",") if t.strip()]
     excerpt = fm.get("excerpt", body[:160].replace("\n", " ") + "...")
     description = fm.get("description", excerpt)
@@ -358,10 +374,11 @@ def build(draft_path, image_src=None, video_src=None):
 
     faqs = extract_faq(body)
     html = PAGE_TEMPLATE.format(
-        title=title, slug=slug, date=post_date, description=description,
+        title=title, slug=slug, date=post_date, pub_display=pub_display,
+        description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
         body=md_to_html(body, slug), faq_jsonld=faq_jsonld(faqs),
-        article_jsonld=article_jsonld(title, description, slug, post_date, image_rel, tags),
+        article_jsonld=article_jsonld(title, description, slug, published_at, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
         cta=cta_html(slug), author_box=author_box_html(), cta_css=CTA_CSS,
     )
@@ -371,6 +388,7 @@ def build(draft_path, image_src=None, video_src=None):
         f.write(html)
 
     entry = {"slug": slug, "title": title, "date": post_date,
+             "published_at": published_at,
              "tags": tags, "excerpt": excerpt, "description": description,
              "image": image_rel or "", "video": video_rel or "",
              "url": f"posts/{slug}.html"}
