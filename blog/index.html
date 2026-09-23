@@ -40,6 +40,14 @@
     .post-card-excerpt { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.7rem; }
     .post-card-tags span { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; margin: 0 0.3rem 0.3rem 0; color: var(--muted); }
     .no-results { color: var(--muted); padding: 2rem 0; }
+    /* Rotation: the newest posts lead the grid; older ones rotate out below. */
+    .earlier-wrap { margin-top: 3rem; }
+    .earlier-wrap h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+    .older-list { list-style: none; padding: 0; margin: 0; }
+    .older-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+    .older-list li a { color: var(--text); text-decoration: none; font-weight: 600; }
+    .older-list li a:hover { color: var(--accent); }
+    .older-date { color: var(--muted); font-size: 0.85rem; margin-left: 0.6rem; }
   </style>
 </head>
 <body>
@@ -73,6 +81,10 @@
         <input id="search" class="blog-search" type="search" placeholder="Search posts… (try &quot;Odoo&quot;, &quot;inventory&quot;, &quot;AI&quot;)" aria-label="Search blog posts" />
         <div id="cards" class="post-cards"></div>
         <p id="no-results" class="no-results" hidden>Nothing matched. Try a different search.</p>
+        <div id="earlier-wrap" class="earlier-wrap" hidden>
+          <h2>Earlier posts</h2>
+          <ul id="older-list" class="older-list"></ul>
+        </div>
       </div>
     </section>
   </main>
@@ -87,6 +99,11 @@
     const cardsEl = document.getElementById('cards');
     const noResults = document.getElementById('no-results');
     const searchEl = document.getElementById('search');
+    const earlierWrap = document.getElementById('earlier-wrap');
+    const olderList = document.getElementById('older-list');
+    // Rotation rule: the newest post is always card #1; the front grid holds
+    // the latest FRONT_PAGE_COUNT posts and older ones rotate out below.
+    const FRONT_PAGE_COUNT = 9;
 
     function card(p) {
       const img = p.image ? `<img src="${p.image}" alt="" loading="lazy" />` : '';
@@ -104,9 +121,23 @@
 
     function render(filter) {
       const q = (filter || '').toLowerCase().trim();
-      const shown = posts.filter(p => !q || (p.title + ' ' + p.excerpt + ' ' + (p.tags || []).join(' ')).toLowerCase().includes(q));
-      cardsEl.innerHTML = shown.map(card).join('');
-      noResults.hidden = shown.length > 0;
+      const matches = p => !q || (p.title + ' ' + p.excerpt + ' ' + (p.tags || []).join(' ')).toLowerCase().includes(q);
+      if (q) {
+        // Search spans the whole archive, not just the front page.
+        const shown = posts.filter(matches);
+        cardsEl.innerHTML = shown.map(card).join('');
+        earlierWrap.hidden = true;
+        noResults.hidden = shown.length > 0;
+        return;
+      }
+      earlierWrap.hidden = false;
+      const fresh = posts.slice(0, FRONT_PAGE_COUNT);
+      const older = posts.slice(FRONT_PAGE_COUNT);
+      cardsEl.innerHTML = fresh.map(card).join('');
+      olderList.innerHTML = older.map(p =>
+        `<li><a href="${p.url}">${p.title}</a><span class="older-date">${p.date}</span></li>`).join('');
+      earlierWrap.hidden = older.length === 0;
+      noResults.hidden = true;
     }
 
     fetch('posts.json')

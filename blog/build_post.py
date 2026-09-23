@@ -12,7 +12,7 @@ SEO/AEO features:
   - "## Frequently asked questions" -> FAQPage JSON-LD (AEO)
 """
 import json, re, sys, os
-from datetime import date
+from datetime import date, datetime, timezone
 
 BLOG_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_DIR = os.path.join(BLOG_DIR, "posts")
@@ -307,16 +307,21 @@ def build(draft_path, image_src=None, video_src=None):
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
 
+    # David's rule (2026-09-23): newest published post is ALWAYS first on the
+    # blog. Sort by (date, published_at) so same-day posts order by actual
+    # publish time, not insertion order.
     entry = {"slug": slug, "title": title, "date": post_date,
              "tags": tags, "excerpt": excerpt, "description": description,
              "image": image_rel or "", "video": video_rel or "",
+             "published_at": datetime.now(timezone.utc).isoformat(),
              "url": f"posts/{slug}.html"}
     posts = []
     if os.path.exists(INDEX_JSON):
         with open(INDEX_JSON, encoding="utf-8") as f:
             posts = json.load(f)
     posts = [p for p in posts if p["slug"] != slug] + [entry]
-    posts.sort(key=lambda p: p["date"], reverse=True)
+    posts.sort(key=lambda p: (p.get("date", ""), p.get("published_at", "")),
+               reverse=True)
     with open(INDEX_JSON, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=2)
     print(f"built {out_path} (faqs={len(faqs)}, video={'yes' if video_rel else 'no'})")
