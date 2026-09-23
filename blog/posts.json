@@ -1,5 +1,22 @@
 [
   {
+    "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
+    "title": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
+    "date": "2026-09-23",
+    "tags": [
+      "erp",
+      "sap",
+      "odoo",
+      "go-live",
+      "testing"
+    ],
+    "excerpt": "Most ERP go-lives stumble on the same handful of overlooked tests. Here are five practical checks to run before you flip the switch.",
+    "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+    "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
+    "video": "",
+    "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html"
+  },
+  {
     "slug": "odoo-implementation-7-things-nobody-tells-you",
     "title": "Odoo Implementation: 7 Things Nobody Tells You Before You Start",
     "date": "2026-09-22",

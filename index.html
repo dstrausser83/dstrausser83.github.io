@@ -360,31 +360,33 @@
           Your business runs on processes. I make sure the systems underneath
           them aren&rsquo;t held together with spreadsheets and hope.
         </p>
-        <div class="cards">
-          <article class="card reveal">
-            <h3>ERP Implementations</h3>
-            <p>
-              <strong>SAP Business One</strong> &mdash; from selection and
-              scoping through go-live and beyond &mdash; via
-              <a href="https://quaintbusiness.com?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=homepage-partner-link" target="_blank" rel="noopener">Quaint Business Solutions</a>,
-              a boutique ERP consulting and implementation firm. Done right,
-              done on purpose, no death marches.
-            </p>
-          </article>
-          <article class="card reveal">
-            <h3>Process Automation</h3>
-            <p>
-              Kill the swivel-chair work. I find the manual, repetitive stuff
-              eating your team&rsquo;s week and automate it out of existence.
-            </p>
-          </article>
-          <article class="card reveal">
-            <h3>AI &amp; SaaS</h3>
-            <p>
-              Practical AI and modern SaaS that earn their keep &mdash; not
-              buzzwords, not science projects. Real tools, real ROI.
-            </p>
-          </article>
+        <div class="cards" id="home-blog-cards">
+          <!-- Populated from blog/posts.json — newest first. No manual edits needed. -->
+        </div>
+        <script>
+        (function () {
+          var el = document.getElementById("home-blog-cards");
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          function fmtDate(iso) {
+            try { return new Date(iso + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }); }
+            catch (e) { return iso; }
+          }
+          fetch("blog/posts.json").then(function (r) { return r.json(); }).then(function (posts) {
+            posts.sort(function (a, b) { return String(b.published_at || b.date).localeCompare(String(a.published_at || a.date)); });
+            var html = "";
+            posts.slice(0, 6).forEach(function (p) {
+              var img = p.image ? "blog/" + p.image : "";
+              html += '<article class="card">'
+                + (img ? '<img class="card-photo" src="' + esc(img) + '" alt="' + esc(p.title) + '" loading="lazy" />' : "")
+                + '<h3><a href="blog/' + esc(p.url) + '">' + esc(p.title) + "</a></h3>"
+                + '<p class="post-card-date">' + esc(fmtDate(p.date)) + "</p>"
+                + "<p>" + esc(p.excerpt || p.description || "") + "</p>"
+                + "</article>";
+            });
+            el.innerHTML = html;
+          });
+        })();
+        </script>
         </div>
         <p class="work-note reveal">
           If your ERP project feels like it&rsquo;s on fire,

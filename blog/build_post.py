@@ -171,8 +171,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('consent', 'default', {{ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'}});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -204,9 +204,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <body>
   <header class="site-header" id="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="../../index.html" aria-label="David Strausser — home">
-        <img class="brand-photo" src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="76" height="76" />
-        <span class="brand-name">David Strausser</span>
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
         <span></span><span></span><span></span>
