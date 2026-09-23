@@ -1,33 +1,5 @@
 [
   {
-    "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
-    "title": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
-    "date": "2026-09-23",
-    "tags": [
-      "erp",
-      "sap",
-      "odoo",
-      "go-live",
-      "testing"
-    ],
-    "excerpt": "Most ERP go-lives stumble on the same handful of overlooked tests. Here are five practical checks to run before you flip the switch.",
-    "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
-    "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
-    "video": "",
-    "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html"
-  },
-  {
-    "slug": "untitled",
-    "title": "Untitled",
-    "date": "2026-09-23",
-    "tags": [],
-    "excerpt": "\ufeff--- title: \"Your implementation partner is lying about the timeline \u2014 here's the real math\" date: \"2026-09-23\" tags: implementation, timelines, sap, odoo, busi...",
-    "description": "\ufeff--- title: \"Your implementation partner is lying about the timeline \u2014 here's the real math\" date: \"2026-09-23\" tags: implementation, timelines, sap, odoo, busi...",
-    "image": "images/untitled.jpg",
-    "video": "",
-    "url": "posts/untitled.html"
-  },
-  {
     "slug": "your-implementation-partner-is-lying-about-the-timeline-here",
     "title": "Your implementation partner is lying about the timeline \u2014 here's the real math",
     "date": "2026-09-23",
@@ -42,7 +14,26 @@
     "description": "Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they\u2019re lying about your project\u2019s completion date.",
     "image": "images/your-implementation-partner-is-lying-about-the-timeline-here.jpg",
     "video": "",
-    "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html"
+    "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html",
+    "published_at": "2026-09-23T19:12:06Z"
+  },
+  {
+    "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
+    "title": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
+    "date": "2026-09-23",
+    "tags": [
+      "erp",
+      "sap",
+      "odoo",
+      "go-live",
+      "testing"
+    ],
+    "excerpt": "Most ERP go-lives stumble on the same handful of overlooked tests. Here are five practical checks to run before you flip the switch.",
+    "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+    "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
+    "video": "",
+    "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html",
+    "published_at": "2026-09-23T14:34:45Z"
   },
   {
     "slug": "odoo-implementation-7-things-nobody-tells-you",

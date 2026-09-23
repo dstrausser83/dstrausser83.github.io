@@ -253,6 +253,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 def build(draft_path, image_src=None, video_src=None):
     with open(draft_path, encoding="utf-8") as f:
         text = f.read()
+    # Scribe drafts can carry a UTF-8 BOM which breaks frontmatter
+    # detection and produces "Untitled" posts — strip it (2026-09-23).
+    text = text.lstrip("\ufeff")
     fm, body = parse_frontmatter(text)
     title = fm.get("title", "Untitled")
     slug = fm.get("slug", slugify(title))
@@ -314,7 +317,9 @@ def build(draft_path, image_src=None, video_src=None):
         with open(INDEX_JSON, encoding="utf-8") as f:
             posts = json.load(f)
     posts = [p for p in posts if p["slug"] != slug] + [entry]
-    posts.sort(key=lambda p: p["date"], reverse=True)
+    # Newest first — (date, published_at) so same-day posts order by
+    # actual publish time (David's rule 2026-09-23).
+    posts.sort(key=lambda p: (p.get("date", ""), p.get("published_at", "")), reverse=True)
     with open(INDEX_JSON, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=2)
     print(f"built {out_path} (faqs={len(faqs)}, video={'yes' if video_rel else 'no'})")
