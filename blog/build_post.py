@@ -12,7 +12,7 @@ SEO/AEO features:
   - "## Frequently asked questions" -> FAQPage JSON-LD (AEO)
 """
 import json, re, sys, os
-from datetime import date, datetime, timezone
+from datetime import date
 
 BLOG_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_DIR = os.path.join(BLOG_DIR, "posts")
@@ -27,7 +27,6 @@ def slugify(title):
 
 def parse_frontmatter(text):
     fm, body = {}, text
-    text = text.lstrip("\ufeff\ufffe \t\r\n")
     if text.startswith("---"):
         end = text.find("---", 3)
         if end != -1:
@@ -38,22 +37,16 @@ def parse_frontmatter(text):
             body = text[end+3:].strip()
     return fm, body
 
-# UTM attribution for Quaint Business Solutions links — David's order 2026-09-23
-# (revised same day): utm_source=DeadBrandsCoWebsite, utm_campaign=DavidStrausser,
-# and BOTH identifiers are packed into utm_content as well. All links use the
-# www host: Quaint's server 301-redirects naked quaintbusiness.com ->
-# www.quaintbusiness.com and strips every query param EXCEPT utm_content, so
-# naked-domain links would lose source/medium/campaign before GA sees them.
-QUAINT_UTM = ("utm_source=DeadBrandsCoWebsite&utm_medium=website"
-              "&utm_campaign=DavidStrausser")
+# UTM attribution for Quaint Business Solutions links — David's order 2026-09-23:
+# every quaintbusiness.com link must credit Dead Brands / David Strausser in
+# Quaint's analytics (utm_source=deadbrands, utm_campaign=david-strausser).
+QUAINT_UTM = ("utm_source=deadbrands&utm_medium=website"
+              "&utm_campaign=david-strausser")
 
 def tag_quaint_url(url, slug):
     if "quaintbusiness.com" not in url or "utm_source=" in url:
         return url
-    # Force the www host so every UTM param survives the redirect intact.
-    url = re.sub(r"^https?://quaintbusiness\.com", "https://www.quaintbusiness.com", url)
-    placement = f"blog-{slug}-inline" if slug else "blog-inline"
-    content = f"DeadBrandsCoWebsite-DavidStrausser-{placement}"
+    content = f"blog-{slug}-inline" if slug else "blog-inline"
     sep = "&" if "?" in url else "?"
     return f"{url}{sep}{QUAINT_UTM}&utm_content={content}"
 
@@ -178,8 +171,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('consent', 'default', {{ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'}});
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -211,22 +204,17 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <body>
   <header class="site-header" id="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
-        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
-        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      <a class="brand" href="../../index.html" aria-label="David Strausser — home">
+        <img class="brand-photo" src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="76" height="76" />
+        <span class="brand-name">David Strausser</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="../../index.html#about">About</a>
-        <a href="../../index.html#career">Career</a>
         <a href="../../index.html#work">Work</a>
-        <a href="../../index.html#testimonials">Testimonials</a>
-        <a href="../../index.html#podcast">Podcast</a>
         <a href="../index.html" class="active">Blog</a>
-        <a href="../../index.html#life">Life</a>
-        <a href="../../index.html#shop">Shop</a>
         <a href="../../index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
@@ -312,21 +300,16 @@ def build(draft_path, image_src=None, video_src=None):
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-    # David's rule (2026-09-23): newest published post is ALWAYS first on the
-    # blog. Sort by (date, published_at) so same-day posts order by actual
-    # publish time, not insertion order.
     entry = {"slug": slug, "title": title, "date": post_date,
              "tags": tags, "excerpt": excerpt, "description": description,
              "image": image_rel or "", "video": video_rel or "",
-             "published_at": datetime.now(timezone.utc).isoformat(),
              "url": f"posts/{slug}.html"}
     posts = []
     if os.path.exists(INDEX_JSON):
         with open(INDEX_JSON, encoding="utf-8") as f:
             posts = json.load(f)
     posts = [p for p in posts if p["slug"] != slug] + [entry]
-    posts.sort(key=lambda p: (p.get("date", ""), p.get("published_at", "")),
-               reverse=True)
+    posts.sort(key=lambda p: p["date"], reverse=True)
     with open(INDEX_JSON, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=2)
     print(f"built {out_path} (faqs={len(faqs)}, video={'yes' if video_rel else 'no'})")
