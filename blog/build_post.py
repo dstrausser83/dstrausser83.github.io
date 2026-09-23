@@ -37,16 +37,20 @@ def parse_frontmatter(text):
             body = text[end+3:].strip()
     return fm, body
 
-# UTM attribution for Quaint Business Solutions links — David's order 2026-09-23:
-# every quaintbusiness.com link must credit Dead Brands / David Strausser in
-# Quaint's analytics (utm_source=deadbrands, utm_campaign=david-strausser).
-QUAINT_UTM = ("utm_source=deadbrands&utm_medium=website"
-              "&utm_campaign=david-strausser")
+# UTM attribution for Quaint Business Solutions links — David's order 2026-09-23
+# (revised same day): utm_source=DeadBrandsCoWebsite, utm_campaign=DavidStrausser,
+# and BOTH identifiers are packed into utm_content as well, because Quaint's
+# server 301-redirects quaintbusiness.com -> www.quaintbusiness.com and strips
+# every query param EXCEPT utm_content. Content is the only field guaranteed
+# to survive into Quaint's analytics.
+QUAINT_UTM = ("utm_source=DeadBrandsCoWebsite&utm_medium=website"
+              "&utm_campaign=DavidStrausser")
 
 def tag_quaint_url(url, slug):
     if "quaintbusiness.com" not in url or "utm_source=" in url:
         return url
-    content = f"blog-{slug}-inline" if slug else "blog-inline"
+    placement = f"blog-{slug}-inline" if slug else "blog-inline"
+    content = f"DeadBrandsCoWebsite-DavidStrausser-{placement}"
     sep = "&" if "?" in url else "?"
     return f"{url}{sep}{QUAINT_UTM}&utm_content={content}"
 
