@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Migration Horror Stories: How to Avoid Becoming One — David Strausser</title>
+  <meta name="description" content="Data migration is where ERP projects go to die — not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale." />
+  
+  <link rel="canonical" href="https://dstrausser83.github.io/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Data Migration Horror Stories: How to Avoid Becoming One" />
+  <meta property="og:description" content="Data migration is where ERP projects go to die — not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale." />
+  <meta property="og:image" content="https://dstrausser83.github.io/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+    .quick-answer p { margin: 0.4rem 0; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should we migrate all our historical data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Probably not. Migrate open transactions and the summary history people actually use \u2014 usually one to two years. Archive the rest where it's searchable. Every extra year of detail history multiplies your mapping, testing, and reconciliation work for data nobody opens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who should own data cleanup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Named business owners per data domain, not the IT team and not the implementation partner. The partner can provide tools and validation reports, but only someone in the business can decide whether \"Acme Corp\" and \"Acme Corporation\" are the same customer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many test migrations should we run?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At minimum three full rehearsals on production-like data, timed against your cutover window. If the last rehearsal isn't boring and on time, you're not ready for go-live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the biggest hidden risk in SAP Business One or Odoo migrations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The quiet fields: date formats, decimal places, units of measure, and tax code mappings. They migrate \"successfully\" while silently changing what the data means. Reconcile them explicitly or they'll haunt your first quarter close."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Data Migration Horror Stories: How to Avoid Becoming One",
+  "description": "Data migration is where ERP projects go to die \u2014 not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale.",
+  "datePublished": "2026-09-23T22:18:55Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://dstrausser83.github.io/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://dstrausser83.github.io/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html",
+  "keywords": "erp, data-migration, sap-business-one, odoo, implementation",
+  "image": "https://dstrausser83.github.io/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="../../index.html#about">About</a>
+        <a href="../../index.html#career">Career</a>
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#testimonials">Testimonials</a>
+        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
+        <a href="../index.html" class="active">Blog</a>
+        <a href="../../index.html#life">Life</a>
+        <a href="../../index.html#shop">Shop</a>
+        <a href="../../index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <h1>Data Migration Horror Stories: How to Avoid Becoming One</h1>
+        <p class="post-meta">September 23, 2026 at 6:18 PM ET &middot; by <a href="../author.html">David Strausser</a></p>
+        <figure class="post-hero"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" alt="Data Migration Horror Stories: How to Avoid Becoming One" /></figure>
+        <div class="post-body prose">
+<p>Every ERP implementer has a drawer full of data migration war stories. I'll spare you mine — they all rhyme. The names change, the industries change, but the failure patterns are the same every single time. Learn the patterns and you can dodge nearly all of them.</p>
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>Data migrations fail for boring reasons: dirty source data nobody cleaned, no one defined what "done" looks like, testing happened once instead of three times, and the business assumed the software would magically fix bad data. Avoid those four traps — clean early, define done, migrate in rehearsal rounds, and never expect the new system to fix what the old process broke — and you'll be ahead of most projects.</p>
+</div>
+<h2>The dirty-data trap</h2>
+<p>Here's the uncomfortable truth about every migration: your data is worse than you think it is. Every company believes their data is "pretty clean." Almost none of them are right.</p>
+<p>Duplicate customer records. Vendors with three different spellings. Items with no unit of measure. Open orders pointing at customers that were deactivated years ago. Chart of accounts with dead limbs nobody pruned. This stuff accumulates quietly for a decade, and it all surfaces the week you're trying to load it into a new system that is far less forgiving than the spreadsheet chaos everyone got used to.</p>
+<p>The fix is unglamorous: start cleaning months before the migration, not weeks. Assign actual owners — a named human — to each data domain. Customers, vendors, items, open transactions, chart of accounts. If nobody owns it, nobody cleans it, and the migration team ends up doing archaeology at midnight the week before go-live. That never ends well.</p>
+<h2>The "we'll fix it in the new system" fantasy</h2>
+<p>This is the single most expensive sentence in ERP: "we'll clean it up after go-live." No, you won't. After go-live you're firefighting, training users, and closing your first month-end in a system nobody fully understands yet. Data cleanup drops to priority zero and stays there.</p>
+<p>Bad data doesn't just sit there looking ugly. It breaks processes. Duplicate vendors mean duplicate payments. Wrong item setups mean wrong costing, which means your financials lie to you for months before anyone notices.</p>
+<p>Rule: nothing goes into the new system that you wouldn't proudly show an auditor. If a record isn't worth cleaning, it isn't worth migrating — archive it or leave it behind.</p>
+<h2>The one-rehearsal mistake</h2>
+<p>A data migration is a performance, and you don't open on Broadway without rehearsals. Yet project after project does exactly one test migration, declares victory, and then discovers at go-live that the script nobody re-ran breaks on the production dataset.</p>
+<p>Run at least three full rehearsal migrations. The first one finds the big structural problems. The second one validates the fixes and surfaces the weird edge cases. The third one is your dress rehearsal — timed, with the real team, on a production-like dataset. If the third rehearsal isn't boring, you're not ready.</p>
+<p>Time each rehearsal, too. Migrations have a clock: the business can only tolerate so many hours of downtime while you cut over. If your rehearsal takes fourteen hours and your cutover window is a weekend, you have a math problem to solve before go-live, not during it.</p>
+<h2>The mapping nobody wrote down</h2>
+<p>Somewhere in every failed migration there's a spreadsheet — or worse, a conversation — where someone decided what "Customer Group B" in the old system maps to in the new one, and then nobody wrote it down. Six weeks later nobody remembers the decision, the mapping script does something different, and a few thousand records land in the wrong place.</p>
+<p>Every field mapping gets documented: source field, target field, transformation rule, who approved it, and when. This isn't bureaucracy — it's the difference between a migration you can audit and one you have to redo. Your future self, staring at a reconciliation report at 2 AM, will thank you.</p>
+<p>Pay special attention to the fields that look simple but aren't: dates (formats differ between systems and locales), currencies and decimal places, units of measure, tax codes, and anything with a status or flag. These are where silent corruption lives — the migration "succeeds" but the data means something different than it used to.</p>
+<h2>The reconciliation nobody did</h2>
+<p>A migration without reconciliation is just a hope with a script. For every major data domain, you need a before-and-after: record counts, key totals (open AR, open AP, inventory value), and spot-checks on a sample of records. If the numbers don't tie, you don't proceed. Full stop.</p>
+<p>Build the reconciliation reports before the migration, not after. Decide in advance what tolerance is acceptable — and make it tight. A one-dollar difference in your trial balance is a red flag, not a rounding error. Small differences have a habit of being symptoms of big problems.</p>
+<h2>Open transactions deserve special respect</h2>
+<p>Master data gets all the attention, but open transactions are where migrations actually bleed. Open sales orders, open purchase orders, open AR and AP, inventory balances, work in process — these are living things with dependencies between them, and they have to land in the new system in the right order with the right statuses.</p>
+<p>Migrate them in dependency order, and reconcile each layer before moving to the next. Items before BOMs. Customers and vendors before open orders. Open orders before you even think about historical transactions — and question hard whether you need history at all. Most companies migrate far more history than anyone will ever look at. Two years of summary history plus open items covers the vast majority of real business needs, and it dramatically shrinks your risk surface.</p>
+<h2>Frequently asked questions</h2>
+<h3>Should we migrate all our historical data?</h3>
+<p>Probably not. Migrate open transactions and the summary history people actually use — usually one to two years. Archive the rest where it's searchable. Every extra year of detail history multiplies your mapping, testing, and reconciliation work for data nobody opens.</p>
+<h3>Who should own data cleanup?</h3>
+<p>Named business owners per data domain, not the IT team and not the implementation partner. The partner can provide tools and validation reports, but only someone in the business can decide whether "Acme Corp" and "Acme Corporation" are the same customer.</p>
+<h3>How many test migrations should we run?</h3>
+<p>At minimum three full rehearsals on production-like data, timed against your cutover window. If the last rehearsal isn't boring and on time, you're not ready for go-live.</p>
+<h3>What's the biggest hidden risk in SAP Business One or Odoo migrations?</h3>
+<p>The quiet fields: date formats, decimal places, units of measure, and tax code mappings. They migrate "successfully" while silently changing what the data means. Reconcile them explicitly or they'll haunt your first quarter close.</p>
+<h2>The bottom line</h2>
+<p>Data migration isn't a technical problem with a technical solution. It's a discipline problem. Clean data, documented mappings, rehearsed scripts, and ruthless reconciliation — that's the whole game. The projects that do the boring work have boring migrations, and boring migrations are the goal. Nobody ever got fired for a migration so smooth everyone forgot it happened.</p>
+        </div>
+        <p class="post-tags"><span>erp</span> <span>data-migration</span> <span>sap-business-one</span> <span>odoo</span> <span>implementation</span></p>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you?
+          Grab a free 30-minute call — I'll tell you straight whether
+          SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>
