@@ -46,6 +46,25 @@ portal, and builds a live `Dashboard` tab. To upgrade an existing v1 project:
 4. **Deploy → Manage deployments →** edit the Web app → **New version**.
    The `/exec` URL stays the same.
 
+## v3 upgrade (Quaint referral click tracking)
+
+The `Code.gs` now accepts `action="quaint_click"` from
+`assets/js/quaint-clicks.js` and logs each outbound click to Quaint into a new
+`Quaint Clicks` tab (dedupe on Event ID — retries never double-count). The
+`?action=kpis` JSON gains a `quaint_referrals` block the CRM portal renders.
+
+To upgrade an existing v2 project:
+
+1. Paste the new `Code.gs` over the old one and save.
+2. **Deploy → Manage deployments →** edit the Web app → **New version**.
+   The `/exec` URL stays the same.
+3. (Optional) run `setupDashboard()` again to add the Quaint rows to the
+   Dashboard tab.
+
+Until this redeploy happens, click events from the site are **not lost** —
+the browser buffers them and they flush into the sheet on a later visit
+after the new version is live.
+
 ## Notes
 
 - Signups you collect are yours, in your Google account. No third-party

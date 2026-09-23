@@ -1,4 +1,4 @@
-// Dead Brands website backend — v2 (2026-09-23).
+// Dead Brands website backend — v3 (2026-09-23).
 // Paste into the Apps Script project, then:
 //   1. Project Settings > Script properties > add READ_KEY = <long random string>
 //      (same value goes in the CRM portal config as the sheet read key).
@@ -11,13 +11,17 @@
 //        MAIL_SHEET_NAME script property — never depends on which tab is
 //        active in the UI. Override it manually in Script properties if needed.
 //        Pageviews       — one row per pageview from assets/js/analytics.js.
+//        Quaint Clicks   — one row per outbound click to quaintbusiness.com
+//                          from assets/js/quaint-clicks.js (dedupe on Event ID).
 //        Dashboard       — live KPI tab built by setupDashboard().
 //
-// doPost: action="pageview" -> Pageviews tab; anything else -> mailing-list
-//         signup path (v1 fields and validation, explicit sheet lookup).
+// doPost: action="pageview" -> Pageviews tab; action="quaint_click" ->
+//         Quaint Clicks tab; anything else -> mailing-list signup path
+//         (v1 fields and validation, explicit sheet lookup).
 // doGet:  ?action=kpis&key=READ_KEY -> JSON KPIs for the CRM portal.
 
 var PV_SHEET = "Pageviews";
+var QC_SHEET = "Quaint Clicks";
 var DASH_SHEET = "Dashboard";
 var MAIL_SHEET_PROP = "MAIL_SHEET_NAME";
 // This Apps Script project is STANDALONE (not bound to the sheet), so
@@ -35,6 +39,7 @@ function ss_() {
   return SpreadsheetApp.openById(SPREADSHEET_ID);
 }
 var PV_HEADER = ["Timestamp", "Page", "Referrer", "utm_source", "utm_medium", "utm_campaign", "Session"];
+var QC_HEADER = ["Timestamp", "Event ID", "Page", "Link URL", "utm_content", "utm_source", "utm_medium", "utm_campaign", "Session"];
 var MAIL_HEADER = ["Timestamp", "First name", "Last name", "Email"];
 
 function doPost(e) {
@@ -56,8 +61,29 @@ function doPost(e) {
       return json({ ok: true });
     }
 
-    // ---- mailing-list path (v1 fields + validation, explicit sheet) ----
-    var first = String(data.firstName || "").trim().slice(0, 80);
+    // ---- quaint-click path (assets/js/quaint-clicks.js) ----
+    // One row per outbound click to quaintbusiness.com. The client may send
+    // the same event twice (sendBeacon + buffered retry) — dedupe on Event ID.
+    if (data.action === "quaint_click") {
+      var qc = sheet_(QC_SHEET, QC_HEADER);
+      var qe = str_(data.eid, 40);
+      if (qe && !eidSeen_(qc, qe)) {
+        qc.appendRow([
+          new Date(),
+          qe,
+          str_(data.page, 300),
+          str_(data.link_url, 500),
+          str_(data.utm_content, 120),
+          str_(data.utm_source, 60),
+          str_(data.utm_medium, 60),
+          str_(data.utm_campaign, 120),
+          str_(data.sid, 40)
+        ]);
+      }
+      return json({ ok: true });
+    }
+
+    // ---- mailing-list path (v1 fields + validation, explicit sheet) ----    var first = String(data.firstName || "").trim().slice(0, 80);
     var last = String(data.lastName || "").trim().slice(0, 80);
     var email = String(data.email || "").trim().slice(0, 160);
 
@@ -92,6 +118,19 @@ function doGet(e) {
   }
 }
 
+function eidSeen_(sheet, eid) {
+  // Has this click event id been logged already? Scan the last 500 rows of
+  // the Event ID column — plenty at click volumes, cheap on quota.
+  var last = sheet.getLastRow();
+  if (last <= 1) return false;
+  var start = Math.max(2, last - 499);
+  var ids = sheet.getRange(start, 2, last - start + 1, 1).getValues();
+  for (var i = 0; i < ids.length; i++) {
+    if (String(ids[i][0]) === eid) return true;
+  }
+  return false;
+}
+
 // ---- Mailing-list sheet lookup. Never uses the active tab. ----
 // 1. MAIL_SHEET_NAME script property, if set and valid.
 // 2. The tab carrying the v1 signup header row (auto-detect, then remembered).
@@ -109,7 +148,7 @@ function mailSheet_() {
   for (i = 0; i < sheets.length; i++) {
     var s = sheets[i];
     var n = s.getName();
-    if (n === PV_SHEET || n === DASH_SHEET) continue;
+    if (n === PV_SHEET || n === QC_SHEET || n === DASH_SHEET) continue;
     if (!firstData && s.getLastRow() > 0) firstData = s;
     if (s.getLastRow() === 0) continue;
     var head = s.getRange(1, 1, 1, MAIL_HEADER.length).getValues()[0];
@@ -156,12 +195,33 @@ function kpis_() {
     if (mailRows[j][0] instanceof Date && mailRows[j][0] >= today) mailToday++;
   }
 
+  // ---- Quaint referral clicks ----
+  var qcsh = ss.getSheetByName(QC_SHEET);
+  var qcRows = (qcsh && qcsh.getLastRow() > 1)
+    ? qcsh.getRange(2, 1, qcsh.getLastRow() - 1, QC_HEADER.length).getValues() : [];
+  var byPlacement = {}, byDay = {}, qcToday = 0, k;
+  var tz = Session.getScriptTimeZone();
+  for (k = 0; k < qcRows.length; k++) {
+    var q = qcRows[k];
+    var qd = q[0];
+    if (qd instanceof Date) {
+      if (qd >= today) qcToday++;
+      var day = Utilities.formatDate(qd, tz, "yyyy-MM-dd");
+      byDay[day] = (byDay[day] || 0) + 1;
+    }
+    var pl = String(q[4] || "").trim() || "(unknown)";
+    byPlacement[pl] = (byPlacement[pl] || 0) + 1;
+  }
+  var dayKeys = Object.keys(byDay).sort();
+  var byDayArr = dayKeys.slice(-14).map(function (d) { return [d, byDay[d]]; });
+
   return {
     ok: true,
     generated_at: new Date().toISOString(),
     // Nested shape matches what the CRM portal dashboard expects:
     //   website: {pageviews, pageviews_today, by_source, by_campaign, top_pages}
     //   mailing_list: {signups, signups_today, conversion_pct}
+    //   quaint_referrals: {clicks_total, clicks_today, by_placement, by_day}
     website: {
       pageviews: pvRows.length,
       pageviews_today: pvToday,
@@ -174,6 +234,12 @@ function kpis_() {
       signups_today: mailToday,
       conversion_pct: pvRows.length > 0
         ? Math.round(mailRows.length / pvRows.length * 10000) / 100 : 0
+    },
+    quaint_referrals: {
+      clicks_total: qcRows.length,
+      clicks_today: qcToday,
+      by_placement: top_(byPlacement, 10),
+      by_day: byDayArr
     }
   };
 }
@@ -197,6 +263,7 @@ function setupDashboard() {
 
   var mailName = mailSheet_().getName(); // explicit lookup, not the active tab
   var PV = "'" + PV_SHEET + "'";
+  var QC = "'" + QC_SHEET + "'";
   var ML = "'" + mailName.replace(/'/g, "") + "'";
 
   var cells = [
@@ -216,7 +283,13 @@ function setupDashboard() {
     ["=QUERY(" + PV + "!A2:G,\"select F,count(A) where A is not null group by F order by count(A) desc limit 10 label F 'Campaign', count(A) 'Views'\",0)", ""],
     ["", ""],
     ["Top pages (top 10)", ""],
-    ["=QUERY(" + PV + "!A2:G,\"select B,count(A) where A is not null group by B order by count(A) desc limit 10 label B 'Page', count(A) 'Views'\",0)", ""]
+    ["=QUERY(" + PV + "!A2:G,\"select B,count(A) where A is not null group by B order by count(A) desc limit 10 label B 'Page', count(A) 'Views'\",0)", ""],
+    ["", ""],
+    ["Quaint referral clicks (total)", "=COUNTA(" + QC + "!A2:A)"],
+    ["Quaint clicks (today)", "=COUNTIFS(" + QC + "!A2:A,\">=\"&TODAY()," + QC + "!A2:A,\"<\"&TODAY()+1)"],
+    ["", ""],
+    ["Quaint clicks by placement", ""],
+    ["=QUERY(" + QC + "!A2:I,\"select E,count(A) where A is not null group by E order by count(A) desc label E 'Placement', count(A) 'Clicks'\",0)", ""]
   ];
 
   dash.getRange(1, 1, cells.length, 2).setValues(cells);

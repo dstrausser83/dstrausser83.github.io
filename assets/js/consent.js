@@ -50,6 +50,8 @@
     gtag("config", GA_ID);
     // First-party pageview beacon (our own Apps Script endpoint).
     loadScript(siteRoot() + "analytics.js");
+    // Quaint outbound click tracker — same consent gate, same endpoint.
+    loadScript(siteRoot() + "quaint-clicks.js");
   }
 
   function hideBanner() {
