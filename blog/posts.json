@@ -17,6 +17,34 @@
     "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html"
   },
   {
+    "slug": "untitled",
+    "title": "Untitled",
+    "date": "2026-09-23",
+    "tags": [],
+    "excerpt": "\ufeff--- title: \"Your implementation partner is lying about the timeline \u2014 here's the real math\" date: \"2026-09-23\" tags: implementation, timelines, sap, odoo, busi...",
+    "description": "\ufeff--- title: \"Your implementation partner is lying about the timeline \u2014 here's the real math\" date: \"2026-09-23\" tags: implementation, timelines, sap, odoo, busi...",
+    "image": "images/untitled.jpg",
+    "video": "",
+    "url": "posts/untitled.html"
+  },
+  {
+    "slug": "your-implementation-partner-is-lying-about-the-timeline-here",
+    "title": "Your implementation partner is lying about the timeline \u2014 here's the real math",
+    "date": "2026-09-23",
+    "tags": [
+      "implementation",
+      "timelines",
+      "sap",
+      "odoo",
+      "business"
+    ],
+    "excerpt": "When your implementation partner says 'We\u2019ll be done by next week,' it\u2019s usually a lie. Here\u2019s the math that proves why they\u2019re stretching the timeline\u2014and how to catch it before it\u2019s too late.",
+    "description": "Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they\u2019re lying about your project\u2019s completion date.",
+    "image": "images/your-implementation-partner-is-lying-about-the-timeline-here.jpg",
+    "video": "",
+    "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html"
+  },
+  {
     "slug": "odoo-implementation-7-things-nobody-tells-you",
     "title": "Odoo Implementation: 7 Things Nobody Tells You Before You Start",
     "date": "2026-09-22",
