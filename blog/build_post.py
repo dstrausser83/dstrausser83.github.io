@@ -40,16 +40,18 @@ def parse_frontmatter(text):
 
 # UTM attribution for Quaint Business Solutions links — David's order 2026-09-23
 # (revised same day): utm_source=DeadBrandsCoWebsite, utm_campaign=DavidStrausser,
-# and BOTH identifiers are packed into utm_content as well, because Quaint's
-# server 301-redirects quaintbusiness.com -> www.quaintbusiness.com and strips
-# every query param EXCEPT utm_content. Content is the only field guaranteed
-# to survive into Quaint's analytics.
+# and BOTH identifiers are packed into utm_content as well. All links use the
+# www host: Quaint's server 301-redirects naked quaintbusiness.com ->
+# www.quaintbusiness.com and strips every query param EXCEPT utm_content, so
+# naked-domain links would lose source/medium/campaign before GA sees them.
 QUAINT_UTM = ("utm_source=DeadBrandsCoWebsite&utm_medium=website"
               "&utm_campaign=DavidStrausser")
 
 def tag_quaint_url(url, slug):
     if "quaintbusiness.com" not in url or "utm_source=" in url:
         return url
+    # Force the www host so every UTM param survives the redirect intact.
+    url = re.sub(r"^https?://quaintbusiness\.com", "https://www.quaintbusiness.com", url)
     placement = f"blog-{slug}-inline" if slug else "blog-inline"
     content = f"DeadBrandsCoWebsite-DavidStrausser-{placement}"
     sep = "&" if "?" in url else "?"
