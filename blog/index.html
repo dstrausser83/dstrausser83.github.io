@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDWNV8CVJ4"></script>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LDWNV8CVJ4');
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -80,7 +78,7 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>
@@ -119,6 +117,6 @@
     searchEl.addEventListener('input', e => render(e.target.value));
   </script>
   <script src="../assets/js/main.js" defer></script>
-  <script src="../assets/js/analytics.js" defer></script>
+  <script src="../assets/js/consent.js" defer></script>
 </body>
 </html>

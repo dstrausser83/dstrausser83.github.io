@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDWNV8CVJ4"></script>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LDWNV8CVJ4');
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,7 +137,7 @@
 <h3>How do you handle sick days and chaos?</h3>
 <p>Badly, like everyone else — and then I reset the next day. The system isn't about perfection, it's about a default to return to. One chaotic day doesn't break anything. Abandoning the system does.</p>
 <hr />
-<p>Whether you're a parent, a founder, or both — your time is your scarcest resource. If your business systems are eating hours they shouldn't (hello, manual processes and spreadsheet chaos), <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">book a free meeting with me</a>. We'll find the leaks. And if you want to see what focused execution looks like in software form, start a <a href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">free 15-day Odoo trial</a>.</p>
+<p>Whether you're a parent, a founder, or both — your time is your scarcest resource. If your business systems are eating hours they shouldn't (hello, manual processes and spreadsheet chaos), <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">book a free meeting with me</a>. We'll find the leaks. And if you want to see what focused execution looks like in software form, start a <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-single-dad-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a>.</p>
         </div>
         <p class="post-tags"><span>productivity</span> <span>single-dad</span> <span>business-growth</span></p>
       </div>
@@ -147,11 +145,11 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
-  <script src="../../assets/js/analytics.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
 </body>
 </html>

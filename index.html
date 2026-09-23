@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDWNV8CVJ4"></script>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LDWNV8CVJ4');
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -368,7 +366,7 @@
             <p>
               <strong>SAP Business One</strong> &mdash; from selection and
               scoping through go-live and beyond &mdash; via
-              <a href="https://quaintbusiness.com" target="_blank" rel="noopener">Quaint Business Solutions</a>,
+              <a href="https://quaintbusiness.com?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=homepage-partner-link" target="_blank" rel="noopener">Quaint Business Solutions</a>,
               a boutique ERP consulting and implementation firm. Done right,
               done on purpose, no death marches.
             </p>
@@ -495,7 +493,7 @@
           you need it.
         </p>
         <p class="reveal">
-          <a class="btn btn-light" href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">Start my free trial</a>
+          <a class="btn btn-light" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=homepage-hero-cta" target="_blank" rel="noopener">Start my free trial</a>
         </p>
       </div>
     </section>
@@ -746,7 +744,7 @@
             <summary>Where can I try Odoo for free?</summary>
             <p>
               Right here:
-              <a href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">start a free 15-day Odoo trial</a>
+              <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=homepage-inline-trial" target="_blank" rel="noopener">start a free 15-day Odoo trial</a>
               — no credit card, no commitment. Explore the apps, see if
               it fits, and get help from Quaint Business Solutions when
               you need it.
@@ -859,7 +857,7 @@
     <div class="wrap footer-inner">
       <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
       <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads.</p>
+      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
 
@@ -890,6 +888,6 @@
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/mailing-popup.js" defer></script>
-  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/consent.js" defer></script>
 </body>
 </html>

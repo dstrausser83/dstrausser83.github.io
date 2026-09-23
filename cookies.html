@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — Dead Brands, LLC Featuring David Strausser</title>
+  <meta name="description" content="How Dead Brands, LLC uses cookies and similar storage on this site, and how to control your choices." />
+  <link rel="canonical" href="https://dstrausser83.github.io/cookies.html" />
+  <meta name="robots" content="index, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .policy { padding: 8rem 0 4rem; }
+    .policy h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 6vw, 3.6rem); text-transform: uppercase; margin-bottom: .5rem; }
+    .policy .lede { color: var(--muted); margin-bottom: 2rem; }
+    .policy h2 { margin: 2rem 0 .6rem; font-size: 1.25rem; }
+    .policy p, .policy li { color: var(--text); line-height: 1.7; }
+    .policy ul { padding-left: 1.4rem; }
+    .policy .updated { color: var(--muted); font-size: .9rem; margin-top: 2.5rem; }
+  </style>
+</head>
+<body>
+  <main class="policy">
+    <div class="wrap narrow">
+      <h1>Cookie Policy</h1>
+      <p class="lede">Plain-English version of what this site stores on your device, and how to say no.</p>
+
+      <h2>The short version</h2>
+      <p>Nothing tracks you until you click <strong>Accept</strong> on the cookie banner. If you click <strong>Decline</strong>, no analytics loads at all — not Google's, not ours. You can change your mind anytime with the <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a> link in the footer.</p>
+
+      <h2>What loads if you accept</h2>
+      <ul>
+        <li><strong>Google Analytics 4</strong> — Google's analytics service, which sets its own cookies to measure traffic (pages viewed, roughly where visitors come from). Data goes to Google under their terms.</li>
+        <li><strong>Our first-party pageview beacon</strong> — a tiny script that records an anonymous pageview (page path, referrer, any UTM campaign tags, and a random per-visit ID kept in your browser's session storage) to our own database. No name, no email, no cross-site tracking.</li>
+      </ul>
+
+      <h2>What we store regardless</h2>
+      <ul>
+        <li><strong>Your consent choice</strong> — one small entry in your browser's local storage (<code>db_cookie_consent</code>) so we don't nag you on every visit. That's it.</li>
+      </ul>
+
+      <h2>What we never do</h2>
+      <ul>
+        <li>No advertising cookies, no cross-site trackers, no data brokers.</li>
+        <li>The mailing list only gets your email if you type it in yourself — and we never sell it. Unsubscribe anytime.</li>
+      </ul>
+
+      <h2>Change your choice</h2>
+      <p>Use the <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a> link in the footer to re-open the banner and switch between Accept and Decline. You can also clear cookies and site data in your browser settings, which resets everything.</p>
+
+      <h2>Questions</h2>
+      <p>Contact: <a href="mailto:david@deadbrands.co">david@deadbrands.co</a> — Dead Brands, LLC, 213 N. Centre St. #1, Pottsville, PA 17901.</p>
+
+      <p class="updated">Last updated: September 23, 2026.</p>
+      <p><a class="btn btn-primary" href="/">Back Home</a></p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html" style="color:inherit;">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;" style="color:inherit;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/consent.js" defer></script>
+</body>
+</html>

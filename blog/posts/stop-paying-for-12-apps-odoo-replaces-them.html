@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDWNV8CVJ4"></script>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LDWNV8CVJ4');
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -152,7 +150,7 @@
 <p>Add up your current SaaS spend. For most 10–50 person companies, it's $1,000–$3,000/month across all those apps. Odoo Enterprise for the same headcount typically runs a fraction of that — and every app shares one database, so the integration cost drops to zero.</p>
 <h2>Frequently asked questions</h2>
 <h3>Is Odoo really free?</h3>
-<p>Odoo Community is free and open source — genuinely useful for CRM, sales, and basic needs. Odoo Enterprise (the full app suite with upgrades and mobile) is paid per user per month, and still dramatically cheaper than a stack of point solutions. Try it free for 15 days: <a href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">quaintbusiness.com/tryodoo</a>.</p>
+<p>Odoo Community is free and open source — genuinely useful for CRM, sales, and basic needs. Odoo Enterprise (the full app suite with upgrades and mobile) is paid per user per month, and still dramatically cheaper than a stack of point solutions. Try it free for 15 days: <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-stop-paying-inline" target="_blank" rel="noopener">quaintbusiness.com/tryodoo</a>.</p>
 <h3>What if I love one of my current apps?</h3>
 <p>Keep it. Odoo doesn't demand purity — it has an API and connectors for the tools worth keeping. The goal is killing the redundant 80%, not ripping out the one tool your team genuinely loves.</p>
 <h3>How hard is it to migrate from multiple apps?</h3>
@@ -160,7 +158,7 @@
 <h3>Does consolidating create vendor lock-in?</h3>
 <p>Less than you think. Your data exports cleanly, and Odoo's open-source roots mean you're never truly trapped. Compare that to your current situation: locked into a dozen vendors simultaneously.</p>
 <hr />
-<p>Count your subscriptions tonight. If the number makes you wince, <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">book a free meeting with me</a> and we'll map what consolidation looks like for your business. Or just start with the <a href="https://quaintbusiness.com/tryodoo" target="_blank" rel="noopener">free 15-day Odoo trial</a> and see for yourself.</p>
+<p>Count your subscriptions tonight. If the number makes you wince, <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">book a free meeting with me</a> and we'll map what consolidation looks like for your business. Or just start with the <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-stop-paying-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a> and see for yourself.</p>
         </div>
         <p class="post-tags"><span>odoo</span> <span>saas</span> <span>cost-saving</span></p>
       </div>
@@ -168,11 +166,11 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
-  <script src="../../assets/js/analytics.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
 </body>
 </html>

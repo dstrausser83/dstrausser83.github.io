@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDWNV8CVJ4"></script>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LDWNV8CVJ4');
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,6 +27,6 @@
       <a class="btn btn-primary" href="/">Back Home</a>
     </div>
   </main>
-  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/consent.js" defer></script>
 </body>
 </html>

@@ -37,13 +37,29 @@ def parse_frontmatter(text):
             body = text[end+3:].strip()
     return fm, body
 
-def md_inline(t):
+# UTM attribution for Quaint Business Solutions links — David's order 2026-09-23:
+# every quaintbusiness.com link must credit Dead Brands / David Strausser in
+# Quaint's analytics (utm_source=deadbrands, utm_campaign=david-strausser).
+QUAINT_UTM = ("utm_source=deadbrands&utm_medium=website"
+              "&utm_campaign=david-strausser")
+
+def tag_quaint_url(url, slug):
+    if "quaintbusiness.com" not in url or "utm_source=" in url:
+        return url
+    content = f"blog-{slug}-inline" if slug else "blog-inline"
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}{QUAINT_UTM}&utm_content={content}"
+
+def md_inline(t, slug=None):
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"\*(.+?)\*", r"<em>\1</em>", t)
-    t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
+    def _link(m):
+        url = tag_quaint_url(m.group(2), slug)
+        return f'<a href="{url}" target="_blank" rel="noopener">{m.group(1)}</a>'
+    t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", _link, t)
     return t
 
-def md_to_html(body):
+def md_to_html(body, slug=None):
     """Markdown -> HTML. Wraps '## Quick answer' in a styled callout div."""
     out, in_list, list_tag = [], False, ""
     in_quick = False
@@ -56,29 +72,29 @@ def md_to_html(body):
         s = line.strip()
         if s.startswith("### "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            out.append(f"<h3>{md_inline(s[4:])}</h3>")
+            out.append(f"<h3>{md_inline(s[4:], slug)}</h3>")
         elif s.startswith("## "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
             close_quick()
-            out.append(f"<h2>{md_inline(s[3:])}</h2>")
+            out.append(f"<h2>{md_inline(s[3:], slug)}</h2>")
             if s[3:].strip().lower() == "quick answer":
                 out.append('<div class="quick-answer">')
                 in_quick = True
         elif s.startswith("# "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
             close_quick()
-            out.append(f"<h1>{md_inline(s[2:])}</h1>")
+            out.append(f"<h1>{md_inline(s[2:], slug)}</h1>")
         elif s.startswith("> "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            out.append(f"<blockquote>{md_inline(s[2:])}</blockquote>")
+            out.append(f"<blockquote>{md_inline(s[2:], slug)}</blockquote>")
         elif re.match(r"^[-*] ", s):
             if not in_list: out.append("<ul>"); in_list, list_tag = True, "ul"
-            out.append(f"<li>{md_inline(s[2:])}</li>")
+            out.append(f"<li>{md_inline(s[2:], slug)}</li>")
         elif re.match(r"^\d+\. ", s):
             if not in_list or list_tag != "ol":
                 if in_list: out.append(f"</{list_tag}>")
                 out.append("<ol>"); in_list, list_tag = True, "ol"
-            out.append(f"<li>{md_inline(re.sub(r'^\d+\. ', '', s))}</li>")
+            out.append(f"<li>{md_inline(re.sub(r'^\d+\. ', '', s), slug)}</li>")
         elif s == "":
             if in_list: out.append(f"</{list_tag}>"); in_list = False
         elif s == "---":
@@ -87,7 +103,7 @@ def md_to_html(body):
             out.append("<hr />")
         else:
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            out.append(f"<p>{md_inline(s)}</p>")
+            out.append(f"<p>{md_inline(s, slug)}</p>")
     if in_list: out.append(f"</{list_tag}>")
     close_quick()
     return "\n".join(out)
@@ -152,6 +168,12 @@ def article_jsonld(title, description, slug, post_date, image_rel, tags):
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} — David Strausser</title>
@@ -213,11 +235,12 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
 </body>
 </html>
 """
@@ -268,7 +291,7 @@ def build(draft_path, image_src=None, video_src=None):
     html = PAGE_TEMPLATE.format(
         title=title, slug=slug, date=post_date, description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
-        body=md_to_html(body), faq_jsonld=faq_jsonld(faqs),
+        body=md_to_html(body, slug), faq_jsonld=faq_jsonld(faqs),
         article_jsonld=article_jsonld(title, description, slug, post_date, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
     )
