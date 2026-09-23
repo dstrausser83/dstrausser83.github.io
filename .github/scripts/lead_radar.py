@@ -78,13 +78,41 @@ def parse_items(xml_bytes, source):
     return items
 
 
+# David's rule 2026-09-22: US-based prospects only.
+US_RE = re.compile(
+    r"\b(USA|U\.S\.|US-based|United States|America|American|"
+    r"Texas|California|Florida|New York|Pennsylvania|Philadelphia|"
+    r"Chicago|Dallas|Austin|Houston|Atlanta|Denver|Seattle|Boston|"
+    r"Ohio|Georgia|Arizona|Carolina|Virginia|Maryland|New Jersey|"
+    r"Massachusetts|Illinois|Michigan|Tennessee|Colorado|Washington state)\b|\$",
+    re.I)
+NONUS_RE = re.compile(
+    r"\b(UK|Britain|British|London|Canada|Canadian|Toronto|Vancouver|"
+    r"India|Indian|Mumbai|Delhi|Bangalore|Australia|Sydney|Melbourne|"
+    r"Sri Lanka|Pakistan|Philippines|Europe|European|Germany|France|"
+    r"Dubai|UAE|Singapore|Malaysia|South Africa|New Zealand|Ireland)\b"
+    r"|\.(uk|in|au|lk|pk|ph|de|fr|ae|sg|my|za|nz|ie|ca|eu)(/|$|\?)", re.I)
+
+
+def geo_ok(it):
+    """True unless clearly non-US. US signals boost ranking."""
+    text = it["title"] + " " + it["desc"] + " " + it["link"]
+    if NONUS_RE.search(text):
+        return False, 0
+    return True, (2 if US_RE.search(text) else 0)
+
+
 def score(it):
     text = it["title"] + " " + it["desc"]
     intent_hits = set(m.lower() for m in INTENT.findall(text))
     domain_hits = set(m.lower() for m in DOMAIN.findall(text))
     if not domain_hits:
-        return 0, [], []
-    return len(intent_hits) * 2 + len(domain_hits), sorted(intent_hits), sorted(domain_hits)
+        return 0, [], [], 0
+    ok, us_boost = geo_ok(it)
+    if not ok:
+        return 0, [], [], 0
+    return (len(intent_hits) * 2 + len(domain_hits) + us_boost,
+            sorted(intent_hits), sorted(domain_hits), us_boost)
 
 
 ANGLE = {
@@ -118,14 +146,15 @@ def main():
             if key in seen:
                 continue
             seen.add(key)
-            s, ih, dh = score(it)
+            s, ih, dh = score(it)[:3]
             if s >= 3:
                 leads.append((s, it, ih, dh))
     leads.sort(key=lambda x: -x[0])
     top = leads[:15]
 
     lines = [f"# Lead Radar — {today}", "",
-             f"Scanned {len(FEEDS)} sources, {len(seen)} items, {len(leads)} buying signals. Top prospects:", ""]
+             f"Scanned {len(FEEDS)} sources, {len(seen)} items, {len(leads)} buying signals. "
+             f"US-focused (non-US filtered, US signals ranked first). Top prospects:", ""]
     for s, it, ih, dh in top:
         lines.append(f"## {it['title']}")
         lines.append(f"- Source: {it['source']} | Score: {s}")
