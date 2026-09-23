@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
+  <meta name="description" content="A single dad’s practical guide to ERP go-live testing. Avoid costly mistakes with these real checks. No fluff, just what works." />
+  
+  <link rel="canonical" href="https://dstrausser83.github.io/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP" />
+  <meta property="og:description" content="A single dad’s practical guide to ERP go-live testing. Avoid costly mistakes with these real checks. No fluff, just what works." />
+  <meta property="og:image" content="https://dstrausser83.github.io/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+    .quick-answer p { margin: 0.4rem 0; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
+  "description": "A single dad\u2019s practical guide to ERP go-live testing. Avoid costly mistakes with these real checks. No fluff, just what works.",
+  "datePublished": "2026-09-23",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://dstrausser83.github.io/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://dstrausser83.github.io/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html",
+  "keywords": "erp, sap, odoo, go-live, testing",
+  "image": "https://dstrausser83.github.io/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="David Strausser — home">
+        <img class="brand-photo" src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="76" height="76" />
+        <span class="brand-name">David Strausser</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="../../index.html#about">About</a>
+        <a href="../../index.html#work">Work</a>
+        <a href="../index.html" class="active">Blog</a>
+        <a href="../../index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <h1>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP</h1>
+        <p class="post-meta">2026-09-23 &middot; by David Strausser</p>
+        <figure class="post-hero"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" alt="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP" /></figure>
+        <div class="post-body prose">
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>You need to test data sync, user permissions, and edge cases with real data before go-live. Skip this, and your ERP will break under real-world chaos. Most companies skip 3-5 critical tests that cause weeks of downtime.</p>
+<p>My first ERP go-live with SAP Business One was a disaster. I thought I had it covered until the night the system crashed during a 3am invoice run. That’s why I now test five things you won’t find in any ERP manual.</p>
+<p>The first test is data sync. You have to check if your old system’s data transfers correctly to the new one. In SAP Business One, this means verifying invoice numbers and customer details match across systems. I had a client who skipped this and found out later that a single invoice was missing, causing a week-long delay. Real data matters more than mock datasets.</p>
+<p>The second test is user permissions. Ensure that each role has the right access. A salesperson shouldn’t see financial data. I once saw a manager trying to approve an invoice for a client they didn’t even know existed. With Odoo, permission settings are more visible but still complex. Test them early to avoid chaos.</p>
+<p>The third test is edge cases. These are unusual scenarios that happen rarely but cause big problems. For example, what if a customer sends a payment after the system’s cutoff time? Test it with real data. During my switch from SAP Business One to Odoo, a late payment triggered a refund loop that took 48 hours to fix.</p>
+<p>The fourth test is real-time data. Check if the system updates instantly. If there’s a delay, it can lead to double billing or missed deadlines. In SAP Business One, real-time sync was reliable but Odoo requires manual triggers for some processes. A 5-second delay in Odoo caused missed shipments once.</p>
+<p>The fifth test is user experience. Walk through a day’s work to see where people get stuck. I found that a simple report took 15 minutes to generate. Way too long. Testing with actual users catches things you wouldn’t see in a manual review.</p>
+<p>Most companies skip these tests because they’re too time-consuming or feel “too small.” But skipping them costs weeks of downtime. I’ve seen teams lose money because they didn’t test with real data. The good news is these tests take less than a day to run.</p>
+<h3>What’s the biggest mistake teams make?</h3>
+<p>Testing with synthetic data instead of real data. A single typo in an invoice can cascade into system crashes.</p>
+<h3>How long should testing take?</h3>
+<p>24-48 hours. Enough to catch edge cases without delaying go-live.</p>
+<h3>Can I skip testing if I’m using SAP Business One?</h3>
+<p>Only if you’ve already validated all configurations. But even then, test with real data.</p>
+<p>This checklist isn’t about being perfect. It’s about catching problems before they become disasters. And it’s free: just a few hours of careful testing.</p>
+</div>
+<hr />
+        </div>
+        <p class="post-tags"><span>erp</span> <span>sap</span> <span>odoo</span> <span>go-live</span> <span>testing</span></p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>

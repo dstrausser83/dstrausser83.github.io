@@ -27,6 +27,7 @@ def slugify(title):
 
 def parse_frontmatter(text):
     fm, body = {}, text
+    text = text.lstrip("\ufeff\ufffe \t\r\n")
     if text.startswith("---"):
         end = text.find("---", 3)
         if end != -1:
@@ -175,8 +176,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('consent', 'default', {{ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'}});
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
