@@ -5,21 +5,13 @@
     <link>https://dstrausser83.github.io/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Sep 2026 13:37:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 14:29:08 GMT</lastBuildDate>
     <atom:link href="https://dstrausser83.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Untitled</title>
-      <link>https://dstrausser83.github.io/blog/posts/untitled.html</link>
-      <guid isPermaLink="true">https://dstrausser83.github.io/blog/posts/untitled.html</guid>
-      <description>﻿--- title: "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP" date: "2026-09-23" tags: erp, sap, odoo, go-live, t...</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://dstrausser83.github.io/blog/images/untitled.jpg" type="image/jpeg" />
-    </item>
     <item>
       <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP</title>
       <link>https://dstrausser83.github.io/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</link>
       <guid isPermaLink="true">https://dstrausser83.github.io/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</guid>
-      <description>A single dad’s practical guide to ERP go-live testing. Avoid costly mistakes with these real checks. No fluff, just what works.</description>
+      <description>A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://dstrausser83.github.io/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" type="image/jpeg" />
       <category>erp</category>

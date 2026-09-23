@@ -1,16 +1,5 @@
 [
   {
-    "slug": "untitled",
-    "title": "Untitled",
-    "date": "2026-09-23",
-    "tags": [],
-    "excerpt": "\ufeff--- title: \"The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP\" date: \"2026-09-23\" tags: erp, sap, odoo, go-live, t...",
-    "description": "\ufeff--- title: \"The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP\" date: \"2026-09-23\" tags: erp, sap, odoo, go-live, t...",
-    "image": "images/untitled.jpg",
-    "video": "",
-    "url": "posts/untitled.html"
-  },
-  {
     "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
     "title": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
     "date": "2026-09-23",
@@ -21,8 +10,8 @@
       "go-live",
       "testing"
     ],
-    "excerpt": "Most ERP go-lives fail because teams skip the tiny but critical tests that catch leaks before production. Here\u2019s what I tested when switching from SAP Business One to Odoo.",
-    "description": "A single dad\u2019s practical guide to ERP go-live testing. Avoid costly mistakes with these real checks. No fluff, just what works.",
+    "excerpt": "Most ERP go-lives stumble on the same handful of overlooked tests. Here are five practical checks to run before you flip the switch.",
+    "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
     "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
     "video": "",
     "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html"
