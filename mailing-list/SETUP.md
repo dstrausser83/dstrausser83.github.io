@@ -29,6 +29,23 @@ The site popup sends signups here. You do this once; Rock wires the site after.
 Rock pastes it into the site, pushes, and the popup goes live — every signup
 lands as a new row: Timestamp, First name, Last name, Email.
 
+## v2 upgrade (analytics + CRM dashboard)
+
+The `Code.gs` in this folder now routes pageviews (from `assets/js/analytics.js`)
+into a `Pageviews` tab, serves `?action=kpis&key=READ_KEY` JSON for the CRM
+portal, and builds a live `Dashboard` tab. To upgrade an existing v1 project:
+
+1. Paste the new `Code.gs` over the old one and save.
+2. **Project Settings → Script properties:** add `READ_KEY` = a long random
+   string (the same value goes in the CRM portal config).
+   The mailing-list tab is detected automatically from the v1 header row and
+   remembered in a `MAIL_SHEET_NAME` property — which tab is active in the UI
+   never matters. Override `MAIL_SHEET_NAME` manually only if the wrong tab
+   was picked.
+3. In the editor, run `setupDashboard()` once (authorizes on first run).
+4. **Deploy → Manage deployments →** edit the Web app → **New version**.
+   The `/exec` URL stays the same.
+
 ## Notes
 
 - Signups you collect are yours, in your Google account. No third-party
