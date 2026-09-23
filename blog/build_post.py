@@ -11,7 +11,7 @@ SEO/AEO features:
   - "## Quick answer" section wrapped in a styled callout (AEO direct-answer)
   - "## Frequently asked questions" -> FAQPage JSON-LD (AEO)
 """
-import json, re, sys, os
+import json, re, sys, os, hashlib
 from datetime import date
 
 BLOG_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -165,6 +165,64 @@ def article_jsonld(title, description, slug, post_date, image_rel, tags):
         data["image"] = f"https://dstrausser83.github.io/blog/{image_rel}"
     return '<script type="application/ld+json">\n' + json.dumps(data, indent=2) + "\n</script>"
 
+MEET_LINK = "https://app.apollo.io/#/meet/david_strausser_175"
+TRIAL_LINK = ("https://quaintbusiness.com/tryodoo?utm_source=deadbrands"
+              "&utm_medium=website&utm_campaign=david-strausser"
+              "&utm_content=blog-cta-trial")
+AUTHOR_URL = "../author.html"
+HEADSHOT = "../../assets/photos/published/david-headshot-blazer.jpg"
+
+
+def cta_html(slug):
+    """Alternating end-of-post CTA (David's rule 2026-09-23): even hash ->
+    book-a-meeting, odd hash -> free Odoo trial. Stable per slug."""
+    if int(hashlib.md5(slug.encode()).hexdigest(), 16) % 2 == 0:
+        return f"""<section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you?
+          Grab a free 30-minute call — I'll tell you straight whether
+          SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="{MEET_LINK}" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>"""
+    return f"""<section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected
+          apps for one platform. Spin up Odoo and kick the tires yourself —
+          no credit card, no sales call required.</p>
+          <a class="cta-btn" href="{TRIAL_LINK}" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>"""
+
+
+def author_box_html():
+    return f"""<section class="author-box">
+          <img src="{HEADSHOT}" alt="David Strausser" width="96" height="96" />
+          <div>
+            <p class="author-name">Written by <a href="{AUTHOR_URL}">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>"""
+
+
+CTA_CSS = """
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+"""
+
+
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -197,6 +255,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .quick-answer {{ background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }}
     .quick-answer p {{ margin: 0.4rem 0; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
+{cta_css}
   </style>
   {faq_jsonld}
   {article_jsonld}
@@ -229,12 +288,14 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
         <h1>{title}</h1>
-        <p class="post-meta">{date} &middot; by David Strausser</p>
+        <p class="post-meta">{date} &middot; by <a href="../author.html">David Strausser</a></p>
         {hero}
         <div class="post-body prose">
 {body}
         </div>
         <p class="post-tags">{tags}</p>
+        {cta}
+        {author_box}
       </div>
     </article>
   </main>
@@ -302,6 +363,7 @@ def build(draft_path, image_src=None, video_src=None):
         body=md_to_html(body, slug), faq_jsonld=faq_jsonld(faqs),
         article_jsonld=article_jsonld(title, description, slug, post_date, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
+        cta=cta_html(slug), author_box=author_box_html(), cta_css=CTA_CSS,
     )
     os.makedirs(POSTS_DIR, exist_ok=True)
     out_path = os.path.join(POSTS_DIR, f"{slug}.html")

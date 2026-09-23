@@ -24,6 +24,17 @@
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
   </style>
   <script type="application/ld+json">
 {
@@ -108,7 +119,7 @@
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
         <h1>What Playing Guitar Taught Me About Running a Business</h1>
-        <p class="post-meta">2026-09-22 &middot; by David Strausser</p>
+        <p class="post-meta">2026-09-22 &middot; by <a href="../author.html">David Strausser</a></p>
         <figure class="post-hero"><img src="../images/what-playing-guitar-taught-me-about-business.jpg" alt="What Playing Guitar Taught Me About Running a Business" /></figure>
         <div class="post-body prose">
 <h2>Quick answer</h2>
@@ -139,6 +150,26 @@
 <p>Business, like music, rewards the ones who show up and do the work. If your systems need a better rhythm section — ERP, automation, AI that actually works — <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">book a free meeting with me</a>. Let's make your business sing. (Sorry. Had to.)</p>
         </div>
         <p class="post-tags"><span>business-growth</span> <span>mindset</span> <span>music</span></p>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you?
+          Grab a free 30-minute call — I'll tell you straight whether
+          SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
       </div>
     </article>
   </main>

@@ -21,6 +21,7 @@ OUT = os.path.join(ROOT, "sitemap.xml")
 PAGES = [
     ("index.html", "/", "weekly", "1.0"),
     ("blog/index.html", "/blog/", "daily", "0.9"),
+    ("blog/author.html", "/blog/author.html", "monthly", "0.7"),
     ("cookies.html", "/cookies.html", "yearly", "0.3"),
 ]
 for fn in sorted(os.listdir(os.path.join(ROOT, "blog", "posts"))):
