@@ -1,34 +1,34 @@
 {
-  "checked_at": "2026-09-22T22:50:18.776633+00:00",
+  "checked_at": "2026-09-22T22:48:49.760353+00:00",
   "targets": {
     "homepage": {
       "ok": true,
       "http": 200,
       "final": "https://dstrausser83.github.io/",
       "error": null,
-      "checked_at": "2026-09-22T22:50:18.776633+00:00"
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     },
     "blog": {
       "ok": true,
       "http": 200,
       "final": "https://dstrausser83.github.io/blog/",
       "error": null,
-      "checked_at": "2026-09-22T22:50:18.776633+00:00"
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     },
     "deadbrands.co": {
-      "ok": true,
-      "http": 200,
-      "final": "https://dstrausser83.github.io/",
-      "error": null,
-      "checked_at": "2026-09-22T22:50:18.776633+00:00"
+      "ok": false,
+      "http": 0,
+      "final": "https://deadbrands.co",
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     },
     "davidstrausser.com": {
       "ok": true,
       "http": 200,
       "final": "https://dstrausser83.github.io/",
       "error": null,
-      "checked_at": "2026-09-22T22:50:18.776633+00:00"
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     }
   },
-  "all_ok": true
+  "all_ok": false
 }
