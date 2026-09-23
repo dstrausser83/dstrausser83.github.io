@@ -20,6 +20,17 @@
 var PV_SHEET = "Pageviews";
 var DASH_SHEET = "Dashboard";
 var MAIL_SHEET_PROP = "MAIL_SHEET_NAME";
+// This Apps Script project is STANDALONE (not bound to the sheet), so
+// getActiveSpreadsheet() returns null. Open the sheet explicitly by ID.
+// (ID of the "Dead Brands mailing list" Google Sheet.)
+var SPREADSHEET_ID = "1KoSBo1jZFjKeTaj8XIvpdSg6RKJHrZFJH-CRVbQ0XjI";
+
+// The one and only way this script opens the spreadsheet. Standalone
+// projects have no "active" spreadsheet, so this is the fix for the
+// TypeError: Cannot read properties of null (reading 'getSheetByName').
+function ss_() {
+  return SpreadsheetApp.openById(SPREADSHEET_ID);
+}
 var PV_HEADER = ["Timestamp", "Page", "Referrer", "utm_source", "utm_medium", "utm_campaign", "Session"];
 var MAIL_HEADER = ["Timestamp", "First name", "Last name", "Email"];
 
@@ -82,7 +93,7 @@ function doGet(e) {
 // 2. The tab carrying the v1 signup header row (auto-detect, then remembered).
 // 3. Fallback: the first tab holding data that isn't Pageviews/Dashboard.
 function mailSheet_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ss_();
   var props = PropertiesService.getScriptProperties();
 
   var name = props.getProperty(MAIL_SHEET_PROP);
@@ -111,7 +122,7 @@ function mailSheet_() {
 
 // ---- KPI computation for the CRM portal ----
 function kpis_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ss_();
   var pv = ss.getSheetByName(PV_SHEET);
   var mail = mailSheet_(); // explicit lookup — active tab is irrelevant
 
@@ -174,7 +185,7 @@ function top_(obj, n) {
 // The mailing-list tab is found with mailSheet_(), so it does not matter
 // which tab is active when this runs. Nothing here changes the signup path.
 function setupDashboard() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ss_();
   sheet_(PV_SHEET, PV_HEADER); // make sure the tab exists
   var dash = ss.getSheetByName(DASH_SHEET);
   if (!dash) dash = ss.insertSheet(DASH_SHEET);
@@ -230,7 +241,7 @@ function setupDashboard() {
 }
 
 function sheet_(name, header) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ss_();
   var sh = ss.getSheetByName(name);
   if (!sh) {
     sh = ss.insertSheet(name);
