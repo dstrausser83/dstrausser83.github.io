@@ -330,8 +330,15 @@ def build(draft_path, image_src=None, video_src=None):
     # detection and produces "Untitled" posts — strip it (2026-09-23).
     text = text.lstrip("\ufeff")
     fm, body = parse_frontmatter(text)
-    title = fm.get("title", "Untitled")
-    slug = fm.get("slug", slugify(title))
+    title = (fm.get("title") or "").strip()
+    slug = (fm.get("slug") or "").strip() or slugify(title)
+    # Hard guard (2026-09-24): a blank title or empty slug once shipped a ghost
+    # entry (slug="", title="", image="images/.jpg") to the live blog listing.
+    # Refuse to build instead of publishing garbage.
+    if not title or title.lower() == "untitled":
+        raise ValueError(f"refusing to build {draft_path}: blank/untitled title")
+    if not slug:
+        raise ValueError(f"refusing to build {draft_path}: empty slug")
     post_date = fm.get("date", date.today().isoformat())
     # David's rule 2026-09-23: every post shows its publish timestamp.
     # Stamped at build (= publish) time; frontmatter may override for backfills.
