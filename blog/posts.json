@@ -1,5 +1,23 @@
 [
   {
+    "slug": "customization-vs-configuration-the-line-that-quietly-kills-e",
+    "title": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets",
+    "date": "2026-09-24",
+    "published_at": "2026-09-24T20:22:35Z",
+    "tags": [
+      "erp",
+      "customization",
+      "implementation",
+      "odoo",
+      "sap-business-one"
+    ],
+    "excerpt": "Every ERP lets you change it. The expensive question is how. Configuration uses the system's own dials, customization rewrites the machine, and most blown budgets never knew which one they bought.",
+    "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.",
+    "image": "images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg",
+    "video": "",
+    "url": "posts/customization-vs-configuration-the-line-that-quietly-kills-e.html"
+  },
+  {
     "slug": "the-90-day-erp-adoption-plan-getting-your-team-to-actually-u",
     "title": "The 90-Day ERP Plan That Doesn't Make Your Team Scream",
     "date": "2026-09-24",

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
+  <meta name="description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you." />
+  
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets" />
+  <meta property="og:description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+    .quick-answer p { margin: 0.4rem 0; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will customization void my ERP support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not usually, but it changes the conversation. Vendors support their standard product. When something breaks in an area you've customized, expect the first response to be \"reproduce it on standard.\" You'll need your partner in the room for those calls, which is another line item customization quietly adds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know whether I need customization or configuration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Describe what you want without mentioning the software. Then ask your partner to show you the configured way first. If the gap between that and what you need is small or cosmetic, that's configuration plus a process tweak. If the gap kills revenue or breaks the law, that's a customization candidate. Run it through the three tests above before you sign anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my customizations when I upgrade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They get retested, and some of them break. Budget for it every time. This is the cost most companies forget, and it's the reason a modest customization can cost multiples of its build price over the years. Ask your partner for their upgrade process for custom code before the first line is written."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start with configuration and customize later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it's usually the smartest path. Go live configured, learn how your team actually uses the system, then customize the two or three things that still hurt after six months. You'll customize less, and what you do customize will be aimed at real pain instead of imagined pain."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets",
+  "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.",
+  "datePublished": "2026-09-24T20:22:35Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html",
+  "keywords": "erp, customization, implementation, odoo, sap-business-one",
+  "image": "https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="../../index.html#about">About</a>
+        <a href="../../index.html#career">Career</a>
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#testimonials">Testimonials</a>
+        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
+        <a href="../index.html" class="active">Blog</a>
+        <a href="../../index.html#life">Life</a>
+        <a href="../../index.html#shop">Shop</a>
+        <a href="../../index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <h1>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets</h1>
+        <p class="post-meta">September 24, 2026 at 4:22 PM ET &middot; by <a href="../author.html">David Strausser</a></p>
+        <figure class="post-hero"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets" /></figure>
+        <div class="post-body prose">
+<p>Somebody in every ERP demo asks the question. Usually it's the person who owns the spreadsheet everyone is afraid to touch.</p>
+<p>"Can it work exactly like our current process?"</p>
+<p>The room nods. The salesperson smiles. And somewhere, six months in the future, a budget quietly bleeds out. Not because anyone lied. Because nobody in that room knew they were really asking: should we configure this thing, or customize it?</p>
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>Configuration means setting up the ERP with the options it already gives you: fields, workflows, approval rules, report layouts, toggles. Customization means changing the software itself, writing code the vendor never wrote. Configuration is cheaper to build, cheaper to keep, and it survives upgrades. Customization has a real place in the world, but every custom line is a line you now own. You test it. You fix it. You carry it through every upgrade, forever. So the default answer is configuration. Customize only for the things that genuinely make you money.</p>
+</div>
+<h2>Same word, different invoice</h2>
+<p>Here's the confusion. In conversation, everything is "customizing the ERP." The vendor says it, the partner says it, your team says it. But there are two completely different activities hiding inside that one word, and they bill very differently.</p>
+<p>Configuration is working inside the lines. In Odoo, it's building a view in Studio, adding a field, wiring up an automated action. In SAP Business One, it's user-defined fields, formatted searches, approval procedures. Nobody wrote code. The next upgrade rolls in and your setup rolls with it, because it's all native.</p>
+<p>Customization is redrawing the lines. A custom Odoo module that overrides core behavior. An SDK add-on for Business One that changes how a document posts. Real code, written for you, maintained by you. It does exactly what you asked for, and it will need attention for as long as you run it.</p>
+<p>Both are legitimate. Only one of them compounds.</p>
+<h2>What customization actually costs</h2>
+<p>The build quote is the cheapest part. That's the bit nobody tells you in the demo.</p>
+<p>First, upgrades. Custom code is the first thing that breaks when a new version lands, because the new version was tested against the standard product, not your version of it. Every upgrade becomes a small project: retest the custom modules, fix what broke, retest again.</p>
+<p>Second, testing. Standard features get tested by thousands of companies. Your custom module gets tested by you. Every release, every patch, somebody has to walk through your custom logic and confirm it still behaves. That somebody bills by the hour.</p>
+<p>Third, key-person risk. Custom code lives in somebody's head. When that developer moves on, and they always do eventually, the knowledge walks out with them. I've seen companies afraid to upgrade because the person who wrote their custom pricing engine left two years ago and nobody dares touch it.</p>
+<p>Fourth, the blame game. Something breaks at month end. The vendor points at the customization. The partner points at the vendor. You point at everyone, and the clock keeps running.</p>
+<p>None of this means customization is wrong. It means customization has a total cost, and the build quote is maybe a third of it.</p>
+<h2>When it's worth it anyway</h2>
+<p>Sometimes you should absolutely customize. Three tests, and I want all three to pass.</p>
+<p>One, it protects or creates revenue. Not comfort, revenue. A custom configurator that lets you quote complex jobs in minutes instead of days. A compliance workflow the law actually requires. If it doesn't touch money or the law, that's a vote for configuration.</p>
+<p>Two, no configured workaround gets you most of the way there. Be honest about "most." If the standard approval workflow covers the bulk of what you want, the remainder is rarely worth owning forever.</p>
+<p>Three, you'll still want it in three years. Processes change. The clever custom screen built for today's workflow becomes tomorrow's obstacle when the business pivots. If you can't picture wanting it in three years, don't build it.</p>
+<h2>The question that draws the line</h2>
+<p>When a team asks me to customize something, I ask one question back: are we changing the software to match the process, or should we change the process to match the software?</p>
+<p>Most companies dramatically overestimate how special their processes are. Order to cash is order to cash. The configured way of doing it in a mature ERP is usually the distilled experience of thousands of companies that already made your mistakes. Adopting it isn't settling. It's skipping the tuition.</p>
+<p>The processes worth preserving, the ones that are genuinely yours and genuinely valuable, are fewer than you think. Those are your customization candidates. Everything else is configuration with a little change management.</p>
+<h2>How a good partner acts</h2>
+<p>Here's a tell I wish more buyers knew. If your implementation partner says yes to every customization request, that's not service. That's a billing strategy.</p>
+<p>A good partner pushes back. They show you the configured way first and ask what you'd lose by using it. They put a number on the maintenance tail, not just the build. And sometimes they tell you the thing you don't want to hear: your process is the problem, and no amount of code will fix a process nobody follows.</p>
+<p>The partners worth keeping are the ones who argue with you a little.</p>
+<h2>The line</h2>
+<p>The line between configuration and customization isn't technical. It's financial, and it's about ownership. Configuration rents the vendor's engineering. Customization hires your own, permanently.</p>
+<p>So configure by default. Customize by exception. And make every exception a deliberate business decision, with a name on it and a budget behind it, instead of a nod in a demo room.</p>
+<h2>Frequently asked questions</h2>
+<h3>Will customization void my ERP support?</h3>
+<p>Not usually, but it changes the conversation. Vendors support their standard product. When something breaks in an area you've customized, expect the first response to be "reproduce it on standard." You'll need your partner in the room for those calls, which is another line item customization quietly adds.</p>
+<h3>How do I know whether I need customization or configuration?</h3>
+<p>Describe what you want without mentioning the software. Then ask your partner to show you the configured way first. If the gap between that and what you need is small or cosmetic, that's configuration plus a process tweak. If the gap kills revenue or breaks the law, that's a customization candidate. Run it through the three tests above before you sign anything.</p>
+<h3>What happens to my customizations when I upgrade?</h3>
+<p>They get retested, and some of them break. Budget for it every time. This is the cost most companies forget, and it's the reason a modest customization can cost multiples of its build price over the years. Ask your partner for their upgrade process for custom code before the first line is written.</p>
+<h3>Can I start with configuration and customize later?</h3>
+<p>Yes, and it's usually the smartest path. Go live configured, learn how your team actually uses the system, then customize the two or three things that still hurt after six months. You'll customize less, and what you do customize will be aimed at real pain instead of imagined pain.</p>
+        </div>
+        <p class="post-tags"><span>erp</span> <span>customization</span> <span>implementation</span> <span>odoo</span> <span>sap-business-one</span></p>
+        <section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected
+          apps for one platform. Spin up Odoo and kick the tires yourself —
+          no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>

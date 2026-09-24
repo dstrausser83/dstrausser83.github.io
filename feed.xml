@@ -5,8 +5,21 @@
     <link>https://dstrausser83.github.io/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Sep 2026 17:54:15 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 20:22:36 GMT</lastBuildDate>
     <atom:link href="https://dstrausser83.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets</title>
+      <link>https://dstrausser83.github.io/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
+      <guid isPermaLink="true">https://dstrausser83.github.io/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
+      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.</description>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://dstrausser83.github.io/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>customization</category>
+      <category>implementation</category>
+      <category>odoo</category>
+      <category>sap-business-one</category>
+    </item>
     <item>
       <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream</title>
       <link>https://dstrausser83.github.io/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</link>
@@ -14,19 +27,11 @@
       <description>How to avoid ERP chaos in 90 days: practical steps to get your team using the system, no jargon, no promises.</description>
       <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://dstrausser83.github.io/blog/images/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.jpg" type="image/jpeg" />
-      <category>erp-adoption"</category>
-      <category>"sap-business-one"</category>
-      <category>"odoo"</category>
-      <category>"business-process"</category>
-      <category>"team-productivity</category>
-    </item>
-    <item>
-      <title></title>
-      <link>https://dstrausser83.github.io/blog/posts/.html</link>
-      <guid isPermaLink="true">https://dstrausser83.github.io/blog/posts/.html</guid>
-      <description>" date: "2026-09-24" tags: odoo, sap-business-one, sales, erp, small-business excerpt: "--- title: "The 90-Day ERP Plan That Doesn't Make Your Team Scream" date...</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://dstrausser83.github.io/blog/images/.jpg" type="image/jpeg" />
+      <category>erp-adoption</category>
+      <category>sap-business-one</category>
+      <category>odoo</category>
+      <category>business-process</category>
+      <category>team-productivity</category>
     </item>
     <item>
       <title>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost</title>
