@@ -1,33 +1,33 @@
 {
-  "checked_at": "2026-09-24T13:30:10.123456+00:00",
+  "checked_at": "2026-09-22T22:48:49.760353+00:00",
   "targets": {
     "homepage": {
-      "ok": false,
+      "ok": true,
       "http": 200,
-      "final": "http://deadbrands.co/",
+      "final": "https://dstrausser83.github.io/",
       "error": null,
-      "checked_at": "2026-09-24T13:30:10.123456+00:00"
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     },
     "blog": {
-      "ok": false,
+      "ok": true,
       "http": 200,
-      "final": "http://deadbrands.co/blog/",
+      "final": "https://dstrausser83.github.io/blog/",
       "error": null,
-      "checked_at": "2026-09-24T13:30:10.123456+00:00"
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     },
     "deadbrands.co": {
       "ok": false,
       "http": 0,
       "final": "https://deadbrands.co",
-      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'deadbrands.co'. (_ssl.c:1010)>",
-      "checked_at": "2026-09-24T13:30:10.123456+00:00"
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     },
     "davidstrausser.com": {
-      "ok": false,
-      "http": 0,
-      "final": "https://davidstrausser.com",
-      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'deadbrands.co'. (_ssl.c:1010)>",
-      "checked_at": "2026-09-24T13:30:10.123456+00:00"
+      "ok": true,
+      "http": 200,
+      "final": "https://dstrausser83.github.io/",
+      "error": null,
+      "checked_at": "2026-09-22T22:48:49.760353+00:00"
     }
   },
   "all_ok": false

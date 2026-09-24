@@ -5,8 +5,21 @@
     <link>https://dstrausser83.github.io/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Sep 2026 22:24:09 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 13:55:26 GMT</lastBuildDate>
     <atom:link href="https://dstrausser83.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost</title>
+      <link>https://dstrausser83.github.io/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html</link>
+      <guid isPermaLink="true">https://dstrausser83.github.io/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html</guid>
+      <description>Why the lowest ERP quote often leads to costly headaches. David Strausser explains how cheap quotes hide hidden costs and why you should never pick the cheapest option.</description>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://dstrausser83.github.io/blog/images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>pricing</category>
+      <category>sap</category>
+      <category>odoo</category>
+      <category>business</category>
+    </item>
     <item>
       <title>Data Migration Horror Stories: How to Avoid Becoming One</title>
       <link>https://dstrausser83.github.io/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
