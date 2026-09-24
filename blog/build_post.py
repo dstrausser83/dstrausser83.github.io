@@ -344,7 +344,10 @@ def build(draft_path, image_src=None, video_src=None):
     # Stamped at build (= publish) time; frontmatter may override for backfills.
     published_at = fm.get("published_at") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     pub_display = format_pub_display(published_at, post_date)
-    tags = [t.strip() for t in fm.get("tags", "").split(",") if t.strip()]
+    # Scribe drafts sometimes wrap tags in stray quotes ("sap-business-one").
+    # Strip them at build so they never reach the page or JSON-LD (2026-09-24).
+    tags = [t.strip().strip("\"'") for t in fm.get("tags", "").split(",")]
+    tags = [t for t in tags if t]
     excerpt = fm.get("excerpt", body[:160].replace("\n", " ") + "...")
     description = fm.get("description", excerpt)
     keywords = fm.get("keywords", "")
