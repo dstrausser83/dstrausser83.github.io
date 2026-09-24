@@ -24,6 +24,7 @@
     .policy ul { padding-left: 1.4rem; }
     .policy .updated { color: var(--muted); font-size: .9rem; margin-top: 2.5rem; }
   </style>
+  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <main class="policy">
@@ -37,6 +38,7 @@
       <h2>What loads if you accept</h2>
       <ul>
         <li><strong>Google Analytics 4</strong> — Google's analytics service, which sets its own cookies to measure traffic (pages viewed, roughly where visitors come from). Data goes to Google under their terms.</li>
+        <li><strong>Microsoft Clarity</strong> — Microsoft's free heatmap and session-recording tool, which shows us where visitors click, how far they scroll, and anonymized recordings of how pages get used, so we can improve the site. Data goes to Microsoft under their terms. Only activates after you click Accept.</li>
         <li><strong>Our first-party pageview beacon</strong> — a tiny script that records an anonymous pageview (page path, referrer, any UTM campaign tags, and a random per-visit ID kept in your browser's session storage) to our own database. No name, no email, no cross-site tracking.</li>
         <li><strong>Outbound click measurement</strong> — if you click a link to our partner Quaint Business Solutions, we count that click (which page you were on, which button you clicked) so we can measure referrals. Still anonymous — no name, no email.</li>
       </ul>
@@ -69,5 +71,6 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/js/consent.js" defer></script>
+  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

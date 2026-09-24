@@ -1,0 +1,135 @@
+{
+  "rule_days": 90,
+  "pages": {
+    "/index.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "IA overhaul + design polish (Sep 2026)",
+      "tweak_count": 1
+    },
+    "/about.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "IA overhaul + design polish (Sep 2026)",
+      "tweak_count": 1
+    },
+    "/services.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "IA overhaul + design polish (Sep 2026)",
+      "tweak_count": 1
+    },
+    "/resources.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "IA overhaul + design polish (Sep 2026)",
+      "tweak_count": 1
+    },
+    "/cookies.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "IA overhaul + design polish (Sep 2026)",
+      "tweak_count": 1
+    },
+    "/services/dead-brands.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/small-business-growth.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/sales-expert.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/marketing-expert.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/business-development.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/tech-consulting.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/odoo.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/sap-business-one.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/services/erp.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "new page created in IA overhaul",
+      "tweak_count": 1
+    },
+    "/blog/index.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "nav updated to new IA",
+      "tweak_count": 1
+    },
+    "/blog/author.html": {
+      "last_tweak": "2026-09-24",
+      "tweak_note": "nav updated to new IA",
+      "tweak_count": 1
+    },
+    "/404.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "initial version",
+      "tweak_count": 1
+    },
+    "/blog/posts/5-signs-youve-outgrown-quickbooks.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/odoo-implementation-7-things-nobody-tells-you.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/sap-business-one-add-ons-worth-the-money.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/single-dad-playbook-productive-mornings.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/what-playing-guitar-taught-me-about-business.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    },
+    "/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html": {
+      "last_tweak": "2026-09-23",
+      "tweak_note": "published/seeded from sitemap",
+      "tweak_count": 1
+    }
+  }
+}

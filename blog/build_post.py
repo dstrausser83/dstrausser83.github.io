@@ -283,16 +283,26 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="../../index.html#about">About</a>
-        <a href="../../index.html#career">Career</a>
-        <a href="../../index.html#work">Work</a>
-        <a href="../../services.html">Services</a>
-        <a href="../../index.html#testimonials">Testimonials</a>
+        <a href="/about.html" class="%%A_about%%">About</a>
+        <div class="nav-drop">
+          <a href="/services.html" class="nav-drop-toggle %%A_services%%" aria-haspopup="true" aria-expanded="false">Services <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-drop-menu">
+            <a href="/services.html" class="%%A_services_index%%">All services</a>
+            <a href="/services/dead-brands.html" class="%%A_dead_brands%%">Dead Brand Stuff</a>
+            <a href="/services/small-business-growth.html" class="%%A_small_business_growth%%">Small Business Growth</a>
+            <a href="/services/sales-expert.html" class="%%A_sales_expert%%">Sales Expert</a>
+            <a href="/services/marketing-expert.html" class="%%A_marketing_expert%%">Marketing Expert</a>
+            <a href="/services/business-development.html" class="%%A_business_development%%">Biz Dev</a>
+            <a href="/services/tech-consulting.html" class="%%A_tech_consulting%%">Tech Consulting</a>
+            <a href="/services/odoo.html" class="%%A_odoo%%">Odoo</a>
+            <a href="/services/sap-business-one.html" class="%%A_sap_business_one%%">SAP Business One</a>
+            <a href="/services/erp.html" class="%%A_erp%%">ERP</a>
+          </div>
+        </div>
+        <a href="/resources.html" class="%%A_resources%%">Resource Center</a>
+        <a href="/blog/index.html" class="%%A_blog%%">Blog</a>
         <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <a href="../index.html" class="active">Blog</a>
-        <a href="../../index.html#life">Life</a>
-        <a href="../../index.html#shop">Shop</a>
-        <a href="../../index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
   </header>
@@ -393,6 +403,9 @@ def build(draft_path, image_src=None, video_src=None):
         tags=" ".join(f"<span>{t}</span>" for t in tags),
         cta=cta_html(slug), author_box=author_box_html(), cta_css=CTA_CSS,
     )
+    # Resolve shared-nav active tokens: generated posts are always blog pages.
+    html = re.sub(r"%%A_blog%%", "active", html)
+    html = re.sub(r"%%A_[a-z_]+%%", "", html)
     os.makedirs(POSTS_DIR, exist_ok=True)
     out_path = os.path.join(POSTS_DIR, f"{slug}.html")
     with open(out_path, "w", encoding="utf-8") as f:

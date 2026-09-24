@@ -41,6 +41,7 @@
     .post-card-tags span { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; margin: 0 0.3rem 0.3rem 0; color: var(--muted); }
     .no-results { color: var(--muted); padding: 2rem 0; }
   </style>
+  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -53,16 +54,26 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#career">Career</a>
-        <a href="../index.html#work">Work</a>
-        <a href="../services.html">Services</a>
-        <a href="../index.html#testimonials">Testimonials</a>
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <a href="/services.html" class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false">Services <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-drop-menu">
+            <a href="/services.html" class="">All services</a>
+            <a href="/services/dead-brands.html" class="">Dead Brand Stuff</a>
+            <a href="/services/small-business-growth.html" class="">Small Business Growth</a>
+            <a href="/services/sales-expert.html" class="">Sales Expert</a>
+            <a href="/services/marketing-expert.html" class="">Marketing Expert</a>
+            <a href="/services/business-development.html" class="">Biz Dev</a>
+            <a href="/services/tech-consulting.html" class="">Tech Consulting</a>
+            <a href="/services/odoo.html" class="">Odoo</a>
+            <a href="/services/sap-business-one.html" class="">SAP Business One</a>
+            <a href="/services/erp.html" class="">ERP</a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
         <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <a href="index.html" class="active">Blog</a>
-        <a href="../index.html#life">Life</a>
-        <a href="../index.html#shop">Shop</a>
-        <a href="../index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
   </header>
@@ -135,5 +146,6 @@
   </script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/consent.js" defer></script>
+  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

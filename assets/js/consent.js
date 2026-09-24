@@ -9,6 +9,20 @@
   "use strict";
   var KEY = "db_cookie_consent";
   var GA_ID = "G-LDWNV8CVJ4";
+  /* Microsoft Clarity (free heatmaps + session recordings).
+   * DAVID ACTION REQUIRED: create a project at https://clarity.microsoft.com
+   * (sign in with a Microsoft account, "New project", add deadbrands.co),
+   * then paste the project ID below. Until then Clarity stays inert. */
+  var CLARITY_ID = "REPLACE_WITH_CLARITY_ID";
+
+  function loadClarity() {
+    if (!CLARITY_ID || CLARITY_ID.indexOf("REPLACE_WITH") === 0) return;
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", CLARITY_ID);
+  }
 
   function getChoice() {
     try { return window.localStorage.getItem(KEY); } catch (e) { return null; }
@@ -52,6 +66,8 @@
     loadScript(siteRoot() + "analytics.js");
     // Quaint outbound click tracker — same consent gate, same endpoint.
     loadScript(siteRoot() + "quaint-clicks.js");
+    // Microsoft Clarity heatmaps — consent-gated like everything else.
+    loadClarity();
   }
 
   function hideBanner() {

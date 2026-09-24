@@ -73,4 +73,38 @@
     );
     sections.forEach(function (s) { navIO.observe(s); });
   }
+
+  // Services dropdown: touch/keyboard toggle (desktop hover handled in CSS).
+  // First tap opens the submenu; the toggle link still navigates on second tap
+  // via the "All services" item. Escape closes.
+  var drops = document.querySelectorAll(".nav-drop");
+  drops.forEach(function (drop) {
+    var toggle = drop.querySelector(".nav-drop-toggle");
+    if (!toggle) return;
+    toggle.addEventListener("click", function (e) {
+      var isTouch = window.matchMedia("(hover: none)").matches;
+      var narrow = window.innerWidth <= 860;
+      if (isTouch || narrow) {
+        if (!drop.classList.contains("open")) {
+          e.preventDefault();
+          drops.forEach(function (d) {
+            d.classList.remove("open");
+            var t = d.querySelector(".nav-drop-toggle");
+            if (t) t.setAttribute("aria-expanded", "false");
+          });
+          drop.classList.add("open");
+          toggle.setAttribute("aria-expanded", "true");
+        }
+      }
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      drops.forEach(function (d) {
+        d.classList.remove("open");
+        var t = d.querySelector(".nav-drop-toggle");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
 })();

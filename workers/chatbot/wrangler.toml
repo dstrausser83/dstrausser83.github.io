@@ -1,0 +1,53 @@
+# Dead Brands lead-chatbot — wrangler.toml
+# Cloudflare Workers + Workers AI. NOTHING here runs on David's PC.
+#
+# DEPLOY (exact steps — see workers/chatbot/CONTRACT.md for detail):
+#   1) npm i -g wrangler
+#   2) wrangler login            # <-- David's hands: one browser click, OAuth into Cloudflare
+#   3) wrangler kv:namespace create DB_LEADS
+#      wrangler kv:namespace create DB_CACHE
+#      (paste the returned IDs into the kv_namespaces blocks below)
+#   4) wrangler deploy           # run from this directory
+
+name = "deadbrands-chatbot"
+main = "worker.js"
+compatibility_date = "2026-09-24"
+compatibility_flags = ["nodejs_compat"]
+
+# ---------------------------------------------------------------------------
+# PLACEHOLDERS — replace with real values from `wrangler kv:namespace create`.
+# Until then, `wrangler deploy` will fail with "namespace not found".
+# ---------------------------------------------------------------------------
+[[kv_namespaces]]
+binding = "DB_LEADS"
+id = "REPLACE_WITH_DB_LEADS_NAMESPACE_ID"        # e.g. "a1b2c3d4e5f6..."
+
+[[kv_namespaces]]
+binding = "DB_CACHE"
+id = "REPLACE_WITH_DB_CACHE_NAMESPACE_ID"        # e.g. "f6e5d4c3b2a1..."
+
+# Workers AI (free tier). Model pinned in worker.js:
+#   @cf/meta/llama-3.1-8b-instruct
+[ai]
+binding = "AI"
+
+# Outbox sync runs on Cloudflare's edge, NOT on David's PC.
+# Every 15 min: POST unsynced leads/holds to the CRM intake endpoint.
+[triggers]
+crons = ["*/15 * * * *"]
+
+# ---------------------------------------------------------------------------
+# Environment variables (set real ones via `wrangler secret put` / dashboard):
+#   ALLOWED_ORIGINS      comma-separated origins for CORS
+#                        (default: https://deadbrands.co,https://www.deadbrands.co)
+#   CRM_LEAD_INTAKE_URL  full HTTPS URL of the CRM lead-intake endpoint
+#                        (see CONTRACT.md — built in parallel, may be empty at first;
+#                         the chatbot works fully without it; sync just waits)
+#   CRM_API_KEY          Bearer token for the CRM endpoints (wrangler secret put)
+#   CRM_AVAILABILITY_URL full HTTPS URL of the CRM calendar/availability endpoint
+#                        (see CONTRACT.md; empty = Apollo-link-only mode)
+# ---------------------------------------------------------------------------
+[vars]
+ALLOWED_ORIGINS = "https://deadbrands.co,https://www.deadbrands.co"
+CRM_LEAD_INTAKE_URL = ""
+CRM_AVAILABILITY_URL = ""
