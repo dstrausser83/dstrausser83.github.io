@@ -163,18 +163,18 @@ def article_jsonld(title, description, slug, post_date, image_rel, tags):
         "author": {
             "@type": "Person",
             "name": "David Strausser",
-            "url": "https://dstrausser83.github.io/",
+            "url": "https://deadbrands.co/",
             "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)",
         },
         "publisher": {
             "@type": "Organization",
             "name": "Dead Brands, LLC",
         },
-        "mainEntityOfPage": f"https://dstrausser83.github.io/blog/posts/{slug}.html",
+        "mainEntityOfPage": f"https://deadbrands.co/blog/posts/{slug}.html",
         "keywords": ", ".join(tags),
     }
     if image_rel:
-        data["image"] = f"https://dstrausser83.github.io/blog/{image_rel}"
+        data["image"] = f"https://deadbrands.co/blog/{image_rel}"
     return '<script type="application/ld+json">\n' + json.dumps(data, indent=2) + "\n</script>"
 
 MEET_LINK = "https://app.apollo.io/#/meet/david_strausser_175"
@@ -249,7 +249,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <title>{title} — David Strausser</title>
   <meta name="description" content="{description}" />
   {meta_keywords}
-  <link rel="canonical" href="https://dstrausser83.github.io/blog/posts/{slug}.html" />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{title}" />
   <meta property="og:description" content="{description}" />
@@ -351,12 +351,12 @@ def build(draft_path, image_src=None, video_src=None):
         # Never copy a file onto itself — open(dest,'wb') truncates before read
         if os.path.abspath(img_file) == os.path.abspath(dest):
             image_rel = f"images/{slug}.jpg"
-            og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
+            og_image = f'<meta property="og:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
         else:
             with open(img_file, "rb") as a, open(dest, "wb") as b:
                 b.write(a.read())
             image_rel = f"images/{slug}.jpg"
-            og_image = f'<meta property="og:image" content="https://dstrausser83.github.io/blog/images/{slug}.jpg" />'
+            og_image = f'<meta property="og:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
     vid_file = video_src or fm.get("video")
     if vid_file and os.path.exists(vid_file):
         os.makedirs(VIDEOS_DIR, exist_ok=True)

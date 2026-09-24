@@ -37,7 +37,7 @@ INTERESTS = re.compile(
     r"guitar|rock|band|libertarian|liberty|tax|taxes|regulation|government|"
     r"freedom|waste|spending|deficit)\b", re.I)
 
-UA = {"User-Agent": "DeadBrands-TrendRadar/1.0 (+https://dstrausser83.github.io/)"}
+UA = {"User-Agent": "DeadBrands-TrendRadar/1.0 (+https://deadbrands.co/)"}
 
 
 def fetch(url):

@@ -13,7 +13,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import date
 
-BASE = "https://dstrausser83.github.io"
+BASE = "https://deadbrands.co"
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "sitemap.xml")
 

@@ -71,4 +71,4 @@ after the new version is live.
   form service ever sees them.
 - To stop the popup later, tell Rock — it's a one-line change.
 - Preview the popup design anytime at:
-  `https://dstrausser83.github.io/?preview=popup`
+  `https://deadbrands.co/?preview=popup`

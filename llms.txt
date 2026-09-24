@@ -1,4 +1,4 @@
-# David Strausser — dstrausser83.github.io
+# David Strausser — deadbrands.co
 
 > CEO of Dead Brands, LLC. Contracted through Dead Brands as Head of Sales for Quaint Business Solutions, LLC — selling SAP Business One and Odoo ERP to small and midsize businesses. Host of the Shark Bite Biz podcast (200+ episodes). Business process automation, AI, and SaaS. Guitarist. Single dad. Philadelphia Eagles fan.
 
@@ -11,8 +11,8 @@
 
 ## Key pages
 
-- Home: https://dstrausser83.github.io/
-- Blog (new posts daily — Odoo how-tos, SAP Business One wisdom, business/life): https://dstrausser83.github.io/blog/
+- Home: https://deadbrands.co/
+- Blog (new posts daily — Odoo how-tos, SAP Business One wisdom, business/life): https://deadbrands.co/blog/
 - Book a free meeting: https://app.apollo.io/#/meet/david_strausser_175
 - Try Odoo free (15-day trial, no credit card): https://quaintbusiness.com/tryodoo
 - Quaint Business Solutions: https://quaintbusiness.com/

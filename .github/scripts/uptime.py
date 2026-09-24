@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hourly uptime probe for dstrausser83.github.io. Stdlib only.
+"""Hourly uptime probe for deadbrands.co. Stdlib only.
 Checks homepage, blog index, and redirect domains. Writes ops/status.json.
 Exit 0 always; failures are recorded in the JSON.
 """
@@ -10,8 +10,8 @@ import sys
 import urllib.request
 
 TARGETS = [
-    ("homepage", "https://dstrausser83.github.io/"),
-    ("blog", "https://dstrausser83.github.io/blog/"),
+    ("homepage", "https://deadbrands.co/"),
+    ("blog", "https://deadbrands.co/blog/"),
     ("deadbrands.co", "https://deadbrands.co"),
     ("davidstrausser.com", "https://davidstrausser.com"),
 ]
@@ -35,7 +35,7 @@ def main():
     results = {}
     for name, url in TARGETS:
         status, final, err = probe(url)
-        ok = status == 200 and "dstrausser83.github.io" in final
+        ok = status == 200 and "deadbrands.co" in final
         results[name] = {"ok": ok, "http": status, "final": final,
                          "error": err, "checked_at": now}
     payload = {"checked_at": now, "targets": results,

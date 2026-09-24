@@ -2,7 +2,7 @@
 
 David Strausser's personal brand site — free, ad-free, hosted on GitHub Pages.
 
-**Live:** https://dstrausser83.github.io/
+**Live:** https://deadbrands.co/
 
 ## Structure
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic SEO/AEO/indexing audit for dstrausser83.github.io.
+"""Deterministic SEO/AEO/indexing audit for deadbrands.co.
 
 Stdlib only. Fetches the live site + redirect domains, checks:
   HTTP health, sitemap coverage, JSON-LD schema (homepage + blog post),
@@ -16,7 +16,7 @@ import re
 import sys
 import urllib.request
 
-SITE = "https://dstrausser83.github.io"
+SITE = "https://deadbrands.co"
 REDIRECT_SOURCES = [
     "http://deadbrands.co",
     "https://deadbrands.co",
@@ -29,7 +29,7 @@ TRACKER_HOSTS = [
     "mixpanel.com", "amplitude.com", "doubleclick.net",
 ]
 ALLOWED_RESOURCE_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com",
-                          "dstrausser83.github.io"]
+                          "deadbrands.co"]
 EXPECTED_JSONLD = ["BlogPosting", "FAQPage", "Person", "Organization"]
 TIMEOUT = 25
 
@@ -178,7 +178,7 @@ def main():
     # 6. Redirect architecture preserved (expect 301/308 -> github.io)
     for src in REDIRECT_SOURCES:
         s, loc, _, _ = fetch(src, allow_redirects=False)
-        ok = s in (301, 302, 307, 308) and "dstrausser83.github.io" in (loc or "")
+        ok = s in (301, 302, 307, 308) and "deadbrands.co" in (loc or "")
         check(f"redirect {src}", ok, f"HTTP {s} -> {loc}")
 
     # 7. Image alt coverage (homepage)

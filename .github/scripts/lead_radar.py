@@ -45,7 +45,7 @@ DOMAIN = re.compile(
     r"manufacturing|distribution|wholesale|ecommerce|e-commerce|"
     r"bookkeeping|invoicing|pos\b)\b", re.I)
 
-UA = {"User-Agent": "DeadBrands-LeadRadar/1.0 (+https://dstrausser83.github.io/)"}
+UA = {"User-Agent": "DeadBrands-LeadRadar/1.0 (+https://deadbrands.co/)"}
 
 
 def fetch(url):
