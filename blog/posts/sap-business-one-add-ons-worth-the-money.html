@@ -119,23 +119,30 @@
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="/about.html" class="">About</a>
         <div class="nav-drop">
-          <a href="/services.html" class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false">Services <span class="caret" aria-hidden="true">&#9662;</span></a>
-          <div class="nav-drop-menu">
-            <a href="/services.html" class="">All services</a>
-            <a href="/services/dead-brands.html" class="">Dead Brand Stuff</a>
-            <a href="/services/small-business-growth.html" class="">Small Business Growth</a>
-            <a href="/services/sales-expert.html" class="">Sales Expert</a>
-            <a href="/services/marketing-expert.html" class="">Marketing Expert</a>
-            <a href="/services/business-development.html" class="">Biz Dev</a>
-            <a href="/services/tech-consulting.html" class="">Tech Consulting</a>
-            <a href="/services/odoo.html" class="">Odoo</a>
-            <a href="/services/sap-business-one.html" class="">SAP Business One</a>
-            <a href="/services/erp.html" class="">ERP</a>
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
         <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
@@ -210,8 +217,18 @@
     </article>
   </main>
   <footer class="site-footer">
-    <div class="wrap">
+    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
+    <div class="wrap footer-inner">
+      <p class="footer-social">
+        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
+      </p>
       <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
+      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
+      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

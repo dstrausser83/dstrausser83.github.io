@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo Explained: What It Actually Does for a Small Business | Dead Brands, LLC Featuring David Strausser</title>
+  <meta name="description" content="Odoo keeps coming up in every 'what should we use instead of QuickBooks and spreadsheets' conversation. David Strausser explains what Odoo actually is, who it's for, and the honest truth about implementation." />
+  <link rel="canonical" href="https://deadbrands.co/services/odoo/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deadbrands.co/services/odoo/" />
+  <meta property="og:title" content="Odoo Explained: What It Actually Does for a Small Business" />
+  <meta property="og:description" content="Odoo, explained like a human: what it actually does for a small business, who it's for, and the honest truth." />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <style>
+    .svc-hero { padding-bottom: 1rem; }
+    .flagship { border: 2px solid var(--accent); border-radius: var(--radius); background: var(--card); padding: 2rem clamp(1.25rem, 4vw, 2.5rem); margin: 2rem 0 3rem; }
+    .flagship h2 { margin-top: 0; }
+    .checklist { list-style: none; padding: 0; display: grid; gap: 0.7rem; margin: 1.25rem 0; }
+    .checklist li { padding-left: 1.75rem; position: relative; }
+    .checklist li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .card .svc-cta { display: inline-block; margin-top: 0.75rem; font-weight: 600; }
+    .final-cta { text-align: center; padding: 3rem 0 1rem; }
+    .final-cta .btn { font-size: 1.1rem; padding: 0.9rem 2.2rem; }
+    .landing-figure { margin: 2.5rem 0; }
+    .landing-figure img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+    .landing-figure figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+    .faq-list { display: grid; gap: 1rem; margin: 1.5rem 0 2rem; }
+    .go-deeper .svc-cta { display: inline-block; margin-top: 0.5rem; font-weight: 700; font-size: 1.05rem; }
+  </style>
+  <link rel="stylesheet" href="/assets/css/chat.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="%%A_about%%">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle %%A_services%%" aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="%%A_dead_brands%%" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="%%A_small_business_growth%%" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="%%A_sales_expert%%" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="%%A_marketing_expert%%" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="%%A_business_development%%" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="%%A_tech_consulting%%" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="%%A_odoo%%" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="%%A_sap_business_one%%" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="%%A_erp%%" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all %%A_services_index%%">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="%%A_resources%%">Resource Center</a>
+        <a href="/blog/index.html" class="%%A_blog%%">Blog</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section svc-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Dead Brands Services</p>
+        <h1 class="reveal">Odoo, Explained Like a Human</h1>
+        <p class="section-lede reveal">
+          Odoo keeps coming up in every &ldquo;what should we use instead of
+          QuickBooks and spreadsheets&rdquo; conversation. Here&rsquo;s what it
+          actually is, what it does for a small business, and whether
+          it&rsquo;s right for you &mdash; no brochure talk.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="prose">
+          <h2>What Odoo actually is</h2>
+          <p>
+            Strip away the marketing and Odoo is this: one suite of business
+            apps that all share the same database. CRM, sales, invoicing and
+            accounting, inventory, purchasing, manufacturing, project
+            management, HR, website and ecommerce &mdash; all of it in one
+            place, all of it talking to each other.
+          </p>
+          <p>
+            That last part is the whole point. When your CRM, your inventory,
+            and your accounting are the same system, a sale updates the stock
+            count and the books automatically. No swivel-chair work, no
+            &ldquo;which spreadsheet is right,&rdquo; no end-of-month
+            reconciliation archaeology. It&rsquo;s the integrated-system idea
+            done the way it was always supposed to work.
+          </p>
+
+          <figure class="landing-figure reveal">
+            <img src="../../assets/img/services/odoo-1.jpg" alt="Odoo apps dashboard showing the suite of integrated business applications" />
+            <figcaption>Screenshot: Odoo.com</figcaption>
+          </figure>
+
+          <h2>The modular part (and why it matters)</h2>
+          <p>
+            Odoo is modular, which means you don&rsquo;t buy the whole thing
+            on day one. You start with what hurts most &mdash; say, CRM and
+            invoicing &mdash; and add inventory, or manufacturing, or the
+            website later, as the business grows into it.
+          </p>
+          <p>
+            This is a bigger deal than it sounds. Most ERP projects fail
+            because they try to boil the ocean: every module, every department,
+            go-live in one terrifying weekend. Odoo&rsquo;s structure lets you
+            do the opposite &mdash; start small, prove value, expand. It&rsquo;s
+            the sane way to grow into an ERP instead of being crushed by one.
+          </p>
+          <h2>Who it&rsquo;s actually for</h2>
+          <p>
+            Odoo fits the company that has outgrown entry-level tools but
+            isn&rsquo;t ready for &mdash; or doesn&rsquo;t need &mdash; a
+            heavyweight enterprise ERP. If you&rsquo;re running the business
+            on QuickBooks plus a half-dozen disconnected apps plus
+            spreadsheets, and the cracks are showing, you&rsquo;re in the
+            sweet spot.
+          </p>
+          <p>
+            It&rsquo;s also a natural fit for businesses that want flexibility:
+            distributors who need real inventory, service companies that need
+            projects tied to billing, manufacturers who need the shop floor
+            connected to the front office. One system, configured to how you
+            actually operate.
+          </p>
+
+          <figure class="landing-figure reveal">
+            <img src="../../assets/img/services/odoo-2.jpg" alt="Odoo inventory module showing stock levels and warehouse operations" />
+            <figcaption>Screenshot: Odoo.com</figcaption>
+          </figure>
+
+          <h2>The honest part: it&rsquo;s not plug-and-play</h2>
+          <p>
+            Here&rsquo;s what the brochures skip: Odoo is powerful, but
+            it&rsquo;s not something you just switch on. It needs to be
+            configured to your processes, your data needs to be migrated
+            cleanly, and your team needs to actually learn it. Companies that
+            treat it like an app download end up with an expensive mess.
+            Companies that implement it properly &mdash; scoped right, data
+            cleaned, people trained &mdash; wonder how they ever lived without
+            it.
+          </p>
+          <p>
+            That&rsquo;s exactly what I do. I&rsquo;m David Strausser,
+            contracted Head of Sales for Quaint Business Solutions, and
+            I&rsquo;ve spent 10+ years in the ERP world. We implement Odoo the
+            grown-up way: start with how your business actually runs, configure
+            the system to fit, migrate the data right, and stay through
+            go-live so your team actually uses it.
+          </p>
+          <p>
+            Curious enough to poke at it yourself? You can
+            <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=odoo-landing-inline" target="_blank" rel="noopener">start a free Odoo trial here</a>
+            and see the real thing with your own eyes. Then, when you&rsquo;re
+            ready to do it properly, we&rsquo;ll talk implementation.
+          </p>
+
+          <figure class="landing-figure reveal">
+            <img src="../../assets/img/services/odoo-3.jpg" alt="Odoo CRM pipeline view showing sales stages and opportunities" />
+            <figcaption>Screenshot: Odoo.com</figcaption>
+          </figure>
+
+          <div class="flagship reveal" style="text-align:center;">
+            <h2>Try Odoo free</h2>
+            <div class="prose">
+              <p>
+                The best way to understand Odoo is to click around in it.
+                Start a free trial, explore the apps, and see if it fits the
+                way your business runs.
+              </p>
+            </div>
+            <p><a class="btn btn-primary" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=odoo-landing-trial" target="_blank" rel="noopener">Start your free Odoo trial</a></p>
+          </div>
+        </div>
+
+        <div class="flagship go-deeper reveal">
+          <p class="eyebrow">Go deeper</p>
+          <h2>The full Odoo guide</h2>
+          <div class="prose">
+            <p>
+              This page is the overview. The full guide goes deeper into Odoo
+              editions, what an implementation engagement looks like, and how
+              we scope the project so it lands. If Odoo is on your shortlist,
+              read it.
+            </p>
+          </div>
+          <a class="svc-cta" href="/services/odoo.html">Read the full Odoo guide &rarr;</a>
+        </div>
+
+        <h2 class="reveal">Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>How is Odoo different from QuickBooks?</summary>
+            <p>
+              QuickBooks is accounting software with some extras bolted on.
+              Odoo is a full business system &mdash; accounting is one app
+              among many, and it shares live data with your CRM, inventory,
+              sales, and everything else. If QuickBooks is starting to feel
+              like the tail wagging the dog, that&rsquo;s the sign
+              you&rsquo;ve outgrown it.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How much does Odoo cost?</summary>
+            <p>
+              It depends on the edition, the number of users, which apps you
+              run, and &mdash; the big variable &mdash; the implementation.
+              The honest answer is that the software cost is usually the
+              smaller half of the project; doing it right (configuration, data
+              migration, training) is where the real investment goes. We&rsquo;ll
+              scope it straight on a call, no games.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How long does an Odoo implementation take?</summary>
+            <p>
+              It depends on scope &mdash; a focused rollout of a few core apps
+              moves a lot faster than a whole-company transformation. Because
+              Odoo is modular, we can phase it: get the critical pieces live,
+              prove the value, then expand. We&rsquo;ll give you a realistic
+              timeline once we know what &ldquo;done&rdquo; looks like for
+              your business.
+            </p>
+          </details>
+        </div>
+
+        <div class="final-cta reveal">
+          <h2>Is Odoo right for your business?</h2>
+          <p class="section-lede">Thirty minutes. I&rsquo;ll tell you if Odoo fits &mdash; and if it doesn&rsquo;t, what does.</p>
+          <p>
+            <a class="btn btn-primary" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=odoo-landing-trial" target="_blank" rel="noopener">Start your free Odoo trial</a>
+            &nbsp;
+            <a class="btn" href="https://app.apollo.io/#/meet/hx5-z29-6w1/30-min" target="_blank" rel="noopener">Book a free consult</a>
+          </p>
+          <p style="margin-top:1rem;"><a href="/services/odoo.html">Read the full Odoo guide &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+  <script src="/assets/js/chat-widget.js" defer></script>
+</body>
+</html>

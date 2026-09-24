@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology Decisions Small Businesses Get Wrong (and How to Get Them Right) | Dead Brands, LLC Featuring David Strausser</title>
+  <meta name="description" content="Small businesses don't have a technology problem — they have a technology-decision problem. David Strausser on the tech mistakes that cost real money, and how to avoid them." />
+  <link rel="canonical" href="https://deadbrands.co/services/tech-consulting/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deadbrands.co/services/tech-consulting/" />
+  <meta property="og:title" content="Technology Decisions Small Businesses Get Wrong (and How to Get Them Right)" />
+  <meta property="og:description" content="Small businesses don't have a technology problem — they have a technology-decision problem. Here's how to get it right." />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <style>
+    .svc-hero { padding-bottom: 1rem; }
+    .flagship { border: 2px solid var(--accent); border-radius: var(--radius); background: var(--card); padding: 2rem clamp(1.25rem, 4vw, 2.5rem); margin: 2rem 0 3rem; }
+    .flagship h2 { margin-top: 0; }
+    .checklist { list-style: none; padding: 0; display: grid; gap: 0.7rem; margin: 1.25rem 0; }
+    .checklist li { padding-left: 1.75rem; position: relative; }
+    .checklist li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .card .svc-cta { display: inline-block; margin-top: 0.75rem; font-weight: 600; }
+    .final-cta { text-align: center; padding: 3rem 0 1rem; }
+    .final-cta .btn { font-size: 1.1rem; padding: 0.9rem 2.2rem; }
+    .landing-figure { margin: 2.5rem 0; }
+    .landing-figure img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+    .landing-figure figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+    .faq-list { display: grid; gap: 1rem; margin: 1.5rem 0 2rem; }
+    .go-deeper .svc-cta { display: inline-block; margin-top: 0.5rem; font-weight: 700; font-size: 1.05rem; }
+  </style>
+  <link rel="stylesheet" href="/assets/css/chat.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="%%A_about%%">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle %%A_services%%" aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="%%A_dead_brands%%" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="%%A_small_business_growth%%" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="%%A_sales_expert%%" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="%%A_marketing_expert%%" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="%%A_business_development%%" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="%%A_tech_consulting%%" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="%%A_odoo%%" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="%%A_sap_business_one%%" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="%%A_erp%%" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all %%A_services_index%%">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="%%A_resources%%">Resource Center</a>
+        <a href="/blog/index.html" class="%%A_blog%%">Blog</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section svc-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Dead Brands Services</p>
+        <h1 class="reveal">The Technology Decisions Small Businesses Get Wrong</h1>
+        <p class="section-lede reveal">
+          Small businesses don&rsquo;t have a technology problem. They have a
+          technology-<em>decision</em> problem. Same budget, wildly different
+          outcomes &mdash; here&rsquo;s what separates them.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="prose">
+          <h2>Mistake one: buying software before fixing the process</h2>
+          <p>
+            This is the big one, and I&rsquo;ve watched it play out for over a
+            decade in the ERP world. A company has a messy process &mdash;
+            orders get lost, inventory counts are fiction, nobody knows the
+            real margins &mdash; and the answer is always &ldquo;we need new
+            software.&rdquo;
+          </p>
+          <p>
+            Here&rsquo;s the problem: software doesn&rsquo;t fix processes. It
+            <em>amplifies</em> them. Automate a mess and you get a faster mess
+            &mdash; now with monthly subscription fees. The order of operations
+            matters: understand the process, simplify it, <em>then</em> pick
+            the tool that fits the simplified version. Do it backwards and
+            you&rsquo;ll spend good money digitizing your dysfunction.
+          </p>
+
+          <figure class="landing-figure reveal">
+            <img src="../../assets/img/services/tech-consulting-1.jpg" alt="Business owner reviewing a confusing tangle of software subscriptions" />
+            <figcaption>Photo: Wikimedia Commons</figcaption>
+          </figure>
+
+          <h2>Mistake two: the shiny-tool graveyard</h2>
+          <p>
+            Every small business has one: a stack of subscriptions nobody
+            fully uses. The project tool from 2022. The marketing platform
+            someone bought after a webinar. The &ldquo;AI solution&rdquo;
+            that&rsquo;s really just a chatbot with a logo.
+          </p>
+          <p>
+            The fix is a ruthless annual audit. List every tool, what it costs,
+            who actually uses it, and what would break if you cancelled it
+            tomorrow. You&rsquo;ll be shocked how many answers are
+            &ldquo;nobody,&rdquo; &ldquo;too much,&rdquo; and
+            &ldquo;nothing.&rdquo; Cancel with confidence &mdash; that&rsquo;s
+            found money for the tools that actually matter.
+          </p>
+          <h2>Mistake three: best-of-breed sprawl</h2>
+          <p>
+            There&rsquo;s a tool that&rsquo;s &ldquo;best&rdquo; at everything
+            &mdash; best CRM, best accounting, best inventory, best email. Buy
+            them all and congratulations: you&rsquo;ve built a full-time job
+            called keeping twelve systems in sync. Your team spends their day
+            doing swivel-chair work, copying data from one screen to another,
+            and nobody trusts any of the numbers because they never match.
+          </p>
+          <p>
+            For most small businesses, one integrated system that&rsquo;s good
+            enough at everything beats five perfect tools that don&rsquo;t talk
+            to each other. Integration isn&rsquo;t a feature &mdash; it&rsquo;s
+            the whole point. Every disconnected system is a tax on your
+            team&rsquo;s time and your data&rsquo;s accuracy.
+          </p>
+          <h2>Mistake four: ignoring the data you already have</h2>
+          <p>
+            Small business owners make huge decisions &mdash; hiring, pricing,
+            inventory, expansion &mdash; on gut feel, while sitting on data
+            that could answer the question. Not because they&rsquo;re careless;
+            because the data is trapped in five systems that don&rsquo;t agree
+            with each other (see mistake three).
+          </p>
+          <p>
+            You don&rsquo;t need a data warehouse or a dashboard consultant.
+            You need one trustworthy source for the numbers that run the
+            business: real margins, real cash position, real pipeline. Get
+            that right and gut feel becomes <em>informed</em> gut feel &mdash;
+            which is how good owners have always operated.
+          </p>
+
+          <figure class="landing-figure reveal">
+            <img src="../../assets/img/services/tech-consulting-2.jpg" alt="Small team working from a single shared system instead of scattered tools" />
+            <figcaption>Photo: Wikimedia Commons</figcaption>
+          </figure>
+
+          <h2>Mistake five: treating security as an afterthought</h2>
+          <p>
+            Nobody thinks about security until the ransomware note shows up.
+            The basics aren&rsquo;t expensive or complicated: real backups that
+            get tested, multi-factor authentication on everything, and access
+            that matches people&rsquo;s actual jobs &mdash; the intern
+            doesn&rsquo;t need the bank login.
+          </p>
+          <p>
+            Small businesses are targets <em>because</em> they assume they
+            aren&rsquo;t. The fix costs less than one bad week.
+          </p>
+          <h2>Mistake six: forgetting the total cost</h2>
+          <p>
+            The license is the cheapest part of any technology decision. The
+            real costs are implementation, data migration, training, the
+            productivity dip while everyone learns the new system, and the
+            ongoing care and feeding. A &ldquo;cheap&rdquo; tool that needs a
+            consultant to keep it running isn&rsquo;t cheap.
+          </p>
+          <p>
+            Always price the whole thing: buy it, install it, learn it, run it
+            for three years. Then compare. The sticker price is marketing; the
+            total cost is the truth.
+          </p>
+          <h2>Where I fit in</h2>
+          <p>
+            I&rsquo;m David Strausser. I&rsquo;ve spent 10+ years in the ERP
+            and business-technology world &mdash; I&rsquo;ve seen these exact
+            mistakes at every size of company, and I&rsquo;ve fixed them. When
+            I consult on technology decisions, I&rsquo;m vendor-neutral at the
+            start: we figure out what the business actually needs, simplify
+            the processes, and <em>then</em> pick the technology. No
+            shiny-object syndrome. No digitized dysfunction.
+          </p>
+        </div>
+
+        <div class="flagship go-deeper reveal">
+          <p class="eyebrow">Go deeper</p>
+          <h2>The full tech consulting guide</h2>
+          <div class="prose">
+            <p>
+              This page is the overview. The full guide covers how I assess a
+              company&rsquo;s technology stack, what the consulting engagement
+              looks like, and how we get from tool sprawl to one system that
+              works. If your subscriptions are multiplying and your clarity
+              isn&rsquo;t, read it.
+            </p>
+          </div>
+          <a class="svc-cta" href="/services/tech-consulting.html">Read the full Tech Consulting guide &rarr;</a>
+        </div>
+
+        <h2 class="reveal">Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>Should we build custom software or buy off the shelf?</summary>
+            <p>
+              Buy, almost always. Custom software is a second business you
+              didn&rsquo;t ask to run &mdash; you own the bugs, the updates,
+              and the developer who might leave. Buy the thing that&rsquo;s
+              close enough, configure it to fit, and save custom development
+              for the one or two processes that are genuinely your competitive
+              edge.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Cloud or on-premise &mdash; which is right for us?</summary>
+            <p>
+              For most small businesses, cloud wins: no servers to babysit,
+              updates handled for you, access from anywhere. On-premise still
+              makes sense in specific cases &mdash; certain compliance needs,
+              unreliable connectivity, or existing infrastructure you&rsquo;ve
+              already paid for. We&rsquo;ll look at your situation, not the
+              trend.
+            </p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How do I pick a technology consultant I can trust?</summary>
+            <p>
+              Watch for the tell: if they recommend a product in the first
+              meeting, they&rsquo;re a salesperson. A real consultant starts
+              with your processes and your problems, and the technology
+              recommendation comes <em>after</em> the diagnosis. Ask who they
+              don&rsquo;t recommend and why &mdash; the answer tells you
+              everything.
+            </p>
+          </details>
+        </div>
+
+        <div class="final-cta reveal">
+          <h2>Stop guessing about technology.</h2>
+          <p class="section-lede">Thirty minutes. Bring your stack &mdash; we&rsquo;ll find what&rsquo;s working, what&rsquo;s waste, and what&rsquo;s missing.</p>
+          <p><a class="btn btn-primary" href="https://app.apollo.io/#/meet/hx5-z29-6w1/30-min" target="_blank" rel="noopener">Book a free consult</a></p>
+          <p style="margin-top:1rem;"><a href="/services/tech-consulting.html">Read the full Tech Consulting guide &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+  <script src="/assets/js/chat-widget.js" defer></script>
+</body>
+</html>

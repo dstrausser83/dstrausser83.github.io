@@ -139,15 +139,20 @@ def extract_faq(body):
         faqs.append((q, " ".join(a).strip()))
     return [(q, an) for q, an in faqs if q and an]
 
-def faq_jsonld(faqs):
+def faq_jsonld(faqs, slug=None):
     if not faqs:
         return ""
+    def tag_faq_links(a):
+        # FAQ answers carry markdown links; tag bare Quaint trial URLs the
+        # same way the page body does so no untracked Odoo link ships (2026-09-24).
+        return re.sub(r"\]\((https://quaintbusiness\.com[^)]*)\)",
+                      lambda m: "](" + tag_quaint_url(m.group(1), slug) + ")", a)
     data = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
             {"@type": "Question", "name": q,
-             "acceptedAnswer": {"@type": "Answer", "text": a}}
+             "acceptedAnswer": {"@type": "Answer", "text": tag_faq_links(a)}}
             for q, a in faqs
         ],
     }
@@ -285,23 +290,30 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="/about.html" class="%%A_about%%">About</a>
         <div class="nav-drop">
-          <a href="/services.html" class="nav-drop-toggle %%A_services%%" aria-haspopup="true" aria-expanded="false">Services <span class="caret" aria-hidden="true">&#9662;</span></a>
-          <div class="nav-drop-menu">
-            <a href="/services.html" class="%%A_services_index%%">All services</a>
-            <a href="/services/dead-brands.html" class="%%A_dead_brands%%">Dead Brand Stuff</a>
-            <a href="/services/small-business-growth.html" class="%%A_small_business_growth%%">Small Business Growth</a>
-            <a href="/services/sales-expert.html" class="%%A_sales_expert%%">Sales Expert</a>
-            <a href="/services/marketing-expert.html" class="%%A_marketing_expert%%">Marketing Expert</a>
-            <a href="/services/business-development.html" class="%%A_business_development%%">Biz Dev</a>
-            <a href="/services/tech-consulting.html" class="%%A_tech_consulting%%">Tech Consulting</a>
-            <a href="/services/odoo.html" class="%%A_odoo%%">Odoo</a>
-            <a href="/services/sap-business-one.html" class="%%A_sap_business_one%%">SAP Business One</a>
-            <a href="/services/erp.html" class="%%A_erp%%">ERP</a>
+          <button class="nav-drop-toggle %%A_services%%" aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="%%A_dead_brands%%" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="%%A_small_business_growth%%" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="%%A_sales_expert%%" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="%%A_marketing_expert%%" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="%%A_business_development%%" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="%%A_tech_consulting%%" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="%%A_odoo%%" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="%%A_sap_business_one%%" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="%%A_erp%%" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all %%A_services_index%%">View all services <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
         <a href="/resources.html" class="%%A_resources%%">Resource Center</a>
         <a href="/blog/index.html" class="%%A_blog%%">Blog</a>
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
         <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
@@ -398,7 +410,7 @@ def build(draft_path, image_src=None, video_src=None):
         title=title, slug=slug, date=post_date, pub_display=pub_display,
         description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
-        body=md_to_html(body, slug), faq_jsonld=faq_jsonld(faqs),
+        body=md_to_html(body, slug), faq_jsonld=faq_jsonld(faqs, slug),
         article_jsonld=article_jsonld(title, description, slug, published_at, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
         cta=cta_html(slug), author_box=author_box_html(), cta_css=CTA_CSS,
