@@ -43,14 +43,53 @@
     .author-links a { font-size: 0.9rem; }
 
   </style>
-  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the biggest data migration mistake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trying to move everything at once. Small test batches, one module at a time, every time. There is no shortcut and there never was."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I test an import without losing data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Import into a test copy of the database first. Check row counts, spot-check records, run your key reports. Only when the test copy looks right do you import into the live system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I migrate from Excel directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Odoo's import tool reads CSV files, and it validates each row before committing. But validate your column mapping on 50 rows before you run 50,000. The import tool tells you exactly which rows failed and why."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I hire someone for the migration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your data is messy or your business runs on it daily, yes. A migration gone wrong costs more than a consultant costs. The cheapest person to do it is rarely the cheapest option."
+      }
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Data Migration Horror Stories (And How to Avoid Becoming One)",
   "description": "How small business owners avoid data migration disasters with Odoo: map fields first, import one module at a time, and test in a copy before you touch the live database.",
-  "datePublished": "2026-09-25T11:42:48Z",
+  "datePublished": "2026-09-25T11:47:31Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -113,7 +152,7 @@
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
         <h1>Data Migration Horror Stories (And How to Avoid Becoming One)</h1>
-        <p class="post-meta">September 25, 2026 at 7:42 AM ET &middot; by <a href="../author.html">David Strausser</a></p>
+        <p class="post-meta">September 25, 2026 at 7:47 AM ET &middot; by <a href="../author.html">David Strausser</a></p>
         <figure class="post-hero"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" alt="Data Migration Horror Stories (And How to Avoid Becoming One)" /></figure>
         <div class="post-body prose">
 <h2>Quick answer</h2>
@@ -146,7 +185,8 @@
 <h3>Where this fits in the ERP decision</h3>
 <p>Here is the part that matters for the Odoo vs. SAP Business One question: migration complexity is a function of your data, not your software. A small business with clean data migrates to Odoo in days. A small business with dirty data has a dirty-data problem, not a software problem. Picking a bigger, more expensive system does not clean your data. It just gives you a more expensive place to store the mess.</p>
 <p>Odoo's open model is an advantage here: you can stand up a test database, run imports, break things, and start over without license-meter anxiety. Use that. The freedom to experiment is the cheapest insurance in the project.</p>
-<h3>Frequently asked questions</h3>
+</div>
+<h2>Frequently asked questions</h2>
 <h3>What is the biggest data migration mistake?</h3>
 <p>Trying to move everything at once. Small test batches, one module at a time, every time. There is no shortcut and there never was.</p>
 <h3>How do I test an import without losing data?</h3>
@@ -155,7 +195,6 @@
 <p>Yes, Odoo's import tool reads CSV files, and it validates each row before committing. But validate your column mapping on 50 rows before you run 50,000. The import tool tells you exactly which rows failed and why.</p>
 <h3>Should I hire someone for the migration?</h3>
 <p>If your data is messy or your business runs on it daily, yes. A migration gone wrong costs more than a consultant costs. The cheapest person to do it is rarely the cheapest option.</p>
-</div>
         </div>
         <p class="post-tags"><span>odoo</span> <span>data-migration</span> <span>erp</span> <span>implementation</span> <span>business-logic</span></p>
         <section class="post-cta">
