@@ -1,5 +1,23 @@
 [
   {
+    "slug": "data-migration-horror-stories-and-how-to-avoid-becoming-one",
+    "title": "Data Migration Horror Stories (And How to Avoid Becoming One)",
+    "date": "2026-09-25",
+    "published_at": "2026-09-25T11:42:48Z",
+    "tags": [
+      "odoo",
+      "data-migration",
+      "erp",
+      "implementation",
+      "business-logic"
+    ],
+    "excerpt": "Data migration is where most small businesses get wrecked during an ERP move. Here is what actually works when you are moving from spreadsheets and legacy tools to Odoo.",
+    "description": "How small business owners avoid data migration disasters with Odoo: map fields first, import one module at a time, and test in a copy before you touch the live database.",
+    "image": "images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg",
+    "video": "",
+    "url": "posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html"
+  },
+  {
     "slug": "customization-vs-configuration-the-line-that-quietly-kills-e",
     "title": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets",
     "date": "2026-09-24",
@@ -52,24 +70,6 @@
     "image": "images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg",
     "video": "",
     "url": "posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html"
-  },
-  {
-    "slug": "data-migration-horror-stories-and-how-to-avoid-becoming-one",
-    "title": "Data Migration Horror Stories: How to Avoid Becoming One",
-    "date": "2026-09-23",
-    "published_at": "2026-09-23T22:18:55Z",
-    "tags": [
-      "erp",
-      "data-migration",
-      "sap-business-one",
-      "odoo",
-      "implementation"
-    ],
-    "excerpt": "Data migration is where ERP projects go to die \u2014 not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale.",
-    "description": "Data migration is where ERP projects go to die \u2014 not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale.",
-    "image": "images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg",
-    "video": "",
-    "url": "posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html"
   },
   {
     "slug": "your-implementation-partner-is-lying-about-the-timeline-here",
