@@ -58,7 +58,9 @@ Recipes are documented in the deploy notes; the CSS lives in `assets/css/styles.
 
 ## Official vendor resources (linked, not hosted)
 
-These appear on `resources.html` under "Official vendor resources":
+These appear on `resources.html` under "Official vendor resources", and since
+2026-09-24 also inline in each product page's "Further reading" section
+(`services/odoo.html`, `services/sap-business-one.html`):
 
 - Odoo official documentation — https://www.odoo.com/documentation/
 - Odoo CRM product tour — https://www.odoo.com/app/crm
