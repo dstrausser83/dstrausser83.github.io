@@ -28,7 +28,7 @@
 
 // ---------------------------------------------------------------- models ---
 const MODEL = "@cf/meta/llama-3.1-8b-instruct"; // Workers AI, free tier
-const APOLLO_LINK = "https://app.apollo.io/#/meet/hx5-z29-6w1/30-min";
+const APOLLO_LINK = "https://app.apollo.io/#/meet/david_strausser_175";
 const AVAIL_TTL_S = 15 * 60;          // availability cache: 15 min fresh
 const AVAIL_STALE_TTL_S = 24 * 3600;  // stale cache kept 24h for outage mode
 const SESSION_TTL_S = 2 * 3600;       // chat session memory: 2 h

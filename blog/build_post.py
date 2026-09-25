@@ -182,7 +182,7 @@ def article_jsonld(title, description, slug, post_date, image_rel, tags):
         data["image"] = f"https://deadbrands.co/blog/{image_rel}"
     return '<script type="application/ld+json">\n' + json.dumps(data, indent=2) + "\n</script>"
 
-MEET_LINK = "https://app.apollo.io/#/meet/hx5-z29-6w1/30-min"
+MEET_LINK = "https://app.apollo.io/#/meet/david_strausser_175"
 TRIAL_LINK = ("https://quaintbusiness.com/tryodoo?utm_source=deadbrands"
               "&utm_medium=website&utm_campaign=david-strausser"
               "&utm_content=blog-cta-trial")

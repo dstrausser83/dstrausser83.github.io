@@ -167,7 +167,7 @@
       addMsg(
         "bot",
         "I'm having a quick technical moment — want to grab time directly? " +
-          "https://app.apollo.io/#/meet/hx5-z29-6w1/30-min"
+          "https://app.apollo.io/#/meet/david_strausser_175"
       );
     }
     state.busy = false;

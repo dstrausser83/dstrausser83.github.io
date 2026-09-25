@@ -120,7 +120,7 @@ Rules for the CRM builder:
    backoff, the cron tries again next run. **Capture never blocks, nothing is lost.**
 4. Availability: live CRM calendar → 15-min KV cache → stale KV cache (up to 24h,
    offered honestly as cached) → Apollo self-serve booking link
-   (https://app.apollo.io/#/meet/hx5-z29-6w1/30-min), which always works.
+   (https://app.apollo.io/#/meet/david_strausser_175), which always works.
 5. Bot-assisted bookings are stored as **TENTATIVE holds**; the visitor is told
    "I've held [time] for you — David's team will confirm it shortly."
    The bot never fake-confirms a booking it can't verify.

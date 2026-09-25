@@ -16,6 +16,13 @@
 - **SAP Business One** — enterprise-grade ERP for upper-midmarket manufacturing, distribution, and services companies; includes rescue and optimization work for existing B1 users.
 - **Odoo** — open-source ERP that replaces a dozen disconnected apps (CRM, accounting, inventory, e-commerce, helpdesk) with one integrated system.
 
+## Case studies: real SAP and Odoo results
+
+- Original Dead Brands write-ups of published SAP and Odoo customer success stories, with quantified outcomes: https://deadbrands.co/case-studies/
+- **FMT Steel (SAP Business One, manufacturing)** — 300% business growth, 500% more profitable after implementing SAP Business One with quality management: https://deadbrands.co/case-studies/fmt-steel-sap-business-one.html
+- **Inspiralia (Odoo, professional services)** — replaced Monday.com, DocuSign, MailChimp and legacy tools with Odoo in 3 months; ~80% more efficient invoicing/CRM: https://deadbrands.co/case-studies/inspiralia-odoo.html
+- **Purish (Odoo, distribution & e-commerce)** — replaced paper-and-Excel warehouse ops with Odoo; 100% purchase-to-invoice efficiency gain, near same-day shipping at peak: https://deadbrands.co/case-studies/purish-odoo.html
+
 ## Shark Bite Biz podcast
 
 - **Shark Bite Biz** — the company podcast hosted by David Strausser, 200+ episodes on personal growth, professional growth, and business growth: sales, marketing, leadership, and straight-talk business lessons.
@@ -32,6 +39,7 @@
 
 - Home: https://deadbrands.co/
 - Blog (new posts daily — Odoo how-tos, SAP Business One wisdom, sales, marketing, business and life): https://deadbrands.co/blog/
+- Case studies (real SAP & Odoo customer results, rewritten for SMBs): https://deadbrands.co/case-studies/
 - Services: https://deadbrands.co/services.html
 - About: https://deadbrands.co/about.html
 - Book a free meeting with David: https://app.apollo.io/#/meet/david_strausser_175
