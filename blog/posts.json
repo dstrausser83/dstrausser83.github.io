@@ -1,5 +1,23 @@
 [
   {
+    "slug": "inventory-accuracy-the-unsexy-metric-that-decides-whether-yo",
+    "title": "Inventory accuracy: the metric that decides if your ERP works (and why it\u2019s unsexy)",
+    "date": "2026-09-25",
+    "published_at": "2026-09-25T18:36:24Z",
+    "tags": [
+      "erp",
+      "inventory",
+      "odoo",
+      "business",
+      "metrics"
+    ],
+    "excerpt": "Most business folks talk about sales or margins. But the real test of your ERP? How well it counts your stock. This unsexy metric is the silent judge of whether your system actually works.",
+    "description": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
+    "image": "images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg",
+    "video": "",
+    "url": "posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html"
+  },
+  {
     "slug": "data-migration-horror-stories-and-how-to-avoid-becoming-one",
     "title": "Data Migration Horror Stories (And How to Avoid Becoming One)",
     "date": "2026-09-25",

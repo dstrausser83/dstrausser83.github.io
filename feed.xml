@@ -5,8 +5,21 @@
     <link>https://dstrausser83.github.io/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Sep 2026 11:47:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 18:36:26 GMT</lastBuildDate>
     <atom:link href="https://dstrausser83.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inventory accuracy: the metric that decides if your ERP works (and why it’s unsexy)</title>
+      <link>https://dstrausser83.github.io/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</link>
+      <guid isPermaLink="true">https://dstrausser83.github.io/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</guid>
+      <description>Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.</description>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://dstrausser83.github.io/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>inventory</category>
+      <category>odoo</category>
+      <category>business</category>
+      <category>metrics</category>
+    </item>
     <item>
       <title>Data Migration Horror Stories (And How to Avoid Becoming One)</title>
       <link>https://dstrausser83.github.io/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
