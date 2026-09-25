@@ -616,3 +616,55 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   /* Thumb-friendly primary buttons on small screens */
   .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
 }
+
+/* ---------- Service imagery (landing + long-form pages) ---------- */
+.svc-hero-figure { margin: 2rem auto 0; max-width: 960px; }
+.svc-hero-figure img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: var(--shadow); }
+.svc-figure { margin: 2.5rem 0; }
+.svc-figure img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.svc-hero-figure figcaption, .svc-figure figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+.card-thumb { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); display: block; margin-bottom: 1rem; }
+
+/* ---------- Service imagery: layout variety (no two pages alike) ---------- */
+.fig-band { margin: 2rem calc(50% - 50vw) 0; max-width: 100vw; }
+.fig-band img { width: 100%; height: auto; display: block; }
+.fig-band figcaption { max-width: 1100px; margin: 0.6rem auto 0; padding: 0 1.25rem; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.fig-hero-offset { margin: 2rem 0 0 auto; max-width: 88%; }
+.fig-hero-offset img { width: 100%; height: auto; display: block; border-radius: var(--radius) 0 0 var(--radius); box-shadow: var(--shadow); }
+.fig-hero-offset figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; text-align: right; padding-right: 0.25rem; }
+.fig-inset { max-width: 68%; margin: 2.5rem auto; }
+.fig-inset img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: var(--shadow); }
+.fig-inset figcaption { text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; font-style: italic; }
+.fig-wide { margin: 2.5rem calc(50% - 47vw); max-width: 94vw; }
+.fig-wide img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.fig-wide figcaption { max-width: 1100px; margin: 0.6rem auto 0; padding: 0 1.25rem; font-size: 0.85rem; color: var(--muted); }
+.fig-frame { background: #fff; padding: 0.9rem 0.9rem 0.5rem; box-shadow: var(--shadow); transform: rotate(-1.1deg); margin: 2.75rem auto; max-width: 80%; border: 1px solid var(--line); }
+.fig-frame img { width: 100%; height: auto; display: block; }
+.fig-frame figcaption { font-size: 0.85rem; color: var(--muted); margin: 0.55rem 0.2rem 0.2rem; font-style: italic; }
+.fig-sidenote { display: grid; grid-template-columns: 3fr 1fr; gap: 1.25rem; align-items: start; margin: 2.5rem 0; }
+.fig-sidenote img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.fig-sidenote figcaption { font-size: 0.82rem; line-height: 1.5; color: var(--muted); border-left: 3px solid var(--accent, #e8b33c); padding-left: 0.8rem; margin-top: 0.2rem; }
+.fig-numbered { margin: 2.5rem 0; counter-increment: fignum; }
+.fig-numbered img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.fig-numbered figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+.fig-numbered figcaption::before { content: "Fig. " counter(fignum, decimal-leading-zero) " — "; font-weight: 700; color: var(--text); }
+main { counter-reset: fignum; }
+.fig-left-align { max-width: 86%; margin: 2.5rem 0; }
+.fig-left-align img { width: 100%; height: auto; display: block; border-radius: var(--radius) 0 var(--radius) 0; }
+.fig-left-align figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.78rem; }
+@media (max-width: 720px) {
+  .fig-sidenote { grid-template-columns: 1fr; }
+  .fig-inset, .fig-frame { max-width: 100%; }
+  .fig-frame { transform: none; }
+  .fig-wide { margin-left: 0; margin-right: 0; max-width: 100%; }
+  .fig-band { margin-left: 0; margin-right: 0; max-width: 100%; }
+  .fig-hero-offset { max-width: 100%; }
+  .fig-hero-offset img { border-radius: var(--radius); }
+  .fig-hero-offset figcaption { text-align: left; }
+  .fig-left-align { max-width: 100%; }
+}
+
+/* ---------- Header hardening (mobile lockup) ---------- */
+.nav-cta { white-space: nowrap; }
+.brand, .nav-toggle { flex-shrink: 0; }
+@media (max-width: 400px) { .brand { font-size: 1.3rem; } }
