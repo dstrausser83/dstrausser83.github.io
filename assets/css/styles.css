@@ -209,6 +209,10 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 
 /* ---------- Sections ---------- */
 .section { padding: 5.5rem 0; }
+/* Fixed-header clearance: the first content block on every page must clear the
+   72px fixed .site-header. .section's 5.5rem top padding left only ~16px of
+   clearance, so eyebrows/titles clipped under the header on mobile. */
+main > .section:first-child { padding-top: calc(5.5rem + 44px); }
 .section-alt {
   background: var(--bg-alt);
   border-top: 2px dashed var(--line);
