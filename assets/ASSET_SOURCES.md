@@ -70,3 +70,6 @@ These appear on `resources.html` under "Official vendor resources", and since
 
 All links verified live 2026-09-24 (odoo.com pages fetched directly; the SAP product
 page is SAP's canonical B1 URL, cited in this repo's image attribution).
+
+## AI-generated artwork
+- `assets/img/services/odoo-hero-zest.jpg` — AI-generated abstract banner (Muse media pipeline, 2026-09-24): flowing ribbons in purple/magenta/orange/teal, 2048x1152 JPEG. Created for the Odoo landing page hero per David's "zesty startup" direction. No text, no people, no watermark. Caption on page discloses AI generation.
