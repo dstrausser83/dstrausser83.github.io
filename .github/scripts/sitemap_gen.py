@@ -52,6 +52,11 @@ PAGES = [
     ("case-studies/index.html", "/case-studies/", "weekly", "0.9"),
     ("merch/index.html", "/merch/", "monthly", "0.7"),
 ]
+for fn in sorted(os.listdir(os.path.join(ROOT, "merch"))):
+    if fn != "index.html" and os.path.isdir(os.path.join(ROOT, "merch", fn)):
+        PAGES.append(
+            (os.path.join("merch", fn, "index.html"), f"/merch/{fn}/", "monthly", "0.6")
+        )
 for fn in sorted(os.listdir(os.path.join(ROOT, "case-studies"))):
     if fn.endswith(".html") and fn != "index.html":
         PAGES.append(
