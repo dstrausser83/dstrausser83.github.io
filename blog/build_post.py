@@ -541,8 +541,19 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         raise ValueError(f"refusing to build {draft_path}: empty slug")
     post_date = fm.get("date", date.today().isoformat())
     # David's rule 2026-09-23: every post shows its publish timestamp.
-    # Stamped at build (= publish) time; frontmatter may override for backfills.
-    published_at = fm.get("published_at") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # 2026-09-26 LESSON: a full rebuild stamped all 18 posts with the same
+    # time because drafts carry no published_at. A rebuild must NEVER move
+    # an existing post's timestamp — preserve the live posts.json value for
+    # existing slugs. Frontmatter published_at still overrides (backfills).
+    published_at = fm.get("published_at")
+    if not published_at and os.path.exists(INDEX_JSON):
+        try:
+            with open(INDEX_JSON, encoding="utf-8") as _pf:
+                _live = {p["slug"]: p.get("published_at") for p in json.load(_pf)}
+            published_at = _live.get(slug)
+        except Exception:
+            pass
+    published_at = published_at or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     pub_display = format_pub_display(published_at, post_date)
     # Scribe drafts sometimes wrap tags in stray quotes ("sap-business-one").
     # Strip them at build so they never reach the page or JSON-LD (2026-09-24).
