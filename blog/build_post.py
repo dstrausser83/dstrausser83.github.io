@@ -212,7 +212,7 @@ def cta_html(slug):
 
 def author_box_html():
     return f"""<section class="author-box">
-          <img src="{HEADSHOT}" alt="David Strausser" width="96" height="96" />
+          <img src="{HEADSHOT}" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="{AUTHOR_URL}">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -346,7 +346,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
-def build(draft_path, image_src=None, video_src=None):
+def html_escape_attr(s):
+    """Escape a string for use inside a double-quoted HTML attribute."""
+    return (s.replace("&", "&amp;").replace("<", "&lt;")
+             .replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def build(draft_path, image_src=None, video_src=None, image_alt=None):
     with open(draft_path, encoding="utf-8") as f:
         text = f.read()
     # Scribe drafts can carry a UTF-8 BOM which breaks frontmatter
@@ -377,6 +383,7 @@ def build(draft_path, image_src=None, video_src=None):
     meta_keywords = (f'<meta name="keywords" content="{keywords}" />' if keywords else "")
 
     hero, og_image, image_rel, video_rel = "", "", None, None
+    img_dims = None  # (w, h) of the published hero JPEG — reused for og tags + hero attrs
     img_file = image_src or fm.get("image")
     if img_file and os.path.exists(img_file):
         os.makedirs(IMAGES_DIR, exist_ok=True)
@@ -384,12 +391,20 @@ def build(draft_path, image_src=None, video_src=None):
         # Never copy a file onto itself — open(dest,'wb') truncates before read
         if os.path.abspath(img_file) == os.path.abspath(dest):
             image_rel = f"images/{slug}.jpg"
-            og_image = f'<meta property="og:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
         else:
             with open(img_file, "rb") as a, open(dest, "wb") as b:
                 b.write(a.read())
             image_rel = f"images/{slug}.jpg"
+        if image_rel:
             og_image = f'<meta property="og:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
+            try:
+                from PIL import Image
+                with Image.open(os.path.join(IMAGES_DIR, f"{slug}.jpg")) as im:
+                    img_dims = im.size
+                og_image += (f'\n  <meta property="og:image:width" content="{img_dims[0]}" />'
+                             f'\n  <meta property="og:image:height" content="{img_dims[1]}" />')
+            except Exception:
+                pass
     vid_file = video_src or fm.get("video")
     if vid_file and os.path.exists(vid_file):
         os.makedirs(VIDEOS_DIR, exist_ok=True)
@@ -403,7 +418,21 @@ def build(draft_path, image_src=None, video_src=None):
         hero = (f'<figure class="post-hero"><video controls preload="metadata"{poster} '
                 f'src="{video_rel}"><source src="{video_rel}" type="video/mp4"></video></figure>')
     elif image_rel:
-        hero = f'<figure class="post-hero"><img src="../{image_rel}" alt="{title}" /></figure>'
+        # Hero alt priority (David 2026-09-26: descriptive alt on every post
+        # image): frontmatter image_alt > --image-alt arg (scribe image brief)
+        # > description > title. Never empty.
+        alt_raw = ((fm.get("image_alt") or "").strip()
+                   or (image_alt or "").strip()
+                   or description.strip()
+                   or title)
+        alt_raw = re.sub(r"\s+", " ", alt_raw)[:160]
+        alt = html_escape_attr(alt_raw)
+        # Real pixel dims kill layout shift; lazy keeps it off the critical path.
+        size_attrs = ""
+        if img_dims:
+            size_attrs = f' width="{img_dims[0]}" height="{img_dims[1]}"'
+        hero = (f'<figure class="post-hero"><img src="../{image_rel}" alt="{alt}"'
+                f'{size_attrs} loading="lazy" /></figure>')
 
     faqs = extract_faq(body)
     html = PAGE_TEMPLATE.format(
@@ -443,7 +472,8 @@ def build(draft_path, image_src=None, video_src=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("usage: build_post.py <draft.md> [--image <file.jpg>] [--video <file.mp4>]"); sys.exit(1)
+        print("usage: build_post.py <draft.md> [--image <file.jpg>] [--video <file.mp4>] [--image-alt <text>]"); sys.exit(1)
     img = sys.argv[sys.argv.index("--image") + 1] if "--image" in sys.argv else None
     vid = sys.argv[sys.argv.index("--video") + 1] if "--video" in sys.argv else None
-    build(sys.argv[1], img, vid)
+    alt = sys.argv[sys.argv.index("--image-alt") + 1] if "--image-alt" in sys.argv else None
+    build(sys.argv[1], img, vid, alt)

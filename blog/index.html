@@ -135,7 +135,9 @@
       return p.date;
     }
     function card(p) {
-      const img = p.image ? `<img src="${p.image}" alt="" loading="lazy" />` : '';
+      // Card images need real alt text (a11y/SEO) — was shipped empty (fixed 2026-09-26).
+      const alt = (p.title || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+      const img = p.image ? `<img src="${p.image}" alt="${alt}" loading="lazy" />` : '';
       const tags = (p.tags || []).map(t => `<span>${t}</span>`).join('');
       return `<article class="post-card">
         ${img}
