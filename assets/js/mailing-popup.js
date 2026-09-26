@@ -20,6 +20,7 @@
 
   var SHOW_DELAY_MS = 5000;    // delay after landing before the popup appears
   var VISIBLE_MS = 10000;      // how long it stays up before auto-dismiss
+  var LS_VISITED = "db_visited";
   var LS_DISMISSED = "db_mailing_dismissed";
   var LS_SUBSCRIBED = "db_mailing_subscribed";
 
@@ -154,8 +155,14 @@
   if (!MAILING_LIST_ENDPOINT) return;
 
   var skip = false;
+  var isRepeatVisitor = false;
   try {
-    skip = localStorage.getItem(LS_DISMISSED) === "1" ||
+    // First-time visitors only: if they've been here before, skip entirely.
+    isRepeatVisitor = localStorage.getItem(LS_VISITED) === "1";
+    // Mark this visit immediately so the next pageview counts as a repeat.
+    localStorage.setItem(LS_VISITED, "1");
+    skip = isRepeatVisitor ||
+           localStorage.getItem(LS_DISMISSED) === "1" ||
            localStorage.getItem(LS_SUBSCRIBED) === "1";
   } catch (e) {}
   if (skip) return;

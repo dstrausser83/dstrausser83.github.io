@@ -680,35 +680,36 @@
 
     <!-- SHOP -->
     <section class="section section-alt" id="shop">
-      <div class="wrap narrow shop-inner">
+      <div class="wrap shop-inner">
         <p class="eyebrow reveal">Shop</p>
         <h2 class="reveal">Wear the <span class="hl">brand.</span></h2>
         <div class="prose reveal">
           <p>
-            The Dead Brands logo tee and the Shark Bite Biz tee &mdash;
+            The Dead Brands logo tee and the Shark Bite Biz line &mdash;
             printed on demand, shipped to your door. The stuff worth wearing.
           </p>
         </div>
-        <div class="merch-grid">
-          <article class="merch-card">
-            <img src="/assets/img/merch/tee-logo.png" alt="Dead Brands logo tee" width="600" height="700" loading="lazy" />
-            <div class="merch-body">
-              <h3>The Logo Tee</h3>
-              <p class="merch-price">$26.99</p>
-              <a class="btn" href="/merch/">Shop Now</a>
-            </div>
-          </article>
-          <article class="merch-card">
-            <img src="/assets/img/merch/sharkbite-tee-black.webp" alt="Shark Bite Biz tee — black shirt with the official Shark Bite Biz logo" width="600" height="700" loading="lazy" />
-            <div class="merch-body">
-              <h3>Shark Bite Biz Tee</h3>
-              <p class="merch-price">$26.99</p>
-              <a class="btn" href="/merch/">Shop Now</a>
-            </div>
-          </article>
+        <div class="shop-carousel-wrap reveal">
+          <div class="shop-carousel" id="shop-carousel" aria-label="Featured products">
+            <!-- Populated by shop-carousel.js from products.json (ranked by sales) -->
+          </div>
+          <div class="carousel-nav" aria-hidden="true">
+            <button class="carousel-btn" id="carousel-prev" aria-label="Previous products">&#8592;</button>
+            <button class="carousel-btn" id="carousel-next" aria-label="Next products">&#8594;</button>
+          </div>
         </div>
         <div class="hero-ctas reveal">
-          <a class="btn btn-ghost" href="/merch/">Visit the Shop</a>
+          <a class="shop-view-all" href="/merch/">View All in Store &rarr;</a>
+        </div>
+        <div class="discount-cta reveal">
+          <h3>Want 10% off?</h3>
+          <p>Drop your email and cell — we'll text you a one-time 10% off code.</p>
+          <form id="discount-form" class="discount-form" novalidate>
+            <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+            <input type="tel" name="phone" placeholder="Cell phone" required autocomplete="tel" />
+            <button type="submit" class="btn">Get my code</button>
+          </form>
+          <p class="discount-status" id="discount-status" role="status"></p>
         </div>
       </div>
     </section>
@@ -894,6 +895,7 @@
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/mailing-popup.js" defer></script>
+  <script src="assets/js/shop-carousel.js" defer></script>
   <script src="assets/js/consent.js" defer></script>
   <script src="/assets/js/chat-widget.js" defer></script>
 </body>
