@@ -42,10 +42,33 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html">About</a>
-        <a href="/resources.html">Resource Center</a>
-        <a href="/blog/index.html">Blog</a>
-        <a href="/case-studies/">Case Studies</a>
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
         <a href="/merch/" aria-current="page">Shop</a>
         <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
@@ -53,13 +76,13 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
+    <section class="section">
       <div class="wrap">
-        <p class="eyebrow reveal">Dead Brands Shop</p>
-        <h1 class="reveal">Wear the <span class="hl">brand.</span></h1>
-        <div class="prose reveal">
-          <p>The stuff worth wearing. Every shirt is printed on demand when you order &mdash; no warehouses, no waste, just the good stuff shipped straight to your door.</p>
-        </div>
+        <p class="eyebrow">Dead Brands Shop</p>
+        <h1>Wear the <span class="hl">brand.</span></h1>
+        <p class="section-lede">
+          The stuff worth wearing. Every shirt is printed on demand when you order &mdash; no warehouses, no waste, just the good stuff shipped straight to your door.
+        </p>
       </div>
     </section>
 
