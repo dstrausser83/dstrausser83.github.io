@@ -161,5 +161,24 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/assets/js/shop-discount-popup.js" defer></script>
+
+  <!-- Shop discount popup: 10% off for mailing list signup -->
+  <div class="popup-overlay" id="shop-discount-popup" hidden>
+    <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="shop-discount-title">
+      <button class="popup-close" id="shop-discount-close" aria-label="Close">&times;</button>
+      <p class="popup-eyebrow">Shop Perk</p>
+      <h2 id="shop-discount-title">Take 10% off your order</h2>
+      <p class="popup-sub">Join the mailing list and we'll send your code instantly.</p>
+      <form id="shop-discount-form" novalidate>
+        <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" />
+        <input type="email" name="email" placeholder="Email" autocomplete="email" />
+        <input type="tel" name="phone" placeholder="Cell phone (optional)" autocomplete="tel" />
+        <button type="submit" class="btn">Send my 10% code</button>
+      </form>
+      <p class="popup-status" id="shop-discount-status" role="status"></p>
+      <p class="popup-fine">One code per customer. Works on everything in the store.</p>
+    </div>
+  </div>
 </body>
 </html>

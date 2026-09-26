@@ -31,6 +31,8 @@ var SPREADSHEET_ID = "1KoSBo1jZFjKeTaj8XIvpdSg6RKJHrZFJH-CRVbQ0XjI";
 // Email David the moment someone signs up. Needs the gmail.send scope —
 // Google will ask for a fresh authorization tap on first run after deploy.
 var NOTIFY_EMAIL = "dstrausser83@gmail.com";
+// Universal 10% discount code — always works, always 10% off.
+var DISCOUNT_CODE = "BITE10";
 
 // The one and only way this script opens the spreadsheet. Standalone
 // projects have no "active" spreadsheet, so this is the fix for the
@@ -81,6 +83,23 @@ function doPost(e) {
         ]);
       }
       return json({ ok: true });
+    }
+
+// ---- discount-code path (assets/js/shop-carousel.js) ----
+// Visitor gives first name + email + cell -> gets universal BITE10 code
+// emailed instantly. Lead is logged; email send never blocks the response.
+    if (data.action === "discount_code") {
+      var dFirst = str_(data.firstName, 80);
+      var dEmail = str_(data.email, 160);
+      var dPhone = str_(data.phone, 40);
+      if (!dFirst || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dEmail)) {
+        return json({ ok: false, error: "invalid" });
+      }
+      var dSheet = mailSheet_();
+      if (dSheet.getLastRow() === 0) dSheet.appendRow(MAIL_HEADER);
+      dSheet.appendRow([new Date(), dFirst, "(discount)", dEmail + " | " + dPhone]);
+      sendDiscountEmail_(dFirst, dEmail);
+      return json({ ok: true, code: DISCOUNT_CODE });
     }
 
     // ---- mailing-list path (v1 fields + validation, explicit sheet) ----    var first = String(data.firstName || "").trim().slice(0, 80);
@@ -346,6 +365,26 @@ function notifySignup_(first, last, email) {
             "\n\n— Dead Brands mailing list"
     });
   } catch (e) { /* notify is best-effort */ }
+}
+
+// ---- instant discount-code email to the visitor. Templated with their
+//      first name. Best-effort: failures never break the signup response.
+function sendDiscountEmail_(first, email) {
+  try {
+    MailApp.sendEmail({
+      to: email,
+      subject: "Your 10% off code from Dead Brands",
+      body: "Hey " + first + ",\n\n" +
+            "Thanks for joining the Dead Brands mailing list. " +
+            "Here's your 10% off code for the shop:\n\n" +
+            "    " + DISCOUNT_CODE + "\n\n" +
+            "Use it at checkout on https://deadbrands.co/merch/ — " +
+            "works on everything in the store.\n\n" +
+            "Welcome to the loud side.\n\n" +
+            "— David\n" +
+            "Dead Brands, LLC"
+    });
+  } catch (e) { /* email is best-effort */ }
 }
 
 function json(obj) {
