@@ -741,6 +741,6 @@ main { counter-reset: fignum; }
 @media (min-width: 768px) { .shop-card { flex-basis: 300px; } }
 
 /* ---------- Blog article images (David 2026-09-26) ---------- */
-.post-inline { margin: 1.75rem 0; }
-.post-inline img { max-width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.post-inline { margin: 1.75rem auto; max-width: 620px; }
+.post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
 .post-body img { max-width: 100%; height: auto; }
