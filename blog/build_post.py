@@ -72,14 +72,9 @@ def md_inline(t, slug=None):
     return t
 
 def md_to_html(body, slug=None):
-    """Markdown -> HTML. Wraps '## Quick answer' in a styled callout div."""
+    """Markdown -> HTML. ('## Quick answer' is extracted before this runs and
+    becomes the Executive Summary box — never rendered in the body.)"""
     out, in_list, list_tag = [], False, ""
-    in_quick = False
-    def close_quick():
-        nonlocal in_quick
-        if in_quick:
-            out.append("</div>")
-            in_quick = False
     for line in body.split("\n"):
         s = line.strip()
         if s.startswith("### "):
@@ -87,14 +82,9 @@ def md_to_html(body, slug=None):
             out.append(f"<h3>{md_inline(s[4:], slug)}</h3>")
         elif s.startswith("## "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            close_quick()
             out.append(f"<h2>{md_inline(s[3:], slug)}</h2>")
-            if s[3:].strip().lower() == "quick answer":
-                out.append('<div class="quick-answer">')
-                in_quick = True
         elif s.startswith("# "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            close_quick()
             out.append(f"<h1>{md_inline(s[2:], slug)}</h1>")
         elif s.startswith("> "):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
@@ -111,14 +101,37 @@ def md_to_html(body, slug=None):
             if in_list: out.append(f"</{list_tag}>"); in_list = False
         elif s == "---":
             if in_list: out.append(f"</{list_tag}>"); in_list = False
-            close_quick()
             out.append("<hr />")
         else:
             if in_list: out.append(f"</{list_tag}>"); in_list = False
             out.append(f"<p>{md_inline(s, slug)}</p>")
     if in_list: out.append(f"</{list_tag}>")
-    close_quick()
     return "\n".join(out)
+
+def extract_quick_answer(body):
+    """Pull the '## Quick answer' section out of the markdown body.
+    Returns (body_without_qa, quick_answer_markdown). The quick answer becomes
+    the Executive Summary box content (David 2026-09-26) — no duplicate block."""
+    out, qa, in_qa = [], [], False
+    for line in body.split("\n"):
+        s = line.strip()
+        if s.startswith("## "):
+            if s[3:].strip().lower() == "quick answer":
+                in_qa = True
+                continue
+            in_qa = False
+        if in_qa:
+            qa.append(line)
+        else:
+            out.append(line)
+    return "\n".join(out), "\n".join(qa).strip()
+
+def quick_answer_html(qa_md, slug=None):
+    """Quick-answer markdown -> paragraph HTML for the summary box."""
+    return "\n".join(
+        f"<p>{md_inline(s, slug)}</p>"
+        for s in (qa_md or "").split("\n") if s.strip()
+    )
 
 def extract_faq(body):
     """Pull (question, answer) pairs from '## Frequently asked questions'."""
@@ -241,15 +254,16 @@ def html_escape(s):
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def summary_html(summary_text):
+def summary_html(inner_html):
     """Sharpie-style Executive Summary box under the hero (David 2026-09-26).
     Marker-font label sits ON the top border (border breaks around the text,
-    never through it); hand-drawn wobbly border; auto-resizes with content."""
-    if not (summary_text or "").strip():
+    never through it); hand-drawn wobbly border; auto-resizes with content.
+    inner_html is ready-to-render HTML (the Quick Answer paragraphs)."""
+    if not (inner_html or "").strip():
         return ""
     return f"""<aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>{html_escape(summary_text.strip())}</p>
+          {inner_html.strip()}
         </aside>"""
 
 
@@ -356,8 +370,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .post-tags span {{ display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }}
     .post-body h2 {{ margin-top: 2rem; }} .post-body h3 {{ margin-top: 1.5rem; }}
     .post-body blockquote {{ border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }}
-    .quick-answer {{ background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }}
-    .quick-answer p {{ margin: 0.4rem 0; }}
     .post-hero-card {{ position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }}
     .post-hero-card img {{ width: 100%; height: auto; display: block; }}
     .post-inline {{ margin: 1.75rem 0; }}
@@ -627,16 +639,22 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         inline_images.append((f"images/{slug}-img{idx}.jpg", alt_src, dims))
 
     faqs = extract_faq(body)
+    # Executive Summary box carries the Quick Answer (David 2026-09-26):
+    # pull it out of the body so it never renders twice.
+    body, qa_md = extract_quick_answer(body)
     body_html = insert_inline_images(md_to_html(body, slug), inline_images)
-    # Red summary block (David 2026-09-26): frontmatter summary > excerpt.
-    summary_text = (fm.get("summary") or "").strip() or excerpt
+    if qa_md:
+        summary_inner = quick_answer_html(qa_md, slug)
+    else:  # fallback: frontmatter summary > excerpt
+        summary_fallback = (fm.get("summary") or "").strip() or excerpt
+        summary_inner = f"<p>{html_escape(summary_fallback)}</p>" if summary_fallback.strip() else ""
     html = PAGE_TEMPLATE.format(
         title=title, slug=slug, date=post_date, pub_display=pub_display,
         description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
         twitter_image=(f'<meta name="twitter:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
                        if image_rel else ""),
-        summary=summary_html(summary_text),
+        summary=summary_html(summary_inner),
         body=body_html, faq_jsonld=faq_jsonld(faqs, slug),
         article_jsonld=article_jsonld(title, description, slug, published_at, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),

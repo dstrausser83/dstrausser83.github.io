@@ -36,8 +36,6 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
-    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
-    .quick-answer p { margin: 0.4rem 0; }
     .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
     .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
@@ -186,16 +184,13 @@
         <figure class="post-hero-card"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>Customization in ERP systems is expensive and risky, requiring ongoing maintenance, upgrades, and ownership of custom code, while configuration uses built-in tools and survives updates with lower costs. Only customize for processes that generate revenue or meet legal requirements, as most workflows can be adapted to standard ERP features without losing value.</p>
+          <p>Configuration means setting up the ERP with the options it already gives you: fields, workflows, approval rules, report layouts, toggles. Customization means changing the software itself, writing code the vendor never wrote. Configuration is cheaper to build, cheaper to keep, and it survives upgrades. Customization has a real place in the world, but every custom line is a line you now own. You test it. You fix it. You carry it through every upgrade, forever. So the default answer is configuration. Customize only for the things that genuinely make you money.</p>
         </aside>
         <div class="post-body prose">
 <p>Somebody in every ERP demo asks the question. Usually it's the person who owns the spreadsheet everyone is afraid to touch.</p>
 <p>"Can it work exactly like our current process?"</p>
 <p>The room nods. The salesperson smiles. And somewhere, six months in the future, a budget quietly bleeds out. Not because anyone lied. Because nobody in that room knew they were really asking: should we configure this thing, or customize it?</p>
-<h2>Quick answer</h2>
-<div class="quick-answer">
-<p>Configuration means setting up the ERP with the options it already gives you: fields, workflows, approval rules, report layouts, toggles. Customization means changing the software itself, writing code the vendor never wrote. Configuration is cheaper to build, cheaper to keep, and it survives upgrades. Customization has a real place in the world, but every custom line is a line you now own. You test it. You fix it. You carry it through every upgrade, forever. So the default answer is configuration. Customize only for the things that genuinely make you money.</p>
-</div>
+
 <h2>Same word, different invoice</h2>
 <p>Here's the confusion. In conversation, everything is "customizing the ERP." The vendor says it, the partner says it, your team says it. But there are two completely different activities hiding inside that one word, and they bill very differently.</p>
 <p>Configuration is working inside the lines. In Odoo, it's building a view in Studio, adding a field, wiring up an automated action. In SAP Business One, it's user-defined fields, formatted searches, approval procedures. Nobody wrote code. The next upgrade rolls in and your setup rolls with it, because it's all native.</p>

@@ -36,8 +36,6 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
-    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
-    .quick-answer p { margin: 0.4rem 0; }
     .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
     .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
@@ -186,14 +184,11 @@
         <figure class="post-hero-card"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo Implementation: 7 Things Nobody Tells You Before You Start</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>Odoo implementations fail on data, scope creep, and training — almost never on the software. Seven hard-won lessons from real rollouts: clean your data first, lock scope early, start with fewer apps, train like you mean it, and get help before you're drowning.</p>
+          <p>Odoo implementations succeed when you clean your data first, lock the scope early, train your people before go-live, and resist customizing everything on day one. Most failures come from bad data and scope creep — not from the software. A focused SMB rollout of core apps takes 4–8 weeks; the ones that stretch past 6 months almost always customized too much, too early.</p>
+<p>I've watched Odoo implementations go sideways more times than I can count. The software is almost never the problem. It's everything around the software. Here's what nobody puts in the sales deck.</p>
         </aside>
         <div class="post-body prose">
-<h2>Quick answer</h2>
-<div class="quick-answer">
-<p>Odoo implementations succeed when you clean your data first, lock the scope early, train your people before go-live, and resist customizing everything on day one. Most failures come from bad data and scope creep — not from the software. A focused SMB rollout of core apps takes 4–8 weeks; the ones that stretch past 6 months almost always customized too much, too early.</p>
-<p>I've watched Odoo implementations go sideways more times than I can count. The software is almost never the problem. It's everything around the software. Here's what nobody puts in the sales deck.</p>
-</div>
+
 <h2>1. Your data is worse than you think</h2>
 <p>Every company believes their spreadsheets are "pretty clean." They're not. Duplicate customers, three different spellings of the same vendor, products with no SKUs, inventory counts from 2019 — Odoo will faithfully import all of it, and then you'll spend months untangling the mess inside a live system instead of in a spreadsheet where it's cheap to fix.</p>
 <p>Clean it before migration. Dedicate real hours — pull the customer list, sort it, merge the dupes. Do the same for vendors and products. Validate that every product has a SKU, a unit of measure, and a category. This is the single highest-ROI activity in the whole project. A week of cleanup before migration saves two months of surgery after go-live. I have never seen a company regret cleaning their data. I have seen many regret skipping it.</p>

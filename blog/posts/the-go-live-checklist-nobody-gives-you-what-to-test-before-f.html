@@ -36,8 +36,6 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
-    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
-    .quick-answer p { margin: 0.4rem 0; }
     .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
     .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
@@ -186,13 +184,10 @@
         <figure class="post-hero-card"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" alt="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>ERP go-lives fail on the small stuff nobody tested: bad data syncs, wrong permissions, untested edge cases. Run these five tests with real data and real users before you flip the switch, and go-live day stays boring — which is exactly what you want.</p>
+          <p>Before any ERP go-live, test data sync, user permissions, and edge cases with real data and real users. The failures that hurt most are rarely the big features. They are the small checks nobody ran. Budget a focused few days for this, not a few hours, and go-live day will be boring — which is exactly the goal.</p>
         </aside>
         <div class="post-body prose">
-<h2>Quick answer</h2>
-<div class="quick-answer">
-<p>Before any ERP go-live, test data sync, user permissions, and edge cases with real data and real users. The failures that hurt most are rarely the big features. They are the small checks nobody ran. Budget a focused few days for this, not a few hours, and go-live day will be boring — which is exactly the goal.</p>
-</div>
+
 <h2>Why go-lives go sideways</h2>
 <p>I have watched enough go-lives to know the pattern. The big demo went great. The training sessions went fine. Everybody signed off. Then Monday morning hits, the first real order comes in, and something small breaks — a tax code that did not carry over, a warehouse user who cannot post a receipt, a report the controller needs that nobody built. None of these are hard problems. Every one of them was catchable. They just never got tested because the testing plan covered the happy path and stopped there.</p>
 <p>The happy path always works. It worked in the demo, it worked in training, and it will work on go-live day. Your business does not run on the happy path. It runs on the messy middle: the partial shipments, the credit memos, the rush orders, the user who does things in a slightly different order than the manual says. That is what you test.</p>

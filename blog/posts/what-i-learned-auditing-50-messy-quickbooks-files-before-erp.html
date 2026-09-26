@@ -36,8 +36,6 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
-    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
-    .quick-answer p { margin: 0.4rem 0; }
     .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
     .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
@@ -186,13 +184,10 @@
         <figure class="post-hero-card"><img src="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" alt="Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand." width="1632" height="1088" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>Auditing 50 messy QuickBooks files before an ERP migration taught me what actually breaks migrations: unlinked transactions, inconsistent dates, missing GL entries, and the dangerous assumption that the data is clean. Here's the full field guide — what I found, how I fixed it, and what to check in your own files before you migrate.</p>
+          <p>Auditing 50 QuickBooks files before ERP migration taught me three things: most files have unlinked transactions nobody noticed, date and data inconsistencies will silently corrupt your migration, and the biggest mistake is assuming the data is clean because your team is good. Budget real time for the audit — three weeks for fifty files — fix what you find before migrating, and back up everything first.</p>
         </aside>
         <div class="post-body prose">
-<h2>Quick answer</h2>
-<div class="quick-answer">
-<p>Auditing 50 QuickBooks files before ERP migration taught me three things: most files have unlinked transactions nobody noticed, date and data inconsistencies will silently corrupt your migration, and the biggest mistake is assuming the data is clean because your team is good. Budget real time for the audit — three weeks for fifty files — fix what you find before migrating, and back up everything first.</p>
-</div>
+
 <h2>The toy box</h2>
 <p>Auditing 50 QuickBooks files before ERP migration felt like trying to sort through a toddler's toy box. The transactions were a mess, the dates were inconsistent, and the accounting logic was... well, not quite there. I did this because the business needed a real ERP, but nobody wanted to lose the data — or migrate a decade of garbage into a shiny new system.</p>
 <p>Here is what nobody tells you about QuickBooks-to-ERP migrations: the migration itself is the easy part. The tools work. The mapping is straightforward. What breaks migrations is the data, and QuickBooks is uniquely good at letting bad data accumulate quietly for years. It is forgiving software — it lets you post things that a real ERP would block, it does not force reconciliation, and it happily carries forward whatever mess you feed it. That forgiveness becomes your problem on migration day.</p>

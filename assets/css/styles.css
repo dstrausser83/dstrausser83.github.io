@@ -739,3 +739,8 @@ main { counter-reset: fignum; }
 }
 .shop-view-all:hover { color: #d4a017; }
 @media (min-width: 768px) { .shop-card { flex-basis: 300px; } }
+
+/* ---------- Blog article images (David 2026-09-26) ---------- */
+.post-inline { margin: 1.75rem 0; }
+.post-inline img { max-width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.post-body img { max-width: 100%; height: auto; }

@@ -36,8 +36,6 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
-    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
-    .quick-answer p { margin: 0.4rem 0; }
     .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
     .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
@@ -186,14 +184,11 @@
         <figure class="post-hero-card"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" alt="ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Data Migration Horror Stories: How to Avoid Becoming One</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>Data migrations fail due to dirty data, untested processes, and assuming the new system will fix old issues. Clean data early, define clear success criteria, test thoroughly with rehearsals, document mappings, and prioritize open transactions over historical records.</p>
+          <p>Data migrations fail for boring reasons: dirty source data nobody cleaned, no one defined what "done" looks like, testing happened once instead of three times, and the business assumed the software would magically fix bad data. Avoid those four traps — clean early, define done, migrate in rehearsal rounds, and never expect the new system to fix what the old process broke — and you'll be ahead of most projects.</p>
         </aside>
         <div class="post-body prose">
 <p>Every ERP implementer has a drawer full of data migration war stories. I'll spare you mine — they all rhyme. The names change, the industries change, but the failure patterns are the same every single time. Learn the patterns and you can dodge nearly all of them.</p>
-<h2>Quick answer</h2>
-<div class="quick-answer">
-<p>Data migrations fail for boring reasons: dirty source data nobody cleaned, no one defined what "done" looks like, testing happened once instead of three times, and the business assumed the software would magically fix bad data. Avoid those four traps — clean early, define done, migrate in rehearsal rounds, and never expect the new system to fix what the old process broke — and you'll be ahead of most projects.</p>
-</div>
+
 <h2>The dirty-data trap</h2>
 <p>Here's the uncomfortable truth about every migration: your data is worse than you think it is. Every company believes their data is "pretty clean." Almost none of them are right.</p>
 <p>Duplicate customer records. Vendors with three different spellings. Items with no unit of measure. Open orders pointing at customers that were deactivated years ago. Chart of accounts with dead limbs nobody pruned. This stuff accumulates quietly for a decade, and it all surfaces the week you're trying to load it into a new system that is far less forgiving than the spreadsheet chaos everyone got used to.</p>
