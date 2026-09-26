@@ -1,0 +1,44 @@
+name: site-checks
+
+# Free GitHub Actions automation (runs on GitHub's minutes, not Rock's tokens).
+# Every push to main = every site deploy gets verified automatically,
+# plus a daily sweep for link rot.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 9 * * *'  # daily ~05:17 EDT
+  workflow_dispatch:
+
+jobs:
+  template-sync:
+    name: blog template sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: verify post inline CSS matches template
+        run: python .github/scripts/check-template-sync.py
+
+  links:
+    name: link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: check links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude 'mailto:*'
+            --exclude 'http://localhost*'
+            --exclude 'http://127.0.0.1*'
+            --max-redirects 5
+            --timeout 20
+            '**/*.html'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
