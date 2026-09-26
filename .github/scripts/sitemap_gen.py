@@ -50,6 +50,7 @@ PAGES = [
     ("blog/author.html", "/blog/author.html", "monthly", "0.7"),
     ("cookies.html", "/cookies.html", "yearly", "0.3"),
     ("privacy.html", "/privacy.html", "yearly", "0.3"),
+    ("returns.html", "/returns.html", "yearly", "0.3"),
     ("case-studies/index.html", "/case-studies/", "weekly", "0.9"),
     ("merch/index.html", "/merch/", "monthly", "0.7"),
 ]
