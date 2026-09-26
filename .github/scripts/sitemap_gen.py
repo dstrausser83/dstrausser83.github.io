@@ -20,6 +20,18 @@ OUT = os.path.join(ROOT, "sitemap.xml")
 # (repo path, url path, changefreq, priority)
 PAGES = [
     ("index.html", "/", "weekly", "1.0"),
+    ("about.html", "/about.html", "monthly", "0.8"),
+    ("services.html", "/services.html", "weekly", "0.9"),
+    ("resources.html", "/resources.html", "monthly", "0.8"),
+    ("services/erp.html", "/services/erp.html", "monthly", "0.8"),
+    ("services/odoo.html", "/services/odoo.html", "monthly", "0.8"),
+    ("services/sap-business-one.html", "/services/sap-business-one.html", "monthly", "0.8"),
+    ("services/dead-brands.html", "/services/dead-brands.html", "monthly", "0.7"),
+    ("services/sales-expert.html", "/services/sales-expert.html", "monthly", "0.7"),
+    ("services/marketing-expert.html", "/services/marketing-expert.html", "monthly", "0.7"),
+    ("services/tech-consulting.html", "/services/tech-consulting.html", "monthly", "0.7"),
+    ("services/business-development.html", "/services/business-development.html", "monthly", "0.7"),
+    ("services/small-business-growth.html", "/services/small-business-growth.html", "monthly", "0.7"),
     ("blog/index.html", "/blog/", "daily", "0.9"),
     ("blog/author.html", "/blog/author.html", "monthly", "0.7"),
     ("cookies.html", "/cookies.html", "yearly", "0.3"),
