@@ -689,3 +689,6 @@ main { counter-reset: fignum; }
 .btn-whatsapp { background: #25D366; color: #fff; border: 1px solid #25D366; display: inline-flex; align-items: center; gap: .5rem; }
 .btn-whatsapp:hover { background: #128C7E; border-color: #128C7E; color: #fff; }
 .btn-whatsapp svg { width: 1.2em; height: 1.2em; flex-shrink: 0; }
+
+/* ---------- Final CTA centering ---------- */
+.final-cta { text-align: center; }
