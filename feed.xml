@@ -5,7 +5,7 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 17:17:29 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 22:40:58 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
@@ -18,6 +18,32 @@
       <category>erp</category>
       <category>excel</category>
       <category>spreadsheets</category>
+    </item>
+    <item>
+      <title>Odoo Studio: When Clicking Together an App Beats Writing Code</title>
+      <link>https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</guid>
+      <description>Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.</description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>studio</category>
+      <category>erp</category>
+      <category>customization</category>
+      <category>smb</category>
+    </item>
+    <item>
+      <title>The First AI Hire: What to Automate Before You Hire Your Next Employee</title>
+      <link>https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</guid>
+      <description>Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.</description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg" type="image/jpeg" />
+      <category>ai</category>
+      <category>automation</category>
+      <category>hiring</category>
+      <category>smb</category>
+      <category>productivity</category>
     </item>
     <item>
       <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>

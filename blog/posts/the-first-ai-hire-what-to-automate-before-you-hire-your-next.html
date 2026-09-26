@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The First AI Hire: What to Automate Before You Hire Your Next Employee — David Strausser</title>
+  <meta name="description" content="Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software." />
+  
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The First AI Hire: What to Automate Before You Hire Your Next Employee" />
+  <meta property="og:description" content="Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The First AI Hire: What to Automate Before You Hire Your Next Employee" />
+  <meta name="twitter:description" content="Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where do I start if I have never automated anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick the task your team complains about most. Not the biggest problem, the most annoying one. Small wins build the muscle and the confidence. One working automation teaches you more than ten articles about AI strategy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will AI replace my current employees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If their whole job is repetitive tasks, the job was already at risk. But most employees are drowning in repetitive work on top of the valuable work. Automation usually turns an overwhelmed employee into an effective one. The goal is leverage, not layoffs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an AI chatbot and an AI workflow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A chatbot answers questions. A workflow does work: it watches for triggers, takes actions across your systems, and completes multi-step processes without being asked each time. Chatbots are visible. Workflows are invisible. Invisible wins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to automate a workflow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Far less than a hire. Many workflows run on tools you already pay for, plus a modest subscription. The expensive part is never the software. It is the time to map the process properly before you automate it. Skip that step and you will pay for it twice."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The First AI Hire: What to Automate Before You Hire Your Next Employee",
+  "description": "Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.",
+  "datePublished": "2026-09-26T22:40:53Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html",
+  "keywords": "ai, automation, hiring, smb, productivity",
+  "image": "https://deadbrands.co/blog/images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg"
+}
+</script>
+<!-- Microsoft Clarity: heatmaps, click maps, session recordings (free) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yohr5k9nr4");
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg" alt="Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turn" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The First AI Hire: What to Automate Before You Hire Your Next Employee</h1><p class="post-meta">September 26, 2026 at 6:40 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Before hiring your next employee, automate the repetitive work first. Inbox triage, lead follow-up, data entry between systems, meeting notes, and routine reporting are all jobs software does better and cheaper than a human. Your first AI hire should be a workflow, not a chatbot. Keep humans on judgment, relationships, and decisions. Automate the repetitive so your people can do the human.</p>
+<p>You are about to hire someone. Let me guess the job. Somebody to keep up with the inbox. Somebody to enter data from one system into another. Somebody to chase quotes, schedule meetings, and build the weekly report that takes half a Friday.</p>
+<p>Before you post that listing, do the math on a different hire. One that never sleeps, never quits, never calls in sick, and costs less per month than the office coffee budget.</p>
+<p>Your first AI hire should not be a person. It should be a workflow.</p>
+        </aside>
+        <div class="post-body prose">
+<h2>The job you were actually hiring for</h2>
+<p>Strip the job description down and look at what is really there. Most admin and ops hires spend their first month learning, their next six months doing repetitive tasks, and their remaining time waiting for the repetitive tasks to come back around.</p>
+<p>Nobody dreams of copying data from email into a spreadsheet. Nobody went to school for follow-up reminders. These are not jobs. They are tasks wearing a job costume. And tasks are exactly what automation eats first.</p>
+<p>This is not about replacing people. It is about not hiring a person to do a robot's job. Every hour your team spends on repetitive work is an hour they are not spending on customers, on judgment calls, on the things that actually grow the business.</p>
+<h2>The five things to automate first</h2>
+<p>Start here. These are the highest-return, lowest-risk automations in a typical small business.</p>
+<p><strong>1. Inbox triage and drafting.</strong> The average owner gets buried in email. AI can sort the urgent from the noise, draft replies in your voice, and flag the five messages that actually need you. You still send. You just stop starting from a blank screen fifty times a day.</p>
+<p><strong>2. Lead follow-up.</strong> Speed wins deals. When a quote request sits for a day, it cools. Automated follow-up sequences keep every lead warm while your salespeople spend their time on the calls that matter. The fortune is in the follow-up, and follow-up is a machine's best skill.</p>
+<p><strong>3. Data entry between systems.</strong> If anyone on your team retypes information from one tool into another, that is a workflow begging to be connected. Integrations and AI extraction turn a daily hour of typing into a background process nobody thinks about.</p>
+<p><strong>4. Meeting notes and action items.</strong> Every meeting ends with someone supposed to write up what was decided. Half the time it does not happen, and the decisions evaporate. Automatic transcription with extracted action items means nothing falls through. The meeting finally produces something besides the meeting.</p>
+<p><strong>5. Routine reporting.</strong> The weekly numbers email. The month-end summary. The dashboard nobody updates. If the data exists, the report can build itself. Your Friday afternoon just got shorter.<figure class="post-inline"><img src="../images/the-first-ai-hire-what-to-automate-before-you-hire-your-next-img2.jpg" alt="Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turn" width="2048" height="1152" loading="lazy" /></figure></p>
+<h2>What to never hand to the machine</h2>
+<p>This list matters more than the first one. Automation has a boundary, and crossing it costs you customers.</p>
+<p>Never automate the relationship. The check-in call with a long-time client. The apology when something goes wrong. The negotiation where reading the room matters. People can tell when they are talking to a process, and they resent it exactly as much as you would.</p>
+<p>Never automate the final decision. AI can prepare the analysis, lay out the options, and even recommend. The call stays human. When a decision blows up, "the system decided" is not an explanation anyone accepts.</p>
+<p>Never automate what you do not understand. If a process is messy when a human does it, automating it gives you messy at machine speed. Fix the process first. Then automate the fixed version. This rule alone would save most companies most of their automation budget.</p>
+<h2>The trap: twelve tools instead of one hire</h2>
+<p>Here is how this goes wrong. You get excited, buy an AI writing tool, an AI scheduling tool, an AI chatbot, an AI analytics tool, and an AI something-else. Six months later you have twelve subscriptions, nobody uses nine of them, and you have recreated the exact software sprawl that was already killing you.</p>
+<p>The first AI hire is a workflow, not a shopping spree. Pick one painful process. Automate it. Run it for a month. Measure what changed. Then pick the next one. The companies winning with AI are not the ones with the most tools. They are the ones with the fewest, used the hardest.</p>
+<p>And connect what you buy to the systems you already run. An AI tool floating off by itself becomes another inbox to check. An AI workflow inside your ERP or CRM becomes invisible infrastructure. Invisible is the goal.</p>
+<h2>The real math</h2>
+<p>A full-time admin hire costs fifty thousand a year before benefits, training, and turnover. Most automation workflows cost a fraction of that per year and start working this week, not after a two-month hiring process.</p>
+<p>But the real return is not the salary you did not spend. It is what your existing people do with the hours they get back. The salesperson who follows up instead of doing data entry. The owner who thinks about strategy instead of drowning in email. You did not just save a hire. You upgraded every hire you already have.</p>
+<p>Then, when you do hire, you hire differently. You hire for judgment, for relationships, for the work only a human can do. Those are better jobs, and they attract better people. Nobody great ever wanted the data entry job anyway.<figure class="post-inline"><img src="../images/the-first-ai-hire-what-to-automate-before-you-hire-your-next-img3.jpg" alt="Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turn" width="2048" height="1152" loading="lazy" /></figure></p>
+<h2>The bottom line</h2>
+<p>Before you hire your next employee, hire your first workflow. Automate the repetitive, the rule-based, the stuff nobody will miss doing. Keep humans on everything that needs a human.</p>
+<p>The businesses that figure this out will run leaner and move faster than competitors still hiring people to do robot work. The window is open right now. It will not stay open forever.</p>
+<p>Start with one workflow. This week.</p>
+<h2>Frequently asked questions</h2>
+<h3>Where do I start if I have never automated anything?</h3>
+<p>Pick the task your team complains about most. Not the biggest problem, the most annoying one. Small wins build the muscle and the confidence. One working automation teaches you more than ten articles about AI strategy.</p>
+<h3>Will AI replace my current employees?</h3>
+<p>If their whole job is repetitive tasks, the job was already at risk. But most employees are drowning in repetitive work on top of the valuable work. Automation usually turns an overwhelmed employee into an effective one. The goal is leverage, not layoffs.</p>
+<h3>What is the difference between an AI chatbot and an AI workflow?</h3>
+<p>A chatbot answers questions. A workflow does work: it watches for triggers, takes actions across your systems, and completes multi-step processes without being asked each time. Chatbots are visible. Workflows are invisible. Invisible wins.</p>
+<h3>How much does it cost to automate a workflow?</h3>
+<p>Far less than a hire. Many workflows run on tools you already pay for, plus a modest subscription. The expensive part is never the software. It is the time to map the process properly before you automate it. Skip that step and you will pay for it twice.</p>
+        </div>
+        <p class="post-tags"><span>ai</span> <span>automation</span> <span>hiring</span> <span>smb</span> <span>productivity</span></p>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>

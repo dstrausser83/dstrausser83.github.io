@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo Studio: When Clicking Together an App Beats Writing Code — David Strausser</title>
+  <meta name="description" content="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about." />
+  
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Odoo Studio: When Clicking Together an App Beats Writing Code" />
+  <meta property="og:description" content="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odoo Studio: When Clicking Together an App Beats Writing Code" />
+  <meta name="twitter:description" content="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to be technical to use Odoo Studio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If you can use Odoo itself, you can use Studio. The interface is drag and drop. That said, the less technical you are, the more important the governance rules become, because you will not recognize when you have built something fragile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Studio apps survive Odoo upgrades?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally yes, and this is one of its real advantages over custom code. Because Studio apps are built from standard components, they tend to carry forward cleanly. Custom Python modules are the things that break on upgrade. Still, test everything after an upgrade. Trust, then verify."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I hire a developer instead of using Studio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When the logic needs branching conditions, when it integrates with outside systems in real time, when performance matters at volume, or when you find yourself building workarounds for the workarounds. That last one is the tell. If the clicks are getting clever, stop clicking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Odoo Studio included with Odoo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Studio is available with Odoo Enterprise. If you are on the Community edition, it is not there, and that is one of the practical differences worth pricing out when you choose your edition."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Odoo Studio: When Clicking Together an App Beats Writing Code",
+  "description": "Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.",
+  "datePublished": "2026-09-26T22:40:53Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html",
+  "keywords": "odoo, studio, erp, customization, smb",
+  "image": "https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg"
+}
+</script>
+<!-- Microsoft Clarity: heatmaps, click maps, session recordings (free) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yohr5k9nr4");
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo Studio: When Clicking Together an App Beats Writing Code</h1><p class="post-meta">September 26, 2026 at 6:40 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Odoo Studio lets you build simple business apps by clicking instead of coding. Custom fields, views, and basic automations that would take a developer days can be done in an afternoon. It is perfect for simple trackers and workflow tweaks. It is not a replacement for real development when the logic gets complex. The skill is knowing which problem you have.</p>
+<p>Every business has a drawer full of problems that are too small for IT and too annoying to live with. The broken approval process. The tracker that lives in one person's head. The form that is missing three fields you actually need. You ask a developer and get a quote that costs more than the problem. You ask nobody and the problem stays.</p>
+<p>Odoo Studio exists for that drawer.</p>
+        </aside>
+        <div class="post-body prose">
+<h2>What Studio actually is</h2>
+<p>Forget the marketing. Odoo Studio is a visual builder that sits on top of Odoo. You click to add fields to a form. You drag to rearrange a view. You point at an existing model, like sales orders or contacts, and extend it without writing Python. You can build simple automations: when this happens, do that.</p>
+<p>It is not a separate product. It is Odoo with the hood open and the tools laid out where a non-developer can reach them.</p>
+<p>And for a specific class of problem, it is genuinely great.</p>
+<h2>Where clicking wins</h2>
+<p>The sweet spot is simple and well-defined. A custom tracker for samples going out to customers. Three new fields on the purchase order that purchasing has been begging for. A basic approval step before a quote goes out. A kanban view of a process your team currently runs on sticky notes.</p>
+<p>These are real business needs. Before Studio, each one meant a developer, a quote, a wait, and a bill. Now the operations manager builds it on a Tuesday afternoon. The build that took three weeks of back-and-forth takes three hours of clicking.</p>
+<p>The math is not close. When the problem is simple, code is overhead. Every line of custom code is a line you maintain, upgrade, and debug forever. The app you clicked together has no technical debt because there is no code. That is not a small thing. That is the whole game.</p>
+<h2>Where clicking breaks</h2>
+<p>Here is the part the demos skip. Studio is a builder, not a programming language. The moment your logic gets conditional and layered, the clicks stop being enough.</p>
+<p>Real examples of the wall. Pricing rules with exceptions on exceptions. Multi-step approvals that branch based on amounts, regions, and product lines. Anything that has to talk to an outside system in real time. Performance at scale: the tracker that was fine for 200 records gets painful at 20,000.<figure class="post-inline"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code-img2.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>When you hit that wall, you have two choices. Bring in a developer to build a proper custom module, or keep clicking and build something fragile that everyone is afraid to touch. The second option is how you end up with a worse mess than the spreadsheet you replaced.</p>
+<p>This is the honest rule I give every client. If you can describe the whole thing in one sentence, click it. If you need a paragraph and a whiteboard, code it.</p>
+<h2>The governance trap nobody warns you about</h2>
+<p>There is a subtler danger, and it has nothing to do with technology. When anyone can build apps, anyone does. Six months later you have eleven Studio apps, and the person who built seven of them left in March. Nobody knows what the automations do. Everybody is afraid to turn them off.</p>
+<p>IT departments learned this lesson with spreadsheets twenty years ago. The tool changed. The lesson did not.</p>
+<p>So if you turn on Studio, set ground rules on day one. Every app gets an owner, and the owner is a name, not a department. Every automation gets a one-line description of what it does and why. And somebody reviews the app list quarterly and deletes what nobody uses. This takes an hour. Skip it and you will spend weeks untangling it later.</p>
+<h2>How to start without regret</h2>
+<p>Pick one real pain, not the biggest one. The biggest one is where the complexity lives. Pick the annoying one everyone complains about at lunch. Build it in Studio. Time yourself. If it takes an afternoon and works, you just proved the concept.</p>
+<p>Then stop and ask the hard question before you build the second one. Is this still a simple problem, or am I now building a system out of clicks because I am avoiding a conversation with a developer? Honesty here saves real money.</p>
+<p>Studio is at its best as a prototyping tool, too. Click the workflow together, put it in front of the team, let them break it for a week. Now when you do hire a developer, you hand them a working model instead of a requirements document. That conversation goes twice as fast.</p>
+<h2>The bottom line</h2>
+<p>The best code is the code you never had to write. Odoo Studio deletes a whole category of small development work, and that is a genuine win for small and mid-size businesses that do not have developers on staff.<figure class="post-inline"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code-img3.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>But the second-best skill is knowing when the clicks stop being enough. Simple problems get clicks. Complex problems get code. And the expensive mistakes all come from confusing the two.</p>
+<p>Start with the drawer of small problems. Click those into existence. Save the developers for the problems that deserve them.</p>
+<h2>Frequently asked questions</h2>
+<h3>Do I need to be technical to use Odoo Studio?</h3>
+<p>No. If you can use Odoo itself, you can use Studio. The interface is drag and drop. That said, the less technical you are, the more important the governance rules become, because you will not recognize when you have built something fragile.</p>
+<h3>Can Studio apps survive Odoo upgrades?</h3>
+<p>Generally yes, and this is one of its real advantages over custom code. Because Studio apps are built from standard components, they tend to carry forward cleanly. Custom Python modules are the things that break on upgrade. Still, test everything after an upgrade. Trust, then verify.</p>
+<h3>When should I hire a developer instead of using Studio?</h3>
+<p>When the logic needs branching conditions, when it integrates with outside systems in real time, when performance matters at volume, or when you find yourself building workarounds for the workarounds. That last one is the tell. If the clicks are getting clever, stop clicking.</p>
+<h3>Is Odoo Studio included with Odoo?</h3>
+<p>Studio is available with Odoo Enterprise. If you are on the Community edition, it is not there, and that is one of the practical differences worth pricing out when you choose your edition.</p>
+        </div>
+        <p class="post-tags"><span>odoo</span> <span>studio</span> <span>erp</span> <span>customization</span> <span>smb</span></p>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>
