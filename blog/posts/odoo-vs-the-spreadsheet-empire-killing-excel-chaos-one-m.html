@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
+  <meta name="description" content="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." />
+  
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time" />
+  <meta property="og:description" content="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+    .quick-answer p { margin: 0.4rem 0; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should we get rid of all our spreadsheets at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Replace them one module at a time, starting with whatever causes the most pain. Big-bang replacements fail because they ask too much change at once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if our team loves Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep Excel for analysis and ad-hoc work. Odoo becomes the system of record. The data lives in Odoo, and people can still export to Excel when they want to slice it. You are not taking away their tool, you are giving the data a real home."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Odoo module should we start with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whatever hurts most. For distributors and manufacturers, that is usually inventory. For service companies, it is often CRM or project tracking. Pick the fire, put it out, then move to the next one."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time",
+  "description": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
+  "datePublished": "2026-09-26T10:50:52Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html",
+  "keywords": "odoo, erp, excel, spreadsheets",
+  "image": "https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <h1>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time</h1>
+        <p class="post-meta">September 26, 2026 at 6:50 AM ET &middot; by <a href="../author.html">David Strausser</a></p>
+        <figure class="post-hero"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" alt="Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time" /></figure>
+        <div class="post-body prose">
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>First, spreadsheets break silently. One wrong formula and your inventory numbers lie to you for months. Second, Odoo replaces Excel piece by piece. You do not rip everything out on day one. Third, the module you start with matters less than starting at all.</p>
+<p>Every business I have ever worked with has a spreadsheet problem. Not a small one. A sprawling, multi-tab, color-coded, macro-laden monster that one person built three years ago and nobody fully understands now. That person might have left. The spreadsheet remains, like a haunted house nobody wants to enter.</p>
+<p>I call it the spreadsheet empire. It starts innocently. Someone tracks inventory in Excel because it is fast. Then purchasing wants in. Then sales builds their own version. Soon you have seven spreadsheets that all disagree about how many widgets you have, and the monthly close takes two weeks of detective work.</p>
+<p>Here is the thing nobody tells you: Excel is not the enemy. Excel is a great calculator. The problem is using a calculator as your system of record. A spreadsheet does not know when two people edit it at once. It does not stop someone from typing text into a quantity field. It does not warn you that the formula in cell G47 has been broken since March.</p>
+<p>Odoo kills this chaos, but not the way most people think. You do not wake up one Monday and delete every spreadsheet. That is how implementations fail. You replace them one module at a time.</p>
+<p>Start with whatever hurts most. For most of my clients, that is inventory. The Odoo Inventory module gives you real stock levels, barcode scanning, and actual transaction history. The day your warehouse team stops arguing about what is on the shelf, you will wonder why you waited.</p>
+<p>Then take on purchasing. Then sales. Each module you turn on retires another spreadsheet. The empire shrinks. Your team stops emailing "FINAL_v3_ACTUAL.xlsx" back and forth.</p>
+<p>The mistake I see: companies try to replace everything at once. They buy every module, hire a partner for a six-month big bang, and wonder why nobody uses it. Start with one pain point. Get the win. Let the team feel the difference. Then expand.</p>
+<p>Your spreadsheet person will resist. Every company has one. They built the empire and they are proud of it. Do not fight them. Make them the Odoo champion. They already understand the business logic better than anyone. Give them Odoo Studio and watch what happens.</p>
+<p>The spreadsheet empire falls the same way every empire falls: not in one dramatic battle, but piece by piece, as people realize there is a better way to live.</p>
+</div>
+<h2>Frequently asked questions</h2>
+<h3>Should we get rid of all our spreadsheets at once?</h3>
+<p>No. Replace them one module at a time, starting with whatever causes the most pain. Big-bang replacements fail because they ask too much change at once.</p>
+<h3>What if our team loves Excel?</h3>
+<p>Keep Excel for analysis and ad-hoc work. Odoo becomes the system of record. The data lives in Odoo, and people can still export to Excel when they want to slice it. You are not taking away their tool, you are giving the data a real home.</p>
+<h3>Which Odoo module should we start with?</h3>
+<p>Whatever hurts most. For distributors and manufacturers, that is usually inventory. For service companies, it is often CRM or project tracking. Pick the fire, put it out, then move to the next one.</p>
+        </div>
+        <p class="post-tags"><span>odoo</span> <span>erp</span> <span>excel</span> <span>spreadsheets</span></p>
+        <section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected
+          apps for one platform. Spin up Odoo and kick the tires yourself —
+          no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>

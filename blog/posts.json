@@ -1,5 +1,22 @@
 [
   {
+    "slug": "odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m",
+    "title": "Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time",
+    "date": "2026-09-26T07:00:00",
+    "published_at": "2026-09-26T10:50:52Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "excel",
+      "spreadsheets"
+    ],
+    "excerpt": "Every growing business runs on spreadsheets until the spreadsheets start running the business. Here is how Odoo modules replace Excel chaos one piece at a time, without the big-bang nightmare.",
+    "description": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
+    "image": "images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg",
+    "video": "",
+    "url": "posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html"
+  },
+  {
     "slug": "what-i-learned-auditing-50-messy-quickbooks-files-before-erp",
     "title": "50 QuickBooks Files That Stole My Sanity Before ERP Migration",
     "date": "2026-09-25T20:30:00",
