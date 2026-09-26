@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>David Strausser — Author | Dead Brands Blog</title>
@@ -23,7 +29,7 @@
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
   </style>
   <link rel="stylesheet" href="/assets/css/chat.css" />
-<!-- Microsoft Clarity: heatmaps, click maps, session recordings (free) -->
+
 </head>
 <body>
   <header class="site-header" id="site-header">

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop — Dead Brands, LLC</title>
@@ -35,7 +41,7 @@
     .merch-card > a:hover img { transform: scale(1.03); }
     .merch-note { font-size: .85rem; color: #8a8a92; margin-top: 2rem; }
   </style>
-<!-- Microsoft Clarity: heatmaps, click maps, session recordings (free) -->
+
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -308,6 +314,7 @@
   </main>
 
   <footer class="site-footer">
+    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
     <div class="wrap footer-inner">
       <p class="footer-social">
         <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
@@ -318,6 +325,7 @@
       </p>
       <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
       <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
+      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
@@ -340,5 +348,6 @@
       <p class="popup-fine">One code per customer. Works on everything in the store.</p>
     </div>
   </div>
+  <script src="/assets/js/consent.js" defer></script>
 </body>
 </html>

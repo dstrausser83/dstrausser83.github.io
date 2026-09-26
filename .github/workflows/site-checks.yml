@@ -23,6 +23,17 @@ jobs:
       - name: verify post inline CSS matches template
         run: python .github/scripts/check-template-sync.py
 
+  base-template:
+    name: base template enforcement
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: verify every page carries tracking + header/footer
+        run: python .github/scripts/check-base-template.py
+
   links:
     name: link check
     runs-on: ubuntu-latest
