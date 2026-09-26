@@ -7,6 +7,7 @@ or "unchanged" printed — the weekly cron uses that to push only on change.
 
 Run from the repo root:  python3 .github/scripts/sitemap_gen.py
 """
+import json
 import os
 import subprocess
 import sys
@@ -16,6 +17,19 @@ from datetime import date
 BASE = "https://deadbrands.co"
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "sitemap.xml")
+
+POST_DATES = {}
+try:
+    _pj = os.path.join(ROOT, "blog", "posts.json")
+    _data = json.load(open(_pj, encoding="utf-8"))
+    _posts = _data.get("posts", _data) if isinstance(_data, dict) else _data
+    for _p in _posts:
+        _slug = _p.get("slug")
+        _dt = str(_p.get("date") or _p.get("published") or "")
+        if _slug and _dt:
+            POST_DATES[_slug] = _dt[:10]
+except Exception:
+    pass
 
 # (repo path, url path, changefreq, priority)
 PAGES = [
@@ -36,6 +50,7 @@ PAGES = [
     ("blog/author.html", "/blog/author.html", "monthly", "0.7"),
     ("cookies.html", "/cookies.html", "yearly", "0.3"),
     ("case-studies/index.html", "/case-studies/", "weekly", "0.9"),
+    ("merch/index.html", "/merch/", "monthly", "0.7"),
 ]
 for fn in sorted(os.listdir(os.path.join(ROOT, "case-studies"))):
     if fn.endswith(".html") and fn != "index.html":
@@ -50,7 +65,17 @@ for fn in sorted(os.listdir(os.path.join(ROOT, "blog", "posts"))):
 
 
 def lastmod(relpath):
-    """Last commit date touching this file, YYYY-MM-DD; falls back to today."""
+    """Last-modified date, YYYY-MM-DD.
+
+    Blog posts use the canonical publish date from posts.json (a post file's
+    git date is just the day everything was last committed); all other pages
+    use their last git commit date, falling back to today.
+    """
+    slug = os.path.basename(relpath)
+    if relpath.startswith(os.path.join("blog", "posts")) and slug.endswith(".html"):
+        post_date = POST_DATES.get(slug[: -len(".html")])
+        if post_date:
+            return post_date
     try:
         out = subprocess.check_output(
             ["git", "log", "-1", "--format=%cs", "--", relpath],

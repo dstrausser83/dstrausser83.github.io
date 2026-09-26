@@ -675,3 +675,17 @@ main { counter-reset: fignum; }
 .nav-cta { white-space: nowrap; }
 .brand, .nav-toggle { flex-shrink: 0; }
 @media (max-width: 400px) { .brand { font-size: 1.3rem; } }
+
+/* ---------- Shop / merch cards (shared: homepage + /merch/) ---------- */
+.merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2.5rem 0; }
+.merch-card { background: #141416; border: 1px solid #2a2a2e; border-radius: 14px; overflow: hidden; text-align: center; }
+.merch-card img { width: 100%; height: auto; display: block; background: #0c0c0e; }
+.merch-body { padding: 1.5rem; }
+.merch-body h3 { font-family: 'Anton', sans-serif; font-size: 1.6rem; letter-spacing: .02em; margin: 0 0 .4rem; color: #fff; }
+.merch-price { font-size: 1.4rem; font-weight: 700; color: #d4a017; margin: .4rem 0 .8rem; }
+.merch-desc { color: #b9b9c0; font-size: .95rem; margin: 0 0 1.2rem; }
+
+/* ---------- Official WhatsApp button ---------- */
+.btn-whatsapp { background: #25D366; color: #fff; border: 1px solid #25D366; display: inline-flex; align-items: center; gap: .5rem; }
+.btn-whatsapp:hover { background: #128C7E; border-color: #128C7E; color: #fff; }
+.btn-whatsapp svg { width: 1.2em; height: 1.2em; flex-shrink: 0; }

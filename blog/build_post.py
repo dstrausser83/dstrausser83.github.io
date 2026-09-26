@@ -352,7 +352,41 @@ def html_escape_attr(s):
              .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def build(draft_path, image_src=None, video_src=None, image_alt=None):
+def insert_inline_images(body_html, inline_images):
+    """Insert inline <figure> images into the article body at ~1/3 and ~2/3
+    through the paragraphs (David 2026-09-26: multiple images per post).
+    inline_images: list of (rel_path, alt_text, (w, h) or None)."""
+    if not inline_images:
+        return body_html
+    # Split on paragraph closes; keep delimiters.
+    parts = body_html.split("</p>")
+    n_para = len(parts) - 1  # last element is tail after final </p>
+    if n_para < 4:
+        # Too short to split sensibly — append figures at the end.
+        figs = "".join(inline_figure_html(rel, alt, dims)
+                       for rel, alt, dims in inline_images)
+        return body_html + figs
+    # Insertion paragraph indices (0-based) for up to 2 images.
+    targets = sorted({max(1, int(n_para * 1 / 3)), max(2, int(n_para * 2 / 3))})
+    offset = 0
+    for t, (rel, alt, dims) in zip(targets, inline_images):
+        idx = t + offset
+        if idx < len(parts):
+            parts[idx] = parts[idx] + inline_figure_html(rel, alt, dims)
+            offset += 1
+    return "</p>".join(parts)
+
+
+def inline_figure_html(rel, alt_raw, dims):
+    alt = html_escape_attr(re.sub(r"\s+", " ", (alt_raw or "").strip())[:160] or "Article illustration")
+    size_attrs = f' width="{dims[0]}" height="{dims[1]}"' if dims else ""
+    return (f'<figure class="post-inline"><img src="../{rel}" alt="{alt}"'
+            f'{size_attrs} loading="lazy" /></figure>')
+
+
+def build(draft_path, image_srcs=None, video_src=None, image_alts=None):
+    # image_srcs: list of image files — [hero, inline1, inline2].
+    # Backcompat: a single string is treated as [hero].
     with open(draft_path, encoding="utf-8") as f:
         text = f.read()
     # Scribe drafts can carry a UTF-8 BOM which breaks frontmatter
@@ -381,6 +415,16 @@ def build(draft_path, image_src=None, video_src=None, image_alt=None):
     description = fm.get("description", excerpt)
     keywords = fm.get("keywords", "")
     meta_keywords = (f'<meta name="keywords" content="{keywords}" />' if keywords else "")
+
+    # Normalize image args: accept a single string (legacy) or a list.
+    if isinstance(image_srcs, str):
+        image_srcs = [image_srcs]
+    if isinstance(image_alts, str):
+        image_alts = [image_alts]
+    image_srcs = image_srcs or []
+    image_alts = image_alts or []
+    image_src = image_srcs[0] if image_srcs else None
+    image_alt = image_alts[0] if image_alts else None
 
     hero, og_image, image_rel, video_rel = "", "", None, None
     img_dims = None  # (w, h) of the published hero JPEG — reused for og tags + hero attrs
@@ -434,12 +478,35 @@ def build(draft_path, image_src=None, video_src=None, image_alt=None):
         hero = (f'<figure class="post-hero"><img src="../{image_rel}" alt="{alt}"'
                 f'{size_attrs} loading="lazy" /></figure>')
 
+    # Inline images (David 2026-09-26): image_srcs[1:3] are copied as
+    # images/<slug>-img2.jpg, images/<slug>-img3.jpg and inserted as
+    # <figure> elements into the body at ~1/3 and ~2/3.
+    inline_images = []
+    for idx, src in enumerate(image_srcs[1:3], start=2):
+        if not (src and os.path.exists(src)):
+            continue
+        dest = os.path.join(IMAGES_DIR, f"{slug}-img{idx}.jpg")
+        if os.path.abspath(src) != os.path.abspath(dest):
+            os.makedirs(IMAGES_DIR, exist_ok=True)
+            with open(src, "rb") as a, open(dest, "wb") as b:
+                b.write(a.read())
+        dims = None
+        try:
+            from PIL import Image
+            with Image.open(dest) as im:
+                dims = im.size
+        except Exception:
+            pass
+        alt_src = (image_alts[idx - 1] if len(image_alts) > idx - 1 else "") or description or title
+        inline_images.append((f"images/{slug}-img{idx}.jpg", alt_src, dims))
+
     faqs = extract_faq(body)
+    body_html = insert_inline_images(md_to_html(body, slug), inline_images)
     html = PAGE_TEMPLATE.format(
         title=title, slug=slug, date=post_date, pub_display=pub_display,
         description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
-        body=md_to_html(body, slug), faq_jsonld=faq_jsonld(faqs, slug),
+        body=body_html, faq_jsonld=faq_jsonld(faqs, slug),
         article_jsonld=article_jsonld(title, description, slug, published_at, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
         cta=cta_html(slug), author_box=author_box_html(), cta_css=CTA_CSS,
@@ -472,8 +539,9 @@ def build(draft_path, image_src=None, video_src=None, image_alt=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("usage: build_post.py <draft.md> [--image <file.jpg>] [--video <file.mp4>] [--image-alt <text>]"); sys.exit(1)
-    img = sys.argv[sys.argv.index("--image") + 1] if "--image" in sys.argv else None
-    vid = sys.argv[sys.argv.index("--video") + 1] if "--video" in sys.argv else None
-    alt = sys.argv[sys.argv.index("--image-alt") + 1] if "--image-alt" in sys.argv else None
-    build(sys.argv[1], img, vid, alt)
+        print("usage: build_post.py <draft.md> [--image <file.jpg>]... [--video <file.mp4>] [--image-alt <text>]..."); sys.exit(1)
+    argv = sys.argv[2:]
+    imgs = [argv[j + 1] for j in range(len(argv) - 1) if argv[j] == "--image" and j + 1 < len(argv)]
+    alts = [argv[j + 1] for j in range(len(argv) - 1) if argv[j] == "--image-alt" and j + 1 < len(argv)]
+    vid = argv[argv.index("--video") + 1] if "--video" in argv else None
+    build(sys.argv[1], imgs or None, vid, alts or None)
