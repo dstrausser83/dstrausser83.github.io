@@ -5,20 +5,8 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 22:40:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 22:54:53 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</guid>
-      <description>David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.</description>
-      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>erp</category>
-      <category>excel</category>
-      <category>spreadsheets</category>
-    </item>
     <item>
       <title>Odoo Studio: When Clicking Together an App Beats Writing Code</title>
       <link>https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</link>
@@ -46,6 +34,18 @@
       <category>productivity</category>
     </item>
     <item>
+      <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</guid>
+      <description>David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.</description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>erp</category>
+      <category>excel</category>
+      <category>spreadsheets</category>
+    </item>
+    <item>
       <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</guid>
@@ -69,6 +69,32 @@
       <category>odoo</category>
       <category>business</category>
       <category>metrics</category>
+    </item>
+    <item>
+      <title>Data Migration Horror Stories: How to Avoid Becoming One</title>
+      <link>https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</guid>
+      <description>ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>data-migration</category>
+      <category>sap-business-one</category>
+      <category>odoo</category>
+      <category>implementation</category>
+    </item>
+    <item>
+      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
+      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.</description>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>customization</category>
+      <category>implementation</category>
+      <category>odoo</category>
+      <category>sap-business-one</category>
     </item>
     <item>
       <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream — David Strausser</title>
@@ -97,30 +123,17 @@
       <category>business</category>
     </item>
     <item>
-      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
-      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
-      <category>erp</category>
-      <category>customization</category>
-      <category>implementation</category>
-      <category>odoo</category>
-      <category>sap-business-one</category>
-    </item>
-    <item>
-      <title>Data Migration Horror Stories: How to Avoid Becoming One</title>
-      <link>https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</guid>
-      <description>ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.</description>
+      <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</guid>
+      <description>Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.</description>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" type="image/jpeg" />
-      <category>erp</category>
-      <category>data-migration</category>
-      <category>sap-business-one</category>
-      <category>odoo</category>
+      <enclosure url="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" type="image/jpeg" />
       <category>implementation</category>
+      <category>timelines</category>
+      <category>sap</category>
+      <category>odoo</category>
+      <category>business</category>
     </item>
     <item>
       <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
@@ -136,17 +149,14 @@
       <category>testing</category>
     </item>
     <item>
-      <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</guid>
-      <description>Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" type="image/jpeg" />
-      <category>implementation</category>
-      <category>timelines</category>
-      <category>sap</category>
-      <category>odoo</category>
-      <category>business</category>
+      <title>Welcome to the blog — tips, tricks, and straight talk</title>
+      <link>https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</guid>
+      <description>Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" type="image/jpeg" />
+      <category>welcome</category>
+      <category>dead-brands</category>
     </item>
     <item>
       <title>What Playing Guitar Taught Me About Running a Business</title>
@@ -212,16 +222,6 @@
       <category>productivity</category>
       <category>single-dad</category>
       <category>business-growth</category>
-    </item>
-    <item>
-      <title>Welcome to the blog — tips, tricks, and straight talk</title>
-      <link>https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</guid>
-      <description>Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" type="image/jpeg" />
-      <category>welcome</category>
-      <category>dead-brands</category>
     </item>
   </channel>
 </rss>

@@ -698,9 +698,10 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         with open(INDEX_JSON, encoding="utf-8") as f:
             posts = json.load(f)
     posts = [p for p in posts if p["slug"] != slug] + [entry]
-    # Newest first — (date, published_at) so same-day posts order by
-    # actual publish time (David's rule 2026-09-23).
-    posts.sort(key=lambda p: (p.get("date", ""), p.get("published_at", "")), reverse=True)
+    # Newest first by actual publish instant. published_at leads because
+    # date formats vary ("2026-09-26" vs "2026-09-26T07:00:00") and a
+    # date-first sort misorders same-day posts (2026-09-26 fix).
+    posts.sort(key=lambda p: (p.get("published_at", ""), p.get("date", "")), reverse=True)
     with open(INDEX_JSON, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=2)
     print(f"built {out_path} (faqs={len(faqs)}, video={'yes' if video_rel else 'no'})")
