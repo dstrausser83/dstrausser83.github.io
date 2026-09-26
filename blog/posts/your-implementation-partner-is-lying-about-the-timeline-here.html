@@ -9,17 +9,26 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser</title>
-  <meta name="description" content="Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they’re lying about your project’s completion date." />
-  
+  <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser — David Strausser</title>
+  <meta name="description" content="Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit." />
+  <meta name="keywords" content="erp implementation timeline, erp project delays, odoo implementation time, sap business one timeline" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Your implementation partner is lying about the timeline — here's the real math" />
-  <meta property="og:description" content="Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they’re lying about your project’s completion date." />
+  <meta property="og:title" content="Your implementation partner is lying about the timeline — here's the real math — David Strausser" />
+  <meta property="og:description" content="Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="572" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your implementation partner is lying about the timeline — here's the real math — David Strausser" />
+  <meta name="twitter:description" content="Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260924b" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -41,15 +72,55 @@
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
   </style>
-  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do implementation partners quote timelines they can't hit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the honest timeline loses the deal. The market rewards the optimistic quote, so vendors quote the best case and manage the overrun later. It is structural, not personal \u2014 which is why you protect yourself with milestones and payment terms instead of hoping for honesty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if a timeline is realistic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Break it into pieces. Any phase quoted as a single bucket (\"configuration: 4 weeks\") without named tasks, owners, and dependencies is a guess. Realistic timelines name who does what by when, list what they need from you, and show the unknowns instead of hiding them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do when the project starts slipping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Find out which of the five slip sources it is \u2014 decisions, data, scope discovery, testing, or your calendar \u2014 because each has a different fix. Decision delays need escalation to whoever can say yes. Data problems need dedicated cleanup time. Scope discovery needs the change process. Do not accept a revised date without a revised plan; a new date with the same plan just moves the disappointment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I put timeline penalties in the contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Milestone-based payments work better than penalties. Penalties create adversarial dynamics and vendors price them in. Holding twenty to thirty percent of the fee until go-live and stabilization gives you leverage without the lawyers. The vendor who knows the last check depends on a working system manages the timeline like it matters."
+      }
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Your implementation partner is lying about the timeline \u2014 here's the real math",
-  "description": "Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they\u2019re lying about your project\u2019s completion date.",
-  "datePublished": "2026-09-23",
+  "headline": "Your implementation partner is lying about the timeline \u2014 here's the real math \u2014 David Strausser",
+  "description": "Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -65,7 +136,6 @@
   "image": "https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg"
 }
 </script>
-  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -78,7 +148,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -104,9 +174,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -114,38 +182,56 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>Your implementation partner is lying about the timeline — here's the real math</h1>
-        <p class="post-meta">September 23, 2026 at 3:12 PM ET &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" alt="Hands checking off dates on a printed wall calendar with a clock, calculator, and glass of water on a wooden desk" width="1024" height="572" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" alt="Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Your implementation partner is lying about the timeline — here's the real math — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Implementation partners quote the timeline that wins the deal, not the timeline you'll live with. Learn how padding, vague milestones, and skipped discovery distort every estimate — and the simple math that gets you an honest date.</p>
+        </aside>
         <div class="post-body prose">
 <h2>Quick answer</h2>
 <div class="quick-answer">
-<p>Your implementation partner’s timeline is likely a lie. They’re using a standard estimate that’s longer than reality. The math? They add weeks for 'unplanned' work that never happens. If they promise a task that takes 3 days, they say it takes 1 week, they’re lying. Watch for vague timelines and skipped steps.</p>
-<p>You’ve got a project timeline that sounds too good to be true. Your implementation partner says "We’ll finish by Friday." But here’s the real math that proves they’re lying.</p>
-<p>In business, timelines are promises. When your partner claims a project will be done in a week, they’re usually stretching the truth. The math? They add weeks for 'unplanned' work that never happens. If they promise a task that takes 3 days, they say it takes 1 week, they’re lying.</p>
-<p>This is especially true when you’re using SAP Business One or Odoo. Implementation partners often promise timelines that are too short for the actual work. For example, a partner might say they’ll finish an SAP Business One setup in a short timeframe, but the real work takes longer because they skip critical steps.</p>
-<p>Why do implementation partners do this? To keep the project simple and avoid accountability. When they promise a timeline that’s too short, they’re creating a false sense of security. But this often leads to delays and frustration.</p>
-<p>How can you spot a lie? Look for red flags: vague language like 'soon,' skipped steps, or promises that don’t match the actual work required. If your partner says "We’ll finish by next week," but you know the work takes longer, they’re lying.</p>
-<p>The real math is simple: implementation partners add buffer time for 'unplanned' work. But that buffer is often for tasks that never happen. For instance, if the actual work takes longer, they promise a shorter timeline. The math is the same for Odoo implementations.</p>
-<p>But the problem is, they don’t tell you when the buffer is added. So you end up waiting longer than expected.</p>
-<h3>Why do implementation partners say timelines are too short?</h3>
-<p>Implementation partners often use short timelines to make the project seem manageable and to avoid taking responsibility for delays. This is especially common when they’re new to the industry or the project is complex.</p>
-<h3>How do I know if my partner is lying about the timeline?</h3>
-<p>Look for vague language like 'soon,' 'next week,' or 'by the end of the month.' Also, check if they skip steps in the process or promise a timeline that doesn’t match the actual work required.</p>
-<h3>What should I do if they’re lying?</h3>
-<p>Get a detailed timeline with specific milestones and dates. If they refuse, ask for a written agreement that outlines the timeline and the consequences of delays.</p>
+<p>Your implementation partner's timeline is the timeline that wins the deal, not the timeline you'll actually live with. Vendors quote optimistic dates built on best-case assumptions — clean data, fast decisions, no surprises — and every one of those assumptions breaks. The fix is simple math: demand a milestone-by-milestone breakdown, add buffer where the unknowns live, and tie payment to delivered milestones instead of calendar dates.</p>
 </div>
+<h2>The two timelines</h2>
+<p>Every ERP project has two timelines. The first is the one in the proposal — the neat Gantt chart with the confident go-live date that helped them win your business. The second is the one you actually live through, which is longer, messier, and full of discoveries nobody put on the chart. The gap between them is not bad luck. It is structural: the proposal timeline was built to sell, and the real timeline is built out of your actual business.</p>
+<p>Here is how the proposal timeline gets made. The vendor estimates the work under ideal conditions: your data is clean, your team makes decisions in days not weeks, nobody gets pulled into quarter-end close, the integrations behave, and nothing unexpected surfaces in discovery. Every one of those assumptions is false in a real project, and the vendor knows it. But the vendor with the honest twelve-week timeline loses to the vendor with the optimistic eight-week timeline, so the market punishes honesty. You are not buying a lie so much as participating in a system where the truth does not win deals.</p>
+<h2>Where the weeks actually go</h2>
+<p>When a project runs long, the overrun almost never comes from the software. It comes from five places, and four of them are yours, not the vendor's.</p>
+<p>First, decisions. Every implementation has twenty to fifty decisions that only you can make: chart of accounts structure, approval workflows, pricing rules, warehouse logic. Each one waits on someone in your company who has a day job. A decision that takes the vendor an hour to implement takes your team two weeks to make, because it needs three people to agree and they are all busy. Multiply that by thirty decisions and you have added two months. This is the single biggest source of timeline slip, and it never appears on the vendor's chart.</p>
+<p>Second, data. The migration always takes longer than quoted, because the quote assumed clean data and your data is not clean. Cleaning customer masters, deduplicating vendors, reconciling open balances — this is your team's work or work you pay the vendor to do, and either way it was underestimated.</p>
+<p>Third, scope discovery. The requirements gathered before signing were high-level. The real requirements surface during configuration, when someone says "oh, we also need the system to handle consignment stock" and nobody priced that. Each discovery is small. Twenty of them are not.</p>
+<p>Fourth, testing and rework. The first round of user testing always surfaces things that need to change. That is what testing is for. But the timeline usually budgets one round, and real projects need two or three.<figure class="post-inline"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here-img2.jpg" alt="Wall calendar with red deadline circles and a project timeline" width="1920" height="1280" loading="lazy" /></figure></p>
+<h2>The padding game</h2>
+<p>Vendors do pad estimates — but not the way people think. The padding is not a lie; it is usually in the wrong places. A task the vendor knows takes three days gets quoted at a week, because they have been burned before by the client's two-week decision delay sitting inside their three-day task. The padding protects the vendor's margin, not your timeline. When the work goes smoothly, the vendor banks the difference. When it does not, the padding evaporates and you are still late.</p>
+<p>The tell is vagueness. "Configuration: 3 weeks" tells you nothing. Three weeks of what, by whom, dependent on which decisions from you? A padded estimate hides behind big buckets. An honest estimate breaks into pieces small enough to argue with: "Item master configuration: 2 days, dependent on unit-of-measure decisions from your operations lead by March 3." You can hold someone to the second version. The first version is where timelines go to die.</p>
+<p>Watch for these specific red flags. Milestones with no owner — "data migration complete" with no name next to it. Dependencies on your team with no dates — "pending client decisions" as a line item with no deadline is a blank check for delay. A testing phase measured in days instead of rounds — "one week of testing" means whatever fits in the week, not whatever the system needs. And the biggest one: a go-live date announced before discovery is finished. If they set the date before they understand your business, the date is marketing.</p>
+<h2>The real math</h2>
+<p>Here is a simple model that gets you closer to the truth than any proposal. Take the vendor's timeline and split it into vendor work and your work. Vendor work — installation, base configuration, standard training — is usually estimated fairly; vendors know their own speed. Your work — decisions, data cleanup, testing, change management — is where the estimate falls apart, because the vendor cannot see inside your organization.</p>
+<p>For your side, take their estimate and double it. Not because your team is slow, but because your team has jobs. A task quoted at five days of elapsed time assumes five days of attention. Your controller giving the project two hours a day turns five days into three weeks. That is not dysfunction; it is reality. Plan for it.</p>
+<p>Then add the unknowns explicitly instead of hiding them. Every project has three to five things nobody can estimate yet — the integration with the legacy system nobody documented, the EDI spec the big customer has not sent, the warehouse process that lives in one person's head. List them, assign each a time box, and put them on the timeline as named risks with owners. A timeline with visible unknowns is honest. A timeline without them is fiction.</p>
+<p>Finally, convert the timeline from dates to milestones. "Go-live June 1" is a wish. "Go-live happens two weeks after successful completion of round-two testing, data reconciliation sign-off, and training completion" is a plan. Tie vendor payments to milestones, not dates — thirty percent at design sign-off, thirty at testing complete, the rest at go-live. A vendor paid by milestone has an incentive to finish things. A vendor paid by date has an incentive to declare things finished.</p>
+<h2>What to ask before you sign</h2>
+<p>Four questions cut through every timeline fiction. One: "Show me the last three projects of this size — what was the quoted timeline and what was the actual go-live date?" Honest vendors answer this. Evasive vendors tell you every project is different, which is true and also beside the point.<figure class="post-inline"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here-img3.jpg" alt="Hourglass with gears inside" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>Two: "Which parts of this timeline depend on my team, and what exactly do you need from us by when?" Get the dependency list in writing. This is the document that prevents the "we were waiting on you" conversation.</p>
+<p>Three: "What happens to the timeline when we discover new requirements mid-project?" You want a change process with written approval and re-estimated dates — not a shrug and a longer invoice.</p>
+<h2>Frequently asked questions</h2>
+<h3>Why do implementation partners quote timelines they can't hit?</h3>
+<p>Because the honest timeline loses the deal. The market rewards the optimistic quote, so vendors quote the best case and manage the overrun later. It is structural, not personal — which is why you protect yourself with milestones and payment terms instead of hoping for honesty.</p>
+<h3>How do I know if a timeline is realistic?</h3>
+<p>Break it into pieces. Any phase quoted as a single bucket ("configuration: 4 weeks") without named tasks, owners, and dependencies is a guess. Realistic timelines name who does what by when, list what they need from you, and show the unknowns instead of hiding them.</p>
+<h3>What should I do when the project starts slipping?</h3>
+<p>Find out which of the five slip sources it is — decisions, data, scope discovery, testing, or your calendar — because each has a different fix. Decision delays need escalation to whoever can say yes. Data problems need dedicated cleanup time. Scope discovery needs the change process. Do not accept a revised date without a revised plan; a new date with the same plan just moves the disappointment.</p>
+<h3>Should I put timeline penalties in the contract?</h3>
+<p>Milestone-based payments work better than penalties. Penalties create adversarial dynamics and vendors price them in. Holding twenty to thirty percent of the fee until go-live and stabilization gives you leverage without the lawyers. The vendor who knows the last check depends on a working system manages the timeline like it matters.</p>
         </div>
         <p class="post-tags"><span>implementation</span> <span>timelines</span> <span>sap</span> <span>odoo</span> <span>business</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -161,23 +247,12 @@
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
-  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

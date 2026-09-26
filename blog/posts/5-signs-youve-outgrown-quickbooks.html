@@ -9,7 +9,7 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5 Signs You've Outgrown QuickBooks (and What to Do About It) — Dead Brands, LLC Featuring David Strausser</title>
+  <title>5 Signs You've Outgrown QuickBooks (and What to Do About It) — David Strausser</title>
   <meta name="description" content="Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread." />
   <meta name="keywords" content="outgrown QuickBooks, QuickBooks alternative, SAP Business One, ERP for SMB" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html" />
@@ -17,9 +17,18 @@
   <meta property="og:title" content="5 Signs You've Outgrown QuickBooks (and What to Do About It)" />
   <meta property="og:description" content="Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="572" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="5 Signs You've Outgrown QuickBooks (and What to Do About It)" />
+  <meta name="twitter:description" content="Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260924b" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -41,6 +72,7 @@
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
   </style>
   <script type="application/ld+json">
 {
@@ -52,7 +84,7 @@
       "name": "Is SAP Business One overkill for a small business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not if you've hit the signs above. It's designed for SMBs \u2014 typically 10 to a few hundred users. If QuickBooks is actively costing you time and bad decisions, B1 isn't overkill, it's overdue."
+        "text": "Not if you've hit the signs above. It's designed for SMBs \u2014 typically 10 to a few hundred users. If QuickBooks is actively costing you time and bad decisions, B1 isn't overkill, it's overdue. The \"SAP\" name scares people into thinking enterprise; B1 is a different product, built for companies like yours."
       }
     },
     {
@@ -68,7 +100,7 @@
       "name": "Can I migrate my QuickBooks data to SAP Business One?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Master data (customers, vendors, items), open transactions, and historical balances all migrate cleanly. It's a well-worn path \u2014 this is one of the most common B1 implementations there is."
+        "text": "Yes. Master data (customers, vendors, items), open transactions, and historical balances all migrate cleanly. It's a well-worn path \u2014 this is one of the most common B1 implementations there is. The key is cleaning the data before migration, not after."
       }
     },
     {
@@ -76,7 +108,15 @@
       "name": "How long does implementation take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A standard SMB rollout runs 8\u201316 weeks depending on scope. Compare that to the years you've already spent fighting spreadsheets. --- If two or more of those signs hit home, let's talk. [Book a free meeting with me](https://app.apollo.io/#/meet/david_strausser_175) \u2014 I'll tell you honestly whether SAP Business One fits or whether you've still got runway on what you have. Straight talk, no pitch."
+        "text": "A standard SMB rollout runs 8\u201316 weeks depending on scope. Compare that to the years you've already spent fighting spreadsheets. The companies that go fastest are the ones that treat it as a business project with an executive sponsor, not an IT project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to all our spreadsheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most of them retire \u2014 and good riddance. A few might survive as analysis tools, which is fine. But the goal is that the ERP becomes the system of record, and spreadsheets go back to being what they're good at: ad-hoc analysis, not infrastructure. --- If two or more of those signs hit home, let's talk. [Book a free meeting with me](https://app.apollo.io/#/meet/david_strausser_175) \u2014 I'll tell you honestly whether SAP Business One fits or whether you've still got runway on what you have. Straight talk, no pitch."
       }
     }
   ]
@@ -88,7 +128,7 @@
   "@type": "BlogPosting",
   "headline": "5 Signs You've Outgrown QuickBooks (and What to Do About It)",
   "description": "Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.",
-  "datePublished": "2026-09-22",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -104,7 +144,6 @@
   "image": "https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg"
 }
 </script>
-  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -117,7 +156,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -143,9 +182,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -153,50 +190,62 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>5 Signs You've Outgrown QuickBooks (and What to Do About It)</h1>
-        <p class="post-meta">2026-09-22 &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/5-signs-youve-outgrown-quickbooks.jpg" alt="Cluttered desk at night with a laptop showing a spreadsheet, surrounded by paper piles, folders, and sticky notes" width="1024" height="572" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/5-signs-youve-outgrown-quickbooks.jpg" alt="Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>5 Signs You've Outgrown QuickBooks (and What to Do About It)</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>QuickBooks is great — until it isn't. Five unmistakable signs your business has outgrown it: spreadsheet sprawl, inventory you can't trust, reporting gymnastics, broken permissions, and a month-end close that takes weeks. Here's how to recognize the moment and what the natural next step looks like.</p>
+        </aside>
         <div class="post-body prose">
 <h2>Quick answer</h2>
 <div class="quick-answer">
-<p>You've outgrown QuickBooks when you're running the business on spreadsheets outside of it, inventory never matches reality, reporting requires manual gymnastics, you can't control who sees what, and month-end close takes weeks. SAP Business One is built for exactly this stage of growth.</p>
-<p>QuickBooks deserves respect. It gets millions of businesses off the ground. But there's a moment — and every growing company hits it — where your accounting software becomes the bottleneck instead of the backbone. Here's how to recognize it.</p>
+<p>You've outgrown QuickBooks when you're running the business on spreadsheets outside of it, inventory never matches reality, reporting requires manual gymnastics, you can't control who sees what, and month-end close takes weeks. SAP Business One is built for exactly this stage of growth — real ERP for SMBs, without the enterprise price tag.</p>
+<p>QuickBooks deserves respect. It gets millions of businesses off the ground, and for a small operation with straightforward needs, it is genuinely the right tool. But there's a moment — and every growing company hits it — where your accounting software becomes the bottleneck instead of the backbone. The tricky part is that it doesn't announce itself. There is no error message that says "you have outgrown me." There is just a slow accumulation of workarounds, until one day you realize your team spends more time working around the system than working in it.</p>
+<p>Here's how to recognize it.</p>
 </div>
 <h2>1. You're running the business in spreadsheets</h2>
 <p>This is the big one. If your "system" is QuickBooks plus seventeen spreadsheets for inventory, order tracking, commissions, and forecasting — you don't have an ERP, you have a scrapbook. Every spreadsheet is a place where data goes stale, gets mistyped, or lives on one person's laptop.</p>
+<p>Count them. Actually count them — the inventory tracker, the open orders log, the commission calculator, the cash forecast, the job costing sheet, the price list that is newer than the one in QuickBooks. If the number is above five, your accounting system is no longer your system of record. It is one input among many, and the real business runs in Excel.</p>
+<p>Each spreadsheet represents a capability QuickBooks doesn't have that your business needs. That gap only grows. The question is not whether to close it, but when — and every quarter you wait, the spreadsheet collection gets more entrenched, more load-bearing, and harder to replace. The person who built the commission spreadsheet becomes indispensable not because of their job, but because of their file.</p>
 <h2>2. Inventory is a rumor, not a fact</h2>
 <p>QuickBooks tracks inventory the way a weather forecast tracks rain — approximately, sometimes. If you've got multiple warehouses, serialized items, batches, or bins, you need real inventory management: live quantities, proper costing, and traceability. Guessing at stock levels costs real money in stockouts and overstocks.</p>
+<p>Here is the test: pick ten items right now, check the QuickBooks quantity, and walk out to the shelf. How many match? If it is fewer than eight, your inventory is a rumor. And rumors are expensive. Every stockout is a lost or delayed sale. Every overstock is cash sitting on a shelf. Every inventory-related argument between sales and the warehouse is time burned on a question the system should answer instantly.</p>
+<p>It gets worse with complexity. Lot tracking for food or pharma, serial numbers for equipment, bin locations in a real warehouse — QuickBooks either cannot do these or does them as an afterthought. Workarounds exist, but they are manual, fragile, and they break the moment someone gets busy. When your business needs to know not just how many you have but which ones, where they are, and where they have been, you need a real ERP.<figure class="post-inline"><img src="../images/5-signs-youve-outgrown-quickbooks-img2.jpg" alt="Small plant outgrowing a tiny pot with roots breaking through" width="1920" height="1280" loading="lazy" /></figure></p>
 <h2>3. Reporting means exporting and praying</h2>
 <p>"Can you pull a report on margin by product line by salesperson for Q2?" If the answer involves exporting three reports to Excel and spending an afternoon stitching them together, your system is failing you. A real ERP answers that question in seconds with drill-down into the actual transactions.</p>
+<p>This one creeps up. At first it is one report a month that needs Excel help. Then it is every management meeting. Then the controller hires an analyst whose full-time job is building the reports QuickBooks cannot produce. You are now paying a salary to compensate for a software gap — and the reports are still late, still manual, and still wrong whenever someone updates a spreadsheet mid-month.</p>
 <h2>4. Everyone sees everything (or nothing works)</h2>
 <p>Growing teams need real access control: the warehouse sees inventory, sales sees customers and orders, finance sees the books — and nobody sees what they shouldn't. When your permissions model is "give everyone admin or nothing works," you've got a control problem that auditors and common sense both hate.</p>
+<p>This matters for three reasons. First, mistakes: the warehouse temp who can edit the chart of accounts will eventually do it by accident. Second, fraud: without segregation of duties, one person can create a vendor, cut a check, and reconcile the account. You do not need to suspect anyone for this to be a problem — auditors flag it, insurers ask about it, and it keeps owners up at night. Third, focus: people work better when their system shows them their job, not everyone's job. A sales rep drowning in accounting menus is a sales rep wasting time.</p>
+<p>QuickBooks' permission model was designed for a five-person company where everyone trusts everyone. At twenty people, that model is a liability. A real ERP gives you role-based access — granular, auditable, and maintainable. The person who sets it up once does not have to babysit it forever.</p>
 <h2>5. Month-end close takes weeks</h2>
-<p>If closing the books is a multi-week archaeology expedition, your system isn't keeping up with your transaction volume and complexity. SAP Business One customers typically close in days because the data was right all along — reconciliations, intercompany, multi-currency, all native.</p>
+<p>If closing the books is a multi-week archaeology expedition, your system isn't keeping up with your transaction volume and complexity. Digging through unreconciled accounts, chasing down missing documentation, manually eliminating intercompany transactions, revaluing foreign currency by hand — every one of these is a task a real ERP does natively.</p>
+<p>SAP Business One customers typically close in days because the data was right all along — reconciliations, intercompany, multi-currency, all native. The close is fast not because accountants work faster, but because there is nothing to dig up. Transactions were validated when they were entered. Inventory was relieved when it shipped. The books were essentially closed all month; month-end just confirms it.</p>
+<p>Ask yourself what the slow close costs. Not just the accounting team's time — the decisions delayed because the numbers are not ready. The owner waiting three weeks to know last month's margin. The bank waiting on financials. In a growing business, three-week-old numbers are history, not information. Speed of close is speed of management.</p>
 <h2>So what now?</h2>
-<p>The natural next step for a growing SMB is SAP Business One: real ERP — financials, sales, purchasing, inventory, production, CRM — in one system, without the enterprise price tag or the enterprise implementation timeline. It's the system companies graduate to, and they tend to stay for a decade or more.</p>
-<p>The migration isn't as scary as it sounds. Your chart of accounts, customers, vendors, and open transactions all come over. What changes is that the workarounds disappear.</p>
+<p>The natural next step for a growing SMB is SAP Business One: real ERP — financials, sales, purchasing, inventory, production, CRM — in one system, without the enterprise price tag or the enterprise implementation timeline. It's the system companies graduate to, and they tend to stay for a decade or more.<figure class="post-inline"><img src="../images/5-signs-youve-outgrown-quickbooks-img3.jpg" alt="Small fishbowl next to a vast ocean" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>The migration isn't as scary as it sounds. Your chart of accounts, customers, vendors, and open transactions all come over — this is one of the most common B1 implementations there is, and the path is well worn. What changes is that the workarounds disappear. The seventeen spreadsheets retire. The inventory becomes a fact. The reports run in seconds. The permissions make sense. The close takes days.</p>
 <h2>Frequently asked questions</h2>
 <h3>Is SAP Business One overkill for a small business?</h3>
-<p>Not if you've hit the signs above. It's designed for SMBs — typically 10 to a few hundred users. If QuickBooks is actively costing you time and bad decisions, B1 isn't overkill, it's overdue.</p>
+<p>Not if you've hit the signs above. It's designed for SMBs — typically 10 to a few hundred users. If QuickBooks is actively costing you time and bad decisions, B1 isn't overkill, it's overdue. The "SAP" name scares people into thinking enterprise; B1 is a different product, built for companies like yours.</p>
 <h3>How much does SAP Business One cost?</h3>
 <p>It depends on users and licensing model (cloud subscription vs. perpetual), but it's firmly in SMB territory — not the seven-figure projects people associate with the SAP name. <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a free meeting</a> and I'll give you a straight answer for your situation.</p>
 <h3>Can I migrate my QuickBooks data to SAP Business One?</h3>
-<p>Yes. Master data (customers, vendors, items), open transactions, and historical balances all migrate cleanly. It's a well-worn path — this is one of the most common B1 implementations there is.</p>
+<p>Yes. Master data (customers, vendors, items), open transactions, and historical balances all migrate cleanly. It's a well-worn path — this is one of the most common B1 implementations there is. The key is cleaning the data before migration, not after.</p>
 <h3>How long does implementation take?</h3>
-<p>A standard SMB rollout runs 8–16 weeks depending on scope. Compare that to the years you've already spent fighting spreadsheets.</p>
+<p>A standard SMB rollout runs 8–16 weeks depending on scope. Compare that to the years you've already spent fighting spreadsheets. The companies that go fastest are the ones that treat it as a business project with an executive sponsor, not an IT project.</p>
+<h3>What happens to all our spreadsheets?</h3>
+<p>Most of them retire — and good riddance. A few might survive as analysis tools, which is fine. But the goal is that the ERP becomes the system of record, and spreadsheets go back to being what they're good at: ad-hoc analysis, not infrastructure.</p>
 <hr />
 <p>If two or more of those signs hit home, let's talk. <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a free meeting with me</a> — I'll tell you honestly whether SAP Business One fits or whether you've still got runway on what you have. Straight talk, no pitch.</p>
         </div>
         <p class="post-tags"><span>sap-business-one</span> <span>erp</span> <span>quickbooks</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -212,23 +261,12 @@
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
-  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

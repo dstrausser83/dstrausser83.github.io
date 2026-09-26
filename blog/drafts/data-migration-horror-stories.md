@@ -3,7 +3,9 @@ title: "Data Migration Horror Stories: How to Avoid Becoming One"
 slug: "data-migration-horror-stories-and-how-to-avoid-becoming-one"
 date: "2026-09-23"
 tags: erp, data-migration, sap-business-one, odoo, implementation
+summary: "Data migrations fail due to dirty data, untested processes, and assuming the new system will fix old issues. Clean data early, define clear success criteria, test thoroughly with rehearsals, document mappings, and prioritize open transactions over historical records."
 excerpt: "Data migration is where ERP projects go to die — not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale."
+description: "ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring."
 ---
 
 Every ERP implementer has a drawer full of data migration war stories. I'll spare you mine — they all rhyme. The names change, the industries change, but the failure patterns are the same every single time. Learn the patterns and you can dodge nearly all of them.

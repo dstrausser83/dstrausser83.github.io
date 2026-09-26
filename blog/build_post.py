@@ -190,24 +190,67 @@ AUTHOR_URL = "../author.html"
 HEADSHOT = "../../assets/photos/published/david-headshot-blazer.jpg"
 
 
-def cta_html(slug):
-    """Alternating end-of-post CTA (David's rule 2026-09-23): even hash ->
-    book-a-meeting, odd hash -> free Odoo trial. Stable per slug."""
-    if int(hashlib.md5(slug.encode()).hexdigest(), 16) % 2 == 0:
-        return f"""<section class="post-cta">
-          <h2>Let's talk about your business</h2>
-          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you?
-          Grab a free 30-minute call — I'll tell you straight whether
-          SAP Business One or Odoo is the right move, and what it really costs.</p>
-          <a class="cta-btn" href="{MEET_LINK}" target="_blank" rel="noopener">Book a Meeting with Me</a>
-        </section>"""
+def load_cta_templates():
+    """Load CTA template library. Returns (templates dict, rotation list)."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cta-templates.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("templates", {}), data.get("rotation", [])
+    except (OSError, json.JSONDecodeError):
+        return {}, []
+
+
+def cta_html(slug, cta_name=None, cta_custom=None):
+    """End-of-post CTA (David's rule 2026-09-23, extended 2026-09-26).
+
+    cta_name: a template key from cta-templates.json (e.g. 'meeting').
+    cta_custom: dict with heading/body/button/url for a one-off custom CTA.
+    Neither given -> rotate through the 'rotation' list by slug hash.
+    """
+    templates, rotation = load_cta_templates()
+    chosen = None
+    if cta_custom:
+        chosen = cta_custom
+    elif cta_name and cta_name in templates:
+        chosen = templates[cta_name]
+    elif rotation:
+        pick = rotation[int(hashlib.md5(slug.encode()).hexdigest(), 16) % len(rotation)]
+        chosen = templates.get(pick)
+    if not chosen:
+        # Fallback: original meeting CTA so a post never ships without one.
+        chosen = {"heading": "Let's talk about your business",
+                  "body": ("Running on spreadsheets, QuickBooks, or an ERP that fights you? "
+                           "Grab a free 30-minute call — I'll tell you straight whether "
+                           "SAP Business One or Odoo is the right move, and what it really costs."),
+                  "button": "Book a Meeting with Me",
+                  "url": MEET_LINK}
+    heading = html_escape(chosen.get("heading", ""))
+    body = html_escape(chosen.get("body", ""))
+    button = html_escape(chosen.get("button", "Learn more"))
+    url = html_escape_attr(chosen.get("url", "/"))
+    target = ' target="_blank" rel="noopener"' if url.startswith("http") else ""
     return f"""<section class="post-cta">
-          <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="{TRIAL_LINK}" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <h2>{heading}</h2>
+          <p>{body}</p>
+          <a class="cta-btn" href="{url}"{target}>{button}</a>
         </section>"""
+
+
+def html_escape(s):
+    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def summary_html(summary_text):
+    """Sharpie-style Executive Summary box under the hero (David 2026-09-26).
+    Marker-font label sits ON the top border (border breaks around the text,
+    never through it); hand-drawn wobbly border; auto-resizes with content."""
+    if not (summary_text or "").strip():
+        return ""
+    return f"""<aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>{html_escape(summary_text.strip())}</p>
+        </aside>"""
 
 
 def author_box_html():
@@ -259,9 +302,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta property="og:title" content="{title}" />
   <meta property="og:description" content="{description}" />
   {og_image}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{title}" />
+  <meta name="twitter:description" content="{description}" />
+  {twitter_image}
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img {{ width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }}
     .post-hero video {{ width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }}
@@ -271,6 +321,28 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .post-body blockquote {{ border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }}
     .quick-answer {{ background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }}
     .quick-answer p {{ margin: 0.4rem 0; }}
+    .post-hero-card {{ position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }}
+    .post-hero-card img {{ width: 100%; height: auto; display: block; }}
+    .post-hero-card .hero-title-overlay {{ position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }}
+    .post-hero-card .hero-title-overlay h1 {{ color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }}
+    .post-hero-card .post-meta {{ color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }}
+    .post-hero-card .post-meta a {{ color: #fff; }}
+    @media (max-width: 640px) {{
+      .post-hero-card img {{ height: 380px; object-fit: cover; }}
+      .post-hero-card .hero-title-overlay {{ padding: 3rem 1.25rem 1.25rem; }}
+      .post-hero-card .hero-title-overlay h1 {{ font-size: 1.4rem; line-height: 1.2; }}
+      .post-hero-card .post-meta {{ font-size: 0.85rem; }}
+    }}
+    .post-summary {{ position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }}
+    .post-summary p {{ margin: 0.35rem 0; color: #fff; }}
+    .post-summary .post-summary-label {{ position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }}
+    .post-summary .post-summary-label span {{ font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
 {cta_css}
   </style>
@@ -324,9 +396,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>{title}</h1>
-        <p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p>
         {hero}
+        {summary}
         <div class="post-body prose">
 {body}
         </div>
@@ -355,8 +426,8 @@ def html_escape_attr(s):
 
 
 def insert_inline_images(body_html, inline_images):
-    """Insert inline <figure> images into the article body at ~1/3 and ~2/3
-    through the paragraphs (David 2026-09-26: multiple images per post).
+    """Insert inline <figure> images into the article body at ~1/4, ~1/2 and
+    ~3/4 through the paragraphs (David 2026-09-26: hero + 2-3 blog images).
     inline_images: list of (rel_path, alt_text, (w, h) or None)."""
     if not inline_images:
         return body_html
@@ -368,8 +439,9 @@ def insert_inline_images(body_html, inline_images):
         figs = "".join(inline_figure_html(rel, alt, dims)
                        for rel, alt, dims in inline_images)
         return body_html + figs
-    # Insertion paragraph indices (0-based) for up to 2 images.
-    targets = sorted({max(1, int(n_para * 1 / 3)), max(2, int(n_para * 2 / 3))})
+    # Insertion paragraph indices (0-based) for up to 3 images.
+    fracs = [i / (len(inline_images) + 1) for i in range(1, len(inline_images) + 1)]
+    targets = sorted({max(1, min(n_para - 1, int(n_para * f))) for f in fracs})
     offset = 0
     for t, (rel, alt, dims) in zip(targets, inline_images):
         idx = t + offset
@@ -386,8 +458,9 @@ def inline_figure_html(rel, alt_raw, dims):
             f'{size_attrs} loading="lazy" /></figure>')
 
 
-def build(draft_path, image_srcs=None, video_src=None, image_alts=None):
-    # image_srcs: list of image files — [hero, inline1, inline2].
+def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
+          cta_name=None, cta_custom=None):
+    # image_srcs: list of image files — [hero, inline1, inline2, inline3].
     # Backcompat: a single string is treated as [hero].
     with open(draft_path, encoding="utf-8") as f:
         text = f.read()
@@ -461,8 +534,10 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None):
 
     if video_rel:
         poster = f' poster="../{image_rel}"' if image_rel else ""
-        hero = (f'<figure class="post-hero"><video controls preload="metadata"{poster} '
-                f'src="{video_rel}"><source src="{video_rel}" type="video/mp4"></video></figure>')
+        hero = (f'<figure class="post-hero-card"><video controls preload="metadata"{poster} '
+                f'src="{video_rel}"><source src="{video_rel}" type="video/mp4"></video>'
+                f'<div class="hero-title-overlay"><h1>{html_escape(title)}</h1>'
+                f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div></figure>')
     elif image_rel:
         # Hero alt priority (David 2026-09-26: descriptive alt on every post
         # image): frontmatter image_alt > --image-alt arg (scribe image brief)
@@ -477,14 +552,21 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None):
         size_attrs = ""
         if img_dims:
             size_attrs = f' width="{img_dims[0]}" height="{img_dims[1]}"'
-        hero = (f'<figure class="post-hero"><img src="../{image_rel}" alt="{alt}"'
-                f'{size_attrs} loading="lazy" /></figure>')
+        hero = (f'<figure class="post-hero-card"><img src="../{image_rel}" alt="{alt}"'
+                f'{size_attrs} loading="eager" fetchpriority="high" />'
+                f'<div class="hero-title-overlay"><h1>{html_escape(title)}</h1>'
+                f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div></figure>')
+    else:
+        # No hero image (should not happen — imageless posts are never
+        # published): title block without the card.
+        hero = (f'<div class="hero-title-plain"><h1>{html_escape(title)}</h1>'
+                f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div>')
 
-    # Inline images (David 2026-09-26): image_srcs[1:3] are copied as
-    # images/<slug>-img2.jpg, images/<slug>-img3.jpg and inserted as
-    # <figure> elements into the body at ~1/3 and ~2/3.
+    # Inline images (David 2026-09-26): image_srcs[1:4] are copied as
+    # images/<slug>-img2.jpg … -img4.jpg and inserted as <figure> elements
+    # into the body at ~1/4, ~1/2, ~3/4 (hero + 2-3 blog images).
     inline_images = []
-    for idx, src in enumerate(image_srcs[1:3], start=2):
+    for idx, src in enumerate(image_srcs[1:4], start=2):
         if not (src and os.path.exists(src)):
             continue
         dest = os.path.join(IMAGES_DIR, f"{slug}-img{idx}.jpg")
@@ -504,14 +586,19 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None):
 
     faqs = extract_faq(body)
     body_html = insert_inline_images(md_to_html(body, slug), inline_images)
+    # Red summary block (David 2026-09-26): frontmatter summary > excerpt.
+    summary_text = (fm.get("summary") or "").strip() or excerpt
     html = PAGE_TEMPLATE.format(
         title=title, slug=slug, date=post_date, pub_display=pub_display,
         description=description,
         meta_keywords=meta_keywords, hero=hero, og_image=og_image,
+        twitter_image=(f'<meta name="twitter:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
+                       if image_rel else ""),
+        summary=summary_html(summary_text),
         body=body_html, faq_jsonld=faq_jsonld(faqs, slug),
         article_jsonld=article_jsonld(title, description, slug, published_at, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
-        cta=cta_html(slug), author_box=author_box_html(), cta_css=CTA_CSS,
+        cta=cta_html(slug, cta_name, cta_custom), author_box=author_box_html(), cta_css=CTA_CSS,
     )
     # Resolve shared-nav active tokens: generated posts are always blog pages.
     html = re.sub(r"%%A_blog%%", "active", html)
@@ -541,9 +628,15 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("usage: build_post.py <draft.md> [--image <file.jpg>]... [--video <file.mp4>] [--image-alt <text>]..."); sys.exit(1)
+        print("usage: build_post.py <draft.md> [--image <file.jpg>]... [--video <file.mp4>] [--image-alt <text>]... [--cta <template-name>] [--cta-custom <heading>|<body>|<button>|<url>]"); sys.exit(1)
     argv = sys.argv[2:]
     imgs = [argv[j + 1] for j in range(len(argv) - 1) if argv[j] == "--image" and j + 1 < len(argv)]
     alts = [argv[j + 1] for j in range(len(argv) - 1) if argv[j] == "--image-alt" and j + 1 < len(argv)]
     vid = argv[argv.index("--video") + 1] if "--video" in argv else None
-    build(sys.argv[1], imgs or None, vid, alts or None)
+    cta_name = argv[argv.index("--cta") + 1] if "--cta" in argv and argv.index("--cta") + 1 < len(argv) else None
+    cta_custom = None
+    if "--cta-custom" in argv and argv.index("--cta-custom") + 1 < len(argv):
+        parts = argv[argv.index("--cta-custom") + 1].split("|")
+        if len(parts) == 4:
+            cta_custom = {"heading": parts[0], "body": parts[1], "button": parts[2], "url": parts[3]}
+    build(sys.argv[1], imgs or None, vid, alts or None, cta_name, cta_custom)

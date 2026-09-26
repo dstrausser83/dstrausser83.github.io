@@ -9,19 +9,26 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
+  <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser — David Strausser</title>
   <meta name="description" content="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." />
-  
+  <meta name="keywords" content="odoo vs excel, replace spreadsheets with erp, odoo implementation, spreadsheet chaos" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time" />
+  <meta property="og:title" content="Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser" />
   <meta property="og:description" content="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" />
   <meta property="og:image:width" content="1991" />
   <meta property="og:image:height" content="1120" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser" />
+  <meta name="twitter:description" content="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -31,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -55,7 +84,7 @@
       "name": "Should we get rid of all our spreadsheets at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Replace them one module at a time, starting with whatever causes the most pain. Big-bang replacements fail because they ask too much change at once."
+        "text": "No. Replace them one module at a time, starting with whatever causes the most pain. Big-bang replacements fail because they ask too much change at once. Each module you turn on should retire at least one spreadsheet \u2014 that is how you measure progress."
       }
     },
     {
@@ -63,7 +92,7 @@
       "name": "What if our team loves Excel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Keep Excel for analysis and ad-hoc work. Odoo becomes the system of record. The data lives in Odoo, and people can still export to Excel when they want to slice it. You are not taking away their tool, you are giving the data a real home."
+        "text": "Keep Excel for analysis and ad-hoc work. Odoo becomes the system of record. The data lives in Odoo, and people can still export to Excel when they want to slice it. You are not taking away their tool, you are giving the data a real home. The spreadsheet lovers usually become the biggest Odoo fans once they see clean data."
       }
     },
     {
@@ -71,7 +100,15 @@
       "name": "Which Odoo module should we start with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Whatever hurts most. For distributors and manufacturers, that is usually inventory. For service companies, it is often CRM or project tracking. Pick the fire, put it out, then move to the next one."
+        "text": "Whatever hurts most. For distributors and manufacturers, that is usually inventory. For service companies, it is often CRM or project tracking. For anyone drowning in month-end chaos, accounting. Pick the fire, put it out, then move to the next one. The sequence matters less than the momentum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we handle the person who built all the spreadsheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Make them the hero, not the casualty. They understand your business logic better than anyone. Involve them early, give them Odoo Studio access, and let them build. Their formulas become automated rules, their reports become dashboards. Most spreadsheet wizards love Odoo once they realize it does what they were hacking together \u2014 properly."
       }
     }
   ]
@@ -81,9 +118,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time",
+  "headline": "Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time \u2014 David Strausser",
   "description": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
-  "datePublished": "2026-09-26T10:50:52Z",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -111,7 +148,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -137,9 +174,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -147,38 +182,54 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time</h1>
-        <p class="post-meta">September 26, 2026 at 6:50 AM ET &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" alt="Laptop displaying an analytics dashboard beside a messy pile of paper spreadsheets and a coffee mug on a wooden desk" width="1991" height="1120" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" alt="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." width="1991" height="1120" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Every business runs on a sprawling empire of spreadsheets that nobody fully understands and everyone depends on. Odoo replaces it — not in one big-bang rollout, but one module at a time, starting with whatever hurts most.</p>
+        </aside>
         <div class="post-body prose">
 <h2>Quick answer</h2>
 <div class="quick-answer">
-<p>First, spreadsheets break silently. One wrong formula and your inventory numbers lie to you for months. Second, Odoo replaces Excel piece by piece. You do not rip everything out on day one. Third, the module you start with matters less than starting at all.</p>
+<p>Spreadsheets break silently — one wrong formula and your inventory numbers lie to you for months. Odoo replaces Excel piece by piece: you do not rip everything out on day one. Start with the module that addresses your biggest pain (usually inventory), get the win, then expand. The module you start with matters less than starting at all.</p>
+</div>
+<h2>The empire you live in</h2>
 <p>Every business I have ever worked with has a spreadsheet problem. Not a small one. A sprawling, multi-tab, color-coded, macro-laden monster that one person built three years ago and nobody fully understands now. That person might have left. The spreadsheet remains, like a haunted house nobody wants to enter.</p>
 <p>I call it the spreadsheet empire. It starts innocently. Someone tracks inventory in Excel because it is fast. Then purchasing wants in. Then sales builds their own version. Soon you have seven spreadsheets that all disagree about how many widgets you have, and the monthly close takes two weeks of detective work.</p>
-<p>Here is the thing nobody tells you: Excel is not the enemy. Excel is a great calculator. The problem is using a calculator as your system of record. A spreadsheet does not know when two people edit it at once. It does not stop someone from typing text into a quantity field. It does not warn you that the formula in cell G47 has been broken since March.</p>
+<p>And here is what makes it an empire rather than a mess: people depend on it. The shipping clerk's spreadsheet is the only place that knows the real carrier rates. The sales manager's workbook is the only accurate commission tracker. The controller's month-end file has twelve tabs of adjustments that exist nowhere else. These are not bad habits — they are load-bearing infrastructure built by smart people solving real problems with the only tool they had.</p>
+<p>That is why you cannot just delete them. Ripping out the empire in one move is ripping out institutional knowledge. The spreadsheets are wrong in all the ways spreadsheets are wrong, but they are also right about your business in ways no new system knows yet.</p>
+<h2>How spreadsheets actually fail</h2>
+<p>Here is the thing nobody tells you: Excel is not the enemy. Excel is a great calculator. The problem is using a calculator as your system of record. And the failures are never dramatic — they are silent.</p>
+<p>A spreadsheet does not know when two people edit it at once. It does not stop someone from typing text into a quantity field. It does not warn you that the formula in cell G47 has been broken since March. I have seen a company run purchasing off a spreadsheet with a broken VLOOKUP for four months — every reorder point was wrong, and nobody noticed until the stockouts started. The formula looked fine. The numbers looked plausible. They were fiction.</p>
+<p>Version chaos is the other killer. "FINAL_v3_ACTUAL.xlsx" gets emailed around, three people make three different edits, and now there are four versions of the truth. The monthly close becomes archaeology: which file is current, who changed what, why does tab seven not tie to tab three. Two weeks of detective work every month, performed by your most expensive people, to answer questions a system of record would answer in seconds.<figure class="post-inline"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m-img2.jpg" alt="Chaotic desk of printed spreadsheets beside a clean modern dashboard" width="2240" height="1120" loading="lazy" /></figure></p>
+<p>And then there is the bus factor. The person who built the monster understands it. Everyone else is afraid of it. When that person leaves — and they always leave eventually — the spreadsheet becomes a black box the business depends on and nobody can maintain. I have watched companies keep a departed employee's laptop alive for a year because a critical macro only runs on their machine.</p>
+<h2>The one-module-at-a-time conquest</h2>
 <p>Odoo kills this chaos, but not the way most people think. You do not wake up one Monday and delete every spreadsheet. That is how implementations fail. You replace them one module at a time.</p>
 <p>Start with whatever hurts most. For most of my clients, that is inventory. The Odoo Inventory module gives you real stock levels, barcode scanning, and actual transaction history. The day your warehouse team stops arguing about what is on the shelf, you will wonder why you waited.</p>
-<p>Then take on purchasing. Then sales. Each module you turn on retires another spreadsheet. The empire shrinks. Your team stops emailing "FINAL_v3_ACTUAL.xlsx" back and forth.</p>
-<p>The mistake I see: companies try to replace everything at once. They buy every module, hire a partner for a six-month big bang, and wonder why nobody uses it. Start with one pain point. Get the win. Let the team feel the difference. Then expand.</p>
-<p>Your spreadsheet person will resist. Every company has one. They built the empire and they are proud of it. Do not fight them. Make them the Odoo champion. They already understand the business logic better than anyone. Give them Odoo Studio and watch what happens.</p>
-<p>The spreadsheet empire falls the same way every empire falls: not in one dramatic battle, but piece by piece, as people realize there is a better way to live.</p>
-</div>
+<p>Then take on purchasing. The purchase orders stop living in someone's spreadsheet and start living in the system, linked to the inventory they replenish and the bills they become. Then sales — quotes, orders, and invoices in one flow instead of three disconnected files. Each module you turn on retires another spreadsheet. The empire shrinks. Your team stops emailing files back and forth.</p>
+<p>The mistake I see: companies try to replace everything at once. They buy every module, hire a partner for a six-month big bang, and wonder why nobody uses it. Big-bang fails because it asks the whole company to change everything simultaneously — new processes, new screens, new habits, all at once, while still doing their day jobs. Start with one pain point. Get the win. Let the team feel the difference. Then expand.</p>
+<p>There is a practical reason for the sequence too: every module you implement makes the next one easier. Inventory first gives purchasing real stock data to work with. Purchasing gives accounting real costs. Sales gives the warehouse real demand signals. Each module feeds the next. By the third module, the system is doing things no spreadsheet ever could — and your team can see it.</p>
+<h2>What Excel keeps (and should)</h2>
+<p>This is the part vendors skip: you do not eliminate Excel. You demote it. Excel stays for analysis, ad-hoc modeling, and the quick what-if that does not belong in a system of record. Odoo becomes the home of the data; Excel becomes the tool people use to think about the data.</p>
+<p>Every Odoo list view exports to Excel in one click. Pivot views let people slice data without leaving the system. The spreadsheet person — every company has one, the one who built the empire — does not lose their tool. They gain clean data to point it at. That reframing matters, because it turns your biggest resistor into your biggest advocate.</p>
+<p>Do not fight the spreadsheet person. Make them the Odoo champion. They already understand the business logic better than anyone — they built the formulas, they know the exceptions, they know which numbers matter. Give them Odoo Studio and watch what happens. They will build the views and automations that make the system sing, because they have been waiting years for a tool that could keep up with them.<figure class="post-inline"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m-img3.jpg" alt="Giant spreadsheet grid crumbling like a collapsing building" width="1920" height="1280" loading="lazy" /></figure></p>
+<h2>The migration nobody plans for: the logic</h2>
+<p>The hardest part of replacing spreadsheets is not the data. It is the logic buried in the formulas. That VLOOKUP chain, that nested IF that handles the freight calculation, the macro that reformats the commission report — each one encodes a business rule that someone decided, probably for a good reason, probably years ago.</p>
+<p>Before you retire a spreadsheet, document what it computes and why. Sit with the person who built it and walk through the formulas. Half of them will be obsolete — workarounds for problems that no longer exist. The other half are requirements your Odoo implementation needs to handle. I have seen implementations miss a critical pricing rule because nobody asked what column K was doing. The spreadsheet knew. Nobody asked.</p>
 <h2>Frequently asked questions</h2>
 <h3>Should we get rid of all our spreadsheets at once?</h3>
-<p>No. Replace them one module at a time, starting with whatever causes the most pain. Big-bang replacements fail because they ask too much change at once.</p>
+<p>No. Replace them one module at a time, starting with whatever causes the most pain. Big-bang replacements fail because they ask too much change at once. Each module you turn on should retire at least one spreadsheet — that is how you measure progress.</p>
 <h3>What if our team loves Excel?</h3>
-<p>Keep Excel for analysis and ad-hoc work. Odoo becomes the system of record. The data lives in Odoo, and people can still export to Excel when they want to slice it. You are not taking away their tool, you are giving the data a real home.</p>
+<p>Keep Excel for analysis and ad-hoc work. Odoo becomes the system of record. The data lives in Odoo, and people can still export to Excel when they want to slice it. You are not taking away their tool, you are giving the data a real home. The spreadsheet lovers usually become the biggest Odoo fans once they see clean data.</p>
 <h3>Which Odoo module should we start with?</h3>
-<p>Whatever hurts most. For distributors and manufacturers, that is usually inventory. For service companies, it is often CRM or project tracking. Pick the fire, put it out, then move to the next one.</p>
+<p>Whatever hurts most. For distributors and manufacturers, that is usually inventory. For service companies, it is often CRM or project tracking. For anyone drowning in month-end chaos, accounting. Pick the fire, put it out, then move to the next one. The sequence matters less than the momentum.</p>
+<h3>How do we handle the person who built all the spreadsheets?</h3>
+<p>Make them the hero, not the casualty. They understand your business logic better than anyone. Involve them early, give them Odoo Studio access, and let them build. Their formulas become automated rules, their reports become dashboards. Most spreadsheet wizards love Odoo once they realize it does what they were hacking together — properly.</p>
         </div>
         <p class="post-tags"><span>odoo</span> <span>erp</span> <span>excel</span> <span>spreadsheets</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
           <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />

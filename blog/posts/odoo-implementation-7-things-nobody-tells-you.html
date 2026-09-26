@@ -9,7 +9,7 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start — Dead Brands, LLC Featuring David Strausser</title>
+  <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start — David Strausser</title>
   <meta name="description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
   <meta name="keywords" content="Odoo implementation, Odoo tips, ERP implementation, Odoo setup" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html" />
@@ -17,9 +17,18 @@
   <meta property="og:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start" />
   <meta property="og:description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="572" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start" />
+  <meta name="twitter:description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260924b" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -41,6 +72,7 @@
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
   </style>
   <script type="application/ld+json">
 {
@@ -52,7 +84,7 @@
       "name": "How long does an Odoo implementation take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A focused SMB implementation of core apps takes 4\u20138 weeks. Companies that try to customize everything first routinely stretch past 6 months. Speed comes from scope discipline, not from rushing."
+        "text": "A focused SMB implementation of core apps takes 4\u20138 weeks. Companies that try to customize everything first routinely stretch past 6 months. Speed comes from scope discipline, not from rushing. If someone quotes you two weeks for a full multi-app rollout with migration, they are quoting the happy path \u2014 plan for the real one."
       }
     },
     {
@@ -60,7 +92,7 @@
       "name": "Is Odoo good for small businesses?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 that's its sweet spot. Small businesses get enterprise-grade tools (accounting, CRM, inventory, e-commerce) at a fraction of traditional ERP cost. Start with a [free 15-day trial](https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-7-things-nobody-tells-you-inline) and prove it to yourself."
+        "text": "Yes \u2014 that's its sweet spot. Small businesses get enterprise-grade tools (accounting, CRM, inventory, e-commerce) at a fraction of traditional ERP cost. Start with a [free 15-day trial](https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-7-things-nobody-tells-you-inline) and prove it to yourself before you commit to anything."
       }
     },
     {
@@ -68,7 +100,7 @@
       "name": "What's the biggest Odoo implementation mistake?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Migrating dirty data and customizing before understanding the standard flows. Both are avoidable, and both account for the majority of painful implementations I've seen."
+        "text": "Migrating dirty data and customizing before understanding the standard flows. Both are avoidable, and both account for the majority of painful implementations I've seen. If you only fix two things about your plan, fix those two."
       }
     },
     {
@@ -76,7 +108,7 @@
       "name": "Should I implement Odoo myself or hire a consultant?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "If you have someone technical and process-minded in-house, a simple setup is very doable. For multi-app rollouts with inventory and accounting, a consultant pays for itself. Either way, start with the trial and map your processes first. --- Thinking about Odoo for your business? [Book a free meeting with me](https://app.apollo.io/#/meet/david_strausser_175) and we'll talk through whether it's the right fit \u2014 no pitch, just straight talk. Or spin up the [free 15-day Odoo trial](https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-7-things-nobody-tells-you-inline) and kick the tires yourself."
+        "text": "If you have someone technical and process-minded in-house, a simple setup is very doable \u2014 Odoo's documentation and community are genuinely good. For multi-app rollouts with inventory and accounting, a consultant pays for itself. Either way, start with the trial and map your processes first. The mapping is the work; the software is just where the map lives. --- Thinking about Odoo for your business? [Book a free meeting with me](https://app.apollo.io/#/meet/david_strausser_175) and we'll talk through whether it's the right fit \u2014 no pitch, just straight talk. Or spin up the [free 15-day Odoo trial](https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-7-things-nobody-tells-you-inline) and kick the tires yourself."
       }
     }
   ]
@@ -88,7 +120,7 @@
   "@type": "BlogPosting",
   "headline": "Odoo Implementation: 7 Things Nobody Tells You Before You Start",
   "description": "Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.",
-  "datePublished": "2026-09-22",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -104,7 +136,6 @@
   "image": "https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg"
 }
 </script>
-  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -117,7 +148,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -143,9 +174,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -153,53 +182,62 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>Odoo Implementation: 7 Things Nobody Tells You Before You Start</h1>
-        <p class="post-meta">2026-09-22 &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Ultrawide monitor displaying a purple dashboard of app icons, bar charts, and pie charts on a clean white desk" width="1024" height="572" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo Implementation: 7 Things Nobody Tells You Before You Start</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Odoo implementations fail on data, scope creep, and training — almost never on the software. Seven hard-won lessons from real rollouts: clean your data first, lock scope early, start with fewer apps, train like you mean it, and get help before you're drowning.</p>
+        </aside>
         <div class="post-body prose">
 <h2>Quick answer</h2>
 <div class="quick-answer">
-<p>Odoo implementations succeed when you clean your data first, lock the scope early, train your people before go-live, and resist customizing everything on day one. Most failures come from bad data and scope creep — not from the software.</p>
+<p>Odoo implementations succeed when you clean your data first, lock the scope early, train your people before go-live, and resist customizing everything on day one. Most failures come from bad data and scope creep — not from the software. A focused SMB rollout of core apps takes 4–8 weeks; the ones that stretch past 6 months almost always customized too much, too early.</p>
 <p>I've watched Odoo implementations go sideways more times than I can count. The software is almost never the problem. It's everything around the software. Here's what nobody puts in the sales deck.</p>
 </div>
 <h2>1. Your data is worse than you think</h2>
 <p>Every company believes their spreadsheets are "pretty clean." They're not. Duplicate customers, three different spellings of the same vendor, products with no SKUs, inventory counts from 2019 — Odoo will faithfully import all of it, and then you'll spend months untangling the mess inside a live system instead of in a spreadsheet where it's cheap to fix.</p>
-<p>Clean it before migration. Dedicate real hours. This is the single highest-ROI activity in the whole project.</p>
+<p>Clean it before migration. Dedicate real hours — pull the customer list, sort it, merge the dupes. Do the same for vendors and products. Validate that every product has a SKU, a unit of measure, and a category. This is the single highest-ROI activity in the whole project. A week of cleanup before migration saves two months of surgery after go-live. I have never seen a company regret cleaning their data. I have seen many regret skipping it.</p>
 <h2>2. Scope creep is the silent killer</h2>
 <p>"We'll just add this one custom field... and this workflow... and can it also do that thing our old system did?" Every "just" adds days. Odoo does 80% of what most businesses need out of the box. Implement the 80%, go live, then iterate on the 20%.</p>
-<p>The companies that go live in 6 weeks beat the ones still "perfecting" their setup at month 8. Every time.</p>
+<p>The companies that go live in 6 weeks beat the ones still "perfecting" their setup at month 8. Every time. A live system generating value beats a perfect system generating nothing.</p>
 <h2>3. Out-of-the-box beats custom every time (at first)</h2>
-<p>Odoo's standard flows exist because thousands of companies refined them. Your "unique process" is usually a workaround for a limitation in your old system. Adopt the standard flow first. Customize only after you've lived with it for a quarter and can prove the standard way costs you money.</p>
+<p>Odoo's standard flows exist because thousands of companies refined them. Your "unique process" is usually a workaround for a limitation in your old system. That approval chain with five steps? It existed because the old system couldn't do conditional approvals. The spreadsheet that re-keyed order data into the accounting system? That was an integration gap, not a process.</p>
+<p>Adopt the standard flow first. Live with it for a quarter. Then customize only where you can prove the standard way costs you money — with numbers, not feelings. "This costs us six hours a week" is a customization justification. "We've always done it this way" is not.</p>
+<p>There is a second reason for this discipline: upgrades. Every customization is something that has to be tested, and sometimes rebuilt, at every Odoo upgrade. Companies that customized heavily in version 16 dread the move to 17. Companies that stayed close to standard click through it. The customization you skip today is an upgrade you do not fear tomorrow.<figure class="post-inline"><img src="../images/odoo-implementation-7-things-nobody-tells-you-img2.jpg" alt="Seven glowing lightbulbs above an open laptop" width="2048" height="1152" loading="lazy" /></figure></p>
 <h2>4. Training isn't a one-hour Zoom call</h2>
-<p>The number one predictor of implementation success isn't the consultant — it's whether your team actually uses the system. Budget real training time. Name a champion in each department. And accept that the first two weeks after go-live will feel slower. That's normal. Week three is when it clicks.</p>
+<p>The number one predictor of implementation success isn't the consultant — it's whether your team actually uses the system. I have seen technically perfect implementations fail because nobody trained the warehouse team, and I have seen rough implementations succeed because the users were invested and supported.</p>
+<p>Budget real training time: role-based sessions, not generic walkthroughs. The warehouse lead needs receiving, transfers, and cycle counts — not a tour of the CRM. The AR clerk needs invoicing and payment matching — not manufacturing orders. Train people on their actual jobs, with their actual data, doing their actual tasks.</p>
+<p>Name a champion in each department — the person others ask when they get stuck. Give the champions extra training and a direct line to whoever supports the system. And accept that the first two weeks after go-live will feel slower. That's normal. People are building new muscle memory. Week three is when it clicks, and week six is when they start saying they could never go back.</p>
 <h2>5. Start with fewer apps, not more</h2>
-<p>Odoo has 40+ apps and the temptation is to turn them all on. Don't. Start with the core: CRM or Sales, Invoicing, Inventory, Purchase. Get those humming, then layer in Project, Helpdesk, Marketing Automation. Each app you add multiplies testing and training.</p>
+<p>Odoo has 40+ apps and the temptation is to turn them all on. Don't. Start with the core: CRM or Sales, Invoicing, Inventory, Purchase. Get those humming, then layer in Project, Helpdesk, Marketing Automation.</p>
+<p>Each app you add multiplies testing and training — not adds, multiplies. Four apps means testing four apps' worth of flows plus the interactions between them. Eight apps means the interaction matrix gets genuinely hard to hold in anyone's head. And every app is another set of screens your team has to learn in week one, when they are already overwhelmed.</p>
+<p>There is also a sequencing logic: core transactional apps first (the money and the goods), then the apps that consume their data. CRM feeds Sales feeds Inventory feeds Invoicing — implement in flow order and each app arrives with real data already in the system. Implement Helpdesk first and it sits empty, disconnected, while the team wonders what it is for.</p>
 <h2>6. The community vs. enterprise decision matters</h2>
 <p>Odoo Community is free and powerful. Odoo Enterprise adds the upgrade path, mobile apps, and features like multi-company accounting that growing businesses eventually need. My rule: if you're growing and plan to be on this system in 3 years, Enterprise pays for itself in the first upgrade you don't have to rebuild from scratch.</p>
+<p>The upgrade question is the real one. Community upgrades between major versions are a manual migration project — doable, but real work. Enterprise upgrades are largely automated. Over three years and two version jumps, the Enterprise subscription typically costs less than one manual Community migration done by a consultant. Run your own numbers, but do not treat "free" as free.</p>
 <h2>7. Get help before you're drowning</h2>
-<p>The most expensive consultant is the one you call after the failed go-live. A few hours of expert guidance during planning saves weeks of cleanup later. This is literally what I do — I've seen the movie, I know where the bodies are buried.</p>
+<p>The most expensive consultant is the one you call after the failed go-live. A few hours of expert guidance during planning — scope review, data strategy, app sequencing — saves weeks of cleanup later. This is literally what I do — I've seen the movie, I know where the bodies are buried.<figure class="post-inline"><img src="../images/odoo-implementation-7-things-nobody-tells-you-img3.jpg" alt="Split image of tidy versus tangled server cables" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>The pattern I see: companies try to save money by going it alone, hit a wall at week six (usually data or scope), and then hire help at emergency rates to rescue the project. The rescue costs three times what the planning would have cost, because now the consultant is untangling decisions instead of guiding them. Even a short engagement — a day to review your plan before you start — catches the big mistakes while they are still cheap.</p>
+<p>And if you are already mid-implementation and struggling: get help now, not after go-live. Every week of a struggling implementation bakes in more decisions that will need unpicking. There is no shame in it — the consultants who do rescues have seen far worse than whatever you have got.</p>
 <h2>Frequently asked questions</h2>
 <h3>How long does an Odoo implementation take?</h3>
-<p>A focused SMB implementation of core apps takes 4–8 weeks. Companies that try to customize everything first routinely stretch past 6 months. Speed comes from scope discipline, not from rushing.</p>
+<p>A focused SMB implementation of core apps takes 4–8 weeks. Companies that try to customize everything first routinely stretch past 6 months. Speed comes from scope discipline, not from rushing. If someone quotes you two weeks for a full multi-app rollout with migration, they are quoting the happy path — plan for the real one.</p>
 <h3>Is Odoo good for small businesses?</h3>
-<p>Yes — that's its sweet spot. Small businesses get enterprise-grade tools (accounting, CRM, inventory, e-commerce) at a fraction of traditional ERP cost. Start with a <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-inline" target="_blank" rel="noopener">free 15-day trial</a> and prove it to yourself.</p>
+<p>Yes — that's its sweet spot. Small businesses get enterprise-grade tools (accounting, CRM, inventory, e-commerce) at a fraction of traditional ERP cost. Start with a <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-7-things-nobody-tells-you-inline" target="_blank" rel="noopener">free 15-day trial</a> and prove it to yourself before you commit to anything.</p>
 <h3>What's the biggest Odoo implementation mistake?</h3>
-<p>Migrating dirty data and customizing before understanding the standard flows. Both are avoidable, and both account for the majority of painful implementations I've seen.</p>
+<p>Migrating dirty data and customizing before understanding the standard flows. Both are avoidable, and both account for the majority of painful implementations I've seen. If you only fix two things about your plan, fix those two.</p>
 <h3>Should I implement Odoo myself or hire a consultant?</h3>
-<p>If you have someone technical and process-minded in-house, a simple setup is very doable. For multi-app rollouts with inventory and accounting, a consultant pays for itself. Either way, start with the trial and map your processes first.</p>
+<p>If you have someone technical and process-minded in-house, a simple setup is very doable — Odoo's documentation and community are genuinely good. For multi-app rollouts with inventory and accounting, a consultant pays for itself. Either way, start with the trial and map your processes first. The mapping is the work; the software is just where the map lives.</p>
 <hr />
-<p>Thinking about Odoo for your business? <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a free meeting with me</a> and we'll talk through whether it's the right fit — no pitch, just straight talk. Or spin up the <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a> and kick the tires yourself.</p>
+<p>Thinking about Odoo for your business? <a href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a free meeting with me</a> and we'll talk through whether it's the right fit — no pitch, just straight talk. Or spin up the <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-odoo-implementation-7-things-nobody-tells-you-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a> and kick the tires yourself.</p>
         </div>
         <p class="post-tags"><span>odoo</span> <span>erp</span> <span>implementation</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -215,23 +253,12 @@
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
-  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

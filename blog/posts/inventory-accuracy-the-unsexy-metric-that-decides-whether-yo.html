@@ -9,17 +9,26 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventory accuracy: the metric that decides if your ERP works (and why it’s unsexy) — David Strausser</title>
+  <title>Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser — David Strausser</title>
   <meta name="description" content="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." />
-  
+  <meta name="keywords" content="inventory accuracy, erp inventory management, odoo inventory, cycle counting" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it’s unsexy)" />
+  <meta property="og:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser" />
   <meta property="og:description" content="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser" />
+  <meta name="twitter:description" content="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -43,14 +74,53 @@
     .author-links a { font-size: 0.9rem; }
 
   </style>
-  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my inventory accuracy is low?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your stock counts don't match physical counts within 1-2% of lines over a month, you're under. Check your adjustment history in the ERP \u2014 if you're posting large adjustments every count, the process is leaking. And if you've never measured it, assume it's worse than you think."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Odoo handle complex inventory rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but it's about setup. For most small businesses, Odoo's default rules work \u2014 locations, routes, and reordering rules cover the common cases. If you need custom logic, it's doable but requires careful configuration. Avoid overcomplicating it: every custom rule is a rule someone has to understand during a count."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does this metric matter more than others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it's the foundation. If inventory is wrong, all downstream data \u2014 sales, costs, pricing, purchasing \u2014 becomes unreliable. Revenue gets the attention, but inventory accuracy decides whether the numbers behind the revenue are real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's a realistic accuracy target for a small business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "95% line accuracy. That means 95 out of 100 counted lines match the system. It's enough to trust the system for purchasing and promising without constant firefighting. Getting from 80% to 95% typically takes two to three quarters of disciplined cycle counting \u2014 not new software."
+      }
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Inventory accuracy: the metric that decides if your ERP works (and why it\u2019s unsexy)",
+  "headline": "Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) \u2014 David Strausser",
   "description": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
-  "datePublished": "2026-09-25T18:36:24Z",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -78,7 +148,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -104,9 +174,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -114,41 +182,57 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>Inventory accuracy: the metric that decides if your ERP works (and why it’s unsexy)</h1>
-        <p class="post-meta">September 25, 2026 at 2:36 PM ET &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" alt="Warehouse aisle lined with tall metal shelves stacked with cardboard boxes and gray storage bins" width="2048" height="1152" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" alt="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Inventory accuracy is the quiet metric that decides whether your ERP works. If your system's stock numbers don't match the warehouse within a couple percent, every downstream number — costs, margins, availability — is fiction. Here's how to measure it, fix it, and keep it fixed.</p>
+        </aside>
         <div class="post-body prose">
 <h2>Quick answer</h2>
 <div class="quick-answer">
-<p>Inventory accuracy isn't about flashy reports. It's the silent check that tells you if your ERP actually counts what it's supposed to. For Odoo users, this means your stock numbers match reality without a hitch. If it doesn't, your whole system starts guessing.</p>
-<p>You might think your ERP is fine because the interface looks clean and the reports seem to work. But if your stock levels don't match what's actually in the warehouse, you're dealing with a broken system. Inventory accuracy is the quiet metric that decides whether your ERP works — and it's the one no one talks about.</p>
-<p>For most small businesses, Odoo handles inventory with a simple setup. But it's easy to get the details wrong. For example, if you don't sync your POS system with Odoo, stock counts will drift. Or if you forget to adjust for damaged goods, your numbers get worse. These small mistakes add up quickly.</p>
-<p>Odoo's inventory module is designed to be straightforward. It tracks stock movements, but it requires careful configuration. The key is to set up your locations and product categories correctly from the start. If you skip this step, your accuracy will suffer. Real inventory accuracy starts with the basics: clear locations, consistent processes, and regular checks.</p>
-<p>The problem with most ERPs is that they focus on the big picture. They show you what's sold, what's left, and what's coming in. But they don't tell you if the numbers match the reality. That's where inventory accuracy comes in. It's the quiet metric that keeps your system from failing.</p>
-<h3>How do I know if my inventory accuracy is low?</h3>
-<p>If your stock counts don't match physical counts within 1-2% over a month, you're likely under. Check your reconciliation reports in Odoo's Inventory module. If you see a big gap, it means your system isn't tracking changes properly.</p>
-<h3>Can Odoo handle complex inventory rules?</h3>
-<p>Yes, but it's about setup. For most small businesses, Odoo's default rules work. If you need custom rules, it's doable but requires careful configuration. Avoid overcomplicating it.</p>
-<h3>Why does this metric matter more than others?</h3>
-<p>Because it's the foundation. If inventory is wrong, all downstream data — sales, costs, pricing — becomes unreliable. No one talks about it, but it's the real test.</p>
-<p>Odoo's strength is in simplicity. You don't need to overthink it. But if you skip the basics, accuracy suffers. For example, many small businesses forget to track returns or damaged goods. That leads to stock levels being too high, which causes problems later.</p>
-<p>Another common mistake is not syncing with POS. If your sales system doesn't update Odoo in real time, stock numbers will be off. A simple fix: set up automatic sync between your POS and Odoo. It takes minutes and makes a big difference.</p>
-<p>Real inventory accuracy isn't about perfect numbers. It's about knowing when your system is close enough. For most small businesses, 95% accuracy is enough. That means your stock counts match physical counts within 5% over a month. It's enough to run smoothly without constant headaches.</p>
-<p>The best way to improve accuracy is to start small. Track one location first. Check your stock once a week. Adjust for small errors. This simple approach keeps your system working without overcomplicating it.</p>
-<p>For larger businesses, inventory accuracy gets more complex. But Odoo handles it with the right setup. The key is to focus on the basics and avoid adding too many layers.</p>
-<p>In the end, inventory accuracy is about trust. If your system counts what it's supposed to, you can rely on it. If not, you'll keep fixing it. That's why it's the unsexy metric that decides whether your ERP works.</p>
+<p>Inventory accuracy isn't about flashy reports. It's the silent check that tells you if your ERP actually counts what it's supposed to. If your stock numbers don't match what's physically in the warehouse within 1-2%, your whole system is guessing — and every number downstream of inventory (costs, margins, available-to-promise) is wrong too. Fix it with cycle counting, disciplined receiving, and syncing every sales channel to the ERP in real time.</p>
 </div>
+<h2>Why nobody talks about it</h2>
+<p>You might think your ERP is fine because the interface looks clean and the reports come out on time. Then someone does a physical count and finds you have 400 units of a product the system says you have 900 of — or zero of something the system insists is in stock. That gap is inventory accuracy, and it is the foundation everything else stands on. Get it wrong and your purchasing buys what you already have, your sales team promises what you do not have, and your cost of goods sold is a work of fiction.</p>
+<p>It is unsexy because there is no dashboard that fixes it. No AI feature, no add-on, no consultant's magic. It is process discipline: receiving done right, counts done regularly, and every movement recorded. Companies would rather buy software than build discipline, which is why this metric stays broken in so many places.</p>
+<p>Here is the uncomfortable part: most companies do not know their accuracy number. They have never measured it. They feel like inventory is "mostly right" because nobody has checked lately. The first time you run a real wall-to-wall count against the system, the result is usually a shock. I have seen variances of thirty percent. The companies that fix it are the ones that decided to look.</p>
+<h2>How to measure it</h2>
+<p>The formula is simple. Count a set of SKUs physically, compare to the system quantity, and divide the accurate lines by the total lines counted. A line is accurate if the physical count matches the system within your tolerance — most operations use zero tolerance for high-value items and a small tolerance for bulk goods.</p>
+<p>Do not measure dollars. Measure lines. Dollar accuracy hides problems: being over on a cheap item and under on an expensive one can net to zero dollars while both lines are wrong. Line accuracy tells you the truth about your process.</p>
+<p>Benchmarks: world-class operations run 95%+ line accuracy. Most small and midsize businesses I see are at 70-85% and do not know it. Below 90%, you cannot trust the system for purchasing or promising — you are running the warehouse on tribal knowledge and spot checks. The goal is 95% or better, and it is absolutely achievable without exotic technology. It takes process, not software.</p>
+<p>Run the measurement monthly at first, then quarterly once you are above 95%. Track it as a KPI the same way you track revenue. When the owner asks about it in the monthly review, it stays fixed. When nobody asks, it drifts.<figure class="post-inline"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo-img2.jpg" alt="Warehouse aisle with neatly stacked boxes and a barcode scanner cart" width="2048" height="1152" loading="lazy" /></figure></p>
+<h2>The five leaks</h2>
+<p>Inaccuracy comes from the same five leaks in almost every company. Fix these and accuracy follows.</p>
+<p><strong>1. Receiving without discipline.</strong> Product arrives, someone signs the BOL, and the boxes go straight to the shelf without being counted against the PO. Or they get counted but the receipt never gets posted in the system. Every unrecorded receipt is inventory the system does not know about — which becomes a variance at count time and a phantom shortage in the meantime. The fix: nothing goes to a bin without a posted receipt. No exceptions, no "I'll enter it later." Later does not happen.</p>
+<p><strong>2. Unrecorded movements.</strong> Someone moves stock from bulk storage to the pick face and does not record the transfer. Someone pulls a unit for a warranty replacement and forgets the adjustment. Someone "borrows" from one job to finish another. Each one is small. Together they are death by a thousand cuts. The fix is cultural more than technical: every movement gets recorded, and the system has to make recording fast enough that people actually do it. If your transfer process takes six clicks, people will skip it. Get it to two.</p>
+<p><strong>3. Damaged, expired, and scrapped goods still on the books.</strong> The pallet of water-damaged product sitting in the corner is still in the system at full quantity. The expired lot nobody quarantined is still available-to-promise. These are not counting errors — the count was right when it was received. They are status errors, and they accumulate quietly. The fix: a quarantine location in the system and a weekly habit of moving dead stock into it. What gets measured gets managed; what sits in the corner gets forgotten.</p>
+<p><strong>4. Sales channels out of sync.</strong> Your POS, your web store, your Amazon channel — if any of them does not update the ERP in real time, stock numbers drift between syncs. This is the leak that causes overselling: the web store shows twelve units because the last sync was an hour ago, but the warehouse shipped ten of them twenty minutes ago. The fix: real-time integration for every channel, and if a channel cannot do real-time, buffer its available quantity so you never promise what might already be gone.</p>
+<p><strong>5. No cycle counting.</strong> The annual physical count is an autopsy — it tells you what died, not how to keep things alive. Without regular cycle counts, small errors compound for eleven months and the annual count becomes a multi-day shutdown that everyone dreads. The fix below replaces it.</p>
+<h2>Cycle counting: the actual fix</h2>
+<p>Cycle counting means counting a small slice of inventory on a regular rotation instead of everything once a year. ABC classification drives the schedule: A items (high value or high velocity) get counted monthly or weekly, B items quarterly, C items twice a year. A team of one or two people can cycle-count a midsize warehouse without stopping operations.</p>
+<p>The discipline that makes it work: when a count is off, you do not just adjust the number — you find out why. Was it a receiving error? An unrecorded transfer? A BOM that consumes the wrong quantity? Every variance is a process defect, and fixing the defect prevents the next hundred variances. Companies that just adjust and move on stay at 85% forever. Companies that investigate each variance climb past 95% within two or three quarters.</p>
+<p>In Odoo, cycle counting is built in: define your locations, set up inventory adjustments as a routine operation, and use the built-in reports to track adjustments over time. The tooling is the easy part. The habit — count, investigate, fix the process — is the whole game.<figure class="post-inline"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo-img3.jpg" alt="Inventory checklist clipboard leaning against stacked boxes" width="1920" height="1280" loading="lazy" /></figure></p>
+<h2>Setup mistakes that doom accuracy from day one</h2>
+<p>For Odoo users especially, accuracy starts with configuration. Set up your locations and product categories correctly from the start — warehouse zones, quarantine locations, staging areas. If everything lives in one big "stock" location, you cannot count by zone and you cannot isolate problems. Skip this step and accuracy suffers from day one.</p>
+<p>Product setup matters too: units of measure must be right (buying in cases, selling in eaches, stocking in pallets — get the conversions locked), and every product needs a consistent tracking method. Decide upfront which items are tracked by lot or serial number; adding traceability later to a live warehouse is painful.</p>
+<h2>Frequently asked questions</h2>
+<h3>How do I know if my inventory accuracy is low?</h3>
+<p>If your stock counts don't match physical counts within 1-2% of lines over a month, you're under. Check your adjustment history in the ERP — if you're posting large adjustments every count, the process is leaking. And if you've never measured it, assume it's worse than you think.</p>
+<h3>Can Odoo handle complex inventory rules?</h3>
+<p>Yes, but it's about setup. For most small businesses, Odoo's default rules work — locations, routes, and reordering rules cover the common cases. If you need custom logic, it's doable but requires careful configuration. Avoid overcomplicating it: every custom rule is a rule someone has to understand during a count.</p>
+<h3>Why does this metric matter more than others?</h3>
+<p>Because it's the foundation. If inventory is wrong, all downstream data — sales, costs, pricing, purchasing — becomes unreliable. Revenue gets the attention, but inventory accuracy decides whether the numbers behind the revenue are real.</p>
+<h3>What's a realistic accuracy target for a small business?</h3>
+<p>95% line accuracy. That means 95 out of 100 counted lines match the system. It's enough to trust the system for purchasing and promising without constant firefighting. Getting from 80% to 95% typically takes two to three quarters of disciplined cycle counting — not new software.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>inventory</span> <span>odoo</span> <span>business</span> <span>metrics</span></p>
         <section class="post-cta">
           <h2>Let's talk about your business</h2>
-          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you?
-          Grab a free 30-minute call — I'll tell you straight whether
-          SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
           <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

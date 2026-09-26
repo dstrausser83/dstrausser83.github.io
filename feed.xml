@@ -5,10 +5,10 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 13:49:23 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 17:17:29 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time</title>
+      <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</guid>
       <description>David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.</description>
@@ -20,10 +20,10 @@
       <category>spreadsheets</category>
     </item>
     <item>
-      <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration</title>
+      <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</guid>
-      <description>David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo’s simplicity versus SAP Business One’s complexity. No fluff, just real talk.</description>
+      <description>Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.</description>
       <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" type="image/jpeg" />
       <category>quickbooks</category>
@@ -32,7 +32,7 @@
       <category>migration</category>
     </item>
     <item>
-      <title>Inventory accuracy: the metric that decides if your ERP works (and why it’s unsexy)</title>
+      <title>Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</guid>
       <description>Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.</description>
@@ -45,36 +45,10 @@
       <category>metrics</category>
     </item>
     <item>
-      <title>Data Migration Horror Stories (And How to Avoid Becoming One)</title>
-      <link>https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</guid>
-      <description>How small business owners avoid data migration disasters with Odoo: map fields first, import one module at a time, and test in a copy before you touch the live database.</description>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>data-migration</category>
-      <category>erp</category>
-      <category>implementation</category>
-      <category>business-logic</category>
-    </item>
-    <item>
-      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets</title>
-      <link>https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
-      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
-      <category>erp</category>
-      <category>customization</category>
-      <category>implementation</category>
-      <category>odoo</category>
-      <category>sap-business-one</category>
-    </item>
-    <item>
-      <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream</title>
+      <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</guid>
-      <description>How to avoid ERP chaos in 90 days: practical steps to get your team using the system, no jargon, no promises.</description>
+      <description>How to avoid ERP chaos in 90 days: practical steps to get your team actually using the system, with no jargon and no empty promises.</description>
       <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.jpg" type="image/jpeg" />
       <category>erp-adoption</category>
@@ -84,10 +58,10 @@
       <category>team-productivity</category>
     </item>
     <item>
-      <title>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost</title>
+      <title>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html</guid>
-      <description>Why the lowest ERP quote often leads to costly headaches. David Strausser explains how cheap quotes hide hidden costs and why you should never pick the cheapest option.</description>
+      <description>Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price.</description>
       <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" type="image/jpeg" />
       <category>erp</category>
@@ -97,20 +71,33 @@
       <category>business</category>
     </item>
     <item>
-      <title>Your implementation partner is lying about the timeline — here's the real math</title>
-      <link>https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</guid>
-      <description>Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they’re lying about your project’s completion date.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" type="image/jpeg" />
+      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
+      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.</description>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>customization</category>
       <category>implementation</category>
-      <category>timelines</category>
-      <category>sap</category>
       <category>odoo</category>
-      <category>business</category>
+      <category>sap-business-one</category>
     </item>
     <item>
-      <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP</title>
+      <title>Data Migration Horror Stories: How to Avoid Becoming One</title>
+      <link>https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</guid>
+      <description>ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>data-migration</category>
+      <category>sap-business-one</category>
+      <category>odoo</category>
+      <category>implementation</category>
+    </item>
+    <item>
+      <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</guid>
       <description>A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
@@ -123,26 +110,17 @@
       <category>testing</category>
     </item>
     <item>
-      <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start</title>
-      <link>https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</guid>
-      <description>Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>erp</category>
+      <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</guid>
+      <description>Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.</description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" type="image/jpeg" />
       <category>implementation</category>
-    </item>
-    <item>
-      <title>5 Signs You've Outgrown QuickBooks (and What to Do About It)</title>
-      <link>https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</guid>
-      <description>Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg" type="image/jpeg" />
-      <category>sap-business-one</category>
-      <category>erp</category>
-      <category>quickbooks</category>
+      <category>timelines</category>
+      <category>sap</category>
+      <category>odoo</category>
+      <category>business</category>
     </item>
     <item>
       <title>What Playing Guitar Taught Me About Running a Business</title>
@@ -156,6 +134,17 @@
       <category>music</category>
     </item>
     <item>
+      <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start</title>
+      <link>https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</guid>
+      <description>Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>erp</category>
+      <category>implementation</category>
+    </item>
+    <item>
       <title>You're Paying for 12 Apps. Odoo Replaces All of Them.</title>
       <link>https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</guid>
@@ -165,6 +154,17 @@
       <category>odoo</category>
       <category>saas</category>
       <category>cost-saving</category>
+    </item>
+    <item>
+      <title>5 Signs You've Outgrown QuickBooks (and What to Do About It)</title>
+      <link>https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</guid>
+      <description>Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg" type="image/jpeg" />
+      <category>sap-business-one</category>
+      <category>erp</category>
+      <category>quickbooks</category>
     </item>
     <item>
       <title>SAP Business One Add-Ons Actually Worth Your Money</title>
@@ -191,7 +191,7 @@
       <title>Welcome to the blog — tips, tricks, and straight talk</title>
       <link>https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</guid>
-      <description>Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon — just stuff that actually helps.</description>
+      <description>Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" type="image/jpeg" />
       <category>welcome</category>

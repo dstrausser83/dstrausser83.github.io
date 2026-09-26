@@ -9,17 +9,26 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
+  <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser — David Strausser</title>
   <meta name="description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
-  
+  <meta name="keywords" content="erp go-live checklist, erp testing, odoo go-live, sap business one testing" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP" />
+  <meta property="og:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser" />
   <meta property="og:description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="572" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser" />
+  <meta name="twitter:description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260924b" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -41,6 +72,7 @@
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
   </style>
   <script type="application/ld+json">
 {
@@ -52,7 +84,7 @@
       "name": "What is the biggest mistake teams make?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Testing with clean sample data instead of messy real data. Production data is where the surprises live."
+        "text": "Testing with clean sample data instead of messy real data. Production data is where the surprises live. The second biggest mistake is letting the partner's sign-off substitute for your own testing \u2014 their checklist gets you live, yours keeps you healthy."
       }
     },
     {
@@ -60,7 +92,7 @@
       "name": "How long should testing take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Long enough to run every check above with real data and real users. For most small and midsize rollouts that means a focused few days, not weeks. Rushing it is how go-lives slip."
+        "text": "Long enough to run every check above with real data and real users. For most small and midsize rollouts that means a focused few days, not weeks. Rushing it is how go-lives slip. If leadership is pushing the date, cut scope, not testing \u2014 go live with fewer modules done right rather than everything done halfway."
       }
     },
     {
@@ -68,7 +100,15 @@
       "name": "Can a smaller rollout skip testing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Smaller scope means a smaller checklist, not a zero checklist. Even a single-module go-live deserves the data sync and permissions checks at minimum. Go-live day should be boring. Run these five tests and it will be."
+        "text": "Smaller scope means a smaller checklist, not a zero checklist. Even a single-module go-live deserves the data sync and permissions checks at minimum. The tests scale down; they do not disappear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if we find a blocker the week of go-live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Delay. A one-week delay costs you a week. A broken go-live costs you a quarter \u2014 in cleanup, in credibility with your team, and in the fixes you will be paying the partner to make under pressure. Nobody ever got fired for delaying a go-live by a week to fix a data problem. Plenty of people have been fired for the mess that followed a go-live they knew was not ready. Go-live day should be boring. Run these five tests and it will be."
       }
     }
   ]
@@ -78,9 +118,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
+  "headline": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP \u2014 David Strausser",
   "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
-  "datePublished": "2026-09-23",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -96,7 +136,6 @@
   "image": "https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg"
 }
 </script>
-  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -109,7 +148,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -135,9 +174,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -145,39 +182,55 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP</h1>
-        <p class="post-meta">September 23, 2026 at 10:34 AM ET &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" alt="Engineer studying a large dashboard wall of charts between server racks in a dark data center aisle" width="1024" height="572" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" alt="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>ERP go-lives fail on the small stuff nobody tested: bad data syncs, wrong permissions, untested edge cases. Run these five tests with real data and real users before you flip the switch, and go-live day stays boring — which is exactly what you want.</p>
+        </aside>
         <div class="post-body prose">
 <h2>Quick answer</h2>
 <div class="quick-answer">
-<p>Before any ERP go-live, test data sync, user permissions, and edge cases with real data and real users. The failures that hurt most are rarely the big features. They are the small checks nobody ran.</p>
+<p>Before any ERP go-live, test data sync, user permissions, and edge cases with real data and real users. The failures that hurt most are rarely the big features. They are the small checks nobody ran. Budget a focused few days for this, not a few hours, and go-live day will be boring — which is exactly the goal.</p>
 </div>
+<h2>Why go-lives go sideways</h2>
+<p>I have watched enough go-lives to know the pattern. The big demo went great. The training sessions went fine. Everybody signed off. Then Monday morning hits, the first real order comes in, and something small breaks — a tax code that did not carry over, a warehouse user who cannot post a receipt, a report the controller needs that nobody built. None of these are hard problems. Every one of them was catchable. They just never got tested because the testing plan covered the happy path and stopped there.</p>
+<p>The happy path always works. It worked in the demo, it worked in training, and it will work on go-live day. Your business does not run on the happy path. It runs on the messy middle: the partial shipments, the credit memos, the rush orders, the user who does things in a slightly different order than the manual says. That is what you test.</p>
 <h2>The 5 tests</h2>
 <p><strong>1. Data sync.</strong> Confirm your old system's data lands correctly in the new one: customer records, invoice numbers, open balances, item masters. Run it with real data, not a tidy sample. Real data has the duplicates, typos, and odd characters that break imports, and you want to meet them now.</p>
+<p>This is the test teams skip most often, because the migration already "worked" once during the build. But the build migration ran months ago on a snapshot. Since then, the business kept running on the old system — new customers, new items, new open orders. The delta is where the surprises live. Run a fresh full load into a test company a week before go-live and reconcile it: total open AR in the old system versus the new, total open AP, inventory valuation by warehouse. If the numbers do not tie to the penny, you do not go live. Full stop.</p>
 <p><strong>2. User permissions.</strong> Log in as each role and try to do the job. Sales should not see payroll. Warehouse should not edit pricing. Permission screens always look right until you test them as the actual user.</p>
+<p>Do this literally: sit down, log in as the warehouse lead, and try to receive a purchase order, transfer stock, and print a pick list. Then try something they should not be able to do — void a posted invoice, change a price, run payroll. If the system lets them, your roles are wrong. I have seen warehouse staff with full admin rights because someone cloned the wrong template during setup and nobody checked. That is a segregation-of-duties problem that will embarrass you in an audit and cost you real money if someone makes an honest mistake with too much power.</p>
+<p>Test every role that touches the system, including the ones people forget: the outside sales rep who only logs in twice a month, the temp in shipping, the controller's assistant. Roles rot over time — someone gets extra access "just for this week" and it never gets revoked. Go-live is your one clean starting point. Start clean.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img2.jpg" alt="Barcode scanner aimed at boxes on warehouse shelves" width="2048" height="1152" loading="lazy" /></figure></p>
 <p><strong>3. Edge cases.</strong> Test the weird-but-real scenarios: a payment arriving after cutoff, a credit memo against a closed period, a customer with two ship-to addresses. Rare in testing, constant in production.</p>
+<p>Here is how to find your edge cases: ask the most experienced person in each department what annoys them about the current system. Not what is broken — what is annoying. The annoying stuff is the edge cases. "Every month I have to manually fix the freight on drop-ship orders." "Returns from last quarter always post to the wrong account." Those are your test scripts. Write each one down as a scenario, run it in the test company, and confirm the result posts where it should.</p>
 <p><strong>4. Real-time updates.</strong> Confirm changes show up when they should. If there is a sync delay between modules, find it now. That is how double shipments and double billing happen: one screen says the inventory moved and the other has not caught up yet.</p>
+<p>This matters most when you have integrations: the ERP talking to a web store, a warehouse management add-on, EDI with a big customer. Each of those has a sync rhythm — real-time, every fifteen minutes, nightly batch. Map every integration and its timing, then test the handoff under load. Create an order in the web store and time how long it takes to appear in the ERP. Receive inventory in the warehouse module and check when the available-to-promise number updates.</p>
+<p>The failure mode here is always the same: two people acting on two different versions of the truth. Sales promises a ship date based on inventory the warehouse already allocated. Accounting bills based on a shipment that has not posted yet. These are not system bugs — the system is doing what it was configured to do. They are expectation bugs, and the fix is knowing the timing and training people around it before it costs you a customer.</p>
 <p><strong>5. One real user's full day.</strong> Sit with an actual user and watch them work start to finish. You will find the confusing screens, the five-click tasks that should take one, and the reports nobody can find. No manual covers this.</p>
+<p>Pick the person who will live in the system the most — usually someone in order entry, purchasing, or the warehouse — and shadow them for a full day in the test environment running real scenarios. Do not guide them. Do not explain. Just watch and take notes every time they hesitate, click the wrong thing, or ask "where do I find...?" Every hesitation is a training gap or a design problem, and every one of them becomes a support ticket on day two if you do not fix it now.</p>
+<p>This test also catches the missing-reports problem. Every implementation has a moment where someone asks for a report that was never in scope: the open-orders-by-sales-rep summary the owner looks at every morning, the margin-by-customer view the sales manager built in Excel for years. Find these before go-live, not after. Building a report in week one is a minor task. Discovering the business cannot operate without it on day two is a crisis.</p>
+<h2>What to do when a test fails</h2>
+<p>A failed test before go-live is a gift. It is the system telling you exactly where it will break, on your schedule, with no customers watching. The wrong response is to argue the test was unrealistic. If a real user doing a real task hit it in testing, a real user will hit it in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img3.jpg" alt="Rocket launching into the sky representing a new system go-live" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>And set the expectation with leadership now: the first week will surface things no test caught. That is normal. What is not normal is discovering them with no plan. Keep the partner on standby for the first two weeks, keep a daily fifteen-minute triage call on the calendar, and keep a single list where every issue goes. Most of them will be training. A few will be real. You will sort them out fast if you are looking.</p>
 <h2>Frequently asked questions</h2>
 <h3>What is the biggest mistake teams make?</h3>
-<p>Testing with clean sample data instead of messy real data. Production data is where the surprises live.</p>
+<p>Testing with clean sample data instead of messy real data. Production data is where the surprises live. The second biggest mistake is letting the partner's sign-off substitute for your own testing — their checklist gets you live, yours keeps you healthy.</p>
 <h3>How long should testing take?</h3>
-<p>Long enough to run every check above with real data and real users. For most small and midsize rollouts that means a focused few days, not weeks. Rushing it is how go-lives slip.</p>
+<p>Long enough to run every check above with real data and real users. For most small and midsize rollouts that means a focused few days, not weeks. Rushing it is how go-lives slip. If leadership is pushing the date, cut scope, not testing — go live with fewer modules done right rather than everything done halfway.</p>
 <h3>Can a smaller rollout skip testing?</h3>
-<p>Smaller scope means a smaller checklist, not a zero checklist. Even a single-module go-live deserves the data sync and permissions checks at minimum.</p>
+<p>Smaller scope means a smaller checklist, not a zero checklist. Even a single-module go-live deserves the data sync and permissions checks at minimum. The tests scale down; they do not disappear.</p>
+<h3>What if we find a blocker the week of go-live?</h3>
+<p>Delay. A one-week delay costs you a week. A broken go-live costs you a quarter — in cleanup, in credibility with your team, and in the fixes you will be paying the partner to make under pressure. Nobody ever got fired for delaying a go-live by a week to fix a data problem. Plenty of people have been fired for the mess that followed a go-live they knew was not ready.</p>
 <p>Go-live day should be boring. Run these five tests and it will be.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>sap</span> <span>odoo</span> <span>go-live</span> <span>testing</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -193,23 +246,12 @@
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
-  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

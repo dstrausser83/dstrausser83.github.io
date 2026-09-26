@@ -9,17 +9,26 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
-  <meta name="description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you." />
+  <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser — David Strausser</title>
+  <meta name="description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you." />
   
   <link rel="canonical" href="https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets" />
-  <meta property="og:description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you." />
+  <meta property="og:title" content="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser" />
+  <meta property="og:description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser" />
+  <meta name="twitter:description" content="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260924b" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -87,9 +118,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets",
-  "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.",
-  "datePublished": "2026-09-24T20:22:35Z",
+  "headline": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets \u2014 David Strausser",
+  "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -105,7 +136,6 @@
   "image": "https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg"
 }
 </script>
-  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -118,7 +148,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -144,9 +174,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -154,9 +182,11 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets</h1>
-        <p class="post-meta">September 24, 2026 at 4:22 PM ET &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Desk split between neat blue modular blocks and a chaotic pile of gears, copper wires, and machine parts" width="2048" height="1152" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Customization in ERP systems is expensive and risky, requiring ongoing maintenance, upgrades, and ownership of custom code, while configuration uses built-in tools and survives updates with lower costs. Only customize for processes that generate revenue or meet legal requirements, as most workflows can be adapted to standard ERP features without losing value.</p>
+        </aside>
         <div class="post-body prose">
 <p>Somebody in every ERP demo asks the question. Usually it's the person who owns the spreadsheet everyone is afraid to touch.</p>
 <p>"Can it work exactly like our current process?"</p>
@@ -173,7 +203,7 @@
 <h2>What customization actually costs</h2>
 <p>The build quote is the cheapest part. That's the bit nobody tells you in the demo.</p>
 <p>First, upgrades. Custom code is the first thing that breaks when a new version lands, because the new version was tested against the standard product, not your version of it. Every upgrade becomes a small project: retest the custom modules, fix what broke, retest again.</p>
-<p>Second, testing. Standard features get tested by thousands of companies. Your custom module gets tested by you. Every release, every patch, somebody has to walk through your custom logic and confirm it still behaves. That somebody bills by the hour.</p>
+<p>Second, testing. Standard features get tested by thousands of companies. Your custom module gets tested by you. Every release, every patch, somebody has to walk through your custom logic and confirm it still behaves. That somebody bills by the hour.<figure class="post-inline"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e-img2.jpg" alt="Fork in a road with one simple path and one tangled path, a business decision" width="1920" height="1280" loading="lazy" /></figure></p>
 <p>Third, key-person risk. Custom code lives in somebody's head. When that developer moves on, and they always do eventually, the knowledge walks out with them. I've seen companies afraid to upgrade because the person who wrote their custom pricing engine left two years ago and nobody dares touch it.</p>
 <p>Fourth, the blame game. Something breaks at month end. The vendor points at the customization. The partner points at the vendor. You point at everyone, and the clock keeps running.</p>
 <p>None of this means customization is wrong. It means customization has a total cost, and the build quote is maybe a third of it.</p>
@@ -187,7 +217,7 @@
 <p>Most companies dramatically overestimate how special their processes are. Order to cash is order to cash. The configured way of doing it in a mature ERP is usually the distilled experience of thousands of companies that already made your mistakes. Adopting it isn't settling. It's skipping the tuition.</p>
 <p>The processes worth preserving, the ones that are genuinely yours and genuinely valuable, are fewer than you think. Those are your customization candidates. Everything else is configuration with a little change management.</p>
 <h2>How a good partner acts</h2>
-<p>Here's a tell I wish more buyers knew. If your implementation partner says yes to every customization request, that's not service. That's a billing strategy.</p>
+<p>Here's a tell I wish more buyers knew. If your implementation partner says yes to every customization request, that's not service. That's a billing strategy.<figure class="post-inline"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e-img3.jpg" alt="Software settings panel with gears and toggle switches" width="1920" height="1280" loading="lazy" /></figure></p>
 <p>A good partner pushes back. They show you the configured way first and ask what you'd lose by using it. They put a number on the maintenance tail, not just the build. And sometimes they tell you the thing you don't want to hear: your process is the problem, and no amount of code will fix a process nobody follows.</p>
 <p>The partners worth keeping are the ones who argue with you a little.</p>
 <h2>The line</h2>
@@ -206,13 +236,11 @@
         <p class="post-tags"><span>erp</span> <span>customization</span> <span>implementation</span> <span>odoo</span> <span>sap-business-one</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -228,23 +256,12 @@
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
-  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>

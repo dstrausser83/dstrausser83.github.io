@@ -9,17 +9,26 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to the blog — tips, tricks, and straight talk — Dead Brands, LLC Featuring David Strausser</title>
-  <meta name="description" content="Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon — just stuff that actually helps." />
-  
+  <title>Welcome to the blog — tips, tricks, and straight talk — David Strausser</title>
+  <meta name="description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
+  <meta name="keywords" content="david strausser blog, odoo blog, sap business one blog, erp tips" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Welcome to the blog — tips, tricks, and straight talk" />
-  <meta property="og:description" content="Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon — just stuff that actually helps." />
+  <meta property="og:description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="572" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Welcome to the blog — tips, tricks, and straight talk" />
+  <meta name="twitter:description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260924b" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
   <style>
     .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
     .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
@@ -29,6 +38,28 @@
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
     .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
     .quick-answer p { margin: 0.4rem 0; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
@@ -41,15 +72,63 @@
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
   </style>
-  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this blog really daily?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three posts a day, Monday through Saturday \u2014 Odoo, SAP Business One, and a wild card. Sundays get one fun post. The schedule is automated but every post is reviewed before it goes live. If a post ever feels off, that's on me, not the robots."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who writes the posts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I do \u2014 with an AI crew that drafts, and my eyes on every word before it publishes. Think of it as me talking, with a very fast typing assistant. The opinions, the war stories, and the mistakes are all mine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I suggest a topic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely \u2014 that's the best kind of topic. If you're wrestling with an Odoo problem, a B1 question, or a business challenge, send it my way. The posts that come from real reader questions are always the best ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is any of this a sales pitch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The blog itself isn't. When I recommend my own services or a trial link, it's labeled and it's because it's genuinely relevant \u2014 not because the post exists to sell you something. I'd rather earn your trust with a hundred useful posts than burn it with one sneaky pitch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I start if I'm new here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with whatever hurts most in your business right now \u2014 search the archive for it. Then grab the [free 15-day Odoo trial](https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-welcome-to-the-blog-tips-tricks-and-straight-talk-inline) if you want to follow along with the Odoo posts \u2014 no credit card, no commitment."
+      }
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Welcome to the blog \u2014 tips, tricks, and straight talk",
-  "description": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
-  "datePublished": "2026-09-22",
+  "description": "Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.",
+  "datePublished": "2026-09-26T17:16:49Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -65,7 +144,6 @@
   "image": "https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg"
 }
 </script>
-  <link rel="stylesheet" href="/assets/css/chat.css" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -78,7 +156,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About</a>
+        <a href="/about.html" class="">About Us</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -104,9 +182,7 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/case-studies/" class="">Case Studies</a>
-        <a href="/merch/" class="">Shop</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -114,40 +190,72 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <h1>Welcome to the blog — tips, tricks, and straight talk</h1>
-        <p class="post-meta">2026-09-22 &middot; by <a href="../author.html">David Strausser</a></p>
-        <figure class="post-hero"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" alt="Cozy writing desk at dusk with a laptop, microphone, open handwritten notebook, and brass lamp against bookshelves" width="1024" height="572" loading="lazy" /></figure>
+        <figure class="post-hero-card"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" alt="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Welcome to the blog — tips, tricks, and straight talk</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Welcome to the daily blog: three posts a day on Odoo, SAP Business One, and one wild card — practical, human, no fluff. Here's what to expect, why I'm writing, and how to get the most out of it.</p>
+        </aside>
         <div class="post-body prose">
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>This is a daily blog with three posts a day: Odoo how-tos, SAP Business One real-world wisdom, and one wild card on business, tech, or whatever caught my attention. No fluff, no jargon, no sales pitches wearing trench coats — just stuff that actually helps, written to save you time or money (and make you laugh while doing it).</p>
 <p>Welcome in. This is where I publish every day — written with the help of my AI crew, but every word goes through me before it goes live. Think of it as me talking about the stuff I actually know, with a very fast typing assistant.</p>
-<p>Here's the deal. Every day you'll get three posts:</p>
+</div>
+<h2>Who I am and why I'm writing this</h2>
+<p>I'm David Strausser — ERP consultant, podcast host, single dad, guitarist, and professional student of how businesses actually work. I've spent years implementing Odoo and SAP Business One for small and midsize companies, and I've collected a hard drive full of lessons the sales decks never mention: the migrations that went sideways, the workarounds that became permanent, the five-minute fixes that saved six-figure projects.</p>
+<p>Most of that knowledge was locked in my head, shared one client at a time. This blog is me unlocking it — one post at a time, every day, for anyone who needs it. If you're running a business on spreadsheets and duct tape, evaluating an ERP, or already living in Odoo or SAP Business One and wondering why something hurts — this is for you.</p>
+<p>I also host the Shark Bite Biz podcast, where I talk to founders, executives, and interesting humans about business, growth, and the occasional wild tangent. The blog and the podcast feed each other: ideas that start as a conversation become a post, and posts that resonate become episodes.</p>
+<h2>Here's the deal: three posts a day</h2>
+<p>Every day you'll get three posts:</p>
 <ol>
-<li><strong>Odoo</strong> — practical how-tos, tips, and tricks. The stuff that saves you an hour on a Tuesday afternoon.</li>
-<li><strong>SAP Business One</strong> — real-world wisdom from years of implementations. What works, what breaks, and how to avoid the expensive mistakes.</li>
-<li><strong>Wild card</strong> — tech, AI, sales, marketing, business growth, crypto, quantum computing, aliens... okay, mostly business stuff. But I make no promises.</li>
+<li><strong>Odoo</strong> — practical how-tos, tips, and tricks. The stuff that saves you an hour on a Tuesday afternoon. Implementation lessons, module guides, migration war stories, and honest takes on what Odoo does well and where it needs help.</li>
 </ol>
+<ol>
+<li><strong>SAP Business One</strong> — real-world wisdom from years of implementations. What works, what breaks, how to evaluate add-ons, when to migrate, and how to avoid the expensive mistakes. Straight talk from someone who's seen the movie.</li>
+</ol>
+<ol>
+<li><strong>Wild card</strong> — tech, AI, sales, marketing, business growth, productivity, music, single-dad life... okay, mostly business stuff. But I make no promises. This is the post where the human shows up — the lessons from thirty years of guitar, the morning routine that actually works, the things I find interesting that don't fit in an ERP manual.</li>
+</ol>
+<p>Sunday gets one post instead of three — something random and fun, because even ERP consultants need a day where the content breathes.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img2.jpg" alt="Open road through a small American town at golden hour" width="2048" height="1152" loading="lazy" /></figure></p>
 <h2>Why a daily blog?</h2>
-<p>Because most business software content is either a sales pitch wearing a trench coat or a 40-page whitepaper nobody finishes. I'm aiming for the middle: short, useful, human.</p>
-<p>If a post saves you time or money, it did its job. If it makes you laugh while doing it, even better.</p>
+<p>Because most business software content is either a sales pitch wearing a trench coat or a 40-page whitepaper nobody finishes. I'm aiming for the middle: useful, human, and respectful of your time.</p>
+<p>Every post follows the same contract with you. It opens with a quick answer — the TL;DR for people in a hurry. Then it goes deep for the people who want depth: real examples, real numbers, real mistakes. Then it closes with honest next steps, not a funnel. If a post saves you time or money, it did its job. If it makes you laugh while doing it, even better.</p>
+<p>And because it's daily, it compounds. One post is a tip. A month of posts is a playbook. A year is a reference library. Bookmark the topics that matter to you and come back — the archive is the real product.</p>
 <h2>What I won't do</h2>
 <ul>
-<li>Bury the answer under 2,000 words of SEO stuffing</li>
-<li>Pretend every problem needs a six-figure implementation</li>
-<li>Use the phrase "synergistic paradigm shift" (if I ever do, please stage an intervention)</li>
+<li>Bury the answer under 2,000 words of SEO stuffing. The quick answer is always up top. Scroll if you want depth; don't if you don't.</li>
+<li>Pretend every problem needs a six-figure implementation. Sometimes the answer is a settings change, a better process, or a spreadsheet that finally gets to retire with dignity.</li>
+<li>Recommend things I wouldn't use myself. If I tell you an add-on is worth it, it's because I'd spend my own money on it.</li>
+<li>Use the phrase "synergistic paradigm shift" (if I ever do, please stage an intervention).</li>
+<li>Waste your time. Every post has to earn its place. If it doesn't teach, save, or entertain — it doesn't ship.</li>
 </ul>
+<h2>How to get the most out of this blog</h2>
+<p><strong>If you're evaluating ERP software:</strong> start with the comparison and selection posts — the ones about quotes, timelines, partners, and outgrowing QuickBooks. They'll save you from the expensive mistakes before you spend a dollar.</p>
+<p><strong>If you're implementing right now:</strong> the go-live checklists, data migration guides, and adoption plans are your field manuals. Read them before you need them, not after things break.</p>
+<p><strong>If you're already live on Odoo or SAP Business One:</strong> the tips, module guides, and add-on evaluations will help you get more out of what you have. Most companies use 40% of their ERP. These posts are about the other 60%.</p>
+<p><strong>If you're just here for the wild cards:</strong> welcome. The business posts will still be here when curiosity strikes, and the guitar-and-dad-life posts are honest about the person behind the consulting.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is this blog really daily?</h3>
+<p>Three posts a day, Monday through Saturday — Odoo, SAP Business One, and a wild card. Sundays get one fun post. The schedule is automated but every post is reviewed before it goes live. If a post ever feels off, that's on me, not the robots.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img3.jpg" alt="Vintage microphone on a podcast desk" width="2048" height="1152" loading="lazy" /></figure></p>
+<h3>Who writes the posts?</h3>
+<p>I do — with an AI crew that drafts, and my eyes on every word before it publishes. Think of it as me talking, with a very fast typing assistant. The opinions, the war stories, and the mistakes are all mine.</p>
+<h3>Can I suggest a topic?</h3>
+<p>Absolutely — that's the best kind of topic. If you're wrestling with an Odoo problem, a B1 question, or a business challenge, send it my way. The posts that come from real reader questions are always the best ones.</p>
+<h3>Is any of this a sales pitch?</h3>
+<p>The blog itself isn't. When I recommend my own services or a trial link, it's labeled and it's because it's genuinely relevant — not because the post exists to sell you something. I'd rather earn your trust with a hundred useful posts than burn it with one sneaky pitch.</p>
+<h3>Where do I start if I'm new here?</h3>
+<p>Start with whatever hurts most in your business right now — search the archive for it. Then grab the <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-welcome-to-the-blog-tips-tricks-and-straight-talk-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a> if you want to follow along with the Odoo posts — no credit card, no commitment.</p>
 <h2>Come back tomorrow</h2>
-<p>Three new posts, every day, seven days a week. Grab the <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-welcome-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a> if you want to follow along with the Odoo posts — no credit card, no commitment.</p>
-<p>Let's build something.</p>
+<p>Three new posts, every day. Let's build something.</p>
         </div>
         <p class="post-tags"><span>welcome</span> <span>dead-brands</span></p>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected
-          apps for one platform. Spin up Odoo and kick the tires yourself —
-          no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -163,23 +271,12 @@
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Podcast</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david@deadbrands.co">david@deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
-  <script src="/assets/js/chat-widget.js" defer></script>
 </body>
 </html>
