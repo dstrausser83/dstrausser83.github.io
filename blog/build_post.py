@@ -314,6 +314,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         </div>
         <a href="/resources.html" class="%%A_resources%%">Resource Center</a>
         <a href="/blog/index.html" class="%%A_blog%%">Blog</a>
+        <a href="/case-studies/" class="%%A_case_studies%%">Case Studies</a>
+        <a href="/merch/" class="%%A_shop%%">Shop</a>
         <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
