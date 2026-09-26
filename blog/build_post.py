@@ -269,6 +269,33 @@ def author_box_html():
         </section>"""
 
 
+def shop_block_html():
+    """Store promo under the post CTA (David 2026-09-26): random product from
+    products.json + view-all link. Random per page load via JS."""
+    return """<section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>"""
+
+
 CTA_CSS = """
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
     .post-cta h2 { margin-top: 0; }
@@ -280,6 +307,16 @@ CTA_CSS = """
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+"""
+
+SHOP_CSS = """
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
 """
 
 
@@ -323,6 +360,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .quick-answer p {{ margin: 0.4rem 0; }}
     .post-hero-card {{ position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }}
     .post-hero-card img {{ width: 100%; height: auto; display: block; }}
+    .post-inline {{ margin: 1.75rem 0; }}
+    .post-inline img {{ max-width: 100%; height: auto; display: block; border-radius: var(--radius); }}
+    .post-body img {{ max-width: 100%; height: auto; }}
     .post-hero-card .hero-title-overlay {{ position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
       background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }}
     .post-hero-card .hero-title-overlay h1 {{ color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }}
@@ -345,6 +385,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
 {cta_css}
+{shop_css}
   </style>
   {faq_jsonld}
   {article_jsonld}
@@ -403,6 +444,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         </div>
         <p class="post-tags">{tags}</p>
         {cta}
+        {shop_block}
         {author_box}
       </div>
     </article>
@@ -599,6 +641,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         article_jsonld=article_jsonld(title, description, slug, published_at, image_rel, tags),
         tags=" ".join(f"<span>{t}</span>" for t in tags),
         cta=cta_html(slug, cta_name, cta_custom), author_box=author_box_html(), cta_css=CTA_CSS,
+        shop_block=shop_block_html(), shop_css=SHOP_CSS,
     )
     # Resolve shared-nav active tokens: generated posts are always blog pages.
     html = re.sub(r"%%A_blog%%", "active", html)
