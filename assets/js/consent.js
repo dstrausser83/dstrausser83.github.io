@@ -10,10 +10,9 @@
   var KEY = "db_cookie_consent";
   var GA_ID = "G-LDWNV8CVJ4";
   /* Microsoft Clarity (free heatmaps + session recordings).
-   * DAVID ACTION REQUIRED: create a project at https://clarity.microsoft.com
-   * (sign in with a Microsoft account, "New project", add deadbrands.co),
-   * then paste the project ID below. Until then Clarity stays inert. */
-  var CLARITY_ID = "REPLACE_WITH_CLARITY_ID";
+   * Project: Dead Brands / deadbrands.co — consent-gated, loads only
+   * after the visitor accepts the cookie banner. */
+  var CLARITY_ID = "yohr5k9nr4";
 
   function loadClarity() {
     if (!CLARITY_ID || CLARITY_ID.indexOf("REPLACE_WITH") === 0) return;
@@ -68,6 +67,9 @@
     loadScript(siteRoot() + "quaint-clicks.js");
     // Microsoft Clarity heatmaps — consent-gated like everything else.
     loadClarity();
+    // First-party click/scroll heatmap tracker -> our own Cloudflare Worker.
+    // Same consent gate: only loads after the visitor accepts.
+    loadScript(siteRoot() + "heat.js");
   }
 
   function hideBanner() {
