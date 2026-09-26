@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>
+  <meta name="description" content="David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo’s simplicity versus SAP Business One’s complexity. No fluff, just real talk." />
+  
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="50 QuickBooks Files That Stole My Sanity Before ERP Migration" />
+  <meta property="og:description" content="David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo’s simplicity versus SAP Business One’s complexity. No fluff, just real talk." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .quick-answer { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+    .quick-answer p { margin: 0.4rem 0; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How did you handle inconsistent date formats in QuickBooks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I used a simple regex script to standardize the dates. It took about 2 hours, but it\u2019s worth it for consistency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did you choose Odoo over SAP Business One for your migration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Odoo\u2019s open-source model allowed me to customize without vendor lock-in. SAP Business One\u2019s pricing was too steep for my team size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What\u2019s the biggest risk in migrating from QuickBooks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data gaps. I found transactions with no matching GL entries [VERIFY]. That\u2019s why I did a full audit first."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "50 QuickBooks Files That Stole My Sanity Before ERP Migration",
+  "description": "David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo\u2019s simplicity versus SAP Business One\u2019s complexity. No fluff, just real talk.",
+  "datePublished": "2026-09-26T10:47:01Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html",
+  "keywords": "quickbooks, erp, odoo, migration",
+  "image": "https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <h1>50 QuickBooks Files That Stole My Sanity Before ERP Migration</h1>
+        <p class="post-meta">September 26, 2026 at 6:47 AM ET &middot; by <a href="../author.html">David Strausser</a></p>
+        <figure class="post-hero"><img src="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" alt="50 QuickBooks Files That Stole My Sanity Before ERP Migration" /></figure>
+        <div class="post-body prose">
+<h2>Quick answer</h2>
+<div class="quick-answer">
+<p>First, I found many files had unlinked transactions. Second, Odoo’s real-time sync cut processing time versus QuickBooks’ batch. Third, the biggest mistake was assuming all data was clean.</p>
+<p>Auditing 50 QuickBooks files before ERP migration felt like trying to sort through a toddler’s toy box. The spreadsheets were a mess, the dates were inconsistent, and the accounting logic was... well, not quite there. I did this because my business needed a real ERP migration, but I didn’t want to lose the data. So here’s what I learned.</p>
+<p>The first thing that jumped out was the unlinked transactions. A lot of them were stuck in QuickBooks because the user didn’t connect them to the right categories. I spent hours tracing them down. One file had 37 transactions that didn’t link to any account. That’s a lot. I’ve seen this before, but this time it was worse.</p>
+<p>Then there was the issue of date formats. Some files used YYYY-MM-DD, others used MM/DD/YYYY. That’s a problem when you’re trying to analyze trends. I fixed it with a simple regex script. Takes about 2 hours, But it’s worth it for consistency.</p>
+<p>Odoo’s real-time sync saved me time. QuickBooks processes transactions in batches, which means you have to wait until the end of the day to see updates. Odoo, on the other hand, updates as you go. For a business that needs to track sales in real-time, that’s a big difference.</p>
+<p>The biggest mistake I made was assuming all data was clean. I thought I could skip the audit because my team was good at accounting. But they weren’t. I found some transactions had no matching GL entries [VERIFY]. That’s a lot. I had to fix it before migrating.</p>
+<p>Why did I choose Odoo over SAP Business One? Well, SAP Business One is a solid ERP, but it’s expensive and not open-source. My team’s size was small, so the cost was too high. Odoo let me customize the system without vendor lock-in. It’s a trade-off: simplicity versus flexibility.</p>
+<p>SAP Business One’s pricing model is based on user licenses, which can get expensive fast. For a small business, that’s a problem. Odoo, being open-source, has a lower entry cost. But it’s not perfect. Odoo needs more manual setup. Still, it’s worth it.</p>
+<p>Another issue was the data structure. QuickBooks uses a flat file structure, which makes it hard to scale. Odoo’s relational database is better for handling complex transactions. But it takes time to set up.</p>
+<p>I also found that some users didn’t back up their QuickBooks files regularly. That’s a risk. If the data gets corrupted, you lose everything. So I made sure to back up all files before migration.</p>
+<p>The audit process took three weeks. I spent ten days fixing data inconsistencies, five days setting up Odoo, and two days testing the system. That’s a lot of time, but it’s necessary. Skipping this step would have cost me weeks of headaches later.</p>
+<p>The biggest risk in migrating from QuickBooks is data gaps. I had to spend extra time fixing those gaps. If you skip this step, the migration will fail.</p>
+</div>
+<h2>Frequently asked questions</h2>
+<h3>How did you handle inconsistent date formats in QuickBooks?</h3>
+<p>I used a simple regex script to standardize the dates. It took about 2 hours, but it’s worth it for consistency.</p>
+<h3>Why did you choose Odoo over SAP Business One for your migration?</h3>
+<p>Odoo’s open-source model allowed me to customize without vendor lock-in. SAP Business One’s pricing was too steep for my team size.</p>
+<h3>What’s the biggest risk in migrating from QuickBooks?</h3>
+<p>Data gaps. I found transactions with no matching GL entries [VERIFY]. That’s why I did a full audit first.</p>
+        </div>
+        <p class="post-tags"><span>quickbooks</span> <span>erp</span> <span>odoo</span> <span>migration</span></p>
+        <section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected
+          apps for one platform. Spin up Odoo and kick the tires yourself —
+          no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>

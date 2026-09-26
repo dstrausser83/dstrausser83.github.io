@@ -1,5 +1,22 @@
 [
   {
+    "slug": "what-i-learned-auditing-50-messy-quickbooks-files-before-erp",
+    "title": "50 QuickBooks Files That Stole My Sanity Before ERP Migration",
+    "date": "2026-09-25T20:30:00",
+    "published_at": "2026-09-26T10:47:01Z",
+    "tags": [
+      "quickbooks",
+      "erp",
+      "odoo",
+      "migration"
+    ],
+    "excerpt": "Auditing 50 messy QuickBooks files before ERP migration was like organizing a toddler\u2019s toy box. Here\u2019s what I learned about Odoo and why I stopped sweating over SAP Business One.",
+    "description": "David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo\u2019s simplicity versus SAP Business One\u2019s complexity. No fluff, just real talk.",
+    "image": "images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg",
+    "video": "",
+    "url": "posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html"
+  },
+  {
     "slug": "inventory-accuracy-the-unsexy-metric-that-decides-whether-yo",
     "title": "Inventory accuracy: the metric that decides if your ERP works (and why it\u2019s unsexy)",
     "date": "2026-09-25",
