@@ -389,6 +389,15 @@ button.btn-ghost[type="submit"] { justify-self: start; }
   letter-spacing: 0.04em; color: var(--accent);
 }
 
+/* ---- Podcast guest list ---- */
+.guests-intro { font-weight: 600; margin-top: 1.5rem; }
+.guest-list { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 0.55rem; }
+.guest-list li { padding-left: 1.4rem; position: relative; line-height: 1.5; }
+.guest-list li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.guest-list a { font-weight: 600; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.guest-list a:hover { color: var(--accent-deep); }
+.guest-list span { color: var(--muted); }
+
 /* ---- FAQ ---- */
 .faq-list { display: grid; gap: 0.9rem; margin-top: 1.5rem; }
 .faq-item { border: 1.5px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 1.1rem 1.3rem; }
