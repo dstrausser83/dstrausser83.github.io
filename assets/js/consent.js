@@ -13,6 +13,13 @@
    * Project: Dead Brands / deadbrands.co — consent-gated, loads only
    * after the visitor accepts the cookie banner. */
   var CLARITY_ID = "yohr5k9nr4";
+  /* RB2B visitor identification (free tier: 7-day full trial, then 150
+   * company-level resolutions/mo). Loads only after cookie accept.
+   * Pixel verbatim from RB2B signup 2026-09-26. Alerts -> #website-visitors. */
+  var RB2B_KEY = "LNKLDHJ3V3OJ";
+  /* Leadfeeder (Dealfront) company identification — free Lite plan
+   * (last 100 companies/mo, 7-day history). Consent-gated like the rest. */
+  var LEADFEEDER_KEY = "p1e024B0Vx98GB6d";
 
   function loadClarity() {
     if (!CLARITY_ID || CLARITY_ID.indexOf("REPLACE_WITH") === 0) return;
@@ -21,6 +28,32 @@
       t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", CLARITY_ID);
+  }
+
+  function loadRB2B() {
+    if (!RB2B_KEY) return;
+    (function (key) {
+      if (window.reb2b) return;
+      window.reb2b = { loaded: true };
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+      var first = document.getElementsByTagName("script")[0];
+      if (first && first.parentNode) first.parentNode.insertBefore(s, first);
+      else document.head.appendChild(s);
+    })(RB2B_KEY);
+  }
+
+  function loadLeadfeeder() {
+    if (!LEADFEEDER_KEY) return;
+    (function (ss, ex) {
+      window.ldfdr = window.ldfdr || function () { (ldfdr._q = ldfdr._q || []).push([].slice.call(arguments)); };
+      (function (d, s) {
+        var fs = d.getElementsByTagName(s)[0];
+        function ce(src) { var cs = d.createElement(s); cs.src = src; cs.async = 1; fs.parentNode.insertBefore(cs, fs); }
+        ce("https://sc.lfeeder.com/lftracker_v1_" + ss + (ex ? "_" + ex : "") + ".js");
+      })(document, "script");
+    })(LEADFEEDER_KEY, null);
   }
 
   function getChoice() {
@@ -70,6 +103,10 @@
     // First-party click/scroll heatmap tracker -> our own Cloudflare Worker.
     // Same consent gate: only loads after the visitor accepts.
     loadScript(siteRoot() + "heat.js");
+    // B2B visitor identification: RB2B (Slack alerts) + Leadfeeder.
+    // Consent-gated like everything else: nothing loads on Decline.
+    loadRB2B();
+    loadLeadfeeder();
   }
 
   function hideBanner() {
