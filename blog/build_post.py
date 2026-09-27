@@ -347,19 +347,19 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} — David Strausser</title>
   <meta name="description" content="{description}" />
-  {meta_keywords}
   <link rel="canonical" href="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="{title}" />
+  <meta property="og:title" content="{title} — David Strausser" />
   <meta property="og:description" content="{description}" />
   {og_image}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{title}" />
+  <meta name="twitter:title" content="{title} — David Strausser" />
   <meta name="twitter:description" content="{description}" />
   {twitter_image}
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  {hero_preload}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -561,8 +561,6 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
     tags = [t for t in tags if t]
     excerpt = fm.get("excerpt", body[:160].replace("\n", " ") + "...")
     description = fm.get("description", excerpt)
-    keywords = fm.get("keywords", "")
-    meta_keywords = (f'<meta name="keywords" content="{keywords}" />' if keywords else "")
 
     # Normalize image args: accept a single string (legacy) or a list.
     if isinstance(image_srcs, str):
@@ -635,6 +633,10 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         hero = (f'<div class="hero-title-plain"><h1>{html_escape(title)}</h1>'
                 f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div>')
 
+    # Preload the LCP hero image (perf: fetch starts before parser discovery).
+    hero_preload = (f'<link rel="preload" as="image" href="../{image_rel}" fetchpriority="high" />'
+                    if image_rel else "")
+
     # Inline images (David 2026-09-26): image_srcs[1:4] are copied as
     # images/<slug>-img2.jpg … -img4.jpg and inserted as <figure> elements
     # into the body at ~1/4, ~1/2, ~3/4 (hero + 2-3 blog images).
@@ -670,7 +672,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
     html = PAGE_TEMPLATE.format(
         title=title, slug=slug, date=post_date, pub_display=pub_display,
         description=description,
-        meta_keywords=meta_keywords, hero=hero, og_image=og_image,
+        hero_preload=hero_preload, hero=hero, og_image=og_image,
         twitter_image=(f'<meta name="twitter:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
                        if image_rel else ""),
         summary=summary_html(summary_inner),

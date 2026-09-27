@@ -1,5 +1,5 @@
 ---
-title: "The 90-Day ERP Plan That Doesn't Make Your Team Scream — David Strausser"
+title: "The 90-Day ERP Plan That Doesn't Make Your Team Scream"
 slug: "the-90-day-erp-adoption-plan-getting-your-team-to-actually-u"
 date: "2026-09-23"
 tags: erp-adoption, sap-business-one, odoo, business-process, team-productivity

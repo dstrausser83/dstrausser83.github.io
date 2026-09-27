@@ -20,9 +20,9 @@
   <meta name="google-site-verification" content="PASTE_GOOGLE_SEARCH_CONSOLE_CODE_HERE" />
   <meta name="msvalidate.01" content="PASTE_BING_WEBMASTER_CODE_HERE" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Blog — David Strausser" />
+  <meta property="og:title" content="Blog — David Strausser | Dead Brands, LLC Featuring David Strausser" />
   <meta property="og:description" content="Helpful tips and straight talk on Odoo, SAP Business One, tech, AI, sales, and business growth." />
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20260926c" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20260926d" />
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <style>
@@ -138,7 +138,7 @@
     function card(p) {
       // Card images need real alt text (a11y/SEO) — was shipped empty (fixed 2026-09-26).
       const alt = (p.title || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-      const img = p.image ? `<img src="${p.image}" alt="${alt}" loading="lazy" />` : '';
+      const img = p.image ? `<img src="${p.image}" alt="${alt}" loading="lazy" decoding="async" />` : '';
       const tags = (p.tags || []).map(t => `<span>${t}</span>`).join('');
       return `<article class="post-card">
         ${img}

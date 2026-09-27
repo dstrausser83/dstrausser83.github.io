@@ -11,21 +11,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start — David Strausser</title>
   <meta name="description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
-  <meta name="keywords" content="Odoo implementation, Odoo tips, ERP implementation, Odoo setup" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start" />
+  <meta property="og:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start — David Strausser" />
   <meta property="og:description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" />
   <meta property="og:image:width" content="1024" />
   <meta property="og:image:height" content="572" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start" />
+  <meta name="twitter:title" content="Odoo Implementation: 7 Things Nobody Tells You Before You Start — David Strausser" />
   <meta name="twitter:description" content="Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/odoo-implementation-7-things-nobody-tells-you.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -202,7 +202,7 @@
 <h2>3. Out-of-the-box beats custom every time (at first)</h2>
 <p>Odoo's standard flows exist because thousands of companies refined them. Your "unique process" is usually a workaround for a limitation in your old system. That approval chain with five steps? It existed because the old system couldn't do conditional approvals. The spreadsheet that re-keyed order data into the accounting system? That was an integration gap, not a process.</p>
 <p>Adopt the standard flow first. Live with it for a quarter. Then customize only where you can prove the standard way costs you money — with numbers, not feelings. "This costs us six hours a week" is a customization justification. "We've always done it this way" is not.</p>
-<p>There is a second reason for this discipline: upgrades. Every customization is something that has to be tested, and sometimes rebuilt, at every Odoo upgrade. Companies that customized heavily in version 16 dread the move to 17. Companies that stayed close to standard click through it. The customization you skip today is an upgrade you do not fear tomorrow.<figure class="post-inline"><img src="../images/odoo-implementation-7-things-nobody-tells-you-img2.jpg" alt="Seven glowing lightbulbs above an open laptop" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>There is a second reason for this discipline: upgrades. Every customization is something that has to be tested, and sometimes rebuilt, at every Odoo upgrade. Companies that customized heavily in version 16 dread the move to 17. Companies that stayed close to standard click through it. The customization you skip today is an upgrade you do not fear tomorrow.<figure class="post-inline"><img src="../images/odoo-implementation-7-things-nobody-tells-you-img2.jpg" alt="Seven glowing lightbulbs above an open laptop" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <h2>4. Training isn't a one-hour Zoom call</h2>
 <p>The number one predictor of implementation success isn't the consultant — it's whether your team actually uses the system. I have seen technically perfect implementations fail because nobody trained the warehouse team, and I have seen rough implementations succeed because the users were invested and supported.</p>
 <p>Budget real training time: role-based sessions, not generic walkthroughs. The warehouse lead needs receiving, transfers, and cycle counts — not a tour of the CRM. The AR clerk needs invoicing and payment matching — not manufacturing orders. Train people on their actual jobs, with their actual data, doing their actual tasks.</p>
@@ -215,7 +215,7 @@
 <p>Odoo Community is free and powerful. Odoo Enterprise adds the upgrade path, mobile apps, and features like multi-company accounting that growing businesses eventually need. My rule: if you're growing and plan to be on this system in 3 years, Enterprise pays for itself in the first upgrade you don't have to rebuild from scratch.</p>
 <p>The upgrade question is the real one. Community upgrades between major versions are a manual migration project — doable, but real work. Enterprise upgrades are largely automated. Over three years and two version jumps, the Enterprise subscription typically costs less than one manual Community migration done by a consultant. Run your own numbers, but do not treat "free" as free.</p>
 <h2>7. Get help before you're drowning</h2>
-<p>The most expensive consultant is the one you call after the failed go-live. A few hours of expert guidance during planning — scope review, data strategy, app sequencing — saves weeks of cleanup later. This is literally what I do — I've seen the movie, I know where the bodies are buried.<figure class="post-inline"><img src="../images/odoo-implementation-7-things-nobody-tells-you-img3.jpg" alt="Split image of tidy versus tangled server cables" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>The most expensive consultant is the one you call after the failed go-live. A few hours of expert guidance during planning — scope review, data strategy, app sequencing — saves weeks of cleanup later. This is literally what I do — I've seen the movie, I know where the bodies are buried.<figure class="post-inline"><img src="../images/odoo-implementation-7-things-nobody-tells-you-img3.jpg" alt="Split image of tidy versus tangled server cables" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <p>The pattern I see: companies try to save money by going it alone, hit a wall at week six (usually data or scope), and then hire help at emergency rates to rescue the project. The rescue costs three times what the planning would have cost, because now the consultant is untangling decisions instead of guiding them. Even a short engagement — a day to review your plan before you start — catches the big mistakes while they are still cheap.</p>
 <p>And if you are already mid-implementation and struggling: get help now, not after go-live. Every week of a struggling implementation bakes in more decisions that will need unpicking. There is no shame in it — the consultants who do rescues have seen far worse than whatever you have got.</p>
 <h2>Frequently asked questions</h2>
@@ -261,14 +261,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

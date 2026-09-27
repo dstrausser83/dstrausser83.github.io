@@ -9,9 +9,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser — David Strausser</title>
+  <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>
   <meta name="description" content="Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand." />
-  <meta name="keywords" content="quickbooks to erp migration, quickbooks data cleanup, odoo migration, quickbooks audit" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser" />
@@ -25,7 +24,8 @@
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -200,7 +200,7 @@
 <p><strong>Unlinked transactions everywhere.</strong> The first thing that jumped out was transactions floating with no link to the right accounts or categories. One file had 37 transactions that didn't link to anything. I spent hours tracing them — payments applied to nothing, bills pointing at deleted vendors, journal entries with one side missing. In QuickBooks, these sit quietly. In an ERP with real double-entry enforcement, they either fail the import or land wrong. Every one of them needed a human decision: what was this actually for?</p>
 <p><strong>Date format chaos.</strong> Some files used YYYY-MM-DD, others MM/DD/YYYY, and a few had text dates that were never dates at all ("Q3-ish," I wish I were joking). That is a problem when you're trying to analyze trends or sequence transactions — and it is a migration-breaker when the import tool parses 03/04/2024 as March 4th in one file and April 3rd in another. I fixed it with a simple regex script. Two hours of work for consistency across fifty files. Worth every minute.</p>
 <p><strong>Missing GL entries.</strong> The scariest find: transactions with no matching general ledger entries. Money moved, but the books do not balance. In QuickBooks you can get away with this for years — the reports still run, the P&L still prints. But you cannot migrate unbalanced books into an ERP that enforces double-entry. These took the longest to fix because each one required reconstructing what should have happened, sometimes from bank statements, sometimes from memory. If your books do not balance in QuickBooks, they will not balance in Odoo either. Fix them where they are.</p>
-<p><strong>No backups.</strong> I also found that some users didn't back up their QuickBooks files regularly. That is a risk that keeps me up at night: if the data gets corrupted mid-audit, you lose everything, including the evidence of what was wrong. Before I touched a single file, I backed up all fifty. Twice. To two different places. This is not paranoia — during cleanup you will delete things, merge things, and rewrite history. The backup is the only thing standing between "oops" and "catastrophe."<figure class="post-inline"><img src="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp-img2.jpg" alt="Magnifying glass over messy financial documents during a QuickBooks audit" width="1920" height="1280" loading="lazy" /></figure></p>
+<p><strong>No backups.</strong> I also found that some users didn't back up their QuickBooks files regularly. That is a risk that keeps me up at night: if the data gets corrupted mid-audit, you lose everything, including the evidence of what was wrong. Before I touched a single file, I backed up all fifty. Twice. To two different places. This is not paranoia — during cleanup you will delete things, merge things, and rewrite history. The backup is the only thing standing between "oops" and "catastrophe."<figure class="post-inline"><img src="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp-img2.jpg" alt="Magnifying glass over messy financial documents during a QuickBooks audit" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <h2>The cleanup playbook</h2>
 <p>If you are staring at your own QuickBooks files before a migration, here is the order of operations that worked across fifty files.</p>
 <p><strong>Step 1: Back up everything.</strong> Full backups, verified, stored somewhere the cleanup cannot touch. Do this before you open a single file for editing.</p>
@@ -211,7 +211,7 @@
 <p><strong>Step 6: Reconcile the big three.</strong> Open AR, open AP, and inventory valuation must tie between QuickBooks and your source documents (bank statements, physical counts, aging reports). These are the numbers the business runs on. If they are wrong in QuickBooks, decide now whether you fix them there or take corrected opening balances into the ERP. Either is fine. Not deciding is not fine.</p>
 <p><strong>Step 7: Test-migrate early.</strong> Do not wait until the data is perfect. Run a test migration with the messy data two months before go-live, and let the import errors tell you what still needs fixing. The error log is the most honest audit tool you have — it finds every problem you missed, mechanically, without mercy.</p>
 <h2>Odoo vs SAP Business One: what the audit taught me</h2>
-<p>Why did I choose Odoo over SAP Business One? It came down to the trade-off the audit made visible. SAP Business One is a solid ERP, but its pricing model is based on user licenses that get expensive fast — for a small team, the cost was hard to justify. And B1's structured, opinionated data model means the migration has to conform to its expectations; there is less room to maneuver when the source data is messy.<figure class="post-inline"><img src="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp-img3.jpg" alt="Messy paper records transforming into an organized digital database" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>Why did I choose Odoo over SAP Business One? It came down to the trade-off the audit made visible. SAP Business One is a solid ERP, but its pricing model is based on user licenses that get expensive fast — for a small team, the cost was hard to justify. And B1's structured, opinionated data model means the migration has to conform to its expectations; there is less room to maneuver when the source data is messy.<figure class="post-inline"><img src="../images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp-img3.jpg" alt="Messy paper records transforming into an organized digital database" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <p>Odoo's open-source model let me customize without vendor lock-in, which mattered because the audit kept surfacing edge cases — weird transaction types, custom fields full of critical data, workflows that did not fit standard molds. Odoo let me build the migration around the reality of the data instead of forcing the data into a rigid template. The trade-off: Odoo needs more manual setup. There is no migration wizard that handles fifty messy QuickBooks files. You build the scripts, you make the decisions, you own the result.</p>
 <p>For a team comfortable with that ownership, it is the right call. For a team that wants guardrails and a vendor holding their hand, SAP Business One's structure is worth the license cost. The audit does not just clean your data — it tells you which kind of system your organization can actually operate.</p>
 <h2>Frequently asked questions</h2>
@@ -255,14 +255,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

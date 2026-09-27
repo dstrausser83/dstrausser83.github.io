@@ -18,6 +18,9 @@
   --radius: 14px;
   --font-display: "Anton", "Arial Black", Impact, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --header-height: 72px;      /* fixed .site-header height — keep in sync */
+  --container-max: 1120px;    /* default content width */
+  --container-narrow: 760px;  /* narrow reading width */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,8 +40,8 @@ body {
 /* Buttons are red with white text — invert selection so highlighted text stays readable. */
 .btn::selection { background: #fff; color: var(--accent-deep); }
 
-.wrap { width: min(1120px, 92%); margin: 0 auto; }
-.wrap.narrow { width: min(760px, 92%); }
+.wrap { width: min(var(--container-max), 92%); margin: 0 auto; }
+.wrap.narrow { width: min(var(--container-narrow), 92%); }
 
 .skip-link {
   position: absolute; left: -9999px; top: 0;
@@ -59,7 +62,7 @@ body {
 .site-header.scrolled { border-bottom-color: var(--line); }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
-  height: 72px;
+  height: var(--header-height);
 }
 .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--ink); }
 .brand-logo {
@@ -210,9 +213,9 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 /* ---------- Sections ---------- */
 .section { padding: 5.5rem 0; }
 /* Fixed-header clearance (mobile only — desktop is fine): the first content
-   block must clear the 72px fixed .site-header. .section's 5.5rem top padding
-   left only ~16px of clearance, so eyebrows/titles clipped under the header
-   on phones. */
+   block must clear the fixed .site-header (var(--header-height)). .section's
+   5.5rem top padding left only ~16px of clearance, so eyebrows/titles clipped
+   under the header on phones. */
 @media (max-width: 860px) {
   main > .section:first-child { padding-top: calc(5.5rem + 44px); }
 }

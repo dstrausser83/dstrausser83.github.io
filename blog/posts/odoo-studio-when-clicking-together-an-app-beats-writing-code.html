@@ -14,18 +14,19 @@
   
   <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Odoo Studio: When Clicking Together an App Beats Writing Code" />
+  <meta property="og:title" content="Odoo Studio: When Clicking Together an App Beats Writing Code — David Strausser" />
   <meta property="og:description" content="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" />
   <meta property="og:image:width" content="2048" />
   <meta property="og:image:height" content="1152" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Odoo Studio: When Clicking Together an App Beats Writing Code" />
+  <meta name="twitter:title" content="Odoo Studio: When Clicking Together an App Beats Writing Code — David Strausser" />
   <meta name="twitter:description" content="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -219,7 +220,7 @@
 <p>The math is not close. When the problem is simple, code is overhead. Every line of custom code is a line you maintain, upgrade, and debug forever. The app you clicked together has no technical debt because there is no code. That is not a small thing. That is the whole game.</p>
 <h2>Where clicking breaks</h2>
 <p>Here is the part the demos skip. Studio is a builder, not a programming language. The moment your logic gets conditional and layered, the clicks stop being enough.</p>
-<p>Real examples of the wall. Pricing rules with exceptions on exceptions. Multi-step approvals that branch based on amounts, regions, and product lines. Anything that has to talk to an outside system in real time. Performance at scale: the tracker that was fine for 200 records gets painful at 20,000.<figure class="post-inline"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code-img2.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>Real examples of the wall. Pricing rules with exceptions on exceptions. Multi-step approvals that branch based on amounts, regions, and product lines. Anything that has to talk to an outside system in real time. Performance at scale: the tracker that was fine for 200 records gets painful at 20,000.<figure class="post-inline"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code-img2.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <p>When you hit that wall, you have two choices. Bring in a developer to build a proper custom module, or keep clicking and build something fragile that everyone is afraid to touch. The second option is how you end up with a worse mess than the spreadsheet you replaced.</p>
 <p>This is the honest rule I give every client. If you can describe the whole thing in one sentence, click it. If you need a paragraph and a whiteboard, code it.</p>
 <h2>The governance trap nobody warns you about</h2>
@@ -231,7 +232,7 @@
 <p>Then stop and ask the hard question before you build the second one. Is this still a simple problem, or am I now building a system out of clicks because I am avoiding a conversation with a developer? Honesty here saves real money.</p>
 <p>Studio is at its best as a prototyping tool, too. Click the workflow together, put it in front of the team, let them break it for a week. Now when you do hire a developer, you hand them a working model instead of a requirements document. That conversation goes twice as fast.</p>
 <h2>The bottom line</h2>
-<p>The best code is the code you never had to write. Odoo Studio deletes a whole category of small development work, and that is a genuine win for small and mid-size businesses that do not have developers on staff.<figure class="post-inline"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code-img3.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>The best code is the code you never had to write. Odoo Studio deletes a whole category of small development work, and that is a genuine win for small and mid-size businesses that do not have developers on staff.<figure class="post-inline"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code-img3.jpg" alt="Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the gover" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <p>But the second-best skill is knowing when the clicks stop being enough. Simple problems get clicks. Complex problems get code. And the expensive mistakes all come from confusing the two.</p>
 <p>Start with the drawer of small problems. Click those into existence. Save the developers for the problems that deserve them.</p>
 <h2>Frequently asked questions</h2>
@@ -266,14 +267,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

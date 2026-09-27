@@ -9,9 +9,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser — David Strausser</title>
+  <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
   <meta name="description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
-  <meta name="keywords" content="erp go-live checklist, erp testing, odoo go-live, sap business one testing" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser" />
@@ -25,7 +24,8 @@
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -200,7 +200,7 @@
 <p>This is the test teams skip most often, because the migration already "worked" once during the build. But the build migration ran months ago on a snapshot. Since then, the business kept running on the old system — new customers, new items, new open orders. The delta is where the surprises live. Run a fresh full load into a test company a week before go-live and reconcile it: total open AR in the old system versus the new, total open AP, inventory valuation by warehouse. If the numbers do not tie to the penny, you do not go live. Full stop.</p>
 <p><strong>2. User permissions.</strong> Log in as each role and try to do the job. Sales should not see payroll. Warehouse should not edit pricing. Permission screens always look right until you test them as the actual user.</p>
 <p>Do this literally: sit down, log in as the warehouse lead, and try to receive a purchase order, transfer stock, and print a pick list. Then try something they should not be able to do — void a posted invoice, change a price, run payroll. If the system lets them, your roles are wrong. I have seen warehouse staff with full admin rights because someone cloned the wrong template during setup and nobody checked. That is a segregation-of-duties problem that will embarrass you in an audit and cost you real money if someone makes an honest mistake with too much power.</p>
-<p>Test every role that touches the system, including the ones people forget: the outside sales rep who only logs in twice a month, the temp in shipping, the controller's assistant. Roles rot over time — someone gets extra access "just for this week" and it never gets revoked. Go-live is your one clean starting point. Start clean.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img2.jpg" alt="Barcode scanner aimed at boxes on warehouse shelves" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>Test every role that touches the system, including the ones people forget: the outside sales rep who only logs in twice a month, the temp in shipping, the controller's assistant. Roles rot over time — someone gets extra access "just for this week" and it never gets revoked. Go-live is your one clean starting point. Start clean.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img2.jpg" alt="Barcode scanner aimed at boxes on warehouse shelves" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <p><strong>3. Edge cases.</strong> Test the weird-but-real scenarios: a payment arriving after cutoff, a credit memo against a closed period, a customer with two ship-to addresses. Rare in testing, constant in production.</p>
 <p>Here is how to find your edge cases: ask the most experienced person in each department what annoys them about the current system. Not what is broken — what is annoying. The annoying stuff is the edge cases. "Every month I have to manually fix the freight on drop-ship orders." "Returns from last quarter always post to the wrong account." Those are your test scripts. Write each one down as a scenario, run it in the test company, and confirm the result posts where it should.</p>
 <p><strong>4. Real-time updates.</strong> Confirm changes show up when they should. If there is a sync delay between modules, find it now. That is how double shipments and double billing happen: one screen says the inventory moved and the other has not caught up yet.</p>
@@ -210,7 +210,7 @@
 <p>Pick the person who will live in the system the most — usually someone in order entry, purchasing, or the warehouse — and shadow them for a full day in the test environment running real scenarios. Do not guide them. Do not explain. Just watch and take notes every time they hesitate, click the wrong thing, or ask "where do I find...?" Every hesitation is a training gap or a design problem, and every one of them becomes a support ticket on day two if you do not fix it now.</p>
 <p>This test also catches the missing-reports problem. Every implementation has a moment where someone asks for a report that was never in scope: the open-orders-by-sales-rep summary the owner looks at every morning, the margin-by-customer view the sales manager built in Excel for years. Find these before go-live, not after. Building a report in week one is a minor task. Discovering the business cannot operate without it on day two is a crisis.</p>
 <h2>What to do when a test fails</h2>
-<p>A failed test before go-live is a gift. It is the system telling you exactly where it will break, on your schedule, with no customers watching. The wrong response is to argue the test was unrealistic. If a real user doing a real task hit it in testing, a real user will hit it in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img3.jpg" alt="Rocket launching into the sky representing a new system go-live" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>A failed test before go-live is a gift. It is the system telling you exactly where it will break, on your schedule, with no customers watching. The wrong response is to argue the test was unrealistic. If a real user doing a real task hit it in testing, a real user will hit it in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img3.jpg" alt="Rocket launching into the sky representing a new system go-live" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <p>And set the expectation with leadership now: the first week will surface things no test caught. That is normal. What is not normal is discovering them with no plan. Keep the partner on standby for the first two weeks, keep a daily fifteen-minute triage call on the calendar, and keep a single list where every issue goes. Most of them will be training. A few will be real. You will sort them out fast if you are looking.</p>
 <h2>Frequently asked questions</h2>
 <h3>What is the biggest mistake teams make?</h3>
@@ -254,14 +254,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

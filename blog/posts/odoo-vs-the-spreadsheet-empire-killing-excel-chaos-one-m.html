@@ -9,9 +9,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser — David Strausser</title>
+  <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
   <meta name="description" content="David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel." />
-  <meta name="keywords" content="odoo vs excel, replace spreadsheets with erp, odoo implementation, spreadsheet chaos" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser" />
@@ -25,7 +24,8 @@
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -200,7 +200,7 @@
 <h2>How spreadsheets actually fail</h2>
 <p>Here is the thing nobody tells you: Excel is not the enemy. Excel is a great calculator. The problem is using a calculator as your system of record. And the failures are never dramatic — they are silent.</p>
 <p>A spreadsheet does not know when two people edit it at once. It does not stop someone from typing text into a quantity field. It does not warn you that the formula in cell G47 has been broken since March. I have seen a company run purchasing off a spreadsheet with a broken VLOOKUP for four months — every reorder point was wrong, and nobody noticed until the stockouts started. The formula looked fine. The numbers looked plausible. They were fiction.</p>
-<p>Version chaos is the other killer. "FINAL_v3_ACTUAL.xlsx" gets emailed around, three people make three different edits, and now there are four versions of the truth. The monthly close becomes archaeology: which file is current, who changed what, why does tab seven not tie to tab three. Two weeks of detective work every month, performed by your most expensive people, to answer questions a system of record would answer in seconds.<figure class="post-inline"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m-img2.jpg" alt="Chaotic desk of printed spreadsheets beside a clean modern dashboard" width="2240" height="1120" loading="lazy" /></figure></p>
+<p>Version chaos is the other killer. "FINAL_v3_ACTUAL.xlsx" gets emailed around, three people make three different edits, and now there are four versions of the truth. The monthly close becomes archaeology: which file is current, who changed what, why does tab seven not tie to tab three. Two weeks of detective work every month, performed by your most expensive people, to answer questions a system of record would answer in seconds.<figure class="post-inline"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m-img2.jpg" alt="Chaotic desk of printed spreadsheets beside a clean modern dashboard" width="2240" height="1120" loading="lazy" decoding="async" /></figure></p>
 <p>And then there is the bus factor. The person who built the monster understands it. Everyone else is afraid of it. When that person leaves — and they always leave eventually — the spreadsheet becomes a black box the business depends on and nobody can maintain. I have watched companies keep a departed employee's laptop alive for a year because a critical macro only runs on their machine.</p>
 <h2>The one-module-at-a-time conquest</h2>
 <p>Odoo kills this chaos, but not the way most people think. You do not wake up one Monday and delete every spreadsheet. That is how implementations fail. You replace them one module at a time.</p>
@@ -211,7 +211,7 @@
 <h2>What Excel keeps (and should)</h2>
 <p>This is the part vendors skip: you do not eliminate Excel. You demote it. Excel stays for analysis, ad-hoc modeling, and the quick what-if that does not belong in a system of record. Odoo becomes the home of the data; Excel becomes the tool people use to think about the data.</p>
 <p>Every Odoo list view exports to Excel in one click. Pivot views let people slice data without leaving the system. The spreadsheet person — every company has one, the one who built the empire — does not lose their tool. They gain clean data to point it at. That reframing matters, because it turns your biggest resistor into your biggest advocate.</p>
-<p>Do not fight the spreadsheet person. Make them the Odoo champion. They already understand the business logic better than anyone — they built the formulas, they know the exceptions, they know which numbers matter. Give them Odoo Studio and watch what happens. They will build the views and automations that make the system sing, because they have been waiting years for a tool that could keep up with them.<figure class="post-inline"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m-img3.jpg" alt="Giant spreadsheet grid crumbling like a collapsing building" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>Do not fight the spreadsheet person. Make them the Odoo champion. They already understand the business logic better than anyone — they built the formulas, they know the exceptions, they know which numbers matter. Give them Odoo Studio and watch what happens. They will build the views and automations that make the system sing, because they have been waiting years for a tool that could keep up with them.<figure class="post-inline"><img src="../images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m-img3.jpg" alt="Giant spreadsheet grid crumbling like a collapsing building" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <h2>The migration nobody plans for: the logic</h2>
 <p>The hardest part of replacing spreadsheets is not the data. It is the logic buried in the formulas. That VLOOKUP chain, that nested IF that handles the freight calculation, the macro that reformats the commission report — each one encodes a business rule that someone decided, probably for a good reason, probably years ago.</p>
 <p>Before you retire a spreadsheet, document what it computes and why. Sit with the person who built it and walk through the formulas. Half of them will be obsolete — workarounds for problems that no longer exist. The other half are requirements your Odoo implementation needs to handle. I have seen implementations miss a critical pricing rule because nobody asked what column K was doing. The spreadsheet knew. Nobody asked.</p>
@@ -256,14 +256,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

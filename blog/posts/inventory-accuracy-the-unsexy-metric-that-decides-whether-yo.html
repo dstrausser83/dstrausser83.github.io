@@ -9,23 +9,23 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser — David Strausser</title>
+  <title>Inventory accuracy: the metric that decides if your ERP works (and why it&#x27;s unsexy) — David Strausser</title>
   <meta name="description" content="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." />
-  <meta name="keywords" content="inventory accuracy, erp inventory management, odoo inventory, cycle counting" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser" />
+  <meta property="og:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it&#x27;s unsexy) — David Strausser" />
   <meta property="og:description" content="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" />
   <meta property="og:image:width" content="2048" />
   <meta property="og:image:height" content="1152" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser" />
+  <meta name="twitter:title" content="Inventory accuracy: the metric that decides if your ERP works (and why it&#x27;s unsexy) — David Strausser" />
   <meta name="twitter:description" content="Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -200,7 +200,7 @@
 <p>The formula is simple. Count a set of SKUs physically, compare to the system quantity, and divide the accurate lines by the total lines counted. A line is accurate if the physical count matches the system within your tolerance — most operations use zero tolerance for high-value items and a small tolerance for bulk goods.</p>
 <p>Do not measure dollars. Measure lines. Dollar accuracy hides problems: being over on a cheap item and under on an expensive one can net to zero dollars while both lines are wrong. Line accuracy tells you the truth about your process.</p>
 <p>Benchmarks: world-class operations run 95%+ line accuracy. Most small and midsize businesses I see are at 70-85% and do not know it. Below 90%, you cannot trust the system for purchasing or promising — you are running the warehouse on tribal knowledge and spot checks. The goal is 95% or better, and it is absolutely achievable without exotic technology. It takes process, not software.</p>
-<p>Run the measurement monthly at first, then quarterly once you are above 95%. Track it as a KPI the same way you track revenue. When the owner asks about it in the monthly review, it stays fixed. When nobody asks, it drifts.<figure class="post-inline"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo-img2.jpg" alt="Warehouse aisle with neatly stacked boxes and a barcode scanner cart" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>Run the measurement monthly at first, then quarterly once you are above 95%. Track it as a KPI the same way you track revenue. When the owner asks about it in the monthly review, it stays fixed. When nobody asks, it drifts.<figure class="post-inline"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo-img2.jpg" alt="Warehouse aisle with neatly stacked boxes and a barcode scanner cart" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <h2>The five leaks</h2>
 <p>Inaccuracy comes from the same five leaks in almost every company. Fix these and accuracy follows.</p>
 <p><strong>1. Receiving without discipline.</strong> Product arrives, someone signs the BOL, and the boxes go straight to the shelf without being counted against the PO. Or they get counted but the receipt never gets posted in the system. Every unrecorded receipt is inventory the system does not know about — which becomes a variance at count time and a phantom shortage in the meantime. The fix: nothing goes to a bin without a posted receipt. No exceptions, no "I'll enter it later." Later does not happen.</p>
@@ -211,7 +211,7 @@
 <h2>Cycle counting: the actual fix</h2>
 <p>Cycle counting means counting a small slice of inventory on a regular rotation instead of everything once a year. ABC classification drives the schedule: A items (high value or high velocity) get counted monthly or weekly, B items quarterly, C items twice a year. A team of one or two people can cycle-count a midsize warehouse without stopping operations.</p>
 <p>The discipline that makes it work: when a count is off, you do not just adjust the number — you find out why. Was it a receiving error? An unrecorded transfer? A BOM that consumes the wrong quantity? Every variance is a process defect, and fixing the defect prevents the next hundred variances. Companies that just adjust and move on stay at 85% forever. Companies that investigate each variance climb past 95% within two or three quarters.</p>
-<p>In Odoo, cycle counting is built in: define your locations, set up inventory adjustments as a routine operation, and use the built-in reports to track adjustments over time. The tooling is the easy part. The habit — count, investigate, fix the process — is the whole game.<figure class="post-inline"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo-img3.jpg" alt="Inventory checklist clipboard leaning against stacked boxes" width="1920" height="1280" loading="lazy" /></figure></p>
+<p>In Odoo, cycle counting is built in: define your locations, set up inventory adjustments as a routine operation, and use the built-in reports to track adjustments over time. The tooling is the easy part. The habit — count, investigate, fix the process — is the whole game.<figure class="post-inline"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo-img3.jpg" alt="Inventory checklist clipboard leaning against stacked boxes" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <h2>Setup mistakes that doom accuracy from day one</h2>
 <p>For Odoo users especially, accuracy starts with configuration. Set up your locations and product categories correctly from the start — warehouse zones, quarantine locations, staging areas. If everything lives in one big "stock" location, you cannot count by zone and you cannot isolate problems. Skip this step and accuracy suffers from day one.</p>
 <p>Product setup matters too: units of measure must be right (buying in cases, selling in eaches, stocking in pallets — get the conversions locked), and every product needs a consistent tracking method. Decide upfront which items are tracked by lot or serial number; adding traceability later to a live warehouse is painful.</p>
@@ -256,14 +256,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales

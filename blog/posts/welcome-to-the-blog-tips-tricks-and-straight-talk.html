@@ -11,21 +11,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to the blog — tips, tricks, and straight talk — David Strausser</title>
   <meta name="description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
-  <meta name="keywords" content="david strausser blog, odoo blog, sap business one blog, erp tips" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Welcome to the blog — tips, tricks, and straight talk" />
+  <meta property="og:title" content="Welcome to the blog — tips, tricks, and straight talk — David Strausser" />
   <meta property="og:description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" />
   <meta property="og:image:width" content="1024" />
   <meta property="og:image:height" content="572" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Welcome to the blog — tips, tricks, and straight talk" />
+  <meta name="twitter:title" content="Welcome to the blog — tips, tricks, and straight talk — David Strausser" />
   <meta name="twitter:description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926c" />
+    <link rel="preload" as="image" href="../images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -216,7 +216,7 @@
 <ol>
 <li><strong>Wild card</strong> — tech, AI, sales, marketing, business growth, productivity, music, single-dad life... okay, mostly business stuff. But I make no promises. This is the post where the human shows up — the lessons from thirty years of guitar, the morning routine that actually works, the things I find interesting that don't fit in an ERP manual.</li>
 </ol>
-<p>Sunday gets one post instead of three — something random and fun, because even ERP consultants need a day where the content breathes.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img2.jpg" alt="Open road through a small American town at golden hour" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>Sunday gets one post instead of three — something random and fun, because even ERP consultants need a day where the content breathes.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img2.jpg" alt="Open road through a small American town at golden hour" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <h2>Why a daily blog?</h2>
 <p>Because most business software content is either a sales pitch wearing a trench coat or a 40-page whitepaper nobody finishes. I'm aiming for the middle: useful, human, and respectful of your time.</p>
 <p>Every post follows the same contract with you. It opens with a quick answer — the TL;DR for people in a hurry. Then it goes deep for the people who want depth: real examples, real numbers, real mistakes. Then it closes with honest next steps, not a funnel. If a post saves you time or money, it did its job. If it makes you laugh while doing it, even better.</p>
@@ -236,7 +236,7 @@
 <p><strong>If you're just here for the wild cards:</strong> welcome. The business posts will still be here when curiosity strikes, and the guitar-and-dad-life posts are honest about the person behind the consulting.</p>
 <h2>Frequently asked questions</h2>
 <h3>Is this blog really daily?</h3>
-<p>Three posts a day, Monday through Saturday — Odoo, SAP Business One, and a wild card. Sundays get one fun post. The schedule is automated but every post is reviewed before it goes live. If a post ever feels off, that's on me, not the robots.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img3.jpg" alt="Vintage microphone on a podcast desk" width="2048" height="1152" loading="lazy" /></figure></p>
+<p>Three posts a day, Monday through Saturday — Odoo, SAP Business One, and a wild card. Sundays get one fun post. The schedule is automated but every post is reviewed before it goes live. If a post ever feels off, that's on me, not the robots.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img3.jpg" alt="Vintage microphone on a podcast desk" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <h3>Who writes the posts?</h3>
 <p>I do — with an AI crew that drafts, and my eyes on every word before it publishes. Think of it as me talking, with a very fast typing assistant. The opinions, the war stories, and the mistakes are all mine.</p>
 <h3>Can I suggest a topic?</h3>
@@ -279,14 +279,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
