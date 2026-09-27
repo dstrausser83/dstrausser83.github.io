@@ -5,14 +5,26 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 22:54:53 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2026 16:09:50 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Playing Guitar Taught Me About Patience That Business Never Could</title>
+      <link>https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-patience-that-bus.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-patience-that-bus.html</guid>
+      <description>David Strausser on the patience lessons from playing guitar that business never taught him. A Sunday reflection.</description>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/what-playing-guitar-taught-me-about-patience-that-bus.jpg" type="image/jpeg" />
+      <category>guitar</category>
+      <category>patience</category>
+      <category>business</category>
+      <category>life</category>
+    </item>
     <item>
       <title>Odoo Studio: When Clicking Together an App Beats Writing Code</title>
       <link>https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</guid>
       <description>Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.</description>
-      <pubDate>Sat, 26 Sep 2026 22:45:28 GMT</pubDate>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" type="image/jpeg" />
       <category>odoo</category>
       <category>studio</category>
@@ -25,7 +37,7 @@
       <link>https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</guid>
       <description>Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.</description>
-      <pubDate>Sat, 26 Sep 2026 22:45:28 GMT</pubDate>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg" type="image/jpeg" />
       <category>ai</category>
       <category>automation</category>
@@ -38,7 +50,7 @@
       <link>https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</guid>
       <description>David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.</description>
-      <pubDate>Sat, 26 Sep 2026 10:53:27 GMT</pubDate>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" type="image/jpeg" />
       <category>odoo</category>
       <category>erp</category>
@@ -50,7 +62,7 @@
       <link>https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</guid>
       <description>Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.</description>
-      <pubDate>Sat, 26 Sep 2026 00:30:00 GMT</pubDate>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" type="image/jpeg" />
       <category>quickbooks</category>
       <category>erp</category>
