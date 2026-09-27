@@ -166,20 +166,9 @@
             <p class="product-desc">The crowned-skull mark on a heavyweight black pullover hoodie. Built for cold rooms and hot takes.</p>
             <p class="product-sku">SKU: deadbrands-hoodie-black</p>
             <div class="order-box">
-              <h2>Order this</h2>
-              <div class="order-row">
-                <div><label for="o-name">Your name</label><input id="o-name" type="text" autocomplete="name" /></div>
-                <div><label for="o-email">Email</label><input id="o-email" type="email" autocomplete="email" /></div>
-              </div>
-              <div class="order-row">
-                <div><label for="o-qty">Quantity</label><input id="o-qty" type="number" value="1" min="1" max="99" /></div>
-                <div><label for="o-size">Size</label><select id="o-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
-              </div>
-              <div><label for="o-code">Discount code <span style="font-weight:400;color:#8a8a92">(optional)</span></label><input id="o-code" type="text" placeholder="e.g. BITE10" /></div>
-              <div><label for="o-notes">Notes <span style="font-weight:400;color:#8a8a92">(optional — shipping address, gift message&hellip;)</span></label><textarea id="o-notes" rows="2"></textarea></div>
-              <a class="btn" href="#" id="o-send">Send my order via email</a>
-              <p class="order-fine" id="o-summary"></p>
-              <p class="order-fine">Hit send and your email app opens with the order ready to go. We reply within 24 hours to confirm your total (with shipping) and payment — <strong>nothing is charged until you confirm.</strong> Every piece is printed to order and ships in 2&ndash;7 business days. 30-day reprint-or-refund on any genuine defect. Discount code <strong>BITE10</strong> takes 10% off, honored when we confirm.</p>
+              <h2>Get yours</h2>
+              <a class="btn" href="https://shop.deadbrands.co/product/32433078" target="_blank" rel="noopener">Buy now</a>
+              <p class="order-fine">Secure checkout in our Printify store &mdash; choose your size, color, and quantity there. Every piece is printed to order and ships in 2&ndash;7 business days. 30-day reprint-or-refund on any genuine defect.</p>
             </div>
           </div>
         </div>
@@ -209,37 +198,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/assets/js/main.js" defer></script>
-  <script>
-  (function () {
-    var PRICE = 47.10;
-    function v(id) { return (document.getElementById(id).value || '').trim(); }
-    function money(n) { return '$' + n.toFixed(2); }
-    function update() {
-      var qty = Math.max(1, parseInt(v('o-qty'), 10) || 1);
-      var code = v('o-code').toUpperCase();
-      var disc = (code === 'BITE10') ? 0.10 : 0;
-      var total = PRICE * qty * (1 - disc);
-      var s = 'Order summary: ' + qty + ' &times; Dead Brands Hoodie at ' + money(PRICE) + (disc ? ' &minus; 10% BITE10' : '') + ' = <strong>' + money(total) + '</strong> (+ shipping, confirmed by email).';
-      document.getElementById('o-summary').innerHTML = s;
-      var body = 'Hi Dead Brands,%0D%0A%0D%0AI would like to order:%0D%0A%0D%0A'
-        + 'Product: Dead Brands Hoodie%0D%0A' + 'SKU: deadbrands-hoodie-black%0D%0A' + 'Price: ' + money(PRICE) + '%0D%0A'
-        + 'Quantity: ' + qty + '%0D%0A' + ''Size: ' + encodeURIComponent(v('o-size')) + '%0D%0A' + ' + 'Discount code: ' + (code || '(none)') + '%0D%0A'
-        + 'Order total (before shipping): ' + money(total) + '%0D%0A%0D%0A'
-        + 'Name: ' + encodeURIComponent(v('o-name')) + '%0D%0A' + 'Email: ' + encodeURIComponent(v('o-email')) + '%0D%0A'
-        + 'Notes: ' + encodeURIComponent(v('o-notes')) + '%0D%0A%0D%0APlease confirm my total with shipping. Thanks!';
-      document.getElementById('o-send').href = 'mailto:david@deadbrands.co?subject='
-        + encodeURIComponent('Order: Dead Brands Hoodie (' + qty + 'x)') + '&body=' + body;
-    }
-    ['o-name','o-email','o-qty','o-code','o-notes','o-size'].forEach(function (id) {
-      var el = document.getElementById(id); if (el) el.addEventListener('input', update);
-    });
-    document.getElementById('o-send').addEventListener('click', function (e) {
-      update();
-      if (!v('o-name') || !v('o-email')) { e.preventDefault(); alert('Add your name and email so we can confirm your order.'); }
-    });
-    update();
-  })();
-  </script>
+  
   <script src="/assets/js/consent.js" defer></script>
 </body>
 </html>
