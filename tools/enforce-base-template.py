@@ -29,6 +29,15 @@ HEAD_CONSENT = """<!-- Consent defaults: analytics stays off until the visitor a
 </script>"""
 
 STALE_COMMENT = "<!-- Microsoft Clarity: heatmaps, click maps, session recordings (free) -->"
+# A direct <head> Clarity tag (no consent gate) must never ship: Clarity loads
+# ONLY via assets/js/consent.js after the visitor accepts. This matches any
+# single <script> element whose body references the Clarity tag endpoint. The
+# tempered pattern keeps it confined to one script element so neighboring
+# scripts (JSON-LD etc.) are never swallowed.
+DIRECT_CLARITY_RE = re.compile(
+    r"<script[^>]*>(?:(?!</script>).)*?clarity\.ms/tag(?:(?!</script>).)*?</script>",
+    re.S,
+)
 
 HEADER = (ROOT / "tools" / "canonical-header.html").read_text(encoding="utf-8")
 FOOTER = (ROOT / "tools" / "canonical-footer.html").read_text(encoding="utf-8")
@@ -45,6 +54,7 @@ def fix_page(p: Path) -> str:
     h = p.read_text(encoding="utf-8")
     orig = h
     h = h.replace(STALE_COMMENT, "")
+    h = DIRECT_CLARITY_RE.sub("", h)  # strip any ungated Clarity tag
     h = re.sub(r"\n{3,}", "\n\n", h)
 
     if is_redirect(h):
