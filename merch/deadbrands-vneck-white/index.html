@@ -62,7 +62,7 @@
 
   </style>
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Dead Brands White V-Neck",
@@ -78,7 +78,32 @@
     "price": "28.24",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://deadbrands.co/merch/deadbrands-vneck-white/"
+    "url": "https://deadbrands.co/merch/deadbrands-vneck-white/",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": "https://deadbrands.co/returns.html"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 2,
+          "maxValue": 7,
+          "unitCode": "DAY"
+        }
+      }
+    }
   }
 }
   </script>
