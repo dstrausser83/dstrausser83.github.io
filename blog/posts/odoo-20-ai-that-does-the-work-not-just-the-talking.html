@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo 20: AI That Does the Work, Not Just the Talking — David Strausser</title>
+  <meta name="description" content="Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Odoo 20: AI That Does the Work, Not Just the Talking — David Strausser" />
+  <meta property="og:description" content="Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odoo 20: AI That Does the Work, Not Just the Talking — David Strausser" />
+  <meta name="twitter:description" content="Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="preload" as="image" href="../images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Odoo 20: AI That Does the Work, Not Just the Talking",
+  "description": "Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.",
+  "datePublished": "2026-09-28T18:22:43Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html",
+  "keywords": "odoo, odoo-20, erp, ai, small-business",
+  "image": "https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" alt="Small business owner at a desk while a friendly robot arm files invoices and updates inventory on a glowing ERP dashboard" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo 20: AI That Does the Work, Not Just the Talking</h1><p class="post-meta">September 28, 2026 at 2:22 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Odoo 20's headline feature is AI agents with write access. In version 19 the agent could answer questions and draft things. In version 20 it can create and update actual records in your database, work from a file of instructions you upload, and run inside automated and scheduled actions. Odoo also added MCP support, so outside AI tools can connect to your Odoo data while respecting your existing user permissions. Underneath, there's unglamorous but important housekeeping: simpler access rights, better change tracking in the chatter, and parent accounts in the chart of accounts. For a small business, the short version is this: the AI inside your ERP just became a coworker instead of a consultant. That changes what "automation" means at your size.</p>
+        </aside>
+        <div class="post-body prose">
+<p>Odoo 20 came out this week. September 24, opening keynote of Odoo Experience in Brussels, and the release notes run across more than fifty apps.</p>
+<p>I've read a lot of ERP release announcements in my life. Most of them are new buttons. This one is different, and it matters for one reason: the AI stopped suggesting and started doing.</p>
+<h2>The moment AI got its hands on the data</h2>
+<p>Every ERP vendor has been bolting chatbots onto their product for two years. Ask it a question, get an answer, then go do the work yourself. Useful, but it never touched anything.</p>
+<p>Odoo 20 crosses the line the others have been dancing around. The agent can now write. Tell it to create the purchase orders for everything below reorder point and it does it. Hand it a PDF with your month-end checklist and it works through it. Put it inside a scheduled action and it runs on its own, with your permissions deciding what it's allowed to touch.</p>
+<p>That last part is the one I'd underline twice. It doesn't get superpowers. It gets your powers. Whatever the logged-in user is allowed to do, the agent can do. Whatever they're not allowed to do, it can't. That's the right design, and it's the design that makes this safe to actually turn on in a real company.</p>
+<h2>MCP: your AI tools can now talk to your ERP</h2>
+<p>The second big move is MCP, the Model Context Protocol. In plain English: Odoo 20 lets AI assistants outside of Odoo connect to your database, read it, and write to it, again within the user's existing access rights.</p>
+<p>Why should a small business owner care about a protocol? Because it means you're not locked into one vendor's AI. If your team already uses an AI assistant for other work, version 20 opens the door to letting that assistant see your inventory, your open orders, your customer records, and act on them. The ERP stops being a walled garden and starts being a participant in whatever AI setup you already run.</p>
+<p>This is the kind of thing that sounds technical and turns out to be strategic. Open beats closed at the small end of the market, every time.</p>
+<h2>The boring upgrades that actually hurt on upgrade day</h2>
+<p>Nobody demos access rights on a keynote stage. But if you're upgrading from 17, 18, or 19, three quiet changes will touch your project: simplified access rights, a new way of tracking changes in the chatter, and parent accounts in the chart of accounts.</p>
+<p>These are the changes that don't show in a sales demo and absolutely show in a migration. If you run a heavily customized Odoo, budget real testing time around permissions and accounting. The features are improvements. They're just improvements that interact with everything.</p>
+<p>The rest of the release is the usual long tail, and some of it is genuinely nice. Odoo previewed an offline mode that lets users browse, create, and edit records without connectivity and sync when they're back online. For anyone with a warehouse on flaky Wi-Fi or techs in the field, that's not a feature, that's a lifestyle change, though I'd want to see the live demo before promising a customer how much works offline. The point of sale got a redesigned dashboard with live sales analytics and a drag-and-drop catalog mode. Manufacturing, inventory, and purchasing all got their annual round of refinements.</p>
+<h2>What this does to the small-business ERP landscape</h2>
+<p>Here's the part I'd pay attention to if I were shopping for ERP right now.</p>
+<p>For years the pitch from the big enterprise systems has been: the software is expensive, the AI is an expensive add-on, and you'll need consultants to wire it together. Odoo just shipped agentic AI, the kind that does multi-step work on its own, inside the core product, at the pricing a 20-person company can actually pay.</p>
+<p>That compresses the moat. The thing the giants were going to sell you as a premium module in 2028 is sitting in Odoo 20 today. It doesn't mean Odoo beats every enterprise system at every job. A multinational running 40 subsidiaries still has reasons to look at the big names, and SAP Business One still earns its place where a company wants the SAP ecosystem with tighter guardrails. But the AI bar just moved for everybody. Every ERP demo you sit through from here on out, the first question is: "does your AI do the work, or just talk about it?"</p>
+<p>The second landscape shift is subtler. Odoo's open-source model plus MCP means the ecosystem, not just the vendor, gets to build on this. Partners and developers can connect their own tools and agents to Odoo data. That's how a platform built for small companies stays ahead of platforms built for big ones: a thousand builders instead of one roadmap.</p>
+<h2>The honest cautions</h2>
+<p>I'd be a bad advisor if I stopped at the excitement. Three things to keep straight.</p>
+<p>First, write access means governance. An AI that can create records can create wrong records, fast, at 2 AM, inside a scheduled action. Before you turn agents loose, decide which records they may touch, which actions need a human approval, and how you review what they did. Odoo kept your permission model intact, which is the foundation. You still have to build the house on it. Start with one narrow process, measure accuracy and time saved, then expand.</p>
+<p>Second, don't upgrade on day one. This is true of every major ERP release ever. Let the first stable patches land. Let the third-party modules and integrations catch up. If you're on 18 or 19 with light customization, partners are estimating a four-to-eight-week upgrade project once the dust settles. If you're three versions back on heavy custom code, this release is your reason to plan the migration, not to rush it.</p>
+<p>Third, the AI doesn't fix a messy process. It accelerates it. If your item masters are a disaster and nobody follows the purchasing workflow, an agent will now execute your chaos at machine speed. Clean the process, then automate it. That order has never changed.</p>
+<h2>What to do Monday morning</h2>
+<p>If you're already on Odoo: nothing urgent. Read the release notes for the apps you actually use, talk to your partner about an upgrade window after the first patches, and pick one repetitive process you'd hand to an agent first. You'll want that answer ready when the upgrade conversation happens.</p>
+<p>If you're shopping for ERP: add one question to every demo, for every vendor. "Show me the AI doing something, not describing something." Odoo 20 just set that as the standard. Make everyone else meet it.</p>
+<p>If you're on a legacy system paying a legacy surcharge to stay there: this is the release that makes waiting expensive. Every version you sit still, the gap gets wider and the eventual project gets bigger.</p>
+<p>Odoo 20 isn't the AI revolution. It's something more useful. It's the moment the AI in your ERP picked up a pen. For a small business, that's the moment automation stops being a enterprise luxury and starts being Tuesday.</p>
+        </div>
+        <p class="post-tags"><span>odoo</span> <span>odoo-20</span> <span>erp</span> <span>ai</span> <span>small-business</span></p>
+        <section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>
