@@ -1,5 +1,58 @@
 [
   {
+    "slug": "odoo-20-ai-that-does-the-work-not-just-the-talking",
+    "title": "Odoo 20: AI That Does the Work, Not Just the Talking",
+    "date": "2026-09-28T12:00:00",
+    "published_at": "2026-09-28T18:22:43Z",
+    "tags": [
+      "odoo",
+      "odoo-20",
+      "erp",
+      "ai",
+      "small-business"
+    ],
+    "excerpt": "Odoo 20 launched this week in Brussels, and the headline isn't another chatbot. The AI can now create and change real records in your ERP. Here's what that means for small businesses.",
+    "description": "Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.",
+    "image": "images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg",
+    "video": "",
+    "url": "posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html"
+  },
+  {
+    "slug": "sap-business-one-for-companies-that-think-sap-is-only-for-gi",
+    "title": "SAP Business One: Why Your Startup Doesn\u2019t Need a Giant to Use It",
+    "date": "2026-09-28",
+    "published_at": "2026-09-28T18:22:43Z",
+    "tags": [
+      "sap",
+      "business-one",
+      "small-business",
+      "software",
+      "implementation"
+    ],
+    "excerpt": "SAP Business One isn\u2019t for giants. It\u2019s built for your coffee shop, bakery, or consulting firm that needs real accounting without the corporate fluff.",
+    "description": "Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it\u2019s not a giant\u2019s toy.",
+    "image": "images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html"
+  },
+  {
+    "slug": "the-school-pickup-ceo",
+    "title": "The School-Pickup CEO: Running a Business on a Kid's Schedule",
+    "date": "2026-09-28T18:05:00",
+    "published_at": "2026-09-28T18:22:42Z",
+    "tags": [
+      "family",
+      "single dad",
+      "business",
+      "work-life balance"
+    ],
+    "excerpt": "My calendar has two bosses: my clients and my kids' school schedule. Guess which one never accepts a reschedule. What being a single dad taught me about running a business on someone else's clock.",
+    "description": "David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.",
+    "image": "images/the-school-pickup-ceo.jpg",
+    "video": "",
+    "url": "posts/the-school-pickup-ceo.html"
+  },
+  {
     "slug": "what-playing-guitar-taught-me-about-patience-that-bus",
     "title": "What Playing Guitar Taught Me About Patience That Business Never Could",
     "date": "2026-09-27T12:00:00",
