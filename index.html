@@ -252,7 +252,7 @@
         </p>
         <div class="cards cards-team reveal">
           <article class="card">
-            <img class="team-photo" src="assets/img/david-headshot.jpg" alt="David Strausser, Founder and CEO of Dead Brands, LLC" width="120" height="120" loading="lazy" decoding="async" />
+            <img class="team-photo" src="assets/img/david-headshot.jpg" alt="Team photo of David Strausser, founder and CEO of Dead Brands, LLC" width="120" height="120" loading="lazy" decoding="async" />
             <h3>David Strausser</h3>
             <p><strong>Founder &amp; CEO</strong></p>
             <p>ERP veteran (Odoo &amp; SAP Business One), Shark Bite Biz podcast host, single dad, guitarist. Sets the vision, tells the story, and still answers his own email.</p>
@@ -594,9 +594,10 @@
             var html = "";
             posts.slice(0, 6).forEach(function (p) {
               var img = p.image ? "blog/" + p.image : "";
+              var title = String(p.title || "").replace(/ ?\u2014 ?David Strausser$/, "");
               html += '<article class="card">'
-                + (img ? '<img class="card-photo" src="' + esc(img) + '" alt="' + esc(p.title) + '" loading="lazy" decoding="async" />' : "")
-                + '<h3><a href="blog/' + esc(p.url) + '">' + esc(p.title) + "</a></h3>"
+                + (img ? '<img class="card-photo" src="' + esc(img) + '" alt="' + esc(title) + '" loading="lazy" decoding="async" />' : "")
+                + '<h3><a href="blog/' + esc(p.url) + '">' + esc(title) + "</a></h3>"
                 + '<p class="post-card-date">' + esc(fmtCardDate(p)) + "</p>"
                 + "<p>" + esc(p.excerpt || p.description || "") + "</p>"
                 + "</article>";
@@ -691,19 +692,19 @@
             <figcaption>Pressed Coffee &amp; Books — my second office</figcaption>
           </figure>
           <figure class="photo-item reveal">
-            <img src="assets/photos/published/casual-01.jpg" alt="David Strausser holding a coffee cup" loading="lazy" decoding="async" />
+            <img src="assets/photos/published/casual-01.jpg" alt="David Strausser grinning in a selfie, holding a Pressed Coffee and Books to-go cup under a geometric pendant light" loading="lazy" decoding="async" />
             <figcaption>Coffee first. Everything else second.</figcaption>
           </figure>
           <figure class="photo-item reveal">
-            <img src="assets/photos/published/casual-02.jpg" alt="David Strausser smiling with a coffee cup" loading="lazy" decoding="async" />
+            <img src="assets/photos/published/casual-02.jpg" alt="David Strausser smiling with a Pressed Coffee and Books cup, a copper coffee machine behind him" loading="lazy" decoding="async" />
             <figcaption>The usual.</figcaption>
           </figure>
           <figure class="photo-item reveal">
-            <img src="assets/photos/published/casual-03.jpg" alt="David Strausser holding a coffee cup" loading="lazy" decoding="async" />
+            <img src="assets/photos/published/casual-03.jpg" alt="David Strausser in a white tiger-print t-shirt holding a Pressed Coffee and Books cup in a bright cafe" loading="lazy" decoding="async" />
             <figcaption>Fueling up.</figcaption>
           </figure>
           <figure class="photo-item reveal">
-            <img src="assets/photos/published/casual-04.jpg" alt="David Strausser smiling with a coffee cup" loading="lazy" decoding="async" />
+            <img src="assets/photos/published/casual-04.jpg" alt="David Strausser holding a Pressed Coffee and Books cup in a black t-shirt, wooden bookshelves behind him" loading="lazy" decoding="async" />
             <figcaption>Saturday mode.</figcaption>
           </figure>
           <figure class="photo-item reveal">

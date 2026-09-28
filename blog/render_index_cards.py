@@ -43,14 +43,25 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
+def clean_title(title):
+    """Strip a trailing author suffix (pulled in from <title> tags) so card
+    headings show the clean post title."""
+    t = (title or "").strip()
+    suffix = "\u2014 David Strausser"
+    if t.endswith(suffix):
+        t = t[: -len(suffix)].rstrip(" \u2014-").strip()
+    return t
+
+
 def card(p):
     # Mirrors the JS card() in index.html (same structure/classes).
-    img = (f'<img src="{esc(p["image"])}" alt="{esc(p["title"])}" '
+    title = clean_title(p.get("title"))
+    img = (f'<img src="{esc(p["image"])}" alt="{esc(title)}" '
            'loading="lazy" decoding="async" />') if p.get("image") else ""
     tags = "".join(f"<span>{esc(t)}</span>" for t in (p.get("tags") or []))
     return (f'<article class="post-card">\n        {img}\n'
             '        <div class="post-card-body">\n'
-            f'          <h3><a href="{esc(p["url"])}">{esc(p["title"])}</a></h3>\n'
+            f'          <h3><a href="{esc(p["url"])}">{esc(title)}</a></h3>\n'
             f'          <p class="post-card-date">{esc(fmt_card_date(p))}</p>\n'
             f'          <p class="post-card-excerpt">{esc(p.get("excerpt"))}</p>\n'
             f'          <div class="post-card-tags">{tags}</div>\n'
