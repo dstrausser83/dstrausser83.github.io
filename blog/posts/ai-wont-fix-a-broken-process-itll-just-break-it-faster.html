@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI won't fix a broken process, it'll just break it faster — David Strausser</title>
+  <meta name="description" content="Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI won't fix a broken process, it'll just break it faster — David Strausser" />
+  <meta property="og:description" content="Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI won't fix a broken process, it'll just break it faster — David Strausser" />
+  <meta name="twitter:description" content="Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="preload" as="image" href="../images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI won't fix a broken process, it'll just break it faster",
+  "description": "Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.",
+  "datePublished": "2026-09-28T20:27:50Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html",
+  "keywords": "ai, business, process, automation, technology",
+  "image": "https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" alt="Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>AI won't fix a broken process, it'll just break it faster</h1><p class="post-meta">September 28, 2026 at 4:27 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>AI doesn't fix broken processes. It accelerates them. If your workflow is a mess, adding AI gives you a faster mess with better formatting. The companies winning with AI aren't the ones with the fanciest tools; they're the ones who fixed their processes first, then let AI do what it does best: execute a good process at inhuman speed.</p>
+        </aside>
+        <div class="post-body prose">
+<h2>The hype cycle trap</h2>
+<p>Every few years, there's a technology that's supposed to save businesses from themselves. Before AI, it was the cloud. Before that, it was ERP. Before that, it was the internet. Each time, the same thing happens: companies with broken processes buy the new thing, bolt it onto the mess, and wonder why nothing got better.</p>
+<p>I watch this happen with ERP all the time. A company with chaotic inventory buys a six-figure system and expects it to impose order. It doesn't. The system just gives them faster, more expensive chaos. Now AI is the new ERP in this story. Same trap, shinier packaging.</p>
+<h2>What AI actually does</h2>
+<p>Strip away the marketing and AI does three things: it recognizes patterns, it generates content, and it follows instructions really fast. That's it. It's not magic. It's not judgment. It's a very fast intern who never sleeps and never questions your instructions.</p>
+<p>Give that intern a clean process and clear instructions, and they'll do amazing work. Give them a broken process and vague instructions, and they'll confidently produce garbage at a rate no human team could match. The speed is the danger. A human doing a broken process slowly gives you time to notice. AI doing it at scale means the damage is done before your coffee cools.</p>
+<h2>The broken process hall of fame</h2>
+<p><strong>The approval chain nobody understands.</strong> Your purchase approvals go through four people, nobody knows why, and half the time they sit in someone's inbox for a week. Add AI to "streamline approvals" and congratulations: now the confusion moves faster. The AI routes things efficiently through a process that shouldn't exist. You didn't need automation. You needed to ask why four people approve a $200 purchase.</p>
+<p><strong>The data nobody trusts.</strong> Your CRM is full of duplicates, half the contacts are stale, and salespeople enter data "their own way." Now you want AI to score leads and predict revenue. The AI will happily do it. It'll give you beautiful dashboards built on garbage. Garbage in, gospel out, because the charts look so convincing that nobody questions them.</p>
+<p><strong>The meeting that should've been an email.</strong> Your team spends ten hours a week in status meetings. Someone suggests an AI meeting assistant to summarize them. Now you have perfect summaries of meetings that shouldn't happen. The AI didn't fix anything. It just documented the waste more efficiently.</p>
+<h2>Fix first, automate second</h2>
+<p>Here's the unsexy truth: 80% of the value people expect from AI comes from fixing the process, not from the AI itself. When you map out a workflow, remove the stupid steps, clarify who's responsible for what, and define what "done" looks like, you've already won. The AI is just the cherry on top.</p>
+<p>I tell my ERP clients the same thing. Don't buy software to fix a process problem. Fix the process, then buy software that supports the fixed version. The companies that do it in that order succeed. The ones that reverse it end up with expensive shelfware and the same problems they started with.</p>
+<h2>What good looks like</h2>
+<p>A company with a clean lead follow-up process adds AI to draft personalized follow-up emails. The process was already working; AI just made it faster and more consistent. That's a win.<figure class="post-inline"><img src="../images/ai-wont-fix-a-broken-process-itll-just-break-it-faster-img2.jpg" alt="Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate." width="2048" height="1152" loading="lazy" /></figure></p>
+<p>A company with clear inventory procedures uses AI to predict reorder points. The procedures were solid; AI added foresight. That's a win.</p>
+<p>A company with a well-defined customer onboarding checklist uses AI to guide new customers through it conversationally. The checklist was already good; AI made it feel personal. That's a win.</p>
+<p>See the pattern? In every case, the process came first. AI was the multiplier, not the foundation.</p>
+<h2>The question to ask before any AI project</h2>
+<p>Forget "what can AI do for us?" Ask this instead: "If we had to do this process with pen and paper, would it make sense?" If the answer is no, AI won't save it. If the answer is yes but it's slow, then AI might be exactly what you need.</p>
+<p>Walk through your process step by step. For each step, ask: does this add value, or is it here because we've always done it this way? Cut the dead weight. Clarify the handoffs. Define the outputs. Then, and only then, ask where AI fits.</p>
+<h2>The speed trap</h2>
+<p>There's one more danger nobody talks about: AI makes bad decisions faster, but it also makes them harder to catch. When a human messes up, you see it. The email has a typo, the numbers don't add up, something feels off. When AI messes up at scale, the errors are systematic and invisible. Every output looks polished. Every number is formatted correctly. The wrongness hides behind professionalism.</p>
+<p>This is why human oversight matters more with AI, not less. The faster the system, the more important the checkpoints. Build review steps into your AI workflows. Spot-check outputs. And never, ever let AI make decisions you wouldn't trust an intern to make unsupervised.</p>
+<h2>Bottom line</h2>
+<p>AI is a multiplier. Multiply a good process and you get greatness. Multiply a broken process and you get a faster disaster. The work isn't in the AI. The work is in the process. Do the boring work first. Map it, fix it, simplify it. Then let AI run it at speed.</p>
+<p>The companies that understand this are quietly winning. The ones chasing the hype are quietly building faster ways to fail. Pick your camp.</p>
+<h2>FAQ</h2>
+<p><strong>So should we just skip AI entirely?</strong></p>
+<p>No. AI is genuinely useful. Just don't expect it to fix what's broken. Use it to accelerate what already works, and fix the broken stuff the old-fashioned way: by thinking about it.<figure class="post-inline"><img src="../images/ai-wont-fix-a-broken-process-itll-just-break-it-faster-img3.jpg" alt="Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate." width="2048" height="1152" loading="lazy" /></figure></p>
+<p><strong>What's the first process we should fix before adding AI?</strong></p>
+<p>Whatever touches money or customers. Lead follow-up, invoicing, order fulfillment, customer support. These are high-impact and usually messy. Clean them up first and you'll see immediate returns, with or without AI.</p>
+<p><strong>How do we know if a process is "good enough" for AI?</strong></p>
+<p>Can you write it down as a clear sequence of steps? Does everyone follow the same steps? Are the outputs consistent? If yes, it's ready. If people do it differently every time, fix that first.</p>
+<p><strong>Isn't this just common sense?</strong></p>
+<p>Yes. That's what makes it so easy to ignore. Common sense doesn't sell software licenses or get conference keynotes. But it's what separates the companies that benefit from AI from the ones that just pay for it.</p>
+<hr />
+<p><em>David Strausser is a business development executive specializing in ERP solutions for small and mid-sized businesses, including Odoo and SAP Business One. He helps companies fix their processes before they automate them, because he's seen what happens when they don't.</em></p>
+<p><em>Tired of broken processes? <a href="https://deadbrands.co/contact" target="_blank" rel="noopener">Book a meeting</a> and let's talk about fixing the foundation first.</em></p>
+        </div>
+        <p class="post-tags"><span>ai</span> <span>business</span> <span>process</span> <span>automation</span> <span>technology</span></p>
+        <section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Single dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>
