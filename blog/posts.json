@@ -1,5 +1,41 @@
 [
   {
+    "slug": "ai-wont-fix-a-broken-process-itll-just-break-it-faster",
+    "title": "AI won't fix a broken process, it'll just break it faster",
+    "date": "2026-09-28",
+    "published_at": "2026-09-28T20:27:50Z",
+    "tags": [
+      "ai",
+      "business",
+      "process",
+      "automation",
+      "technology"
+    ],
+    "excerpt": "Everyone wants AI to save their business. But if your process is broken, AI just helps you fail at machine speed. Fix the process first.",
+    "description": "Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.",
+    "image": "images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg",
+    "video": "",
+    "url": "posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html"
+  },
+  {
+    "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
+    "title": "The Odoo apps I'd install on day one for a 20-person company",
+    "date": "2026-09-28",
+    "published_at": "2026-09-28T20:27:48Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "small business",
+      "software",
+      "business"
+    ],
+    "excerpt": "Twenty people, zero patience for bloat. Here are the Odoo apps I'd turn on first, in order, and the ones I'd leave alone until you actually need them.",
+    "description": "The exact Odoo apps I'd install on day one for a 20-person company, in priority order. No bloat, no upsell, just what works.",
+    "image": "images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg",
+    "video": "",
+    "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"
+  },
+  {
     "slug": "odoo-20-ai-that-does-the-work-not-just-the-talking",
     "title": "Odoo 20: AI That Does the Work, Not Just the Talking",
     "date": "2026-09-28T12:00:00",
