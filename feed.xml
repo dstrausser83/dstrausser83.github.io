@@ -5,13 +5,26 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Sep 2026 11:18:11 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 20:04:58 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</title>
+      <link>https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html</guid>
+      <description>How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters.</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" type="image/jpeg" />
+      <category>automation</category>
+      <category>time-saving</category>
+      <category>work-life</category>
+      <category>friday</category>
+      <category>dad</category>
+    </item>
     <item>
       <title>SAP Business One FP 2608: AI arrives, but the Web Client wins</title>
       <link>https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</guid>
-      <description>SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs — but the biggest win is the Web Client finally becoming a daily driver.</description>
+      <description>SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver.</description>
       <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/sap-business-one-10-fp-2608-ai-web-client.jpg" type="image/jpeg" />
       <category>erp</category>
@@ -80,7 +93,7 @@
       <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-school-pickup-ceo.jpg" type="image/jpeg" />
       <category>family</category>
-      <category>single dad</category>
+      <category>dad</category>
       <category>business</category>
       <category>work-life balance</category>
     </item>
@@ -228,7 +241,7 @@
       <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</guid>
-      <description>A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
+      <description>A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" type="image/jpeg" />
       <category>erp</category>
@@ -302,14 +315,14 @@
       <category>erp</category>
     </item>
     <item>
-      <title>The Single Dad's Playbook for Getting More Done Before 9 AM</title>
+      <title>The Dad's Playbook for Getting More Done Before 9 AM</title>
       <link>https://deadbrands.co/blog/posts/single-dad-playbook-productive-mornings.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/single-dad-playbook-productive-mornings.html</guid>
       <description>A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/single-dad-playbook-productive-mornings.jpg" type="image/jpeg" />
       <category>productivity</category>
-      <category>single-dad</category>
+      <category>dad</category>
       <category>business-growth</category>
     </item>
   </channel>
