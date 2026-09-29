@@ -17,7 +17,7 @@ Welcome in. This is where I publish every day — written with the help of my AI
 
 ## Who I am and why I'm writing this
 
-I'm David Strausser — ERP consultant, podcast host, single dad, guitarist, and professional student of how businesses actually work. I've spent years implementing Odoo and SAP Business One for small and midsize companies, and I've collected a hard drive full of lessons the sales decks never mention: the migrations that went sideways, the workarounds that became permanent, the five-minute fixes that saved six-figure projects.
+I'm David Strausser — ERP consultant, podcast host, dad, guitarist, and professional student of how businesses actually work. I've spent years implementing Odoo and SAP Business One for small and midsize companies, and I've collected a hard drive full of lessons the sales decks never mention: the migrations that went sideways, the workarounds that became permanent, the five-minute fixes that saved six-figure projects.
 
 Most of that knowledge was locked in my head, shared one client at a time. This blog is me unlocking it — one post at a time, every day, for anyone who needs it. If you're running a business on spreadsheets and duct tape, evaluating an ERP, or already living in Odoo or SAP Business One and wondering why something hurts — this is for you.
 
@@ -31,7 +31,7 @@ Every day you'll get three posts:
 
 2. **SAP Business One** — real-world wisdom from years of implementations. What works, what breaks, how to evaluate add-ons, when to migrate, and how to avoid the expensive mistakes. Straight talk from someone who's seen the movie.
 
-3. **Wild card** — tech, AI, sales, marketing, business growth, productivity, music, single-dad life... okay, mostly business stuff. But I make no promises. This is the post where the human shows up — the lessons from thirty years of guitar, the morning routine that actually works, the things I find interesting that don't fit in an ERP manual.
+3. **Wild card** — tech, AI, sales, marketing, business growth, productivity, music, dad life... okay, mostly business stuff. But I make no promises. This is the post where the human shows up — the lessons from thirty years of guitar, the morning routine that actually works, the things I find interesting that don't fit in an ERP manual.
 
 Sunday gets one post instead of three — something random and fun, because even ERP consultants need a day where the content breathes.
 

@@ -1,20 +1,20 @@
 ---
-title: "The Single Dad's Playbook for Getting More Done Before 9 AM"
+title: "The Dad's Playbook for Getting More Done Before 9 AM"
 date: "2026-09-22"
-tags: productivity, single-dad, business-growth
-summary: "Single dad, business owner, podcaster, guitarist — here's the actual morning system that makes it work: win the morning the night before, protect a 5 AM deep-work block, batch the small stuff, and treat presence with your kid as the point, not the obstacle."
-excerpt: "Single dad, CEO, podcaster, guitarist — here's the actual morning system that lets me run a business and be present for my kid."
+tags: productivity, dad, business-growth
+summary: "Dad, business owner, podcaster, guitarist — here's the actual morning system that makes it work: win the morning the night before, protect a 5 AM deep-work block, batch the small stuff, and treat presence with your kid as the point, not the obstacle."
+excerpt: "Dad, CEO, podcaster, guitarist — here's the actual morning system that lets me run a business and be present for my kid."
 description: "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time."
-keywords: "morning routine, single dad productivity, founder productivity, time management"
+keywords: "morning routine, dad productivity, founder productivity, time management"
 slug: "single-dad-playbook-productive-mornings"
 lane: "wildcard"
 ---
 
 ## Quick answer
 
-The secret to productive mornings as a single dad: win the morning the night before. Prep everything (clothes, lunches, bags) before bed, protect a 60–90 minute deep-work block before the kid wakes up, and ruthlessly separate "urgent" from "important." Presence is the real productivity — the system exists to protect it, not to replace it.
+The secret to productive mornings as a dad: win the morning the night before. Prep everything (clothes, lunches, bags) before bed, protect a 60–90 minute deep-work block before the kid wakes up, and ruthlessly separate "urgent" from "important." Presence is the real productivity — the system exists to protect it, not to replace it.
 
-People ask how I run a company, host a podcast, create content daily, and still show up for my daughter. The honest answer: I'm not superhuman, I just have a system — because as a single dad, I don't have the luxury of winging it. When you're the only parent in the house, there is no backup. No one else is packing the lunch if you forget. No one else is covering the morning if you sleep in. That constraint, which sounds like a disadvantage, turned out to be the greatest productivity teacher I have ever had.
+People ask how I run a company, host a podcast, create content daily, and still show up for my daughter. The honest answer: I'm not superhuman, I just have a system — because as a dad, I don't have the luxury of winging it. When you're the only parent in the house, there is no backup. No one else is packing the lunch if you forget. No one else is covering the morning if you sleep in. That constraint, which sounds like a disadvantage, turned out to be the greatest productivity teacher I have ever had.
 
 ## Rule 1: The morning starts the night before
 
