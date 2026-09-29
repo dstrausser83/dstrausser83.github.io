@@ -5,8 +5,34 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Sep 2026 20:04:58 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 20:31:49 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rock Star Dad, Cable Salesman: What Chromaleaf Taught Me About Growing Small Music Companies</title>
+      <link>https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</guid>
+      <description>David Strausser on Chromaleaf: discovered at NAMM around 2016, sold cables for them, got custom cables built to shred like Joe Perry, then sold them SAP Business One. His ERP world and music world in one story.</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/rock-star-dad-guitar-cable-company-sales.jpg" type="image/jpeg" />
+      <category>music</category>
+      <category>sales</category>
+      <category>small-business</category>
+      <category>dad</category>
+      <category>passion</category>
+    </item>
+    <item>
+      <title>When SAP Business One is Overkill: What to Buy Instead</title>
+      <link>https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html</guid>
+      <description>SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype.</description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" type="image/jpeg" />
+      <category>sap</category>
+      <category>businessone</category>
+      <category>odoo</category>
+      <category>smallbusiness</category>
+      <category>erp</category>
+    </item>
     <item>
       <title>The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</title>
       <link>https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html</link>
