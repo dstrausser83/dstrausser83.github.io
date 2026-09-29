@@ -5,8 +5,72 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Sep 2026 16:09:50 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 20:29:35 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI won't fix a broken process, it'll just break it faster</title>
+      <link>https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</guid>
+      <description>Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" type="image/jpeg" />
+      <category>ai</category>
+      <category>business</category>
+      <category>process</category>
+      <category>automation</category>
+      <category>technology</category>
+    </item>
+    <item>
+      <title>The Odoo apps I'd install on day one for a 20-person company</title>
+      <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</guid>
+      <description>The exact Odoo apps I'd install on day one for a 20-person company, in priority order. No bloat, no upsell, just what works.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>erp</category>
+      <category>small business</category>
+      <category>software</category>
+      <category>business</category>
+    </item>
+    <item>
+      <title>Odoo 20: AI That Does the Work, Not Just the Talking</title>
+      <link>https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</guid>
+      <description>Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>odoo-20</category>
+      <category>erp</category>
+      <category>ai</category>
+      <category>small-business</category>
+    </item>
+    <item>
+      <title>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</title>
+      <link>https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html</guid>
+      <description>Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" type="image/jpeg" />
+      <category>sap</category>
+      <category>business-one</category>
+      <category>small-business</category>
+      <category>software</category>
+      <category>implementation</category>
+    </item>
+    <item>
+      <title>The School-Pickup CEO: Running a Business on a Kid's Schedule</title>
+      <link>https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</guid>
+      <description>David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-school-pickup-ceo.jpg" type="image/jpeg" />
+      <category>family</category>
+      <category>single dad</category>
+      <category>business</category>
+      <category>work-life balance</category>
+    </item>
     <item>
       <title>What Playing Guitar Taught Me About Patience That Business Never Could</title>
       <link>https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-patience-that-bus.html</link>

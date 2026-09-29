@@ -47,10 +47,9 @@ jobs:
             --exclude 'mailto:*'
             --exclude 'http://localhost*'
             --exclude 'http://127.0.0.1*'
-            --exclude '#'
             --max-redirects 5
             --timeout 20
             '**/*.html'
-          fail: false
+          fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
