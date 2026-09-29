@@ -45,7 +45,7 @@
 ## Latest blog posts
 
 <!-- BLOG-POSTS:START -->
-- [Rock Star Dad, Cable Salesman: What Chromaleaf Taught Me About Growing Small Music Companies](https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html) — September 29, 2026: Back around 2016, I found Chromaleaf on the NAMM show floor while networking in Los Angeles. I sold guitar cables for them, they...
+- [Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies](https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html) — September 29, 2026: Back around 2016, I found Chromaleaf on the NAMM show floor while networking in Los Angeles. They custom-built me cables to chase Joe Perry's sound, and years later I sold them SAP Business One. Tech, work, and music, all in one story.
 - [When SAP Business One is Overkill: What to Buy Instead](https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html) — September 29, 2026: SAP Business One's steep learning curve and high costs often overwhelm small teams. Here is when it is overkill and what actually works.
 - [The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants](https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html) — September 29, 2026: Most people spend hours on reports nobody reads. Here is how I cut mine down and took my Friday back.
 - [The School-Pickup CEO: Running a Business on a Kid's Schedule](https://deadbrands.co/blog/posts/the-school-pickup-ceo.html) — September 28, 2026: My calendar has two bosses: my clients and my kids' school schedule. Guess which one never accepts a reschedule. What being a dad taught...
