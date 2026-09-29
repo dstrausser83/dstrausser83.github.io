@@ -5,8 +5,21 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Sep 2026 20:29:35 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 11:18:11 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAP Business One FP 2608: AI arrives, but the Web Client wins</title>
+      <link>https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</guid>
+      <description>SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs — but the biggest win is the Web Client finally becoming a daily driver.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/sap-business-one-10-fp-2608-ai-web-client.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>sap</category>
+      <category>sap business one</category>
+      <category>ai</category>
+      <category>business</category>
+    </item>
     <item>
       <title>AI won't fix a broken process, it'll just break it faster</title>
       <link>https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</link>
@@ -84,19 +97,6 @@
       <category>life</category>
     </item>
     <item>
-      <title>Odoo Studio: When Clicking Together an App Beats Writing Code</title>
-      <link>https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</guid>
-      <description>Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.</description>
-      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>studio</category>
-      <category>erp</category>
-      <category>customization</category>
-      <category>smb</category>
-    </item>
-    <item>
       <title>The First AI Hire: What to Automate Before You Hire Your Next Employee</title>
       <link>https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</guid>
@@ -108,6 +108,19 @@
       <category>hiring</category>
       <category>smb</category>
       <category>productivity</category>
+    </item>
+    <item>
+      <title>Odoo Studio: When Clicking Together an App Beats Writing Code</title>
+      <link>https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</guid>
+      <description>Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.</description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>studio</category>
+      <category>erp</category>
+      <category>customization</category>
+      <category>smb</category>
     </item>
     <item>
       <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
