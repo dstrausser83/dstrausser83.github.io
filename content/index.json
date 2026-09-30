@@ -1,0 +1,150 @@
+{
+  "page": "index",
+  "file": "index.html",
+  "title": "Homepage",
+  "sections": {
+    "top": {
+      "label": "Hero",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Dead Brands, LLC",
+        "heading": "We revive <span class=\"hl\">dead brands.</span>",
+        "tagline": "Rock star energy. #DadLife. Business professional.",
+        "hero_sub": "<span class=\"hero-lede\">We make businesses run better &mdash; <strong>SAP Business One</strong> &amp; <span class=\"odoo\">Odoo</span></span><br>\n            ERP, AI, and automation that free your people to drive more revenue.\n            A small, loud, family-oriented crew that gets shit done &mdash; no\n            40-slide decks, no demos that collect dust.",
+        "cta_primary_text": "Work With Us",
+        "cta_primary_url": "#contact",
+        "cta_secondary_text": "Meet the Team",
+        "cta_secondary_url": "/team/",
+        "hero_image_src": "assets/img/david-navy-blazer.jpg",
+        "hero_image_alt": "David Strausser, Founder and CEO of Dead Brands, LLC",
+        "hero_caption": "Business by day. Volume to eleven by night."
+      }
+    },
+    "about": {
+      "label": "About (60 seconds)",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "The company",
+        "heading": "Dead Brands in 60 seconds",
+        "_raw_html_length": 1783
+      }
+    },
+    "team": {
+      "label": "Team",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "The team",
+        "heading": "Small crew. Big engine.",
+        "_raw_html_length": 2047
+      }
+    },
+    "career": {
+      "label": "Track Record",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "The founder",
+        "heading": "The track record",
+        "_raw_html_length": 5153
+      }
+    },
+    "work": {
+      "label": "Services",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "What we do",
+        "heading": "Serious systems. Zero boring.",
+        "_raw_html_length": 1882
+      }
+    },
+    "testimonials": {
+      "label": "Testimonials",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Testimonials",
+        "heading": "Don&rsquo;t take our word for it.",
+        "_raw_html_length": 5894
+      }
+    },
+    "try-odoo": {
+      "label": "Try Odoo CTA",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Odoo",
+        "heading": "Try Odoo free for 15 days",
+        "_raw_html_length": 709
+      }
+    },
+    "podcast": {
+      "label": "Podcast",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "The podcast",
+        "heading": "Shark Bite Biz",
+        "_raw_html_length": 3124
+      }
+    },
+    "blog": {
+      "label": "Blog Preview",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "The blog",
+        "heading": "Fresh off the press",
+        "_raw_html_length": 6419
+      }
+    },
+    "book-meeting": {
+      "label": "Book Meeting CTA",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Free consultation",
+        "heading": "Book a Free Meeting with us",
+        "_raw_html_length": 595
+      }
+    },
+    "life": {
+      "label": "Life",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Off the clock",
+        "heading": "Life, loud",
+        "_raw_html_length": 2354
+      }
+    },
+    "photos": {
+      "label": "Photos",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Photos",
+        "heading": "In real life",
+        "_raw_html_length": 3119
+      }
+    },
+    "shop": {
+      "label": "Shop",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Shop",
+        "heading": "Wear the <span class=\"hl\">brand.</span>",
+        "_raw_html_length": 1073
+      }
+    },
+    "faq": {
+      "label": "FAQ",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "FAQ",
+        "heading": "Questions people ask",
+        "_raw_html_length": 3145
+      }
+    },
+    "contact": {
+      "label": "Contact",
+      "enabled": true,
+      "fields": {
+        "eyebrow": "Contact",
+        "heading": "Let&rsquo;s talk",
+        "_raw_html_length": 4817
+      }
+    }
+  }
+}

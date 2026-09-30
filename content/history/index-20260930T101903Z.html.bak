@@ -180,10 +180,12 @@
           <p class="eyebrow reveal">Dead Brands, LLC</p>
           <h1 class="reveal">We revive <span class="hl">dead brands.</span></h1>
           <p class="tagline reveal">Rock star energy. #DadLife. Business professional.</p>
-          <p class="hero-sub reveal"><span class="hero-lede">We make businesses run better &mdash; <strong>SAP Business One</strong> &amp; <span class="odoo">Odoo</span></span><br>
+          <p class="hero-sub reveal">
+            <span class="hero-lede">We make businesses run better &mdash; <strong>SAP Business One</strong> &amp; <span class="odoo">Odoo</span></span><br>
             ERP, AI, and automation that free your people to drive more revenue.
             A small, loud, family-oriented crew that gets shit done &mdash; no
-            40-slide decks, no demos that collect dust.</p>
+            40-slide decks, no demos that collect dust.
+          </p>
           <div class="hero-ctas reveal">
             <a class="btn btn-primary" href="#contact">Work With Us</a>
             <a class="btn btn-ghost" href="/team/">Meet the Team</a>
