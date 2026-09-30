@@ -503,6 +503,15 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
+    .back-to-top {{ position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }}
+    .back-to-top[hidden] {{ display: none; }}
+    @media print {{
+      .site-header, .site-footer, .post-share, .post-related, .post-cta, .post-shop, .back-to-top, .post-toc {{ display: none !important; }}
+      body {{ background: #fff; color: #000; }}
+      .wrap {{ max-width: 100%; }}
+      a {{ color: #000; }}
+      a[href^="http"]:after {{ content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }}
+    }}
     .post-toc {{ background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }}
     .post-toc-title {{ font-weight: 700; margin: 0 0 0.5rem; }}
     .post-toc ul {{ margin: 0; padding-left: 1.25rem; columns: 2; }}
@@ -596,6 +605,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+  <script>
+  (function() {{
+    var b = document.getElementById("backToTop");
+    function onScroll() {{ b.hidden = window.scrollY < 600; }}
+    window.addEventListener("scroll", onScroll, {{passive: true}});
+    onScroll();
+    b.addEventListener("click", function() {{ window.scrollTo({{top: 0, behavior: "smooth"}}); }});
+  }})();
+  </script>
 </body>
 </html>
 """
