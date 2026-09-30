@@ -5,8 +5,31 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Sep 2026 20:43:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 12:24:20 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A6 Scratch Verify (temp pipeline proof)</title>
+      <link>https://deadbrands.co/blog/posts/a6-scratch-verify.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/a6-scratch-verify.html</guid>
+      <description>Temporary pipeline-proof scratch post (long version for QA).</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/a6-scratch-verify.jpg" type="image/jpeg" />
+      <category>scratch</category>
+      <category>pipeline-proof</category>
+    </item>
+    <item>
+      <title>Open-Source ERP: Who Do I Call at 2 AM?</title>
+      <link>https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html</guid>
+      <description>Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" type="image/jpeg" />
+      <category>open-source-erp</category>
+      <category>odoo</category>
+      <category>it-support</category>
+      <category>2am-crisis</category>
+      <category>erp</category>
+    </item>
     <item>
       <title>Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</title>
       <link>https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</link>
@@ -60,19 +83,6 @@
       <category>business</category>
     </item>
     <item>
-      <title>AI won't fix a broken process, it'll just break it faster</title>
-      <link>https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</guid>
-      <description>Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" type="image/jpeg" />
-      <category>ai</category>
-      <category>business</category>
-      <category>process</category>
-      <category>automation</category>
-      <category>technology</category>
-    </item>
-    <item>
       <title>The Odoo apps I'd install on day one for a 20-person company</title>
       <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</guid>
@@ -86,17 +96,29 @@
       <category>business</category>
     </item>
     <item>
-      <title>Odoo 20: AI That Does the Work, Not Just the Talking</title>
-      <link>https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</guid>
-      <description>Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.</description>
+      <title>AI won't fix a broken process, it'll just break it faster</title>
+      <link>https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</guid>
+      <description>Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.</description>
       <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>odoo-20</category>
-      <category>erp</category>
+      <enclosure url="https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" type="image/jpeg" />
       <category>ai</category>
-      <category>small-business</category>
+      <category>business</category>
+      <category>process</category>
+      <category>automation</category>
+      <category>technology</category>
+    </item>
+    <item>
+      <title>The School-Pickup CEO: Running a Business on a Kid's Schedule</title>
+      <link>https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</guid>
+      <description>David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-school-pickup-ceo.jpg" type="image/jpeg" />
+      <category>family</category>
+      <category>dad</category>
+      <category>business</category>
+      <category>work-life balance</category>
     </item>
     <item>
       <title>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</title>
@@ -112,16 +134,17 @@
       <category>implementation</category>
     </item>
     <item>
-      <title>The School-Pickup CEO: Running a Business on a Kid's Schedule</title>
-      <link>https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</guid>
-      <description>David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.</description>
+      <title>Odoo 20: AI That Does the Work, Not Just the Talking</title>
+      <link>https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</guid>
+      <description>Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.</description>
       <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/the-school-pickup-ceo.jpg" type="image/jpeg" />
-      <category>family</category>
-      <category>dad</category>
-      <category>business</category>
-      <category>work-life balance</category>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>odoo-20</category>
+      <category>erp</category>
+      <category>ai</category>
+      <category>small-business</category>
     </item>
     <item>
       <title>What Playing Guitar Taught Me About Patience That Business Never Could</title>
