@@ -39,3 +39,19 @@ max width 1600 px, aspect ratio preserved.
   composites, the Osservatori EDI 3D render (brief required a genuine supporting image).
 - CC-licensed images (Blockbuster, handshake, server racks, fiber cable) require the
   attribution above; CC0/public-domain need none but credit is kept for good practice.
+
+## Added 2026-09-30 (MR4 — new pages, genuine Pexels photography, none reused elsewhere)
+
+| File | Source page (image-search `page_url`) | Attribution |
+|---|---|---|
+| quickbooks-to-erp-1.jpg | https://www.pexels.com/search/accountant/ (photo 8297033) | Business owner buried in accounting paperwork — photo: Pexels |
+| quickbooks-to-erp-2.jpg | https://www.pexels.com/search/accountant/ (photo 7654450) | Spreadsheets, folders, and calculators on a desk — photo: Pexels |
+| erp-rescue-1.jpg | https://www.pexels.com/ru-ru/photo/3182801/ (photo 3182827) | Business team meeting around a table — photo: Pexels |
+| erp-rescue-2.jpg | https://www.pexels.com/search/accountant/ (photo 6694547) | Woman sorting paper invoices at a desk — photo: Pexels |
+
+## Podcast images (assets/img/, added 2026-09-30 MR4)
+
+| File | Source | Attribution |
+|---|---|---|
+| podcast-1.jpg | https://www.pexels.com/search/mike/ (photo 36650871, center-cropped to landscape) | Vintage chrome studio microphone on black — photo: Pexels |
+| podcast-2.jpg | https://www.pexels.com/search/sxi%2Bvoice/ (photo 6919951, center-cropped to landscape) | Podcaster recording with headphones and studio microphone — photo: Pexels |
