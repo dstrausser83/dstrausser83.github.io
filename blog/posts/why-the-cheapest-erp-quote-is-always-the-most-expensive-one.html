@@ -61,6 +61,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -186,7 +198,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" alt="Monitor displaying rising teal bar charts and a pie chart illustrating climbing hidden costs" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" alt="Monitor displaying rising teal bar charts and a pie chart illustrating climbing hidden costs" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; 7 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>The cheapest ERP quote is usually the most expensive because it's a rushed, incomplete assessment that ignores hidden costs. Vendors who give low quotes often don't understand your business model, leading to expensive fixes later. The real cost goes beyond the software price: it's the time, the training, and the ongoing support. Choosing the lowest price is a trap that backfires — the money you "save" on the quote comes back as change orders, rework, and sometimes a second implementation.</p>
@@ -223,6 +235,32 @@
 <p>No. Price and quality are not the same thing. An expensive quote with vague scope is just an expensive fiction. What you want is the quote with the most specific scope from the vendor who understands your business best. Sometimes that is the middle quote. It is almost never the lowest one.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>pricing</span> <span>sap</span> <span>odoo</span> <span>business</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fwhy-the-cheapest-erp-quote-is-always-the-most-expensive-one.html&text=The%20Cheapest%20ERP%20Quote%20Isn%E2%80%99t%20the%20Best%20Deal%3A%20Why%20the%20Lowest%20Price%20Often%20Means%20the%20Highest%20Cost" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fwhy-the-cheapest-erp-quote-is-always-the-most-expensive-one.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fwhy-the-cheapest-erp-quote-is-always-the-most-expensive-one.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
           <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
@@ -272,6 +310,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="sap-business-one-10-fp-2608-ai-web-client.html"><img src="../images/sap-business-one-10-fp-2608-ai-web-client.jpg" alt="" loading="lazy" /><span class="rel-card-title">SAP Business One FP 2608: AI arrives, but the Web Client wins</span></a><a class="rel-card" href="the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="" loading="lazy" /><span class="rel-card-title">The Odoo apps I'd install on day one for a 20-person company</span></a></div></section>
       </div>
     </article>
   </main>

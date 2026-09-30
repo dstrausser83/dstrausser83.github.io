@@ -21,7 +21,9 @@ import shutil
 from pathlib import Path
 from datetime import datetime, timezone
 
-SITE_ROOT = Path("/home/hatch/workspace/sites/dstrausser83.github.io")
+from bp_engine import apply_breakpoint_overrides, inject_breakpoint_css  # lane A5
+
+SITE_ROOT = Path(__file__).resolve().parent.parent  # lane A5: location-independent (PC + VM)
 CONTENT_DIR = SITE_ROOT / "content"
 HISTORY_DIR = CONTENT_DIR / "history"
 
@@ -94,26 +96,10 @@ def build_hero_section(html, fields):
     
     return m.group(1) + hero + m.group(3)
 
-def build_page(page_slug):
-    """Build a page from its content JSON."""
-    content_file = CONTENT_DIR / f"{page_slug}.json"
-    if not content_file.exists():
-        raise FileNotFoundError(f"Content file not found: {content_file}")
-    
-    content = json.loads(content_file.read_text())
-    html_file = SITE_ROOT / content["file"]
-    
-    if not html_file.exists():
-        raise FileNotFoundError(f"HTML template not found: {html_file}")
-    
-    # Backup current HTML before building
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    backup_file = HISTORY_DIR / f"{page_slug}-{timestamp}.html.bak"
-    shutil.copy2(html_file, backup_file)
-    print(f"Backed up {html_file.name} to {backup_file.name}")
-    
-    html = html_file.read_text()
-    
+def build_page_html(content, html):
+    """Pure merge: content JSON + template HTML -> built HTML (no file IO).
+    Lane A5 (2026-09-30): extracted from build_page so the portal breakpoint
+    preview reuses the exact publish logic in-memory."""
     # Build each section
     for section_id, section in content["sections"].items():
         if not section.get("enabled", True):
@@ -145,6 +131,41 @@ def build_page(page_slug):
             except Exception as e:
                 print(f"  WARN {section_id}: {e}")
     
+    # Lane A5 (2026-09-30): per-breakpoint overrides (additive; desktop untouched).
+    # apply_breakpoint_overrides runs UNCONDITIONALLY: its strip pass removes
+    # stale breakpoint markup from earlier builds, so removing all overrides
+    # and republishing restores the pristine template byte-for-byte.
+    overrides = content.get("overrides") or {}
+    html, bp_css, bp_warnings = apply_breakpoint_overrides(html, content, overrides)
+    for w in bp_warnings:
+        print(f"  BP-WARN {w}")
+    html = inject_breakpoint_css(html, bp_css)
+
+    return html
+
+
+def build_page(page_slug):
+    """Build a page from its content JSON."""
+    content_file = CONTENT_DIR / f"{page_slug}.json"
+    if not content_file.exists():
+        raise FileNotFoundError(f"Content file not found: {content_file}")
+    
+    content = json.loads(content_file.read_text())
+    html_file = SITE_ROOT / content["file"]
+    
+    if not html_file.exists():
+        raise FileNotFoundError(f"HTML template not found: {html_file}")
+    
+    # Backup current HTML before building
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    backup_file = HISTORY_DIR / f"{page_slug}-{timestamp}.html.bak"
+    shutil.copy2(html_file, backup_file)
+    print(f"Backed up {html_file.name} to {backup_file.name}")
+    
+    html = html_file.read_text()
+    
+    html = build_page_html(content, html)
+
     # Write the built HTML
     html_file.write_text(html)
     print(f"\nBUILT {html_file}")

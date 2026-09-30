@@ -61,6 +61,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -155,7 +167,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" alt="Home office desk on a Friday afternoon with laptop showing a spreadsheet report, coffee, and warm window light" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</h1><p class="post-meta">September 29, 2026 at 4:03 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" alt="Home office desk on a Friday afternoon with laptop showing a spreadsheet report, coffee, and warm window light" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</h1><p class="post-meta">September 29, 2026 at 4:03 PM ET &middot; 7 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Here is what I did: I automated my weekly report using spreadsheets and simple macros. It used to eat 10 hours of my week. Now it takes 5, and most of that is me reviewing instead of typing. It is not about the tech. It is about making time for my kid's soccer practice instead of formatting cells at 9 PM on a Thursday.</p>
@@ -204,6 +216,32 @@
 <p>I stopped writing the weekly report I hated by automating it with simple tools. I went from 10 hours of formatting theater to 5 hours, most of it real thinking. Now I spend Friday afternoons on things that actually matter, like fixing my kid's bike or learning guitar. No more pointless reports. Just time for what matters, and a report people actually read.</p>
         </div>
         <p class="post-tags"><span>automation</span> <span>time-saving</span> <span>work-life</span> <span>friday</span> <span>dad</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-5-hour-friday-automating-the-weekly-report-nobody-likes.html&text=The%205-Hour%20Friday%3A%20How%20I%20Stop%20Writing%20the%20Weekly%20Report%20That%20Nobody%20Wants" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-5-hour-friday-automating-the-weekly-report-nobody-likes.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-5-hour-friday-automating-the-weekly-report-nobody-likes.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
           <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
@@ -244,6 +282,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="ai-wont-fix-a-broken-process-itll-just-break-it-faster.html"><img src="../images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" alt="" loading="lazy" /><span class="rel-card-title">AI won't fix a broken process, it'll just break it faster</span></a><a class="rel-card" href="the-school-pickup-ceo.html"><img src="../images/the-school-pickup-ceo.jpg" alt="" loading="lazy" /><span class="rel-card-title">The School-Pickup CEO: Running a Business on a Kid's Schedule</span></a></div></section>
       </div>
     </article>
   </main>

@@ -61,6 +61,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -155,7 +167,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" alt="Small business owner at a desk while a friendly robot arm files invoices and updates inventory on a glowing ERP dashboard" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo 20: AI That Does the Work, Not Just the Talking</h1><p class="post-meta">September 28, 2026 at 2:22 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" alt="Small business owner at a desk while a friendly robot arm files invoices and updates inventory on a glowing ERP dashboard" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo 20: AI That Does the Work, Not Just the Talking</h1><p class="post-meta">September 28, 2026 at 2:22 PM ET &middot; 6 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Odoo 20's headline feature is AI agents with write access. In version 19 the agent could answer questions and draft things. In version 20 it can create and update actual records in your database, work from a file of instructions you upload, and run inside automated and scheduled actions. Odoo also added MCP support, so outside AI tools can connect to your Odoo data while respecting your existing user permissions. Underneath, there's unglamorous but important housekeeping: simpler access rights, better change tracking in the chatter, and parent accounts in the chart of accounts. For a small business, the short version is this: the AI inside your ERP just became a coworker instead of a consultant. That changes what "automation" means at your size.</p>
@@ -192,6 +204,32 @@
 <p>Odoo 20 isn't the AI revolution. It's something more useful. It's the moment the AI in your ERP picked up a pen. For a small business, that's the moment automation stops being a enterprise luxury and starts being Tuesday.</p>
         </div>
         <p class="post-tags"><span>odoo</span> <span>odoo-20</span> <span>erp</span> <span>ai</span> <span>small-business</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fodoo-20-ai-that-does-the-work-not-just-the-talking.html&text=Odoo%2020%3A%20AI%20That%20Does%20the%20Work%2C%20Not%20Just%20the%20Talking" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fodoo-20-ai-that-does-the-work-not-just-the-talking.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fodoo-20-ai-that-does-the-work-not-just-the-talking.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
           <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
@@ -232,6 +270,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="sap-business-one-10-fp-2608-ai-web-client.html"><img src="../images/sap-business-one-10-fp-2608-ai-web-client.jpg" alt="" loading="lazy" /><span class="rel-card-title">SAP Business One FP 2608: AI arrives, but the Web Client wins</span></a><a class="rel-card" href="the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="" loading="lazy" /><span class="rel-card-title">The Odoo apps I'd install on day one for a 20-person company</span></a></div></section>
       </div>
     </article>
   </main>

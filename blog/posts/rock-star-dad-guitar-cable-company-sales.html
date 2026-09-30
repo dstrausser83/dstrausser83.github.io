@@ -61,6 +61,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -202,7 +214,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="Electric guitar leaning against a vintage amplifier with coiled guitar cables in warm stage light" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</h1><p class="post-meta">September 29, 2026 at 4:24 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="Electric guitar leaning against a vintage amplifier with coiled guitar cables in warm stage light" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</h1><p class="post-meta">September 29, 2026 at 4:24 PM ET &middot; 8 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Back around 2016, I discovered Chromaleaf, a small guitar cable company, on the NAMM show floor while networking in Los Angeles. I became a customer and a believer: tech nerd, salesman, and rock star wannabe in one body. They custom-built cables for me personally, made so I could chase Joe Perry's sound. Then the story came full circle: years later, I sold Chromaleaf SAP Business One to run their business. Cables to ERP, music to tech, all one arc.</p>
@@ -247,6 +259,32 @@
 <p>Start with the customers you already have. Answer the phone, be at the counter, make returns painless, and become the person players recommend to each other. Then build the boring operational backbone, inventory, accounting, follow-up, so growth does not break you. That second part is where I can help.</p>
         </div>
         <p class="post-tags"><span>music</span> <span>sales</span> <span>small-business</span> <span>dad</span> <span>passion</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Frock-star-dad-guitar-cable-company-sales.html&text=Rock%20Star%20Dad%3A%20What%20Chromaleaf%20Taught%20Me%20About%20Growing%20Small%20Music%20Companies" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Frock-star-dad-guitar-cable-company-sales.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Frock-star-dad-guitar-cable-company-sales.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
           <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
@@ -287,6 +325,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="the-5-hour-friday-automating-the-weekly-report-nobody-likes.html"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" alt="" loading="lazy" /><span class="rel-card-title">The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</span></a><a class="rel-card" href="the-school-pickup-ceo.html"><img src="../images/the-school-pickup-ceo.jpg" alt="" loading="lazy" /><span class="rel-card-title">The School-Pickup CEO: Running a Business on a Kid's Schedule</span></a><a class="rel-card" href="sap-business-one-for-companies-that-think-sap-is-only-for-gi.html"><img src="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" alt="" loading="lazy" /><span class="rel-card-title">SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</span></a></div></section>
       </div>
     </article>
   </main>

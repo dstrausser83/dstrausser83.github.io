@@ -62,6 +62,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -187,7 +199,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Desk split in two: neat modular blue blocks with cables on the left versus tangled gears and copper wire chaos on the right" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Desk split in two: neat modular blue blocks with cables on the left versus tangled gears and copper wire chaos on the right" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; 6 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Configuration means setting up the ERP with the options it already gives you: fields, workflows, approval rules, report layouts, toggles. Customization means changing the software itself, writing code the vendor never wrote. Configuration is cheaper to build, cheaper to keep, and it survives upgrades. Customization has a real place in the world, but every custom line is a line you now own. You test it. You fix it. You carry it through every upgrade, forever. So the default answer is configuration. Customize only for the things that genuinely make you money.</p>
@@ -236,6 +248,32 @@
 <p>Yes, and it's usually the smartest path. Go live configured, learn how your team actually uses the system, then customize the two or three things that still hurt after six months. You'll customize less, and what you do customize will be aimed at real pain instead of imagined pain.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>customization</span> <span>implementation</span> <span>odoo</span> <span>sap-business-one</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fcustomization-vs-configuration-the-line-that-quietly-kills-e.html&text=Customization%20vs.%20Configuration%3A%20The%20Line%20That%20Quietly%20Kills%20ERP%20Budgets" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fcustomization-vs-configuration-the-line-that-quietly-kills-e.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fcustomization-vs-configuration-the-line-that-quietly-kills-e.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
           <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
@@ -285,6 +323,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="data-migration-horror-stories-and-how-to-avoid-becoming-one.html"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" alt="" loading="lazy" /><span class="rel-card-title">Data Migration Horror Stories: How to Avoid Becoming One</span></a><a class="rel-card" href="odoo-studio-when-clicking-together-an-app-beats-writing-code.html"><img src="../images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" alt="" loading="lazy" /><span class="rel-card-title">Odoo Studio: When Clicking Together an App Beats Writing Code</span></a><a class="rel-card" href="odoo-implementation-7-things-nobody-tells-you.html"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="" loading="lazy" /><span class="rel-card-title">Odoo Implementation: 7 Things Nobody Tells You Before You Start</span></a></div></section>
       </div>
     </article>
   </main>

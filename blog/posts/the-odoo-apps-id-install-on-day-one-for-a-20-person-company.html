@@ -61,6 +61,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -155,7 +167,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="Laptop showing ERP dashboards and charts, surrounded by floating app icons for inventory, contacts, accounting, and sales" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The Odoo apps I'd install on day one for a 20-person company</h1><p class="post-meta">September 28, 2026 at 4:57 PM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="Laptop showing ERP dashboards and charts, surrounded by floating app icons for inventory, contacts, accounting, and sales" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The Odoo apps I'd install on day one for a 20-person company</h1><p class="post-meta">September 28, 2026 at 4:57 PM ET &middot; 6 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>If I walked into a 20-person company tomorrow and they handed me a fresh Odoo install, I'd turn on eight apps and ignore the rest. CRM, Sales, Invoicing, Inventory, Purchase, Project, Employees, and Website. That covers how you find customers, close deals, get paid, track stock, buy stuff, deliver work, manage people, and look legit online. Everything else waits until you feel the pain of not having it.</p>
@@ -199,6 +211,32 @@
 <p><em>Ready to talk about what Odoo could do for your company? <a href="https://deadbrands.co/contact" target="_blank" rel="noopener">Book a meeting</a> and let's figure out your day-one list.</em></p>
         </div>
         <p class="post-tags"><span>odoo</span> <span>erp</span> <span>small business</span> <span>software</span> <span>business</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-odoo-apps-id-install-on-day-one-for-a-20-person-company.html&text=The%20Odoo%20apps%20I%27d%20install%20on%20day%20one%20for%20a%2020-person%20company" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-odoo-apps-id-install-on-day-one-for-a-20-person-company.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-odoo-apps-id-install-on-day-one-for-a-20-person-company.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Try Odoo free</h2>
           <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
@@ -239,6 +277,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html"><img src="../images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" alt="" loading="lazy" /><span class="rel-card-title">Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser</span></a><a class="rel-card" href="why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" alt="" loading="lazy" /><span class="rel-card-title">The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a></div></section>
       </div>
     </article>
   </main>

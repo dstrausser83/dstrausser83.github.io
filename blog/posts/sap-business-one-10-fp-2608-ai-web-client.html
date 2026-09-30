@@ -61,6 +61,18 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -155,7 +167,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/sap-business-one-10-fp-2608-ai-web-client.jpg" alt="SAP Business One Web Client dashboard with AI assistant panel on a modern browser window" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One FP 2608: AI arrives, but the Web Client wins</h1><p class="post-meta">September 29, 2026 at 7:17 AM ET &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/sap-business-one-10-fp-2608-ai-web-client.jpg" alt="SAP Business One Web Client dashboard with AI assistant panel on a modern browser window" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One FP 2608: AI arrives, but the Web Client wins</h1><p class="post-meta">September 29, 2026 at 7:17 AM ET &middot; 5 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>SAP Business One 10.0 Feature Package 2608, released August 2026, is the biggest Web Client expansion Business One has ever had, and it brings generative AI into the product's own workflows for the first time. The headline features are <strong>Ask AI in the Web Client</strong> (ask business questions in plain English) and <strong>AI-assisted SQL generation</strong> for user-defined queries. Both are genuinely useful. But if you run a small business, the AI is the sizzle, the Web Client finally being good enough to use all day is the steak.</p>
@@ -186,6 +198,32 @@
 <p>FP 2608 is the rare feature package worth reading about even if you're not upgrading tomorrow. Not because of the AI headlines, those are nice, early, and narrower than the marketing suggests, but because it marks the moment SAP Business One's Web Client grew up. The browser is becoming the product. Plan for that, test before you jump, and let the AI save your team the twenty minutes a day they currently spend waiting on reports. That twenty minutes, times every employee, times every day, that's the ROI. It's just not the kind you put on a slide.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>sap</span> <span>sap business one</span> <span>ai</span> <span>business</span></p>
+<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-10-fp-2608-ai-web-client.html&text=SAP%20Business%20One%20FP%202608%3A%20AI%20arrives%2C%20but%20the%20Web%20Client%20wins" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-10-fp-2608-ai-web-client.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-10-fp-2608-ai-web-client.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
         <section class="post-cta">
           <h2>Let's talk about your business</h2>
           <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
@@ -226,6 +264,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
+<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" alt="" loading="lazy" /><span class="rel-card-title">The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="" loading="lazy" /><span class="rel-card-title">The Odoo apps I'd install on day one for a 20-person company</span></a></div></section>
       </div>
     </article>
   </main>

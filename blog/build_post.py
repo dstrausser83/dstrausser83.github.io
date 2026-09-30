@@ -289,6 +289,77 @@ def author_box_html():
         </section>"""
 
 
+def share_row_html(slug, title):
+    """Share row under the tags (lane D 2026-09-30): X/FB/LinkedIn share
+    intents + copy-link button. Pure links + vanilla JS, no trackers."""
+    from urllib.parse import quote
+    url = f"https://deadbrands.co/blog/posts/{slug}.html"
+    q_url = quote(url, safe="")
+    q_title = quote(title or "", safe="")
+    return f"""<div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url={q_url}&text={q_title}" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={q_url}" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={q_url}" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="{url}">Copy link</button>
+        </div>
+        <script>
+        (function () {{
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {{
+            var u = b.getAttribute("data-url");
+            function done() {{ b.textContent = "Copied!"; setTimeout(function () {{ b.textContent = "Copy link"; }}, 1600); }}
+            function fallback() {{
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try {{ document.execCommand("copy"); done(); }} catch (e) {{}}
+              document.body.removeChild(t);
+            }}
+            if (navigator.clipboard && navigator.clipboard.writeText) {{
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            }} else {{ fallback(); }}
+          }});
+        }})();
+        </script>"""
+
+
+def related_posts_html(slug):
+    """'Keep reading' cards (lane D 2026-09-30): 3 posts sharing the most
+    tags with this one, newest first; falls back to newest posts."""
+    try:
+        with open(INDEX_JSON, encoding="utf-8") as f:
+            posts = json.load(f)
+    except Exception:
+        return ""
+    me = next((p for p in posts if p.get("slug") == slug), None)
+    my_tags = set((me or {}).get("tags") or [])
+    scored = []
+    for p in posts:
+        if p.get("slug") == slug:
+            continue
+        overlap = len(my_tags & set(p.get("tags") or []))
+        scored.append((overlap, p.get("published_at", ""), p))
+    scored.sort(key=lambda t: (t[0], t[1]), reverse=True)
+    picks = [p for _, _, p in scored[:3]]
+    if not picks:
+        return ""
+    cards = []
+    for p in picks:
+        img = p.get("image") or ""
+        img_tag = (f'<img src="../{html_escape_attr(img)}" alt="" loading="lazy" />'
+                   if img else "")
+        # url in posts.json is blog-relative ("posts/<slug>.html"); post pages
+        # live in posts/ itself, so link by bare filename.
+        rel_url = html_escape_attr((p.get("slug") or "") + ".html")
+        cards.append(
+            f'<a class="rel-card" href="{rel_url}">'
+            f'{img_tag}<span class="rel-card-title">{html_escape(p.get("title") or "")}</span></a>')
+    return ('<section class="post-related" aria-label="Keep reading">'
+            '<h2>Keep reading</h2><div class="rel-cards">'
+            + "".join(cards) + "</div></section>")
+
+
 def shop_block_html():
     """Store promo under the post CTA (David 2026-09-26): random product from
     products.json + view-all link. Random per page load via JS."""
@@ -404,6 +475,18 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
+    .post-share {{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }}
+    .post-share-label {{ font-weight: 700; margin-right: 0.4rem; }}
+    .post-share a, .post-share button {{ display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }}
+    .post-share a:hover, .post-share button:hover {{ border-color: var(--accent); }}
+    .post-related {{ margin: 2.5rem 0 1rem; }}
+    .post-related h2 {{ font-size: 1.4rem; margin-bottom: 1rem; }}
+    .rel-cards {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }}
+    .rel-card {{ display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }}
+    .rel-card img {{ width: 100%; height: 120px; object-fit: cover; display: block; }}
+    .rel-card-title {{ display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }}
+    .rel-card:hover {{ border-color: var(--accent); }}
+    @media (max-width: 640px) {{ .rel-cards {{ grid-template-columns: 1fr; }} .rel-card img {{ height: 160px; }} }}
 {cta_css}
 {shop_css}
   </style>
@@ -463,9 +546,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 {body}
         </div>
         <p class="post-tags">{tags}</p>
+        {share_row}
         {cta}
         {shop_block}
         {author_box}
+        {related}
       </div>
     </article>
   </main>
@@ -555,6 +640,8 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
             pass
     published_at = published_at or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     pub_display = format_pub_display(published_at, post_date)
+    # Reading time for the hero byline (lane D 2026-09-30): markdown body words / 200 wpm.
+    read_mins = max(1, round(len(re.findall(r"\w+", body)) / 200))
     # Scribe drafts sometimes wrap tags in stray quotes ("sap-business-one").
     # Strip them at build so they never reach the page or JSON-LD (2026-09-24).
     tags = [t.strip().strip("\"'") for t in fm.get("tags", "").split(",")]
@@ -608,7 +695,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         hero = (f'<figure class="post-hero-card"><video controls preload="metadata"{poster} '
                 f'src="{video_rel}"><source src="{video_rel}" type="video/mp4"></video>'
                 f'<div class="hero-title-overlay"><h1>{html_escape(title)}</h1>'
-                f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div></figure>')
+                f'<p class="post-meta">{pub_display} &middot; {read_mins} min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>')
     elif image_rel:
         # Hero alt priority (David 2026-09-26: descriptive alt on every post
         # image): frontmatter image_alt > --image-alt arg (scribe image brief)
@@ -626,12 +713,12 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         hero = (f'<figure class="post-hero-card"><img src="../{image_rel}" alt="{alt}"'
                 f'{size_attrs} loading="eager" fetchpriority="high" />'
                 f'<div class="hero-title-overlay"><h1>{html_escape(title)}</h1>'
-                f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div></figure>')
+                f'<p class="post-meta">{pub_display} &middot; {read_mins} min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>')
     else:
         # No hero image (should not happen — imageless posts are never
         # published): title block without the card.
         hero = (f'<div class="hero-title-plain"><h1>{html_escape(title)}</h1>'
-                f'<p class="post-meta">{pub_display} &middot; by <a href="../author.html">David Strausser</a></p></div>')
+                f'<p class="post-meta">{pub_display} &middot; {read_mins} min read &middot; by <a href="../author.html">David Strausser</a></p></div>')
 
     # Preload the LCP hero image (perf: fetch starts before parser discovery).
     hero_preload = (f'<link rel="preload" as="image" href="../{image_rel}" fetchpriority="high" />'
@@ -681,6 +768,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         tags=" ".join(f"<span>{t}</span>" for t in tags),
         cta=cta_html(slug, cta_name, cta_custom), author_box=author_box_html(), cta_css=CTA_CSS,
         shop_block=shop_block_html(), shop_css=SHOP_CSS,
+        share_row=share_row_html(slug, title), related=related_posts_html(slug),
     )
     # Resolve shared-nav active tokens: generated posts are always blog pages.
     html = re.sub(r"%%A_blog%%", "active", html)
