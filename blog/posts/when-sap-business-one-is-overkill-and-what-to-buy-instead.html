@@ -12,7 +12,6 @@
   <title>When SAP Business One is Overkill: What to Buy Instead — David Strausser</title>
   <meta name="description" content="SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="When SAP Business One is Overkill: What to Buy Instead — David Strausser" />
   <meta property="og:description" content="SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -173,32 +177,33 @@
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>SAP Business One is overkill when your business has simple needs: basic financials, inventory tracking, maybe some light CRM. You are paying for features you do not use, training your team on screens they will never open, and maintaining a system built for a company three times your size. The fix is a leaner ERP that scales with your business without the extra cost. Odoo is the one I point small teams to most often. Not a sales pitch. It just fits.</p>
         </aside>
-        <div class="post-body prose">
-<h2>5 signs SAP Business One is overkill for you</h2>
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#5-signs-sap-business-one-is-overkill-for-you">5 signs SAP Business One is overkill for you</a></li><li><a href="#what-overkill-actually-costs-you">What overkill actually costs you</a></li><li><a href="#what-to-buy-instead">What to buy instead</a></li><li><a href="#how-to-switch-without-losing-your-data-or-your-mind">How to switch without losing your data (or your mind)</a></li><li><a href="#faqs">FAQs</a></li><li><a href="#the-bottom-line">The bottom line</a></li></ul></nav>
+<div class="post-body prose">
+<h2 id="5-signs-sap-business-one-is-overkill-for-you">5 signs SAP Business One is overkill for you</h2>
 <p>I have walked into enough small businesses to spot the pattern in the first meeting. Here is how you know.</p>
 <p><strong>1. You use 20 percent of it.</strong> If your team lives in financials and basic inventory and has never touched the production, MRP, or advanced warehousing modules, you bought a Swiss Army knife to open envelopes. Every unused module still costs you in licensing, upgrades, and the mental overhead of navigating around it.</p>
 <p><strong>2. Training takes weeks, not days.</strong> A new hire should be productive in your ERP within a few days. With SAP Business One, I regularly see three to four weeks before someone stops asking where things are. That is not a people problem. That is a complexity problem, and you are paying for it in payroll every single time someone joins.</p>
 <p><strong>3. Simple changes need a consultant.</strong> Want to add a field to a form? Change a workflow? In a right-sized ERP, a power user does it in an afternoon. In an overkill system, you open a ticket with your partner, wait a week, and get a bill. If you cannot make small changes yourself, the system owns you, not the other way around.</p>
 <p><strong>4. Your upgrade quotes make you flinch.</strong> Big-system upgrades are big-system projects. If the quote to move to the next version costs more than the value you got from the last year of using it, the math has already told you the answer.</p>
 <p><strong>5. Your team works around it, not in it.</strong> Spreadsheets on the side. Orders tracked in email. Inventory "managed" in someone's head. When the ERP is too heavy, people route around it, and now you are paying enterprise license fees for a system your team avoids. That is the clearest signal there is.</p>
-<h2>What overkill actually costs you</h2>
+<h2 id="what-overkill-actually-costs-you">What overkill actually costs you</h2>
 <p>The license fee is the smallest part. Here is the real bill.</p>
 <p>First, implementation and partner hours. SAP Business One almost always needs a partner to implement, and partners bill by the hour. A small business implementation can run into six figures before you process a single order. A leaner ERP like Odoo can be stood up in weeks by a much smaller team, often for a fraction of that.</p>
 <p>Second, the hidden tax of complexity. Every process takes longer. Every report needs building. Every new employee needs training. Multiply those hours across your team across a year, and the "cheaper" big system is the most expensive thing you own.<figure class="post-inline"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead-img2.jpg" alt="Tangled cables and manuals beside a clean simple laptop on a desk" width="1920" height="1280" loading="lazy" /></figure></p>
 <p>Third, opportunity cost. While your team fights the system, they are not selling, serving customers, or improving the product. I have seen ten-person companies lose a full headcount worth of hours to ERP babysitting. At small scale, that is devastating.</p>
-<h2>What to buy instead</h2>
+<h2 id="what-to-buy-instead">What to buy instead</h2>
 <p>You need three things: financials you can trust, inventory you can see, and a system your team will actually use. Everything else is optional until you grow into it.</p>
 <p>Odoo is my default recommendation for small teams, and here is why. It is modular, so you buy what you need: accounting, inventory, sales, purchase, and add more later. The interface is modern enough that new hires figure it out in days. And the cost structure does not punish you for being small. A five-user Odoo setup costs a fraction of a five-user SAP Business One setup, and the gap widens every year.</p>
 <p>That said, fit matters more than brand. If you are a three-person services company, you might not need ERP at all yet. Good accounting software plus a real CRM could carry you for two more years. The rule is simple: buy the smallest system that solves today's actual problems, with a clean path to grow. Never buy for the company you hope to be in five years. Buy for the company you are on Monday.</p>
 <p>And keep SAP in the picture honestly. SAP Business One is a fine product for mid-sized companies with real complexity: multi-entity, serious manufacturing, deep compliance needs. If that is you, it earns its keep. This post is for everyone else.</p>
-<h2>How to switch without losing your data (or your mind)</h2>
+<h2 id="how-to-switch-without-losing-your-data-or-your-mind">How to switch without losing your data (or your mind)</h2>
 <p>Switching ERPs scares people, and vendors count on that fear. It is manageable if you do it in order.</p>
 <p><strong>1. Audit what you actually use.</strong> Export a list of every module, report, and customization. Cross off anything nobody has touched in six months. Most small businesses discover they need about a third of what they have. That is your real requirements list.</p>
 <p><strong>2. Clean before you migrate.</strong> Do not move ten years of messy item masters and dead customers into a new system. Archive the history, migrate open transactions and clean master data, and start fresh where you can. A migration is the best excuse you will ever get to fix your data.</p>
 <p><strong>3. Run parallel for one close.</strong> Run the old and new systems side by side for one month-end close. If the numbers tie out, you are good. If they do not, you found the problem before it cost you money.<figure class="post-inline"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead-img3.jpg" alt="Bright uncluttered small office with a laptop showing a clean dashboard" width="2048" height="1152" loading="lazy" /></figure></p>
 <p><strong>4. Train on real work, not slides.</strong> Nobody learns an ERP from a deck. Train your team by processing real orders, real receipts, real invoices in the new system before go-live. Two days of that beats two weeks of classroom training.</p>
 <p>Yes, you can switch without losing data. You map the old fields to the new ones, validate the totals, and keep the old system read-only for a year for lookups. It is unglamorous work, but it is straightforward.</p>
-<h2>FAQs</h2>
+<h2 id="faqs">FAQs</h2>
 <h3>How do I know if SAP Business One is overkill for my business?</h3>
 <p>If your needs are basic financials and inventory tracking and your team is under 25 people, it is probably overkill. The test: list the modules you use weekly. If it is fewer than five and none of them are manufacturing or multi-entity, you are paying for weight you do not lift.</p>
 <h3>Can I switch from SAP Business One to a simpler ERP without losing data?</h3>
@@ -207,7 +212,7 @@
 <p>For small teams, yes, by a wide margin. Licensing is lower, implementation is smaller, and you do not need a partner on retainer for everyday changes. Get quotes for both at your actual user count and compare three-year total cost, not just year-one license fees.</p>
 <h3>Will a simpler ERP scale when we grow?</h3>
 <p>That is the right question. Pick a modular system where you can add manufacturing, multi-warehouse, or multi-company later without reimplementing. Odoo scales to hundreds of users. The trick is buying modules as you need them instead of buying everything on day one.</p>
-<h2>The bottom line</h2>
+<h2 id="the-bottom-line">The bottom line</h2>
 <p>SAP Business One is a serious system for companies with serious complexity. If that is not you, it is an expensive anchor. A leaner ERP gives your small team financials they trust, inventory they can see, and their Fridays back. Buy for the business you are on Monday, not the one you hope to be in five years. Your team, and your budget, will thank you.</p>
         </div>
         <p class="post-tags"><span>sap</span> <span>businessone</span> <span>odoo</span> <span>smallbusiness</span> <span>erp</span></p>

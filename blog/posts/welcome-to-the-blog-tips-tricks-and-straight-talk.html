@@ -12,7 +12,6 @@
   <title>Welcome to the blog — tips, tricks, and straight talk — David Strausser</title>
   <meta name="description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Welcome to the blog — tips, tricks, and straight talk — David Strausser" />
   <meta property="og:description" content="Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -213,13 +217,14 @@
           <p>This is a daily blog with three posts a day: Odoo how-tos, SAP Business One real-world wisdom, and one wild card on business, tech, or whatever caught my attention. No fluff, no jargon, no sales pitches wearing trench coats — just stuff that actually helps, written to save you time or money (and make you laugh while doing it).</p>
 <p>Welcome in. This is where I publish every day — written with the help of my AI crew, but every word goes through me before it goes live. Think of it as me talking about the stuff I actually know, with a very fast typing assistant.</p>
         </aside>
-        <div class="post-body prose">
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#who-i-am-and-why-im-writing-this">Who I am and why I'm writing this</a></li><li><a href="#heres-the-deal-three-posts-a-day">Here's the deal: three posts a day</a></li><li><a href="#why-a-daily-blog">Why a daily blog?</a></li><li><a href="#what-i-wont-do">What I won't do</a></li><li><a href="#how-to-get-the-most-out-of-this-blog">How to get the most out of this blog</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li><li><a href="#come-back-tomorrow">Come back tomorrow</a></li></ul></nav>
+<div class="post-body prose">
 
-<h2>Who I am and why I'm writing this</h2>
+<h2 id="who-i-am-and-why-im-writing-this">Who I am and why I'm writing this</h2>
 <p>I'm David Strausser — ERP consultant, podcast host, dad, guitarist, and professional student of how businesses actually work. I've spent years implementing Odoo and SAP Business One for small and midsize companies, and I've collected a hard drive full of lessons the sales decks never mention: the migrations that went sideways, the workarounds that became permanent, the five-minute fixes that saved six-figure projects.</p>
 <p>Most of that knowledge was locked in my head, shared one client at a time. This blog is me unlocking it — one post at a time, every day, for anyone who needs it. If you're running a business on spreadsheets and duct tape, evaluating an ERP, or already living in Odoo or SAP Business One and wondering why something hurts — this is for you.</p>
 <p>I also host the Shark Bite Biz podcast, where I talk to founders, executives, and interesting humans about business, growth, and the occasional wild tangent. The blog and the podcast feed each other: ideas that start as a conversation become a post, and posts that resonate become episodes.</p>
-<h2>Here's the deal: three posts a day</h2>
+<h2 id="heres-the-deal-three-posts-a-day">Here's the deal: three posts a day</h2>
 <p>Every day you'll get three posts:</p>
 <ol>
 <li><strong>Odoo</strong> — practical how-tos, tips, and tricks. The stuff that saves you an hour on a Tuesday afternoon. Implementation lessons, module guides, migration war stories, and honest takes on what Odoo does well and where it needs help.</li>
@@ -231,11 +236,11 @@
 <li><strong>Wild card</strong> — tech, AI, sales, marketing, business growth, productivity, music, dad life... okay, mostly business stuff. But I make no promises. This is the post where the human shows up — the lessons from thirty years of guitar, the morning routine that actually works, the things I find interesting that don't fit in an ERP manual.</li>
 </ol>
 <p>Sunday gets one post instead of three — something random and fun, because even ERP consultants need a day where the content breathes.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img2.jpg" alt="Open road through a small American town at golden hour" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
-<h2>Why a daily blog?</h2>
+<h2 id="why-a-daily-blog">Why a daily blog?</h2>
 <p>Because most business software content is either a sales pitch wearing a trench coat or a 40-page whitepaper nobody finishes. I'm aiming for the middle: useful, human, and respectful of your time.</p>
 <p>Every post follows the same contract with you. It opens with a quick answer — the TL;DR for people in a hurry. Then it goes deep for the people who want depth: real examples, real numbers, real mistakes. Then it closes with honest next steps, not a funnel. If a post saves you time or money, it did its job. If it makes you laugh while doing it, even better.</p>
 <p>And because it's daily, it compounds. One post is a tip. A month of posts is a playbook. A year is a reference library. Bookmark the topics that matter to you and come back — the archive is the real product.</p>
-<h2>What I won't do</h2>
+<h2 id="what-i-wont-do">What I won't do</h2>
 <ul>
 <li>Bury the answer under 2,000 words of SEO stuffing. The quick answer is always up top. Scroll if you want depth; don't if you don't.</li>
 <li>Pretend every problem needs a six-figure implementation. Sometimes the answer is a settings change, a better process, or a spreadsheet that finally gets to retire with dignity.</li>
@@ -243,12 +248,12 @@
 <li>Use the phrase "synergistic paradigm shift" (if I ever do, please stage an intervention).</li>
 <li>Waste your time. Every post has to earn its place. If it doesn't teach, save, or entertain — it doesn't ship.</li>
 </ul>
-<h2>How to get the most out of this blog</h2>
+<h2 id="how-to-get-the-most-out-of-this-blog">How to get the most out of this blog</h2>
 <p><strong>If you're evaluating ERP software:</strong> start with the comparison and selection posts — the ones about quotes, timelines, partners, and outgrowing QuickBooks. They'll save you from the expensive mistakes before you spend a dollar.</p>
 <p><strong>If you're implementing right now:</strong> the go-live checklists, data migration guides, and adoption plans are your field manuals. Read them before you need them, not after things break.</p>
 <p><strong>If you're already live on Odoo or SAP Business One:</strong> the tips, module guides, and add-on evaluations will help you get more out of what you have. Most companies use 40% of their ERP. These posts are about the other 60%.</p>
 <p><strong>If you're just here for the wild cards:</strong> welcome. The business posts will still be here when curiosity strikes, and the guitar-and-dad-life posts are honest about the person behind the consulting.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>Is this blog really daily?</h3>
 <p>Three posts a day, Monday through Saturday — Odoo, SAP Business One, and a wild card. Sundays get one fun post. The schedule is automated but every post is reviewed before it goes live. If a post ever feels off, that's on me, not the robots.<figure class="post-inline"><img src="../images/welcome-to-the-blog-tips-tricks-and-straight-talk-img3.jpg" alt="Vintage microphone on a podcast desk" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
 <h3>Who writes the posts?</h3>
@@ -259,7 +264,7 @@
 <p>The blog itself isn't. When I recommend my own services or a trial link, it's labeled and it's because it's genuinely relevant — not because the post exists to sell you something. I'd rather earn your trust with a hundred useful posts than burn it with one sneaky pitch.</p>
 <h3>Where do I start if I'm new here?</h3>
 <p>Start with whatever hurts most in your business right now — search the archive for it. Then grab the <a href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-welcome-to-the-blog-tips-tricks-and-straight-talk-inline" target="_blank" rel="noopener">free 15-day Odoo trial</a> if you want to follow along with the Odoo posts — no credit card, no commitment.</p>
-<h2>Come back tomorrow</h2>
+<h2 id="come-back-tomorrow">Come back tomorrow</h2>
 <p>Three new posts, every day. Let's build something.</p>
         </div>
         <p class="post-tags"><span>welcome</span> <span>dead-brands</span></p>

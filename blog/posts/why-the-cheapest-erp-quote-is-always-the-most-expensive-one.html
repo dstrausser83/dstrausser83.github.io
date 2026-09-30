@@ -12,7 +12,6 @@
   <title>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</title>
   <meta name="description" content="Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser" />
   <meta property="og:description" content="Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -204,28 +208,29 @@
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>The cheapest ERP quote is usually the most expensive because it's a rushed, incomplete assessment that ignores hidden costs. Vendors who give low quotes often don't understand your business model, leading to expensive fixes later. The real cost goes beyond the software price: it's the time, the training, and the ongoing support. Choosing the lowest price is a trap that backfires — the money you "save" on the quote comes back as change orders, rework, and sometimes a second implementation.</p>
         </aside>
-        <div class="post-body prose">
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#where-the-cheap-quote-comes-from">Where the cheap quote comes from</a></li><li><a href="#what-the-cheap-quote-leaves-out">What the cheap quote leaves out</a></li><li><a href="#the-math-that-matters">The math that matters</a></li><li><a href="#sap-business-one-and-odoo-where-this-bites-hardest">SAP Business One and Odoo: where this bites hardest</a></li><li><a href="#red-flags-in-any-erp-quote">Red flags in any ERP quote</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+<div class="post-body prose">
 
-<h2>Where the cheap quote comes from</h2>
+<h2 id="where-the-cheap-quote-comes-from">Where the cheap quote comes from</h2>
 <p>When you're hunting for an ERP system, you'll see quotes that range wildly. One vendor quotes $40,000, another quotes $18,000, and a third sends you a number so low you wonder if they read your requirements at all. That third quote is the dangerous one — not because the vendor is dishonest, but because a quote that low means they skipped the work that makes a quote accurate.</p>
 <p>A real ERP quote requires discovery: someone sitting with your team, mapping how orders actually flow, learning which workarounds your people rely on, understanding what your controller needs at month-end. That takes days of a senior consultant's time, and it costs the vendor real money before you've signed anything. The cheap quote skipped it. They priced the software licenses, guessed at the services, and left everything they didn't understand out of the number. What they left out doesn't disappear — it shows up later as change orders, billed at full rate, when you're already committed and can't walk away.</p>
 <p>This is not a theory. I have watched companies sign the low quote and pay double by the end. The pattern is always the same: the discovery that should have happened before signing happens after, except now every finding is a change order instead of a line item you could have negotiated.</p>
-<h2>What the cheap quote leaves out</h2>
+<h2 id="what-the-cheap-quote-leaves-out">What the cheap quote leaves out</h2>
 <p>The missing pieces follow a script. First, integrations. Your ERP has to talk to your web store, your EDI connections, your shipping software, maybe a warehouse system. The cheap quote says "integration included" or prices four hours for it. A real integration — mapping the fields, handling the exceptions, testing the failure modes — is days of work per connection, sometimes weeks. When the vendor discovers this mid-project, that four-hour line item becomes a forty-hour change order.</p>
 <p>Second, data migration. The cheap quote assumes your data is clean and the load is straightforward. Your data is not clean. Nobody's is. Customer masters with three spellings of the same company, items with no units of measure, a decade of open orders nobody closed — cleaning and loading that is real work, and the vendor who priced two days for it will be back asking for ten.</p>
 <p>Third, training and adoption. The cheap quote includes a day or two of training, usually delivered as a lecture to a room of people who will forget half of it by Friday. Real adoption — role-based sessions, super-user coaching, the first month of hand-holding while people build new habits — is where implementations actually succeed or fail. It is also the first thing cut from a low quote, because it is the hardest thing to put a number on and the easiest thing for a buyer to underestimate.<figure class="post-inline"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one-img2.jpg" alt="Magnifying glass revealing hidden costs beneath a low price tag on a contract" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <p>Fourth, the ugly requirements. Every business has two or three processes that are genuinely unusual — the way you handle consignment inventory, the commission structure with seventeen tiers, the regulatory reporting your industry requires. The cheap quote either missed these entirely or assumed the standard software handles them. When it does not, you are paying for customization at emergency rates instead of planning for it at project rates.</p>
-<h2>The math that matters</h2>
+<h2 id="the-math-that-matters">The math that matters</h2>
 <p>Stop comparing quotes by the bottom line. Compare them by what is in scope, and price the gaps yourself. Take the cheap quote and ask three questions: What integrations are fully specified, with field mappings and exception handling? How many days of data migration and reconciliation are included? How is training structured — how many sessions, for which roles, with what follow-up?</p>
 <p>Then get the answers in writing as part of the statement of work, with a change-order process that requires your sign-off and a rate card you have seen. A vendor who will not commit the scope to paper is telling you the quote is fictional. Believe them.</p>
 <p>The honest way to evaluate: add thirty to fifty percent to any quote that did not include real discovery, because that is roughly what the change orders will add. Now compare. The "expensive" quote that included two weeks of discovery and a detailed scope is usually cheaper than the low quote plus reality. I have seen this arithmetic play out enough times to trust it.</p>
-<h2>SAP Business One and Odoo: where this bites hardest</h2>
+<h2 id="sap-business-one-and-odoo-where-this-bites-hardest">SAP Business One and Odoo: where this bites hardest</h2>
 <p>SAP Business One is a great example. If you get a quote from a vendor that doesn't know your business, they might propose the base system with a couple of standard modules — and miss that your inventory needs bin-level tracking, or your sales process needs the CRM integration, or your industry needs a specific add-on. Those add-ons are licensed per user per year, and discovering you need three of them after signing turns a $30,000 project into a $60,000 one. A vendor who did discovery would have caught it in week one.</p>
 <p>Odoo has the mirror-image trap. The software itself is inexpensive, which makes the services quote look small — and makes it tempting to pick the cheapest implementer. But Odoo's flexibility is exactly what makes scoping matter: a cheap quote might skip integration with your existing tools, underestimate the customization your workflows need, or staff the project with junior consultants learning on your dime. The license savings evaporate when the implementation takes twice as long. With Odoo especially, you are not buying software — you are buying the team. Vet the team, not the price.</p>
-<h2>Red flags in any ERP quote</h2>
+<h2 id="red-flags-in-any-erp-quote">Red flags in any ERP quote</h2>
 <p>Watch for these. A quote with no discovery phase, or a "free" discovery that is really a sales call. Line items measured in hours for work that takes days — four hours for an integration, two days for data migration, one day of training for forty users. Vague scope language: "standard integration," "data migration assistance," "training as needed." Every vague phrase is a future argument about what was included.<figure class="post-inline"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one-img3.jpg" alt="Balance scale weighing a small coin stack against a large iceberg of hidden fees" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <p>And check the change-order clause. Every project has changes — that is normal. What matters is the process: written approval before work starts, rates you agreed to upfront, and a running total you can see. A vendor with a clean change-order process is a vendor who expects to be held accountable. A vendor with a one-line clause is planning to make the real money after you sign.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>Why do vendors give cheap quotes?</h3>
 <p>To win your business. Discovery costs them money before you've signed, so skipping it lets them undercut vendors who did the work. Some are inexperienced and genuinely don't know what they're missing. Either way, the gap between the quote and reality becomes your problem after signing.</p>
 <h3>What happens if I choose the cheapest ERP?</h3>

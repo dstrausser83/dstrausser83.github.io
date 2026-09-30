@@ -9,23 +9,23 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It — David Strausser</title>
-  <meta name="description" content="Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy." />
-  <link rel="canonical" href="https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html" />
+  <title>Open-Source ERP: Who Do I Call at 2 AM? — David Strausser</title>
+  <meta name="description" content="Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It — David Strausser" />
-  <meta property="og:description" content="Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy." />
-  <meta property="og:image" content="https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" />
-  <meta property="og:image:width" content="2048" />
-  <meta property="og:image:height" content="1152" />
+  <meta property="og:title" content="Open-Source ERP: Who Do I Call at 2 AM? — David Strausser" />
+  <meta property="og:description" content="Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It — David Strausser" />
-  <meta name="twitter:description" content="Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy." />
-  <meta name="twitter:image" content="https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" />
+  <meta name="twitter:title" content="Open-Source ERP: Who Do I Call at 2 AM? — David Strausser" />
+  <meta name="twitter:description" content="Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
-  <link rel="preload" as="image" href="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -61,6 +61,12 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
     .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
     .post-share-label { font-weight: 700; margin-right: 0.4rem; }
     .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
@@ -73,19 +79,13 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
-    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
-    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
-    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
-    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
-    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
-    .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
     .post-cta h2 { margin-top: 0; }
     .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
     .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
     .cta-btn:hover { filter: brightness(1.1); }
-    /* Author box: red sharpie marker border (David 2026-09-30 - hand-drawn
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
        marker look; keep in build script so regenerations carry it). */
     .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
     .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
@@ -108,9 +108,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "SAP Business One: Why Your Startup Doesn\u2019t Need a Giant to Use It",
-  "description": "Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it\u2019s not a giant\u2019s toy.",
-  "datePublished": "2026-09-28T18:52:43Z",
+  "headline": "Open-Source ERP: Who Do I Call at 2 AM?",
+  "description": "Open-source ERP\u2019s 2 AM crisis: Why Odoo\u2019s community support beats paid vendors. Real lessons from a business pro who\u2019s been there.",
+  "datePublished": "2026-09-30T11:41:08Z",
   "author": {
     "@type": "Person",
     "name": "David Strausser",
@@ -121,9 +121,9 @@
     "@type": "Organization",
     "name": "Dead Brands, LLC"
   },
-  "mainEntityOfPage": "https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html",
-  "keywords": "sap, business-one, small-business, software, implementation",
-  "image": "https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg"
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html",
+  "keywords": "open-source-erp, odoo, it-support, 2am-crisis, erp",
+  "image": "https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg"
 }
 </script>
 </head>
@@ -138,7 +138,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About Us</a>
+        <a href="/about.html" class="">About</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -164,7 +164,9 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
   </header>
@@ -172,36 +174,36 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" alt="Small bakery owner in an apron holding a tablet with sales charts, surrounded by fresh bread on wooden shelves" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</h1><p class="post-meta">September 28, 2026 at 2:52 PM ET &middot; 1 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" alt="Dark room with a glowing laptop screen showing terminal commands, server racks in the background, mood: tense but technical" width="1280" height="720" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Open-Source ERP: Who Do I Call at 2 AM?</h1><p class="post-meta">September 30, 2026 at 7:41 AM ET &middot; 3 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>SAP Business One works for small and medium businesses. It’s built for your coffee shop, bakery, or consulting firm. You don’t need a team of 100 to implement it. And it’s cheaper than most enterprise systems for your scale.</p>
-<p>You’ve heard the myth: SAP is only for giants. That’s a myth. Here’s why your coffee shop, bakery, or consulting firm can actually use SAP Business One without breaking the bank.</p>
-<p>SAP Business One isn’t a giant’s toy. It’s designed for companies that need real accounting, inventory tracking, and customer management without the corporate fluff. You don’t need to scale up to use it. The implementation is straightforward, and the cost scales with your business.</p>
-<p>For example, a small bakery using SAP Business One can track sales, inventory, and payroll without a big team. The interface is simple enough that your accountant or a few staff can handle it. And the pricing is built for small-business budgets, not enterprise ones.</p>
-<p>But here’s the catch: SAP Business One isn’t a one-size-fits-all solution. You need to pick the right modules for your business. If you’re a consulting firm, you might need the CRM module. If you’re a bakery, you’ll need inventory tracking. The good news is that you can start small and add modules as you grow.</p>
-<p>Compare this to Odoo: Odoo is a more generic open-source ERP that’s simpler to set up but lacks the depth in accounting and inventory for businesses that need more precision. For small businesses that need tight control over their finances and stock, SAP Business One is the better choice.</p>
-<p>Implementation is another key difference. SAP Business One’s setup is done by a small team or even a single person, whereas Odoo often requires more technical expertise. But the trade-off is worth it for businesses that need reliable, accurate data without the hassle of constant updates.</p>
-<p>Another thing to consider is the cost. SAP Business One has a monthly fee that scales with your user count and modules. Odoo is cheaper upfront but may require more customization for complex needs. So it's not about which one is cheaper. It's about what your business actually needs.</p>
-<p>The truth is, SAP Business One isn’t for giants. It’s for businesses that want to grow without the complexity of enterprise systems. It’s the right tool for the right business size.</p>
-<p>### Frequently asked questions</p>
-<p>### How does SAP Business One compare to Odoo for small businesses?</p>
-<p>SAP Business One has deeper accounting and inventory modules, but Odoo is simpler for basic needs. Choose based on your needs: SAP for precision, Odoo for simplicity.</p>
-<p>### What’s the real cost of implementation?</p>
-<p>No big upfront costs. Setup depends on your modules and data migration, not your company size. Ongoing costs are minimal once the system is running.</p>
-<p>### Can I use SAP Business One without a big team?</p>
-<p>Yes. The interface is straightforward for small teams. You don’t need a team of 100 to manage it.</p>
+          <p>For Odoo users: You call the community forums, GitHub, and your own team. For SAP Business One: You call a dedicated support team. The trade-off? Open-source gives you control but costs you peace of mind.</p>
+<p>Open-source ERP isn’t a bad idea. It’s just not for everyone. Most businesses want to avoid the 2 AM panic. They think, “I can buy a package and get support.” But that’s a myth. The reality is, when the lights go out, you’re responsible for the fix.</p>
+<p>Odoo’s community support is great for small teams with technical skills. But when you’re in the middle of the night, and the server is down, you’re on your own. The difference between Odoo and SAP Business One isn’t just price—it’s who you call when the server screams.</p>
+<p>SAP Business One has a 24/7 support team. They’ll answer your call at 2 AM. Odoo doesn’t. You have to figure it out yourself. That’s the trade-off. You get to control your code, but you lose the peace of mind.</p>
+<p>I’ve seen small businesses go from “we’re safe” to “we’re in crisis” because they didn’t prepare for the 2 AM scenario. They bought a package, thought it was easy, and then the lights went out.</p>
+<p>Here’s what you need to know: Open-source ERP works best when you have a strong team and the skills to handle the issues. If you don’t, you might end up in the same situation as me last Tuesday.</p>
+<p>### How do I get help at 2 AM with Odoo?</p>
+<p>When your Odoo instance crashes at 2 AM, you don’t call a support team. You check the community forums first. If the problem’s been solved before, you find the solution. If not, you open a GitHub issue. That’s the path. The community is active, but it’s not 24/7. You have to be ready to troubleshoot.</p>
+<p>### Why is open-source ERP so risky for small businesses?</p>
+<p>Small businesses often think open-source ERP is cheap and easy. But it’s not. The risk is that you become responsible for the server, the code, and the support. If the server crashes, you fix it. If the code breaks, you fix it. That’s the cost of open-source. If you don’t have the skills, you’ll get stuck.</p>
+<p>### What’s the difference between Od and SAP Business One in real crises?</p>
+<p>In a real crisis, SAP Business One has a dedicated support team. They’ll answer your call at 2 AM. Odoo doesn’t. You have to figure it out yourself. The difference is in who you call when the lights go out.</p>
+<p>The truth is, open-source ERP is great for teams that know what they’re doing. It’s not for everyone. If you’re a small business without technical skills, you might want to consider a paid ERP. But if you’re tech-savvy, you’ll appreciate the control.</p>
+<p>So, here’s the takeaway: Open-source ERP gives you control but costs you peace of mind. When the server screams at 2 AM, you’re on your own. That’s the trade-off.</p>
+<p>---</p>
         </aside>
         <div class="post-body prose">
-
+<p>Last Tuesday at 2:17 AM, my server crashed. Not a server crash—my Odoo instance. The one that’s supposed to run my inventory, orders, and payroll. The one that’s supposed to be stable. Instead, it was screaming.</p>
+<p>I spent the next two hours staring at the terminal, trying to figure out who to call. The answer? You don’t call anyone. The community forums are full of people who’ve been there before. GitHub has the code. Your team has the keys. That’s open-source ERP.</p><figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img2.jpg" alt="Abstract visualization of GitHub interface with a broken link icon, mood: frustrated but technical" width="1280" height="720" loading="lazy" /></figure><figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img3.jpg" alt="Simplified server room diagram with error messages on a single monitor, mood: urgent but calm" width="1280" height="720" loading="lazy" /></figure><figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img4.jpg" alt="Abstract visualization of a server rack with a single power light blinking, mood: exhausted but resolved" width="1280" height="720" loading="lazy" /></figure>
         </div>
-        <p class="post-tags"><span>sap</span> <span>business-one</span> <span>small-business</span> <span>software</span> <span>implementation</span></p>
-<div class="post-share">
+        <p class="post-tags"><span>open-source-erp</span> <span>odoo</span> <span>it-support</span> <span>2am-crisis</span> <span>erp</span></p>
+        <div class="post-share">
           <span class="post-share-label">Share this post</span>
-          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-for-companies-that-think-sap-is-only-for-gi.html&text=SAP%20Business%20One%3A%20Why%20Your%20Startup%20Doesn%E2%80%99t%20Need%20a%20Giant%20to%20Use%20It" target="_blank" rel="noopener">X</a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-for-companies-that-think-sap-is-only-for-gi.html" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-for-companies-that-think-sap-is-only-for-gi.html" target="_blank" rel="noopener">LinkedIn</a>
-          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html">Copy link</button>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fopen-source-erp-and-the-who-do-i-call-at-2-am-question.html&text=Open-Source%20ERP%3A%20Who%20Do%20I%20Call%20at%202%20AM%3F" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fopen-source-erp-and-the-who-do-i-call-at-2-am-question.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fopen-source-erp-and-the-who-do-i-call-at-2-am-question.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html">Copy link</button>
         </div>
         <script>
         (function () {
@@ -223,9 +225,9 @@
         })();
         </script>
         <section class="post-cta">
-          <h2>Try Odoo free</h2>
-          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
-          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
         </section>
         <section class="post-shop">
           <p class="eyebrow">Shop the brand</p>
@@ -262,7 +264,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
-<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="your-implementation-partner-is-lying-about-the-timeline-here.html"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" alt="" loading="lazy" /><span class="rel-card-title">Your implementation partner is lying about the timeline — here's the real math — David Strausser</span></a><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a></div></section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="the-5-hour-friday-automating-the-weekly-report-nobody-likes.html"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" alt="" loading="lazy" /><span class="rel-card-title">The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</span></a></div></section>
       </div>
     </article>
   </main>

@@ -12,7 +12,6 @@
   <title>SAP Business One Add-Ons Actually Worth Your Money — David Strausser</title>
   <meta name="description" content="A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/sap-business-one-add-ons-worth-the-money.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/sap-business-one-add-ons-worth-the-money.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="SAP Business One Add-Ons Actually Worth Your Money — David Strausser" />
   <meta property="og:description" content="A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -205,12 +209,13 @@
           <p>The SAP Business One add-ons worth your money solve specific, expensive problems: warehouse/barcode management, EDI for retail compliance, advanced reporting/BI, and industry-specific functionality you genuinely need. Skip anything that duplicates core B1 features or solves a problem you don't have. Buy for pain, not for demos — and never buy add-ons for hypothetical future problems during the initial implementation.</p>
 <p>SAP Business One's core is strong — financials, sales, purchasing, inventory, production, CRM. But no core system covers everything, which is why the add-on ecosystem exists. Hundreds of them, from one-person shops to global ISVs. Some are essential infrastructure that the system is incomplete without. Some are shelfware with a great demo and a renewal invoice. Here's how to tell the difference.</p>
         </aside>
-        <div class="post-body prose">
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#the-golden-rule">The golden rule</a></li><li><a href="#categories-that-consistently-deliver">Categories that consistently deliver</a></li><li><a href="#red-flags">Red flags</a></li><li><a href="#the-evaluation-checklist">The evaluation checklist</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+<div class="post-body prose">
 
-<h2>The golden rule</h2>
+<h2 id="the-golden-rule">The golden rule</h2>
 <p>An add-on is worth it when the cost of NOT having it exceeds the price — in labor, errors, compliance risk, or lost business. That is the whole test. Not "does it look cool in the demo." Not "might we need this someday." What does the absence of this add-on cost us per month, in real money? If you cannot answer that with a number, you are shopping, not investing.</p>
 <p>"Nice to have" add-ons bought during implementation are where budgets go to die. Implementation is the worst time to buy add-ons, because you do not yet know what your real problems are. You know your imagined problems — the ones from the requirements document, written before anyone used the system. The real problems surface in month two, when the warehouse team discovers the bin logic does not match how they actually pick. Buy then. The add-on vendors are not going anywhere, and the discount for bundling at signing is never worth buying the wrong thing.</p>
-<h2>Categories that consistently deliver</h2>
+<h2 id="categories-that-consistently-deliver">Categories that consistently deliver</h2>
 <h3>Warehouse & barcode management</h3>
 <p>If you have a real warehouse, this is usually add-on #1. Core B1 handles inventory — quantities, valuations, transactions. A WMS add-on handles the physical reality: directed put-away, wave picking, barcode scanning, bin-level management, cycle counting workflows. The gap between "the system knows we have 500 units" and "the system knows they are in aisle 7, bins 3 through 9, and the picker should grab them in this sequence" is the gap between inventory records and warehouse operations.</p>
 <p>Companies routinely cut picking errors by 50% or more and wonder how they ever operated without it. The ROI math is straightforward: count your mis-picks per month, multiply by the cost of each one (reshipping, credits, customer goodwill), and compare to the add-on's annual cost. For any operation shipping real volume, the payback is usually measured in months. This is the rare add-on that is sometimes worth buying at implementation — if you are already drowning in warehouse chaos on day one, do not wait a quarter to fix it.</p>
@@ -221,14 +226,14 @@
 <p>B1's native reporting covers the basics — standard financials, sales analysis, inventory status. If leadership lives in dashboards — real-time KPIs, consolidated multi-branch views, drill-down P&L, margin analysis by customer — a BI add-on pays for itself the first time it prevents one bad decision.</p>
 <h3>Industry-specific functionality</h3>
 <p>Food distribution lot traceability, fashion and footwear matrix inventory, equipment rental billing, field service dispatch — if your industry has specific requirements, the right vertical add-on beats custom development every time. Someone already solved your problem, debugged it across dozens of customers, and maintains it through B1 upgrades. Rent their solution.</p>
-<h2>Red flags</h2>
-<h2>The evaluation checklist</h2>
+<h2 id="red-flags">Red flags</h2>
+<h2 id="the-evaluation-checklist">The evaluation checklist</h2>
 <p>Before signing anything, run this sequence. It takes two weeks and saves you from years of regret.</p>
 <p><strong>Two reference calls</strong> — not the vendor's best friend, real customers. Ask them: what broke, how long did implementation really take, what does support actually look like, and would you buy it again? The last question is the only one that matters. Hesitation is an answer.</p>
 <p><strong>Sandbox test with YOUR data.</strong> Not the vendor's demo company — your items, your customers, your messiest transactions. Run your actual workflows: receive a real PO, pick a real order, process a real return. If the vendor will not do a sandbox trial, they are telling you something.</p>
 <p><strong>Upgrade policy in writing.</strong> How long after each B1 release is the add-on certified? Who pays if an upgrade breaks it? What happens to your data if you cancel? Get it in the contract, not in an email.</p>
 <p><strong>Payback calculation.</strong> Monthly cost of the problem (labor hours × cost, error rates × cost per error, compliance risk) versus monthly cost of the add-on (license amortized, maintenance, support). If it doesn't pay for itself in 12–18 months, it's a luxury, not an investment. Luxuries are fine when business is great — just label them honestly.<figure class="post-inline"><img src="../images/sap-business-one-add-ons-worth-the-money-img3.jpg" alt="Barcode scanner scanning products in a modern warehouse" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>Do I need add-ons on day one?</h3>
 <p>Usually not. Go live on core B1 first, feel the real pain points for a quarter, then buy add-ons for actual problems — the ones with numbers attached. The exceptions: EDI if retailers require it from day one (non-negotiable), and WMS if you're drowning in warehouse chaos from day one (the payback starts immediately).</p>
 <h3>Are certified add-ons safer?</h3>

@@ -12,7 +12,6 @@
   <title>SAP Business One FP 2608: AI arrives, but the Web Client wins — David Strausser</title>
   <meta name="description" content="SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="SAP Business One FP 2608: AI arrives, but the Web Client wins — David Strausser" />
   <meta property="og:description" content="SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -174,7 +178,7 @@
           <p>SAP Business One 10.0 Feature Package 2608, released August 2026, is the biggest Web Client expansion Business One has ever had, and it brings generative AI into the product's own workflows for the first time. The headline features are <strong>Ask AI in the Web Client</strong> (ask business questions in plain English) and <strong>AI-assisted SQL generation</strong> for user-defined queries. Both are genuinely useful. But if you run a small business, the AI is the sizzle, the Web Client finally being good enough to use all day is the steak.</p>
         </aside>
         <div class="post-body prose">
-<h2>What's actually in FP 2608</h2>
+<h2 id="whats-actually-in-fp-2608">What's actually in FP 2608</h2>
 <p>Feature packages for Business One are usually small, steady improvements. This one isn't. Partners who've been implementing B1 for decades are calling it the largest Web Client expansion the product has seen, and the direction is unmistakable: SAP is moving the center of gravity from the old Windows desktop client to the browser, one feature package at a time, on the road to Version 11.</p>
 <p>Here's what landed, in plain English:</p>
 <p><strong>Ask AI in the Web Client.</strong> You type a question about your business, "which customers are overdue by more than 30 days?", and get an answer from your own data. No SQL, no waiting on the one person in the office who knows how to write a query. For a 30-person distributor, this is the difference between the owner checking a number themselves at 7 AM and waiting until the office manager gets in.</p>
@@ -195,7 +199,7 @@
 <p>One thing I tell every client: budget the testing, not just the licenses. The software is the cheap part. The week your team spends validating that everything still works after the upgrade, that's the real cost, and it's worth every penny because the alternative is finding out in production.</p>
 <h3>How does this compare to what Odoo is doing with AI?</h3>
 <p>I implement both platforms, so here's the straight version: both vendors are racing to put "ask your data a question" into the product, because it's the most obvious AI win in ERP. Odoo's approach leans on its open, app-based architecture; SAP's leans on embedding it in the workflows B1 users already have. Neither one is magic. If you're choosing between them, choose on fit, inventory depth, manufacturing needs, partner ecosystem, total cost, not on whose AI demo looked slicker. The AI demos all look slick. The implementations are where it gets decided.</p>
-<h2>The bottom line</h2>
+<h2 id="the-bottom-line">The bottom line</h2>
 <p>FP 2608 is the rare feature package worth reading about even if you're not upgrading tomorrow. Not because of the AI headlines, those are nice, early, and narrower than the marketing suggests, but because it marks the moment SAP Business One's Web Client grew up. The browser is becoming the product. Plan for that, test before you jump, and let the AI save your team the twenty minutes a day they currently spend waiting on reports. That twenty minutes, times every employee, times every day, that's the ROI. It's just not the kind you put on a slide.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>sap</span> <span>sap business one</span> <span>ai</span> <span>business</span></p>

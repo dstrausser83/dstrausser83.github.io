@@ -12,7 +12,6 @@
   <title>The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants — David Strausser</title>
   <meta name="description" content="How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants — David Strausser" />
   <meta property="og:description" content="How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -173,16 +177,17 @@
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Here is what I did: I automated my weekly report using spreadsheets and simple macros. It used to eat 10 hours of my week. Now it takes 5, and most of that is me reviewing instead of typing. It is not about the tech. It is about making time for my kid's soccer practice instead of formatting cells at 9 PM on a Thursday.</p>
         </aside>
-        <div class="post-body prose">
-<h2>Why my report was a nightmare</h2>
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#why-my-report-was-a-nightmare">Why my report was a nightmare</a></li><li><a href="#the-report-nobody-reads">The report nobody reads</a></li><li><a href="#how-i-fixed-it">How I fixed it</a></li><li><a href="#steal-my-friday-playbook">Steal my Friday playbook</a></li><li><a href="#the-real-reason-people-hate-weekly-reports">The real reason people hate weekly reports</a></li><li><a href="#faqs">FAQs</a></li><li><a href="#the-bottom-line">The bottom line</a></li></ul></nav>
+<div class="post-body prose">
+<h2 id="why-my-report-was-a-nightmare">Why my report was a nightmare</h2>
 <p>You know that report you dread? The one that is just numbers nobody cares about? I used to spend 10 hours on it every week. That is time I should have been with my son. Everyone said, "It is just a report," but I knew it was not. It was a distraction from the things that really mattered, like my son's soccer practice or an hour with my guitar.</p>
 <p>Let me break down where those 10 hours actually went, because this is the part nobody wants to admit. About two hours was real work: pulling numbers together, thinking about what actually happened that week. The other eight? Formatting. Rewriting the same status updates in slightly different words. Hunting down a number I already had in an email somewhere. Building the same table I built last week, from scratch, because I never saved a template. It was not a report. It was a weekly ritual of reinventing the wheel, badly.</p>
 <p>The report had columns for tasks, time spent, and notes. But the notes were mostly empty, and the tasks column was a creative writing exercise. I would write things like "help with homework" or "call mom" as if anyone reading it needed that level of detail. Nobody did. I am fairly convinced nobody read past the first three lines, which meant I was spending eight hours polishing a document with an audience of zero.</p>
-<h2>The report nobody reads</h2>
+<h2 id="the-report-nobody-reads">The report nobody reads</h2>
 <p>Here is a test I wish someone had given me years ago. Pick the last three weekly reports you wrote and ask yourself two questions. First: who actually read it? Not who it was sent to, who read it. Second: did anything change because of it? Did a decision get made, a problem get flagged, a plan get adjusted?</p>
 <p>If the honest answers are "nobody" and "nothing," you do not have a reporting process. You have a theater process. And theater is expensive. Ten hours a week is 500 hours a year. That is twelve full work weeks spent performing diligence for an empty room.</p>
 <p>I do this for a living, by the way. I help companies pick and implement ERP systems, and I can tell you the weekly status report is where good process goes to die in about half the small businesses I walk into. The big companies automate it out of their ERP. The small ones have Dave in accounting rebuilding the same spreadsheet every Friday. Do not be Dave.</p>
-<h2>How I fixed it</h2>
+<h2 id="how-i-fixed-it">How I fixed it</h2>
 <p>I decided to automate it. I used spreadsheets I already had. No ERP system, no fancy tools, no consultant with a slide deck. Just a bit of patience and some simple macros.</p>
 <p>Here is the actual mechanics, because vague advice is useless:<figure class="post-inline"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes-img2.jpg" alt="Close-up of a laptop screen showing an abstract spreadsheet with charts and a coffee cup" width="2048" height="1152" loading="lazy" /></figure></p>
 <p><strong>1. One template, built once.</strong> I made a single spreadsheet with three columns: what I did, how long it took, and notes worth keeping. I formatted it exactly once. Headers, column widths, the whole thing. Then I saved it as the template and never touched the formatting again.</p>
@@ -190,7 +195,7 @@
 <p><strong>3. A macro for the boring parts.</strong> I recorded a macro that takes the raw tab, builds the summary table, drops in the week-over-week comparison, and exports a clean PDF. I run it Friday morning with one click. Total hands-on time: reviewing the output for about twenty minutes and writing three sentences of actual commentary, the only part of the report that was ever worth reading.</p>
 <p><strong>4. Ruthless scope.</strong> The new rule: if a section did not change a decision last month, it does not get a section this month. My report went from six sections to two. Nobody complained. Nobody noticed. That tells you everything about who was reading the old one.</p>
 <p>Why did it work? Because I focused on the small details and stopped pretending the report was more important than it was. I started with just the things I actually do, no fluff, no numbers nobody cares about. Automation did not make the report better. It made the report cheaper, which freed me up to spend my judgment on the three sentences that matter.</p>
-<h2>Steal my Friday playbook</h2>
+<h2 id="steal-my-friday-playbook">Steal my Friday playbook</h2>
 <p>If you want to do this yourself, here is the order of operations:</p>
 <ol>
 <li>Time yourself for one week. Write down every minute you spend on the report, including the "quick" formatting fixes. You need the real number or you will not believe the savings.</li>
@@ -200,11 +205,11 @@
 <li>Cut a section. Then cut another one next month. Keep cutting until someone asks where something went. They will not.</li>
 </ol>
 <p>The first week took about five hours to set up. Every Friday since takes about five hours total, and four of those are the review and commentary I would have done anyway. The soul-crushing assembly work is gone.</p>
-<h2>The real reason people hate weekly reports</h2>
+<h2 id="the-real-reason-people-hate-weekly-reports">The real reason people hate weekly reports</h2>
 <p>Most people think weekly reports are about staying organized. But for me, it was about staying connected to my son. I realized the report was a distraction from the things that matter, like playing soccer or learning guitar.</p>
 <p>I stopped writing it after 5 hours. Now I use that time for things like fixing my kid's bike or learning guitar. It is not about saving time. It is about using that time for what matters. The report still exists. It still goes out. It just stopped eating my life, which is all I ever wanted from it.<figure class="post-inline"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes-img3.jpg" alt="Acoustic guitar leaning against a desk next to a child's bicycle in a garage at golden hour" width="2048" height="1152" loading="lazy" /></figure></p>
 <p>And here is the part that surprised me: the shorter report gets more engagement than the long one ever did. Two sections, three sentences of commentary, clean numbers. People actually read it now, because reading it costs them ninety seconds instead of twenty minutes. Brevity was not just kinder to me. It was kinder to everyone.</p>
-<h2>FAQs</h2>
+<h2 id="faqs">FAQs</h2>
 <h3>How do I know this is not too complicated?</h3>
 <p>I started with a simple spreadsheet. No coding, just a few formulas and one recorded macro. It took me about 5 hours to set up the first time, and most of that was deciding what to cut.</p>
 <h3>What if I do not have time to learn new tools?</h3>
@@ -213,7 +218,7 @@
 <p>The first week took 5 hours. Now it is about 5 hours every Friday, and most of that is review and the commentary that actually matters, not assembly.</p>
 <h3>Will my boss accept a shorter report?</h3>
 <p>Mine did, because the shorter report was better. Lead with the numbers and the three sentences of judgment. If someone misses a section, add it back. Nobody has asked me to add anything back.</p>
-<h2>The bottom line</h2>
+<h2 id="the-bottom-line">The bottom line</h2>
 <p>I stopped writing the weekly report I hated by automating it with simple tools. I went from 10 hours of formatting theater to 5 hours, most of it real thinking. Now I spend Friday afternoons on things that actually matter, like fixing my kid's bike or learning guitar. No more pointless reports. Just time for what matters, and a report people actually read.</p>
         </div>
         <p class="post-tags"><span>automation</span> <span>time-saving</span> <span>work-life</span> <span>friday</span> <span>dad</span></p>

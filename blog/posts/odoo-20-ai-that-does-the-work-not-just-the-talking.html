@@ -12,7 +12,6 @@
   <title>Odoo 20: AI That Does the Work, Not Just the Talking — David Strausser</title>
   <meta name="description" content="Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Odoo 20: AI That Does the Work, Not Just the Talking — David Strausser" />
   <meta property="og:description" content="Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -173,32 +177,33 @@
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Odoo 20's headline feature is AI agents with write access. In version 19 the agent could answer questions and draft things. In version 20 it can create and update actual records in your database, work from a file of instructions you upload, and run inside automated and scheduled actions. Odoo also added MCP support, so outside AI tools can connect to your Odoo data while respecting your existing user permissions. Underneath, there's unglamorous but important housekeeping: simpler access rights, better change tracking in the chatter, and parent accounts in the chart of accounts. For a small business, the short version is this: the AI inside your ERP just became a coworker instead of a consultant. That changes what "automation" means at your size.</p>
         </aside>
-        <div class="post-body prose">
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#the-moment-ai-got-its-hands-on-the-data">The moment AI got its hands on the data</a></li><li><a href="#mcp-your-ai-tools-can-now-talk-to-your-erp">MCP: your AI tools can now talk to your ERP</a></li><li><a href="#the-boring-upgrades-that-actually-hurt-on-upgrade-day">The boring upgrades that actually hurt on upgrade day</a></li><li><a href="#what-this-does-to-the-small-business-erp-landscape">What this does to the small-business ERP landscape</a></li><li><a href="#the-honest-cautions">The honest cautions</a></li><li><a href="#what-to-do-monday-morning">What to do Monday morning</a></li></ul></nav>
+<div class="post-body prose">
 <p>Odoo 20 came out this week. September 24, opening keynote of Odoo Experience in Brussels, and the release notes run across more than fifty apps.</p>
 <p>I've read a lot of ERP release announcements in my life. Most of them are new buttons. This one is different, and it matters for one reason: the AI stopped suggesting and started doing.</p>
-<h2>The moment AI got its hands on the data</h2>
+<h2 id="the-moment-ai-got-its-hands-on-the-data">The moment AI got its hands on the data</h2>
 <p>Every ERP vendor has been bolting chatbots onto their product for two years. Ask it a question, get an answer, then go do the work yourself. Useful, but it never touched anything.</p>
 <p>Odoo 20 crosses the line the others have been dancing around. The agent can now write. Tell it to create the purchase orders for everything below reorder point and it does it. Hand it a PDF with your month-end checklist and it works through it. Put it inside a scheduled action and it runs on its own, with your permissions deciding what it's allowed to touch.</p>
 <p>That last part is the one I'd underline twice. It doesn't get superpowers. It gets your powers. Whatever the logged-in user is allowed to do, the agent can do. Whatever they're not allowed to do, it can't. That's the right design, and it's the design that makes this safe to actually turn on in a real company.</p>
-<h2>MCP: your AI tools can now talk to your ERP</h2>
+<h2 id="mcp-your-ai-tools-can-now-talk-to-your-erp">MCP: your AI tools can now talk to your ERP</h2>
 <p>The second big move is MCP, the Model Context Protocol. In plain English: Odoo 20 lets AI assistants outside of Odoo connect to your database, read it, and write to it, again within the user's existing access rights.</p>
 <p>Why should a small business owner care about a protocol? Because it means you're not locked into one vendor's AI. If your team already uses an AI assistant for other work, version 20 opens the door to letting that assistant see your inventory, your open orders, your customer records, and act on them. The ERP stops being a walled garden and starts being a participant in whatever AI setup you already run.</p>
 <p>This is the kind of thing that sounds technical and turns out to be strategic. Open beats closed at the small end of the market, every time.</p>
-<h2>The boring upgrades that actually hurt on upgrade day</h2>
+<h2 id="the-boring-upgrades-that-actually-hurt-on-upgrade-day">The boring upgrades that actually hurt on upgrade day</h2>
 <p>Nobody demos access rights on a keynote stage. But if you're upgrading from 17, 18, or 19, three quiet changes will touch your project: simplified access rights, a new way of tracking changes in the chatter, and parent accounts in the chart of accounts.</p>
 <p>These are the changes that don't show in a sales demo and absolutely show in a migration. If you run a heavily customized Odoo, budget real testing time around permissions and accounting. The features are improvements. They're just improvements that interact with everything.</p>
 <p>The rest of the release is the usual long tail, and some of it is genuinely nice. Odoo previewed an offline mode that lets users browse, create, and edit records without connectivity and sync when they're back online. For anyone with a warehouse on flaky Wi-Fi or techs in the field, that's not a feature, that's a lifestyle change, though I'd want to see the live demo before promising a customer how much works offline. The point of sale got a redesigned dashboard with live sales analytics and a drag-and-drop catalog mode. Manufacturing, inventory, and purchasing all got their annual round of refinements.</p>
-<h2>What this does to the small-business ERP landscape</h2>
+<h2 id="what-this-does-to-the-small-business-erp-landscape">What this does to the small-business ERP landscape</h2>
 <p>Here's the part I'd pay attention to if I were shopping for ERP right now.</p>
 <p>For years the pitch from the big enterprise systems has been: the software is expensive, the AI is an expensive add-on, and you'll need consultants to wire it together. Odoo just shipped agentic AI, the kind that does multi-step work on its own, inside the core product, at the pricing a 20-person company can actually pay.</p>
 <p>That compresses the moat. The thing the giants were going to sell you as a premium module in 2028 is sitting in Odoo 20 today. It doesn't mean Odoo beats every enterprise system at every job. A multinational running 40 subsidiaries still has reasons to look at the big names, and SAP Business One still earns its place where a company wants the SAP ecosystem with tighter guardrails. But the AI bar just moved for everybody. Every ERP demo you sit through from here on out, the first question is: "does your AI do the work, or just talk about it?"</p>
 <p>The second landscape shift is subtler. Odoo's open-source model plus MCP means the ecosystem, not just the vendor, gets to build on this. Partners and developers can connect their own tools and agents to Odoo data. That's how a platform built for small companies stays ahead of platforms built for big ones: a thousand builders instead of one roadmap.</p>
-<h2>The honest cautions</h2>
+<h2 id="the-honest-cautions">The honest cautions</h2>
 <p>I'd be a bad advisor if I stopped at the excitement. Three things to keep straight.</p>
 <p>First, write access means governance. An AI that can create records can create wrong records, fast, at 2 AM, inside a scheduled action. Before you turn agents loose, decide which records they may touch, which actions need a human approval, and how you review what they did. Odoo kept your permission model intact, which is the foundation. You still have to build the house on it. Start with one narrow process, measure accuracy and time saved, then expand.</p>
 <p>Second, don't upgrade on day one. This is true of every major ERP release ever. Let the first stable patches land. Let the third-party modules and integrations catch up. If you're on 18 or 19 with light customization, partners are estimating a four-to-eight-week upgrade project once the dust settles. If you're three versions back on heavy custom code, this release is your reason to plan the migration, not to rush it.</p>
 <p>Third, the AI doesn't fix a messy process. It accelerates it. If your item masters are a disaster and nobody follows the purchasing workflow, an agent will now execute your chaos at machine speed. Clean the process, then automate it. That order has never changed.</p>
-<h2>What to do Monday morning</h2>
+<h2 id="what-to-do-monday-morning">What to do Monday morning</h2>
 <p>If you're already on Odoo: nothing urgent. Read the release notes for the apps you actually use, talk to your partner about an upgrade window after the first patches, and pick one repetitive process you'd hand to an agent first. You'll want that answer ready when the upgrade conversation happens.</p>
 <p>If you're shopping for ERP: add one question to every demo, for every vendor. "Show me the AI doing something, not describing something." Odoo 20 just set that as the standard. Make everyone else meet it.</p>
 <p>If you're on a legacy system paying a legacy surcharge to stay there: this is the release that makes waiting expensive. Every version you sit still, the gap gets wider and the eventual project gets bigger.</p>

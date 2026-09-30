@@ -12,7 +12,6 @@
   <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
   <meta name="description" content="A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser" />
   <meta property="og:description" content="A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
@@ -74,6 +73,11 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
@@ -204,12 +208,13 @@
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Before any ERP go-live, test data sync, user permissions, and edge cases with real data and real users. The failures that hurt most are rarely the big features. They are the small checks nobody ran. Budget a focused few days for this, not a few hours, and go-live day will be boring — which is exactly the goal.</p>
         </aside>
-        <div class="post-body prose">
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#why-go-lives-go-sideways">Why go-lives go sideways</a></li><li><a href="#the-5-tests">The 5 tests</a></li><li><a href="#what-to-do-when-a-test-fails">What to do when a test fails</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+<div class="post-body prose">
 
-<h2>Why go-lives go sideways</h2>
+<h2 id="why-go-lives-go-sideways">Why go-lives go sideways</h2>
 <p>I have watched enough go-lives to know the pattern. The big demo went great. The training sessions went fine. Everybody signed off. Then Monday morning hits, the first real order comes in, and something small breaks — a tax code that did not carry over, a warehouse user who cannot post a receipt, a report the controller needs that nobody built. None of these are hard problems. Every one of them was catchable. They just never got tested because the testing plan covered the happy path and stopped there.</p>
 <p>The happy path always works. It worked in the demo, it worked in training, and it will work on go-live day. Your business does not run on the happy path. It runs on the messy middle: the partial shipments, the credit memos, the rush orders, the user who does things in a slightly different order than the manual says. That is what you test.</p>
-<h2>The 5 tests</h2>
+<h2 id="the-5-tests">The 5 tests</h2>
 <p><strong>1. Data sync.</strong> Confirm your old system's data lands correctly in the new one: customer records, invoice numbers, open balances, item masters. Run it with real data, not a tidy sample. Real data has the duplicates, typos, and odd characters that break imports, and you want to meet them now.</p>
 <p>This is the test teams skip most often, because the migration already "worked" once during the build. But the build migration ran months ago on a snapshot. Since then, the business kept running on the old system — new customers, new items, new open orders. The delta is where the surprises live. Run a fresh full load into a test company a week before go-live and reconcile it: total open AR in the old system versus the new, total open AP, inventory valuation by warehouse. If the numbers do not tie to the penny, you do not go live. Full stop.</p>
 <p><strong>2. User permissions.</strong> Log in as each role and try to do the job. Sales should not see payroll. Warehouse should not edit pricing. Permission screens always look right until you test them as the actual user.</p>
@@ -223,10 +228,10 @@
 <p><strong>5. One real user's full day.</strong> Sit with an actual user and watch them work start to finish. You will find the confusing screens, the five-click tasks that should take one, and the reports nobody can find. No manual covers this.</p>
 <p>Pick the person who will live in the system the most — usually someone in order entry, purchasing, or the warehouse — and shadow them for a full day in the test environment running real scenarios. Do not guide them. Do not explain. Just watch and take notes every time they hesitate, click the wrong thing, or ask "where do I find...?" Every hesitation is a training gap or a design problem, and every one of them becomes a support ticket on day two if you do not fix it now.</p>
 <p>This test also catches the missing-reports problem. Every implementation has a moment where someone asks for a report that was never in scope: the open-orders-by-sales-rep summary the owner looks at every morning, the margin-by-customer view the sales manager built in Excel for years. Find these before go-live, not after. Building a report in week one is a minor task. Discovering the business cannot operate without it on day two is a crisis.</p>
-<h2>What to do when a test fails</h2>
+<h2 id="what-to-do-when-a-test-fails">What to do when a test fails</h2>
 <p>A failed test before go-live is a gift. It is the system telling you exactly where it will break, on your schedule, with no customers watching. The wrong response is to argue the test was unrealistic. If a real user doing a real task hit it in testing, a real user will hit it in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img3.jpg" alt="Rocket launching into the sky representing a new system go-live" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
 <p>And set the expectation with leadership now: the first week will surface things no test caught. That is normal. What is not normal is discovering them with no plan. Keep the partner on standby for the first two weeks, keep a daily fifteen-minute triage call on the calendar, and keep a single list where every issue goes. Most of them will be training. A few will be real. You will sort them out fast if you are looking.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>What is the biggest mistake teams make?</h3>
 <p>Testing with clean sample data instead of messy real data. Production data is where the surprises live. The second biggest mistake is letting the partner's sign-off substitute for your own testing — their checklist gets you live, yours keeps you healthy.</p>
 <h3>How long should testing take?</h3>

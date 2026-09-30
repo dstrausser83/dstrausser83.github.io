@@ -360,6 +360,34 @@ def related_posts_html(slug):
             + "".join(cards) + "</div></section>")
 
 
+def add_heading_ids_and_toc(body_html, min_headings=3):
+    """Lane D 2026-09-30: id-anchor every article h2 and build a jump-link
+    TOC nav. Returns (new_body_html, toc_html); toc is empty when the
+    article has fewer than min_headings h2s."""
+    seen = {}
+    items = []
+
+    def repl(m):
+        inner = m.group(1)
+        text = re.sub(r"<[^>]+>", "", inner).strip()
+        base = slugify(text) or "section"
+        n = seen.get(base, 0) + 1
+        seen[base] = n
+        hid = base if n == 1 else f"{base}-{n}"
+        items.append((hid, text))
+        return f'<h2 id="{hid}">{inner}</h2>'
+
+    new_body = re.sub(r"<h2>(.*?)</h2>", repl, body_html, flags=re.S)
+    if len(items) < min_headings:
+        return new_body, ""
+    lis = "".join(f'<li><a href="#{hid}">{html_escape(t)}</a></li>'
+                  for hid, t in items)
+    toc = ('<nav class="post-toc" aria-label="Table of contents">'
+           '<p class="post-toc-title">On this page</p>'
+           f"<ul>{lis}</ul></nav>")
+    return new_body, toc
+
+
 def shop_block_html():
     """Store promo under the post CTA (David 2026-09-26): random product from
     products.json + view-all link. Random per page load via JS."""
@@ -427,7 +455,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <title>{title} — David Strausser</title>
   <meta name="description" content="{description}" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/{slug}.html" />
-  <meta property="og:url" content="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{title} — David Strausser" />
   <meta property="og:description" content="{description}" />
@@ -476,6 +503,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }}
     .back-link {{ display: inline-block; margin-bottom: 1.5rem; }}
+    .post-toc {{ background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }}
+    .post-toc-title {{ font-weight: 700; margin: 0 0 0.5rem; }}
+    .post-toc ul {{ margin: 0; padding-left: 1.25rem; columns: 2; }}
+    .post-toc li {{ margin: 0.25rem 0; font-size: 0.92rem; }}
+    @media (max-width: 640px) {{ .post-toc ul {{ columns: 1; }} }}
     .post-share {{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }}
     .post-share-label {{ font-weight: 700; margin-right: 0.4rem; }}
     .post-share a, .post-share button {{ display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }}
@@ -543,6 +575,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <a class="back-link" href="../index.html">&larr; All posts</a>
         {hero}
         {summary}
+        {toc}
         <div class="post-body prose">
 {body}
         </div>
@@ -752,6 +785,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
     # pull it out of the body so it never renders twice.
     body, qa_md = extract_quick_answer(body)
     body_html = insert_inline_images(md_to_html(body, slug), inline_images)
+    body_html, toc = add_heading_ids_and_toc(body_html)
     if qa_md:
         summary_inner = quick_answer_html(qa_md, slug)
     else:  # fallback: frontmatter summary > excerpt
@@ -770,6 +804,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         cta=cta_html(slug, cta_name, cta_custom), author_box=author_box_html(), cta_css=CTA_CSS,
         shop_block=shop_block_html(), shop_css=SHOP_CSS,
         share_row=share_row_html(slug, title), related=related_posts_html(slug),
+        toc=toc,
     )
     # Resolve shared-nav active tokens: generated posts are always blog pages.
     html = re.sub(r"%%A_blog%%", "active", html)
