@@ -1,5 +1,24 @@
 [
   {
+    "slug": "sap-business-one-version-11-browser-erp-roadmap",
+    "title": "SAP Business One Version 11 Is Coming in 2027: Your Browser Is the ERP Now",
+    "date": "2026-09-30",
+    "published_at": "2026-09-30T18:33:19Z",
+    "tags": [
+      "erp",
+      "sap",
+      "sap business one",
+      "web client",
+      "version 11"
+    ],
+    "excerpt": "SAP's public roadmap puts Version 11 in 2027, and every release between now and then is web-client-first. What the roadmap actually says, the under-the-radar features proving the browser already won, and the five things to do before 2027.",
+    "description": "SAP Business One Version 11 arrives in 2027 per SAP's public roadmap. David Strausser decodes what it means for SMB owners: the web client is the product now, the desktop client gets compliance, and the five moves to make before 2027.",
+    "image": "images/sap-business-one-version-11-browser-erp-roadmap.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-version-11-browser-erp-roadmap.html",
+    "reading_time": 9
+  },
+  {
     "slug": "open-source-erp-and-the-who-do-i-call-at-2-am-question",
     "title": "Open-Source ERP: Who Do I Call at 2 AM?",
     "date": "2026-09-30",

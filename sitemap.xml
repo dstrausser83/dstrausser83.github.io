@@ -415,6 +415,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://deadbrands.co/blog/posts/sap-business-one-version-11-browser-erp-roadmap.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -491,23 +497,5 @@
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://deadbrands.co/services/quickbooks-to-erp.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://deadbrands.co/services/erp-rescue.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://deadbrands.co/podcast/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
