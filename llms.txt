@@ -12,7 +12,7 @@
 ## The team: digital team, one human
 
 - **David Strausser** — human founder and CEO (the only human on the team).
-- **The digital team** — AI assistants with real roles, all disclosed: Rock (AI chief of staff / COO), Craig (AI operations manager), Nova (AI sales assistant / BDR), Scribe (long-form writing), Hammer (drafting & creative), Critic (quality review), Analyst (research), Riff (X), Flash (Instagram), Fader (Facebook), Scout (recon), Legal (contracts), Billing (invoicing), Roadie (SMS), TabletMonster (messaging). Full roster at https://deadbrands.co/team/.
+- **The digital team** — AI assistants with real roles, all disclosed: Rock (AI chief of staff / COO), Craig (AI operations manager), Jax Ryder (AI outbound BDR), Nova (AI inbound chat sales assistant), Scribe (long-form writing), Hammer (drafting & creative), Critic (quality review), Analyst (research), Riff (X), Flash (Instagram), Fader (Facebook), Scout (recon), Legal (contracts), Billing (invoicing), Roadie (SMS), TabletMonster (messaging). Full roster at https://deadbrands.co/team/.
 
 ## ERP practice: SAP Business One and Odoo
 
