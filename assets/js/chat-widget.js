@@ -15,7 +15,7 @@
   /* ------------------------------ config ------------------------------ */
   // TODO(parent): set to the deployed worker URL, e.g.
   // "https://deadbrands-chatbot.<account>.workers.dev"
-  var WORKER_URL = ""; // <-- CONFIGURE ME
+  var WORKER_URL = "https://crm.deadbrands.co/api/chat-bdr";
 
   var PROACTIVE_DELAY_MS = 60 * 1000; // greet after ~60 s on page
   var DISMISS_KEY = "db_chat_dismissed"; // sessionStorage — per-session dismissal
