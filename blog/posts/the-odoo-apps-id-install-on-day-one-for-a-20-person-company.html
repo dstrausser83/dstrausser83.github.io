@@ -63,6 +63,7 @@
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
     .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
     .back-to-top[hidden] { display: none; }
+    .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
     @media print {
       .site-header, .site-footer, .post-share, .post-related, .post-cta, .post-shop, .back-to-top, .post-toc { display: none !important; }
       body { background: #fff; color: #000; }
@@ -305,10 +306,17 @@
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
   <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+  <div class="read-progress" id="readProgress" aria-hidden="true"></div>
   <script>
   (function() {
     var b = document.getElementById("backToTop");
-    function onScroll() { b.hidden = window.scrollY < 600; }
+    var bar = document.getElementById("readProgress");
+    function onScroll() {
+      b.hidden = window.scrollY < 600;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    }
     window.addEventListener("scroll", onScroll, {passive: true});
     onScroll();
     b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
