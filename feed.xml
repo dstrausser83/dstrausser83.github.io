@@ -5,7 +5,7 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2026 14:10:04 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 14:26:47 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Open-Source ERP: Who Do I Call at 2 AM?</title>
@@ -97,18 +97,6 @@
       <category>process</category>
       <category>automation</category>
       <category>technology</category>
-    </item>
-    <item>
-      <title>The School-Pickup CEO: Running a Business on a Kid's Schedule</title>
-      <link>https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</guid>
-      <description>David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/the-school-pickup-ceo.jpg" type="image/jpeg" />
-      <category>family</category>
-      <category>dad</category>
-      <category>business</category>
-      <category>work-life balance</category>
     </item>
     <item>
       <title>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</title>
@@ -355,11 +343,11 @@
     </item>
     <item>
       <title>The Dad's Playbook for Getting More Done Before 9 AM</title>
-      <link>https://deadbrands.co/blog/posts/single-dad-playbook-productive-mornings.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/single-dad-playbook-productive-mornings.html</guid>
+      <link>https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</guid>
       <description>A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.</description>
       <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/single-dad-playbook-productive-mornings.jpg" type="image/jpeg" />
+      <enclosure url="https://deadbrands.co/blog/images/dad-playbook-productive-mornings.jpg" type="image/jpeg" />
       <category>productivity</category>
       <category>dad</category>
       <category>business-growth</category>

@@ -133,24 +133,6 @@
     "reading_time": 6
   },
   {
-    "slug": "the-school-pickup-ceo",
-    "title": "The School-Pickup CEO: Running a Business on a Kid's Schedule",
-    "date": "2026-09-28T18:05:00",
-    "published_at": "2026-09-28T19:22:42Z",
-    "tags": [
-      "family",
-      "dad",
-      "business",
-      "work-life balance"
-    ],
-    "excerpt": "My calendar has two bosses: my clients and my kids' school schedule. Guess which one never accepts a reschedule. What being a dad taught me about running a business on someone else's clock.",
-    "description": "David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.",
-    "image": "images/the-school-pickup-ceo.jpg",
-    "video": "",
-    "url": "posts/the-school-pickup-ceo.html",
-    "reading_time": 6
-  },
-  {
     "slug": "sap-business-one-for-companies-that-think-sap-is-only-for-gi",
     "title": "SAP Business One: Why Your Startup Doesn\u2019t Need a Giant to Use It",
     "date": "2026-09-28",
@@ -167,7 +149,7 @@
     "image": "images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg",
     "video": "",
     "url": "posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html",
-    "reading_time": 1
+    "reading_time": 3
   },
   {
     "slug": "odoo-20-ai-that-does-the-work-not-just-the-talking",
@@ -186,7 +168,7 @@
     "image": "images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg",
     "video": "",
     "url": "posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html",
-    "reading_time": 6
+    "reading_time": 7
   },
   {
     "slug": "what-playing-guitar-taught-me-about-patience-that-bus",
@@ -514,7 +496,7 @@
     "reading_time": 6
   },
   {
-    "slug": "single-dad-playbook-productive-mornings",
+    "slug": "dad-playbook-productive-mornings",
     "title": "The Dad's Playbook for Getting More Done Before 9 AM",
     "date": "2026-09-22",
     "published_at": "2026-09-22T17:12:51Z",
@@ -525,9 +507,9 @@
     ],
     "excerpt": "Dad, CEO, podcaster, guitarist \u2014 here's the actual morning system that lets me run a business and be present for my kid.",
     "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
-    "image": "images/single-dad-playbook-productive-mornings.jpg",
+    "image": "images/dad-playbook-productive-mornings.jpg",
     "video": "",
-    "url": "posts/single-dad-playbook-productive-mornings.html",
+    "url": "posts/dad-playbook-productive-mornings.html",
     "reading_time": 6
   }
 ]

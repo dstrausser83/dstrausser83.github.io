@@ -12,12 +12,13 @@
   <title>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It — David Strausser</title>
   <meta name="description" content="Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It — David Strausser" />
   <meta property="og:description" content="Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" />
-  <meta property="og:image:width" content="2048" />
-  <meta property="og:image:height" content="1152" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It — David Strausser" />
   <meta name="twitter:description" content="Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it’s not a giant’s toy." />
@@ -61,6 +62,7 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
     .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
     .back-to-top[hidden] { display: none; }
     .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
@@ -71,6 +73,11 @@
       a { color: #000; }
       a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
     }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
     .post-share-label { font-weight: 700; margin-right: 0.4rem; }
     .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
@@ -83,19 +90,13 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
-    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
-    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
-    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
-    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
-    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
-    .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
     .post-cta h2 { margin-top: 0; }
     .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
     .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
     .cta-btn:hover { filter: brightness(1.1); }
-    /* Author box: red sharpie marker border (David 2026-09-30 - hand-drawn
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
        marker look; keep in build script so regenerations carry it). */
     .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
     .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
@@ -136,6 +137,7 @@
   "image": "https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg"
 }
 </script>
+  
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -148,7 +150,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About Us</a>
+        <a href="/about.html" class="">About</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -174,7 +176,9 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
   </header>
@@ -182,7 +186,7 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" alt="Small bakery owner in an apron holding a tablet with sales charts, surrounded by fresh bread on wooden shelves" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</h1><p class="post-meta">September 28, 2026 at 2:52 PM ET &middot; 1 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" alt="Small bakery owner in an apron holding a tablet with sales charts, surrounded by fresh bread on wooden shelves" width="1280" height="720" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One: Why Your Startup Doesn’t Need a Giant to Use It</h1><p class="post-meta">September 28, 2026 at 2:52 PM ET &middot; 3 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>SAP Business One works for small and medium businesses. It’s built for your coffee shop, bakery, or consulting firm. You don’t need a team of 100 to implement it. And it’s cheaper than most enterprise systems for your scale.</p>
@@ -202,11 +206,12 @@
 <p>### Can I use SAP Business One without a big team?</p>
 <p>Yes. The interface is straightforward for small teams. You don’t need a team of 100 to manage it.</p>
         </aside>
+        
         <div class="post-body prose">
-
+<figure class="post-inline"><img src="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi-img2.jpg" alt="Small bakery storefront glowing at golden hour with a subtle digital dashboard glow reflected in the windows" width="1280" height="720" loading="lazy" /></figure><figure class="post-inline"><img src="../images/sap-business-one-for-companies-that-think-sap-is-only-for-gi-img3.jpg" alt="A small thriving potted plant on a desk with blurred glass skyscrapers behind, the small growing beside the giants" width="1280" height="853" loading="lazy" /></figure>
         </div>
         <p class="post-tags"><span>sap</span> <span>business-one</span> <span>small-business</span> <span>software</span> <span>implementation</span></p>
-<div class="post-share">
+        <div class="post-share">
           <span class="post-share-label">Share this post</span>
           <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-for-companies-that-think-sap-is-only-for-gi.html&text=SAP%20Business%20One%3A%20Why%20Your%20Startup%20Doesn%E2%80%99t%20Need%20a%20Giant%20to%20Use%20It" target="_blank" rel="noopener">X</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-for-companies-that-think-sap-is-only-for-gi.html" target="_blank" rel="noopener">Facebook</a>
@@ -272,7 +277,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
-<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="your-implementation-partner-is-lying-about-the-timeline-here.html"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" alt="" loading="lazy" /><span class="rel-card-title">Your implementation partner is lying about the timeline — here's the real math — David Strausser</span></a><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a></div></section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="your-implementation-partner-is-lying-about-the-timeline-here.html"><img src="../images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" alt="" loading="lazy" /><span class="rel-card-title">Your implementation partner is lying about the timeline — here's the real math — David Strausser</span></a><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a></div></section>
       </div>
     </article>
   </main>

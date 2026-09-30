@@ -64,8 +64,18 @@ for fn in sorted(os.listdir(os.path.join(ROOT, "case-studies"))):
         PAGES.append(
             (os.path.join("case-studies", fn), f"/case-studies/{fn}", "monthly", "0.8")
         )
+def _is_noindex(path):
+    """True if an HTML file opts out of indexing (e.g. redirect stubs)."""
+    try:
+        with open(path, encoding="utf-8", errors="ignore") as f:
+            head = f.read(4096)
+        return 'content="noindex"' in head
+    except OSError:
+        return False
+
+
 for fn in sorted(os.listdir(os.path.join(ROOT, "blog", "posts"))):
-    if fn.endswith(".html"):
+    if fn.endswith(".html") and not _is_noindex(os.path.join(ROOT, "blog", "posts", fn)):
         PAGES.append(
             (os.path.join("blog", "posts", fn), f"/blog/posts/{fn}", "monthly", "0.8")
         )
