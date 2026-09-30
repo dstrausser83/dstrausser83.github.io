@@ -85,7 +85,7 @@
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="">Blog</a>
         <a href="/team/" class="">Team</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
+        <a href="/contact.html" class="nav-cta">Work With Us</a>
       </nav>
     </div>
   </header>
@@ -259,6 +259,9 @@
             ships like a big one.</p>
           </div>
         </div>
+        <p class="reveal" style="text-align:center; margin-top:1.5rem">
+          <a href="/team/">Meet the whole digital team &rarr;</a>
+        </p>
 
         <h2 class="reveal" style="margin-top:3rem">The founder&rsquo;s road here</h2>
         <div class="prose">
@@ -320,5 +323,31 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/consent.js" defer></script>
   <script src="/assets/js/chat-widget.js" defer></script>
+  <div class="popup-overlay" id="mailing-popup" hidden>
+    <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <button class="popup-close" id="popup-close" aria-label="Close popup">&times;</button>
+      <p class="eyebrow">Dead Brands mailing list</p>
+      <h2 id="popup-title">Get the loud stuff first.</h2>
+      <p class="popup-sub">New posts, drops, and things worth your inbox. No spam, ever.</p>
+      <form id="popup-form" novalidate>
+        <div class="popup-row">
+          <label>First name
+            <input type="text" name="firstName" autocomplete="given-name" required maxlength="80">
+          </label>
+          <label>Last name
+            <input type="text" name="lastName" autocomplete="family-name" required maxlength="80">
+          </label>
+        </div>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required maxlength="160" placeholder="you@example.com">
+        </label>
+        <button type="submit" class="btn btn-primary popup-submit">Join the list</button>
+        <p class="popup-status" id="popup-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="popup-fine">We never sell your info. Unsubscribe anytime.</p>
+    </div>
+  </div>
+
+  <script src="/assets/js/mailing-popup.js" defer></script>
 </body>
 </html>
