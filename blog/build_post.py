@@ -837,7 +837,8 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
              "published_at": published_at,
              "tags": tags, "excerpt": excerpt, "description": description,
              "image": image_rel or "", "video": video_rel or "",
-             "url": f"posts/{slug}.html"}
+             "url": f"posts/{slug}.html",
+             "reading_time": read_mins}
     posts = []
     if os.path.exists(INDEX_JSON):
         with open(INDEX_JSON, encoding="utf-8") as f:

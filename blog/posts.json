@@ -15,7 +15,8 @@
     "description": "Open-source ERP\u2019s 2 AM crisis: Why Odoo\u2019s community support beats paid vendors. Real lessons from a business pro who\u2019s been there.",
     "image": "images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg",
     "video": "",
-    "url": "posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html"
+    "url": "posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html",
+    "reading_time": 3
   },
   {
     "slug": "rock-star-dad-guitar-cable-company-sales",
@@ -33,7 +34,8 @@
     "description": "David Strausser on Chromaleaf: discovered at NAMM around 2016, got custom cables built to shred like Joe Perry, then sold them SAP Business One. His ERP world and music world in one story.",
     "image": "images/rock-star-dad-guitar-cable-company-sales.jpg",
     "video": "",
-    "url": "posts/rock-star-dad-guitar-cable-company-sales.html"
+    "url": "posts/rock-star-dad-guitar-cable-company-sales.html",
+    "reading_time": 8
   },
   {
     "slug": "when-sap-business-one-is-overkill-and-what-to-buy-instead",
@@ -51,7 +53,8 @@
     "description": "SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype.",
     "image": "images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg",
     "video": "",
-    "url": "posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html"
+    "url": "posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html",
+    "reading_time": 6
   },
   {
     "slug": "the-5-hour-friday-automating-the-weekly-report-nobody-likes",
@@ -69,7 +72,8 @@
     "description": "How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters.",
     "image": "images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg",
     "video": "",
-    "url": "posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html"
+    "url": "posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html",
+    "reading_time": 7
   },
   {
     "slug": "sap-business-one-10-fp-2608-ai-web-client",
@@ -87,7 +91,8 @@
     "description": "SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver.",
     "image": "images/sap-business-one-10-fp-2608-ai-web-client.jpg",
     "video": "",
-    "url": "posts/sap-business-one-10-fp-2608-ai-web-client.html"
+    "url": "posts/sap-business-one-10-fp-2608-ai-web-client.html",
+    "reading_time": 5
   },
   {
     "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
@@ -105,7 +110,8 @@
     "description": "The exact Odoo apps I'd install on day one for a 20-person company, in priority order. No bloat, no upsell, just what works.",
     "image": "images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg",
     "video": "",
-    "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"
+    "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html",
+    "reading_time": 6
   },
   {
     "slug": "ai-wont-fix-a-broken-process-itll-just-break-it-faster",
@@ -123,7 +129,8 @@
     "description": "Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.",
     "image": "images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg",
     "video": "",
-    "url": "posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html"
+    "url": "posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html",
+    "reading_time": 6
   },
   {
     "slug": "the-school-pickup-ceo",
@@ -140,7 +147,8 @@
     "description": "David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.",
     "image": "images/the-school-pickup-ceo.jpg",
     "video": "",
-    "url": "posts/the-school-pickup-ceo.html"
+    "url": "posts/the-school-pickup-ceo.html",
+    "reading_time": 6
   },
   {
     "slug": "sap-business-one-for-companies-that-think-sap-is-only-for-gi",
@@ -158,7 +166,8 @@
     "description": "Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it\u2019s not a giant\u2019s toy.",
     "image": "images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg",
     "video": "",
-    "url": "posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html"
+    "url": "posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html",
+    "reading_time": 1
   },
   {
     "slug": "odoo-20-ai-that-does-the-work-not-just-the-talking",
@@ -176,7 +185,8 @@
     "description": "Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.",
     "image": "images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg",
     "video": "",
-    "url": "posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html"
+    "url": "posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html",
+    "reading_time": 6
   },
   {
     "slug": "what-playing-guitar-taught-me-about-patience-that-bus",
@@ -193,7 +203,8 @@
     "description": "David Strausser on the patience lessons from playing guitar that business never taught him. A Sunday reflection.",
     "image": "images/what-playing-guitar-taught-me-about-patience-that-bus.jpg",
     "video": "",
-    "url": "posts/what-playing-guitar-taught-me-about-patience-that-bus.html"
+    "url": "posts/what-playing-guitar-taught-me-about-patience-that-bus.html",
+    "reading_time": 5
   },
   {
     "slug": "the-first-ai-hire-what-to-automate-before-you-hire-your-next",
@@ -211,7 +222,8 @@
     "description": "Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.",
     "image": "images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg",
     "video": "",
-    "url": "posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html"
+    "url": "posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html",
+    "reading_time": 5
   },
   {
     "slug": "odoo-studio-when-clicking-together-an-app-beats-writing-code",
@@ -229,7 +241,8 @@
     "description": "Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.",
     "image": "images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg",
     "video": "",
-    "url": "posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html"
+    "url": "posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html",
+    "reading_time": 5
   },
   {
     "slug": "odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m",
@@ -246,7 +259,8 @@
     "description": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
     "image": "images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg",
     "video": "",
-    "url": "posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html"
+    "url": "posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html",
+    "reading_time": 7
   },
   {
     "slug": "what-i-learned-auditing-50-messy-quickbooks-files-before-erp",
@@ -263,7 +277,8 @@
     "description": "Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.",
     "image": "images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg",
     "video": "",
-    "url": "posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html"
+    "url": "posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html",
+    "reading_time": 7
   },
   {
     "slug": "inventory-accuracy-the-unsexy-metric-that-decides-whether-yo",
@@ -281,7 +296,8 @@
     "description": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
     "image": "images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg",
     "video": "",
-    "url": "posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html"
+    "url": "posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html",
+    "reading_time": 7
   },
   {
     "slug": "data-migration-horror-stories-and-how-to-avoid-becoming-one",
@@ -299,7 +315,8 @@
     "description": "ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.",
     "image": "images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg",
     "video": "",
-    "url": "posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html"
+    "url": "posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html",
+    "reading_time": 6
   },
   {
     "slug": "customization-vs-configuration-the-line-that-quietly-kills-e",
@@ -317,7 +334,8 @@
     "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.",
     "image": "images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg",
     "video": "",
-    "url": "posts/customization-vs-configuration-the-line-that-quietly-kills-e.html"
+    "url": "posts/customization-vs-configuration-the-line-that-quietly-kills-e.html",
+    "reading_time": 6
   },
   {
     "slug": "the-90-day-erp-adoption-plan-getting-your-team-to-actually-u",
@@ -335,7 +353,8 @@
     "description": "How to avoid ERP chaos in 90 days: practical steps to get your team actually using the system, with no jargon and no empty promises.",
     "image": "images/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.jpg",
     "video": "",
-    "url": "posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html"
+    "url": "posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html",
+    "reading_time": 7
   },
   {
     "slug": "why-the-cheapest-erp-quote-is-always-the-most-expensive-one",
@@ -353,7 +372,8 @@
     "description": "Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price.",
     "image": "images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg",
     "video": "",
-    "url": "posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html"
+    "url": "posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html",
+    "reading_time": 7
   },
   {
     "slug": "your-implementation-partner-is-lying-about-the-timeline-here",
@@ -371,7 +391,8 @@
     "description": "Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.",
     "image": "images/your-implementation-partner-is-lying-about-the-timeline-here.jpg",
     "video": "",
-    "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html"
+    "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html",
+    "reading_time": 7
   },
   {
     "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
@@ -389,7 +410,8 @@
     "description": "A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
     "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
     "video": "",
-    "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html"
+    "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html",
+    "reading_time": 7
   },
   {
     "slug": "welcome-to-the-blog-tips-tricks-and-straight-talk",
@@ -404,7 +426,8 @@
     "description": "Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.",
     "image": "images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg",
     "video": "",
-    "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html"
+    "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html",
+    "reading_time": 5
   },
   {
     "slug": "what-playing-guitar-taught-me-about-business",
@@ -420,7 +443,8 @@
     "description": "Lessons from decades of playing guitar applied to business: deliberate practice, timing, listening before soloing, and playing with people better than you.",
     "image": "images/what-playing-guitar-taught-me-about-business.jpg",
     "video": "",
-    "url": "posts/what-playing-guitar-taught-me-about-business.html"
+    "url": "posts/what-playing-guitar-taught-me-about-business.html",
+    "reading_time": 7
   },
   {
     "slug": "odoo-implementation-7-things-nobody-tells-you",
@@ -436,7 +460,8 @@
     "description": "Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.",
     "image": "images/odoo-implementation-7-things-nobody-tells-you.jpg",
     "video": "",
-    "url": "posts/odoo-implementation-7-things-nobody-tells-you.html"
+    "url": "posts/odoo-implementation-7-things-nobody-tells-you.html",
+    "reading_time": 7
   },
   {
     "slug": "stop-paying-for-12-apps-odoo-replaces-them",
@@ -452,7 +477,8 @@
     "description": "How consolidating a dozen disconnected SaaS subscriptions into Odoo cuts costs, kills double data entry, and gives you one version of the truth.",
     "image": "images/stop-paying-for-12-apps-odoo-replaces-them.jpg",
     "video": "",
-    "url": "posts/stop-paying-for-12-apps-odoo-replaces-them.html"
+    "url": "posts/stop-paying-for-12-apps-odoo-replaces-them.html",
+    "reading_time": 7
   },
   {
     "slug": "5-signs-youve-outgrown-quickbooks",
@@ -468,7 +494,8 @@
     "description": "Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.",
     "image": "images/5-signs-youve-outgrown-quickbooks.jpg",
     "video": "",
-    "url": "posts/5-signs-youve-outgrown-quickbooks.html"
+    "url": "posts/5-signs-youve-outgrown-quickbooks.html",
+    "reading_time": 7
   },
   {
     "slug": "sap-business-one-add-ons-worth-the-money",
@@ -483,7 +510,8 @@
     "description": "A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on.",
     "image": "images/sap-business-one-add-ons-worth-the-money.jpg",
     "video": "",
-    "url": "posts/sap-business-one-add-ons-worth-the-money.html"
+    "url": "posts/sap-business-one-add-ons-worth-the-money.html",
+    "reading_time": 6
   },
   {
     "slug": "single-dad-playbook-productive-mornings",
@@ -499,6 +527,7 @@
     "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
     "image": "images/single-dad-playbook-productive-mornings.jpg",
     "video": "",
-    "url": "posts/single-dad-playbook-productive-mornings.html"
+    "url": "posts/single-dad-playbook-productive-mornings.html",
+    "reading_time": 6
   }
 ]
