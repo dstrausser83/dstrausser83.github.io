@@ -10,17 +10,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open-Source ERP: Who Do I Call at 2 AM? — David Strausser</title>
-  <meta name="description" content="Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there." />
+  <meta name="description" content="Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Open-Source ERP: Who Do I Call at 2 AM? — David Strausser" />
-  <meta property="og:description" content="Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there." />
+  <meta property="og:description" content="Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" />
   <meta property="og:image:width" content="1280" />
-  <meta property="og:image:height" content="720" />
+  <meta property="og:image:height" content="853" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Open-Source ERP: Who Do I Call at 2 AM? — David Strausser" />
-  <meta name="twitter:description" content="Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there." />
+  <meta name="twitter:description" content="Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
@@ -61,11 +62,6 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
-    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
-    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
-    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
-    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
-    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .back-link { display: inline-block; margin-bottom: 1.5rem; }
     .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
     .back-to-top[hidden] { display: none; }
@@ -77,6 +73,11 @@
       a { color: #000; }
       a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
     }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
     .post-share-label { font-weight: 700; margin-right: 0.4rem; }
     .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
@@ -113,13 +114,44 @@
     .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
 
   </style>
-  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I get help at 2 AM with Odoo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check the ladder. On Community, you search the forums and GitHub issues first, then dig into your own logs and team. On Enterprise, you do the same triage, then open a support ticket with Odoo so their team is working it while you stabilize. Either way, the first thirty minutes are yours. Run the five-step checklist: app or box, disk space, log tail, Postgres, what changed today."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is open-source ERP so risky for small businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is not risky because the software is bad. It is risky because the software makes you the IT department, the support desk, and the escalation path. Small businesses usually have none of those as a formal function, so the owner becomes all three at 2 AM. The fix is not avoiding open source. The fix is matching the edition to the team: Community if you have technical people, Enterprise if you want the vendor in your corner, a partner-supported product like SAP Business One if you want a phone number to call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the real difference between Odoo and SAP Business One in a crisis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Who is contractually obligated to care. With Odoo Community, nobody. With Odoo Enterprise, Odoo's support team via tickets. With SAP Business One, your implementation partner, with escalation to SAP behind them. Price and features matter the other 364 days. In a crisis, the only feature that matters is a human who has to pick up."
+      }
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Open-Source ERP: Who Do I Call at 2 AM?",
-  "description": "Open-source ERP\u2019s 2 AM crisis: Why Odoo\u2019s community support beats paid vendors. Real lessons from a business pro who\u2019s been there.",
+  "description": "Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight.",
   "datePublished": "2026-09-30T11:41:08Z",
   "author": {
     "@type": "Person",
@@ -132,10 +164,11 @@
     "name": "Dead Brands, LLC"
   },
   "mainEntityOfPage": "https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html",
-  "keywords": "open-source-erp, odoo, it-support, 2am-crisis, erp",
+  "keywords": "open-source-erp, odoo, it-support, erp-support, sme",
   "image": "https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg"
 }
 </script>
+  
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -184,30 +217,51 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" alt="Dark room with a glowing laptop screen showing terminal commands, server racks in the background, mood: tense but technical" width="1280" height="720" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Open-Source ERP: Who Do I Call at 2 AM?</h1><p class="post-meta">September 30, 2026 at 7:41 AM ET &middot; 3 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" alt="Dark server room at 2 AM with a lone glowing laptop on a cart between rows of server racks" width="1280" height="853" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Open-Source ERP: Who Do I Call at 2 AM?</h1><p class="post-meta">September 30, 2026 at 7:41 AM ET &middot; 8 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
-          <p>For Odoo users: You call the community forums, GitHub, and your own team. For SAP Business One: You call a dedicated support team. The trade-off? Open-source gives you control but costs you peace of mind.</p>
-<p>Open-source ERP isn’t a bad idea. It’s just not for everyone. Most businesses want to avoid the 2 AM panic. They think, “I can buy a package and get support.” But that’s a myth. The reality is, when the lights go out, you’re responsible for the fix.</p>
-<p>Odoo’s community support is great for small teams with technical skills. But when you’re in the middle of the night, and the server is down, you’re on your own. The difference between Odoo and SAP Business One isn’t just price—it’s who you call when the server screams.</p>
-<p>SAP Business One has a 24/7 support team. They’ll answer your call at 2 AM. Odoo doesn’t. You have to figure it out yourself. That’s the trade-off. You get to control your code, but you lose the peace of mind.</p>
-<p>I’ve seen small businesses go from “we’re safe” to “we’re in crisis” because they didn’t prepare for the 2 AM scenario. They bought a package, thought it was easy, and then the lights went out.</p>
-<p>Here’s what you need to know: Open-source ERP works best when you have a strong team and the skills to handle the issues. If you don’t, you might end up in the same situation as me last Tuesday.</p>
-<p>### How do I get help at 2 AM with Odoo?</p>
-<p>When your Odoo instance crashes at 2 AM, you don’t call a support team. You check the community forums first. If the problem’s been solved before, you find the solution. If not, you open a GitHub issue. That’s the path. The community is active, but it’s not 24/7. You have to be ready to troubleshoot.</p>
-<p>### Why is open-source ERP so risky for small businesses?</p>
-<p>Small businesses often think open-source ERP is cheap and easy. But it’s not. The risk is that you become responsible for the server, the code, and the support. If the server crashes, you fix it. If the code breaks, you fix it. That’s the cost of open-source. If you don’t have the skills, you’ll get stuck.</p>
-<p>### What’s the difference between Od and SAP Business One in real crises?</p>
-<p>In a real crisis, SAP Business One has a dedicated support team. They’ll answer your call at 2 AM. Odoo doesn’t. You have to figure it out yourself. The difference is in who you call when the lights go out.</p>
-<p>The truth is, open-source ERP is great for teams that know what they’re doing. It’s not for everyone. If you’re a small business without technical skills, you might want to consider a paid ERP. But if you’re tech-savvy, you’ll appreciate the control.</p>
-<p>So, here’s the takeaway: Open-source ERP gives you control but costs you peace of mind. When the server screams at 2 AM, you’re on your own. That’s the trade-off.</p>
-<p>---</p>
+          <p>It depends on which Odoo you run. Odoo Community: you call nobody, because nobody is coming. You check the forums, GitHub, and your own team, in that order. Odoo Enterprise: you open a support ticket with Odoo, which gets you real help, but not a 2 AM phone call. SAP Business One: you call your partner, and they escalate to SAP if it is bigger than them. The trade is not free versus paid. The trade is control versus a safety net, and you need to pick yours before the lights go out, not during.</p>
         </aside>
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#the-2-am-triage-playbook-what-you-actually-check-first">The 2 AM triage playbook: what you actually check first</a></li><li><a href="#the-honest-cost-math-of-free">The honest cost math of "free"</a></li><li><a href="#community-vs-enterprise-vs-business-one-the-support-ladder-d">Community vs. Enterprise vs. Business One: the support ladder, drawn straight</a></li><li><a href="#the-night-i-learned-this-the-hard-way">The night I learned this the hard way</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
         <div class="post-body prose">
-<p>Last Tuesday at 2:17 AM, my server crashed. Not a server crash—my Odoo instance. The one that’s supposed to run my inventory, orders, and payroll. The one that’s supposed to be stable. Instead, it was screaming.</p>
-<p>I spent the next two hours staring at the terminal, trying to figure out who to call. The answer? You don’t call anyone. The community forums are full of people who’ve been there before. GitHub has the code. Your team has the keys. That’s open-source ERP.</p><figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img2.jpg" alt="Abstract visualization of GitHub interface with a broken link icon, mood: frustrated but technical" width="1280" height="720" loading="lazy" /></figure><figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img3.jpg" alt="Simplified server room diagram with error messages on a single monitor, mood: urgent but calm" width="1280" height="720" loading="lazy" /></figure><figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img4.jpg" alt="Abstract visualization of a server rack with a single power light blinking, mood: exhausted but resolved" width="1280" height="720" loading="lazy" /></figure>
+<p>Last Tuesday at 2:17 AM, my Odoo instance went down. Not a slowdown, not a hiccup. Down. The system that runs inventory, orders, and payroll just stopped answering, and my phone lit up like it was auditioning for a horror movie.</p>
+<p>I spent the next two hours staring at a terminal, coffee going cold, asking the question every open-source ERP owner eventually asks: who do I call?</p>
+<p>Here is the honest answer, and it is not the one the brochures give you.</p>
+<h2 id="the-2-am-triage-playbook-what-you-actually-check-first">The 2 AM triage playbook: what you actually check first</h2>
+<p>Panic is the most expensive part of an outage. The fix is usually boring. After enough of these nights, I run the same checklist every time, and I am giving it to you so you can skip the part where you learn it the hard way.</p>
+<p>First, figure out whether it is the app or the box. Can you SSH into the server? If yes, the machine is alive and your problem is the application. If no, stop troubleshooting Odoo and start troubleshooting infrastructure, because no ERP setting fixes a dead server.</p>
+<p>Second, check disk space. I am serious. A full disk has killed more Odoo instances than every bug in the codebase combined. Logs grow, backups pile up, and one night Postgres cannot write and everything falls over. One command tells you. If the disk is full, clear old logs and archived backups first, breathe later.</p>
+<p>Third, read the log tail. Odoo's server log tells you exactly what it was doing when it died, in plain language, if you bother to look. Nine times out of ten the last twenty lines name the culprit: a stuck cron job, a worker that ran out of memory, a database connection that never came back.<figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img2.jpg" alt="Close-up of a laptop keyboard lit by blue screen glow in a dark room during late-night troubleshooting" width="1280" height="853" loading="lazy" /></figure></p>
+<p>Fourth, check Postgres. Odoo is only as healthy as its database. Too many connections, a locked table from a killed job, a backup running at the worst possible moment. If the database is wedged, restarting Odoo without fixing the database just gives you a fresh crash with extra steps.</p>
+<p>Fifth, look at what changed. Deployments, updates, a new module someone installed at 5 PM and forgot to mention. The 2 AM crash is almost always the 5 PM change coming home to roost. Ask the team what shipped today before you rebuild anything.</p>
+<p>Run those five in order and you will solve most outages in under an hour. Skip them and start guessing, and you will still be awake when the sun comes up.</p>
+<h2 id="the-honest-cost-math-of-free">The honest cost math of "free"</h2>
+<p>Nobody in open source lies to you about the license. Community edition costs zero dollars, and that part is true. The lie is the one you tell yourself: that zero license cost means zero cost.</p>
+<p>Here is the real math. Community costs you your own time, and your own time at 2 AM is the most expensive labor rate in your company. Every hour you spend reading forum threads from 2019 is an hour you are not selling, not sleeping, and not doing the job you actually hired yourself to do. Multiply that by every outage, every upgrade, every weird module conflict, and "free" starts looking like a payment plan with terrible terms.</p>
+<p>Enterprise flips the equation. You pay per user per month, and in return you get Odoo's own maintenance: upgrades, bug fixes, and support tickets answered by people who wrote the code. That is real value. But be honest about what it is not. It is ticket support, not a bat phone. You file a ticket, it gets triaged, someone responds. At 2 AM, you are still the one staring at the terminal while you wait.</p>
+<p>SAP Business One sits on the other end. You are paying for the license and you are paying a partner, and that partner is your 2 AM call. A good partner answers. A great partner already saw the alert before you woke up. That safety net is a huge part of what the money buys, and pretending otherwise is how companies pick the wrong system.</p>
+<p>So the question was never "which one is free." The question is which kind of expensive you prefer: your own sleepless nights, a monthly per-user fee plus your own triage, or a partner retainer that buys you actual humans. All three are legitimate. Only one of them matches your team, and you know which.<figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img3.jpg" alt="Vintage alarm clock glowing red digits showing 2:17 on a dark desk with server lights behind" width="1280" height="853" loading="lazy" /></figure></p>
+<h2 id="community-vs-enterprise-vs-business-one-the-support-ladder-d">Community vs. Enterprise vs. Business One: the support ladder, drawn straight</h2>
+<p>Let me draw the line precisely, because this is where most articles get sloppy and ERP buyers get burned.</p>
+<p>Odoo Community: you are on your own, and that is the deal, stated upfront. The forums are genuinely good. GitHub has the code, the issues, and the history. But it is volunteers and peers, not a vendor. Nobody owes you an answer, nobody has an SLA, and "the community will help" is a hope, not a contract. If your team can read logs and ship fixes, this is freedom. If they cannot, it is a cliff.</p>
+<p>Odoo Enterprise: you get Odoo the company in your corner. Maintenance covers upgrades and fixes, and support tickets go to their team. For day-to-day breakage, this is miles better than Community. But calibrate your expectations: it is a ticketing system with queues and business processes, not a red phone on your desk. Your 2 AM outage becomes a well-managed ticket, and you are still doing triage until they pick it up.</p>
+<p>SAP Business One: support runs through your partner, full stop. You call the people who implemented you, they fix what they can, and they escalate to SAP when it is a product issue. This is the closest thing in this lineup to "someone answers at 2 AM," because a partner with your contract and your phone number has a reason to pick up. The catch is the obvious one: you are paying for that relationship, in license and in services, every year.</p>
+<p>None of these is a trick. They are three different answers to the same question, and the wrong choice is the one you made by accident.</p>
+<h2 id="the-night-i-learned-this-the-hard-way">The night I learned this the hard way</h2>
+<p>Years ago, before I knew any of this, I watched a small company live the Community cliff in real time. Server down at midnight, nobody on the team had ever read a Postgres log, and the forum thread that matched their error ended with "nvm fixed it" and no explanation. That is the open-source horror story in its natural habitat: not a bad product, just a good product with nobody contracted to care.</p>
+<p>They were back up by morning. A partner got them there, on an emergency rate, and the invoice for one night cost more than a year of the support they had decided they did not need. I have never forgotten the look on the owner's face when he did that math out loud.</p>
+<p>I tell you this not to scare you off open source. I run it, I respect it, and for the right team it is the smartest money in ERP. I tell you this so you choose your cliff deliberately. Know which rung of the ladder you are standing on before the night you need it.<figure class="post-inline"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question-img4.jpg" alt="Dawn light through blinds on a desk with closed laptop and steaming coffee after a long night" width="1280" height="720" loading="lazy" /></figure></p>
+<blockquote>Open source doesn't mean no support. It means you ARE the support.</blockquote>
+<p>Read that twice, because everything else in this post is commentary on that one sentence. If you have the team, the skills, and the stomach for 2 AM triage, Community is a superpower and you should wield it proudly. If you do not, buy the safety net that matches your honesty about yourself. There is no shame in the paid rung. The shame is in standing on the free rung, staring at a dead server, pretending you did not know the deal.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<h3>How do I get help at 2 AM with Odoo?</h3>
+<p>Check the ladder. On Community, you search the forums and GitHub issues first, then dig into your own logs and team. On Enterprise, you do the same triage, then open a support ticket with Odoo so their team is working it while you stabilize. Either way, the first thirty minutes are yours. Run the five-step checklist: app or box, disk space, log tail, Postgres, what changed today.</p>
+<h3>Why is open-source ERP so risky for small businesses?</h3>
+<p>It is not risky because the software is bad. It is risky because the software makes you the IT department, the support desk, and the escalation path. Small businesses usually have none of those as a formal function, so the owner becomes all three at 2 AM. The fix is not avoiding open source. The fix is matching the edition to the team: Community if you have technical people, Enterprise if you want the vendor in your corner, a partner-supported product like SAP Business One if you want a phone number to call.</p>
+<h3>What is the real difference between Odoo and SAP Business One in a crisis?</h3>
+<p>Who is contractually obligated to care. With Odoo Community, nobody. With Odoo Enterprise, Odoo's support team via tickets. With SAP Business One, your implementation partner, with escalation to SAP behind them. Price and features matter the other 364 days. In a crisis, the only feature that matters is a human who has to pick up.</p>
         </div>
-        <p class="post-tags"><span>open-source-erp</span> <span>odoo</span> <span>it-support</span> <span>2am-crisis</span> <span>erp</span></p>
+        <p class="post-tags"><span>open-source-erp</span> <span>odoo</span> <span>it-support</span> <span>erp-support</span> <span>sme</span></p>
         <div class="post-share">
           <span class="post-share-label">Share this post</span>
           <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fopen-source-erp-and-the-who-do-i-call-at-2-am-question.html&text=Open-Source%20ERP%3A%20Who%20Do%20I%20Call%20at%202%20AM%3F" target="_blank" rel="noopener">X</a>
@@ -274,7 +328,7 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
-        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="the-5-hour-friday-automating-the-weekly-report-nobody-likes.html"><img src="../images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" alt="" loading="lazy" /><span class="rel-card-title">The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</span></a></div></section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="" loading="lazy" /><span class="rel-card-title">The Odoo apps I'd install on day one for a 20-person company</span></a><a class="rel-card" href="odoo-20-ai-that-does-the-work-not-just-the-talking.html"><img src="../images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" alt="" loading="lazy" /><span class="rel-card-title">Odoo 20: AI That Does the Work, Not Just the Talking</span></a></div></section>
       </div>
     </article>
   </main>

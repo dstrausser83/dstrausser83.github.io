@@ -5,20 +5,20 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2026 13:12:35 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 14:10:04 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Open-Source ERP: Who Do I Call at 2 AM?</title>
       <link>https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html</guid>
-      <description>Open-source ERP’s 2 AM crisis: Why Odoo’s community support beats paid vendors. Real lessons from a business pro who’s been there.</description>
+      <description>Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight.</description>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" type="image/jpeg" />
       <category>open-source-erp</category>
       <category>odoo</category>
       <category>it-support</category>
-      <category>2am-crisis</category>
-      <category>erp</category>
+      <category>erp-support</category>
+      <category>sme</category>
     </item>
     <item>
       <title>Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</title>

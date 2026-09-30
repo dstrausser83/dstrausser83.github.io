@@ -452,15 +452,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} — David Strausser</title>
+  <title>{page_title}</title>
   <meta name="description" content="{description}" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/{slug}.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="{title} — David Strausser" />
+  <meta property="og:title" content="{page_title}" />
   <meta property="og:description" content="{description}" />
   {og_image}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{title} — David Strausser" />
+  <meta name="twitter:title" content="{page_title}" />
   <meta name="twitter:description" content="{description}" />
   {twitter_image}
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
@@ -535,6 +536,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </style>
   {faq_jsonld}
   {article_jsonld}
+  {theme_link}
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -818,8 +820,18 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
     else:  # fallback: frontmatter summary > excerpt
         summary_fallback = (fm.get("summary") or "").strip() or excerpt
         summary_inner = f"<p>{html_escape(summary_fallback)}</p>" if summary_fallback.strip() else ""
+    # SEO title override (A6 CMS 2026-09-30): seo_title replaces the post
+    # title in <title>/og:title/twitter:title when present. The human
+    # headline (hero h1, JSON-LD headline) always stays the post title.
+    page_title = ((fm.get("seo_title", "") or "").strip() or title) + " — David Strausser"
+    # Site theme stylesheet (A6 CMS 2026-09-30): inject only when a theme has
+    # been saved, so posts built without one are byte-identical.
+    _theme_css = os.path.join(os.path.dirname(BLOG_DIR), "assets", "css", "theme-vars.css")
+    theme_link = ('<link rel="stylesheet" href="/assets/css/theme-vars.css" />'
+                  if os.path.exists(_theme_css) else "")
     html = PAGE_TEMPLATE.format(
-        title=title, slug=slug, date=post_date, pub_display=pub_display,
+        title=title, page_title=page_title, theme_link=theme_link,
+        slug=slug, date=post_date, pub_display=pub_display,
         description=description,
         hero_preload=hero_preload, hero=hero, og_image=og_image,
         twitter_image=(f'<meta name="twitter:image" content="https://deadbrands.co/blog/images/{slug}.jpg" />'
