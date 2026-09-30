@@ -41,6 +41,7 @@ ACTIVE_MAP = {
     "resources.html": "resources",
     "blog/index.html": "blog",
     "blog/author.html": "blog",
+    "team/index.html": "team",
 }
 # blog posts all get the blog key
 BLOG_POSTS_DIR = os.path.join(ROOT, "blog", "posts")
