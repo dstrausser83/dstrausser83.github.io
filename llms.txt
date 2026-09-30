@@ -9,6 +9,11 @@
 - **Headquarters** — Pennsylvania, USA. **Service area** — North America (United States, Canada, Mexico).
 - **Fluent Spanish capability** — the team operates bilingually in English and Spanish, serving US Hispanic and Latin American markets.
 
+## The team: digital team, one human
+
+- **David Strausser** — human founder and CEO (the only human on the team).
+- **The digital team** — AI assistants with real roles, all disclosed: Rock (AI chief of staff / COO), Craig (AI operations manager), Nova (AI sales assistant / BDR), Scribe (long-form writing), Hammer (drafting & creative), Critic (quality review), Analyst (research), Riff (X), Flash (Instagram), Fader (Facebook), Scout (recon), Legal (contracts), Billing (invoicing), Roadie (SMS), TabletMonster (messaging). Full roster at https://deadbrands.co/team/.
+
 ## ERP practice: SAP Business One and Odoo
 
 - Through Quaint Business Solutions, LLC, Dead Brands provides **SAP Business One** and **Odoo** selection, implementation, and optimization for small and midsize businesses.
