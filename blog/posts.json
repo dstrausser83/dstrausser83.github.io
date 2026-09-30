@@ -1,5 +1,24 @@
 [
   {
+    "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
+    "title": "The Odoo Apps I'd Install on Day One for a 20-Person Company",
+    "date": "2026-09-30",
+    "published_at": "2026-09-30T18:53:31Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "small business",
+      "software",
+      "business"
+    ],
+    "excerpt": "Twenty people, zero patience for bloat. Here are the Odoo apps I'd turn on first, in order, and the ones I'd leave alone until you actually need them.",
+    "description": "The exact Odoo apps I'd install on day one for a 20-person company, in priority order, refreshed days after the Odoo 20 launch. No bloat, no upsell, just what works.",
+    "image": "images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg",
+    "video": "",
+    "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html",
+    "reading_time": 11
+  },
+  {
     "slug": "sap-business-one-version-11-browser-erp-roadmap",
     "title": "SAP Business One Version 11 Is Coming in 2027: Your Browser Is the ERP Now",
     "date": "2026-09-30",
@@ -112,25 +131,6 @@
     "video": "",
     "url": "posts/sap-business-one-10-fp-2608-ai-web-client.html",
     "reading_time": 5
-  },
-  {
-    "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
-    "title": "The Odoo apps I'd install on day one for a 20-person company",
-    "date": "2026-09-28",
-    "published_at": "2026-09-28T20:57:48Z",
-    "tags": [
-      "odoo",
-      "erp",
-      "small business",
-      "software",
-      "business"
-    ],
-    "excerpt": "Twenty people, zero patience for bloat. Here are the Odoo apps I'd turn on first, in order, and the ones I'd leave alone until you actually need them.",
-    "description": "The exact Odoo apps I'd install on day one for a 20-person company, in priority order. No bloat, no upsell, just what works.",
-    "image": "images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg",
-    "video": "",
-    "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html",
-    "reading_time": 6
   },
   {
     "slug": "ai-wont-fix-a-broken-process-itll-just-break-it-faster",

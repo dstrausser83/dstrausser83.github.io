@@ -5,8 +5,21 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2026 18:33:43 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 18:53:35 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Odoo Apps I'd Install on Day One for a 20-Person Company</title>
+      <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</guid>
+      <description>The exact Odoo apps I'd install on day one for a 20-person company, in priority order, refreshed days after the Odoo 20 launch. No bloat, no upsell, just what works.</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>erp</category>
+      <category>small business</category>
+      <category>software</category>
+      <category>business</category>
+    </item>
     <item>
       <title>SAP Business One Version 11 Is Coming in 2027: Your Browser Is the ERP Now</title>
       <link>https://deadbrands.co/blog/posts/sap-business-one-version-11-browser-erp-roadmap.html</link>
@@ -83,19 +96,6 @@
       <category>sap</category>
       <category>sap business one</category>
       <category>ai</category>
-      <category>business</category>
-    </item>
-    <item>
-      <title>The Odoo apps I'd install on day one for a 20-person company</title>
-      <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</guid>
-      <description>The exact Odoo apps I'd install on day one for a 20-person company, in priority order. No bloat, no upsell, just what works.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>erp</category>
-      <category>small business</category>
-      <category>software</category>
       <category>business</category>
     </item>
     <item>
