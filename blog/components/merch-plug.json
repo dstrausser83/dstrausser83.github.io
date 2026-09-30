@@ -1,0 +1,25 @@
+{
+  "name": "merch-plug",
+  "label": "Merch Plug",
+  "description": "The random-product merch card under every post. Product data is baked into the block; edit the surrounding copy here.",
+  "fields": {
+    "eyebrow": {
+      "label": "Eyebrow text",
+      "value": "Shop the brand"
+    },
+    "heading": {
+      "label": "Heading",
+      "value": "Take a piece of the bite with you"
+    },
+    "view_all_text": {
+      "label": "'View all' link text",
+      "value": "View all in the store &rarr;"
+    },
+    "view_all_url": {
+      "label": "'View all' link URL",
+      "value": "/merch/"
+    }
+  },
+  "html": "<section class=\"post-shop\">\n          <p class=\"eyebrow\">{{eyebrow}}</p>\n          <h2>{{heading}}</h2>\n          <div class=\"post-shop-card\" id=\"post-shop-card\"><p>Loading the goods&hellip;</p></div>\n          <a class=\"post-shop-all\" href=\"{{view_all_url}}\">{{view_all_text}}</a>\n        </section>\n        <script>\n        (function () {\n          var el = document.getElementById(\"post-shop-card\");\n          if (!el) return;\n          function esc(s) { return String(s == null ? \"\" : s).replace(/[&<>\"]/g, function (c) { return { \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\" }[c]; }); }\n          fetch(\"/assets/data/products.json\").then(function (r) { return r.json(); }).then(function (d) {\n            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });\n            if (!ps.length) { el.innerHTML = \"\"; return; }\n            var p = ps[Math.floor(Math.random() * ps.length)];\n            var url = esc(p.url || \"/merch/\");\n            el.innerHTML = '<a href=\"' + url + '\"><img src=\"' + esc(p.image) + '\" alt=\"' + esc(p.alt || p.name) + '\" loading=\"lazy\" width=\"96\" height=\"96\" /></a>'\n              + '<div><p class=\"post-shop-name\"><a href=\"' + url + '\">' + esc(p.name) + '</a></p>'\n              + '<p class=\"post-shop-price\">$' + Number(p.price).toFixed(2) + '</p></div>';\n          }).catch(function () { el.innerHTML = \"\"; });\n        })();\n        </script>",
+  "css": "\n    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }\n    .post-shop h2 { margin: 0.25rem 0 0.5rem; }\n    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }\n    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }\n    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }\n    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }\n    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }\n"
+}

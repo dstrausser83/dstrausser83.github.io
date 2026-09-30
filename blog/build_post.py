@@ -38,6 +38,9 @@ def slugify(title):
     return re.sub(r"[\s-]+", "-", s).strip("-")[:60]
 
 def parse_frontmatter(text):
+    # 2026-09-29 hardening: a BOM or duplicated frontmatter block must never
+    # silently produce a garbage title (we once published title "\ufeff---").
+    text = text.lstrip("\ufeff")
     fm, body = {}, text
     if text.startswith("---"):
         end = text.find("---", 3)
@@ -47,6 +50,9 @@ def parse_frontmatter(text):
                     k, v = line.split(":", 1)
                     fm[k.strip()] = v.strip().strip('"')
             body = text[end+3:].strip()
+    # Nested/duplicated frontmatter in the body = corrupted draft. Refuse it.
+    if body.startswith("---"):
+        raise ValueError("corrupt draft: body starts with a second frontmatter block")
     return fm, body
 
 # UTM attribution for Quaint Business Solutions links — David's order 2026-09-23:
@@ -527,8 +533,8 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
     # Hard guard (2026-09-24): a blank title or empty slug once shipped a ghost
     # entry (slug="", title="", image="images/.jpg") to the live blog listing.
     # Refuse to build instead of publishing garbage.
-    if not title or title.lower() == "untitled":
-        raise ValueError(f"refusing to build {draft_path}: blank/untitled title")
+    if not title or title.lower() == "untitled" or not title.strip("\ufeff- ").strip():
+        raise ValueError(f"refusing to build {draft_path}: blank/untitled/garbage title")
     if not slug:
         raise ValueError(f"refusing to build {draft_path}: empty slug")
     post_date = fm.get("date", date.today().isoformat())

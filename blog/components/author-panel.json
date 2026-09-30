@@ -1,0 +1,33 @@
+{
+  "name": "author-panel",
+  "label": "Author Panel",
+  "description": "David's bio box at the bottom of every post.",
+  "fields": {
+    "headshot": {
+      "label": "Headshot image path",
+      "value": "../../assets/photos/published/david-headshot-blazer.jpg"
+    },
+    "author_url": {
+      "label": "About-page URL",
+      "value": "../author.html"
+    },
+    "name": {
+      "label": "Author name",
+      "value": "David Strausser"
+    },
+    "bio_html": {
+      "label": "Bio (HTML allowed)",
+      "value": "David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales\n            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP\n            veteran of over a decade across <strong>SAP Business One</strong> and\n            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and\n            VP of Business Development at SEIDOR. Dad, guitarist, Eagles fan."
+    },
+    "x_url": {
+      "label": "X profile URL",
+      "value": "https://x.com/dstrausser83"
+    },
+    "podcast_url": {
+      "label": "Podcast URL",
+      "value": "https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ"
+    }
+  },
+  "html": "<section class=\"author-box\">\n          <img src=\"{{headshot}}\" alt=\"{{name}}\" width=\"96\" height=\"96\" loading=\"lazy\" />\n          <div>\n            <p class=\"author-name\">Written by <a href=\"{{author_url}}\">{{name}}</a></p>\n            <p>{{bio_html}}</p>\n            <p class=\"author-links\"><a href=\"{{x_url}}\" target=\"_blank\" rel=\"noopener\">X / Twitter</a>\n            &middot; <a href=\"{{podcast_url}}\" target=\"_blank\" rel=\"noopener\">Shark Bite Biz podcast</a></p>\n          </div>\n        </section>",
+  "css": "    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 2rem; }\n    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }\n    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }\n    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }\n    .author-links a { font-size: 0.9rem; }\n\n"
+}

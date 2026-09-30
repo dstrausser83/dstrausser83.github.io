@@ -1,0 +1,57 @@
+{
+  "name": "meeting-cta",
+  "label": "Meeting CTA",
+  "description": "The 'book a meeting' call-to-action under every post. Templates rotate by post; edit any template's copy here.",
+  "templates": {
+    "fiverr": {
+      "body": "I build custom AI chatbots, automations, and business systems for small businesses on Fiverr. Same straight-talk approach you just read — delivered as a finished product.",
+      "button": "Hire Me on Fiverr",
+      "heading": "Need it built, not just read about?",
+      "label": "Hire on Fiverr",
+      "url": "https://www.fiverr.com/dstrausser83"
+    },
+    "meeting": {
+      "body": "Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.",
+      "button": "Book a Meeting with Me",
+      "heading": "Let's talk about your business",
+      "label": "Book a Meeting",
+      "url": "https://app.apollo.io/#/meet/david_strausser_175"
+    },
+    "newsletter": {
+      "body": "One email a week: Odoo tips, SAP Business One wisdom, and the business lessons I'm learning the hard way so you don't have to. No fluff, unsubscribe anytime.",
+      "button": "Join the Newsletter",
+      "heading": "Get the straight talk weekly",
+      "label": "Newsletter Signup",
+      "url": "/index.html#newsletter"
+    },
+    "odoo-trial": {
+      "body": "See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.",
+      "button": "Start Your Free Odoo Trial",
+      "heading": "Try Odoo free",
+      "label": "Free Odoo Trial",
+      "url": "https://quaintbusiness.com/tryodoo?utm_source=deadbrands&utm_medium=website&utm_campaign=david-strausser&utm_content=blog-cta-trial"
+    },
+    "podcast": {
+      "body": "I host Shark Bite Biz, where I talk business with founders, executives, and straight shooters. New episodes regularly — bring your teeth.",
+      "button": "Listen to Shark Bite Biz",
+      "heading": "Hear it from the sharks themselves",
+      "label": "Shark Bite Biz Podcast",
+      "url": "https://www.youtube.com/@sharkbitebiz"
+    },
+    "shop": {
+      "body": "If this post hit home, the merch will too. Dead Brands gear — printed on demand, shipped to your door.",
+      "button": "Shop the Collection",
+      "heading": "Wear the brand",
+      "label": "Dead Brands Shop",
+      "url": "/merch/"
+    }
+  },
+  "rotation": [
+    "meeting",
+    "odoo-trial"
+  ],
+  "notes": "rotation = templates cycled by slug hash when no --cta is given. Add new templates here; the blog publisher reads this file for its CTA picker.",
+  "fields": {},
+  "html": "",
+  "css": "\n    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }\n    .post-cta h2 { margin-top: 0; }\n    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }\n    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }\n    .cta-btn:hover { filter: brightness(1.1); }\n"
+}

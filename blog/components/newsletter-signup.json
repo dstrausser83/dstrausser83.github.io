@@ -1,0 +1,29 @@
+{
+  "name": "newsletter-signup",
+  "label": "Newsletter Signup",
+  "description": "Email signup block at the bottom of every post. Set the button URL to your newsletter signup page.",
+  "fields": {
+    "eyebrow": {
+      "label": "Eyebrow text",
+      "value": "Newsletter"
+    },
+    "heading": {
+      "label": "Heading",
+      "value": "Get the playbook in your inbox"
+    },
+    "body": {
+      "label": "Body copy",
+      "value": "One sharp ERP + small-business lesson a week. No fluff, no spam — just the stuff that actually moves the needle."
+    },
+    "button_text": {
+      "label": "Button text",
+      "value": "Subscribe"
+    },
+    "button_url": {
+      "label": "Signup URL",
+      "value": "/blog/"
+    }
+  },
+  "html": "<section class=\"post-newsletter\">\n          <p class=\"eyebrow\">{{eyebrow}}</p>\n          <h2>{{heading}}</h2>\n          <p>{{body}}</p>\n          <p><a class=\"cta-btn\" href=\"{{button_url}}\">{{button_text}}</a></p>\n        </section>",
+  "css": "\n.post-newsletter { margin: 40px 0 0; padding: 28px; border: 2px solid #111;\n  border-radius: 12px; background: #f8f5ec; text-align: center; }\n.post-newsletter .eyebrow { margin: 0 0 6px; }\n.post-newsletter h2 { margin: 0 0 10px; font-size: 24px; }\n.post-newsletter p { margin: 0 0 14px; }\n.post-newsletter p:last-child { margin-bottom: 0; }"
+}

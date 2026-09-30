@@ -1,0 +1,13 @@
+{
+  "name": "exec-summary",
+  "label": "Executive Summary Header",
+  "description": "The 'Executive Summary' box at the top of every post. Only the wrapper and label are shared — each post's summary text stays untouched.",
+  "fields": {
+    "label": {
+      "label": "Box label",
+      "value": "Executive Summary"
+    }
+  },
+  "html": "<aside class=\"post-summary\" aria-label=\"{{label}}\">\n          <p class=\"post-summary-label\"><span>{{label}}</span></p>\n          {{content}}\n        </aside>",
+  "css": "    .post-summary { position: relative; background: var(--accent-deep); color: #fff;\n      border: 3px solid #1a1a1a;\n      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;\n      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }\n    .post-summary p { margin: 0.35rem 0; color: #fff; }\n    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }\n    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;\n      font-size: 1.5rem; color: #fff; background: var(--accent-deep);\n      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }\n    .back-link { display: inline-block; margin-bottom: 1.5rem; }\n"
+}

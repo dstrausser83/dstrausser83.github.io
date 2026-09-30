@@ -77,14 +77,24 @@ def main():
     block = f"{START}\n          {cards}\n          {END}"
     with open(INDEX_HTML, encoding="utf-8") as f:
         src = f.read()
-    anchor = ('<div class="cards" id="home-blog-cards">\n'
-              '          <!-- Populated from blog/posts.json \u2014 newest first. '
-              'No manual edits needed. -->\n        </div>')
-    if anchor not in src:
-        raise SystemExit("could not find the #home-blog-cards anchor")
-    new = ('<div class="cards" id="home-blog-cards">\n'
-           f'          {block}\n        </div>')
-    out = src.replace(anchor, new, 1)
+    # Idempotent: replace the markup between the SSR markers if present
+    # (the normal state after the first render). Fall back to the pristine
+    # anchor only on a never-rendered homepage.
+    if START in src and END in src:
+        pattern = re.compile(re.escape(START) + r".*?" + re.escape(END),
+                             re.DOTALL)
+        out, n = pattern.subn(lambda m: block, src, count=1)
+        if not n:
+            raise SystemExit("SSR markers found but replacement failed")
+    else:
+        anchor = ('<div class="cards" id="home-blog-cards">\n'
+                  '          <!-- Populated from blog/posts.json \u2014 newest first. '
+                  'No manual edits needed. -->\n        </div>')
+        if anchor not in src:
+            raise SystemExit("could not find the #home-blog-cards anchor")
+        new = ('<div class="cards" id="home-blog-cards">\n'
+               f'          {block}\n        </div>')
+        out = src.replace(anchor, new, 1)
     with open(INDEX_HTML, "w", encoding="utf-8") as f:
         f.write(out)
     print(f"rendered {len(posts)} home blog cards into index.html")
