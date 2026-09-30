@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A6 Scratch Verify (temp pipeline proof) — David Strausser</title>
+  <meta name="description" content="Temporary pipeline-proof scratch post (long version for QA)." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/a6-scratch-verify.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="A6 Scratch Verify (temp pipeline proof) — David Strausser" />
+  <meta property="og:description" content="Temporary pipeline-proof scratch post (long version for QA)." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/a6-scratch-verify.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A6 Scratch Verify (temp pipeline proof) — David Strausser" />
+  <meta name="twitter:description" content="Temporary pipeline-proof scratch post (long version for QA)." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/a6-scratch-verify.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="preload" as="image" href="../images/a6-scratch-verify.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
+       marker look; keep in build script so regenerations carry it). */
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A6 Scratch Verify (temp pipeline proof)",
+  "description": "Temporary pipeline-proof scratch post (long version for QA).",
+  "datePublished": "2026-09-30T12:23:38Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/a6-scratch-verify.html",
+  "keywords": "scratch, pipeline-proof",
+  "image": "https://deadbrands.co/blog/images/a6-scratch-verify.jpg"
+}
+</script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/a6-scratch-verify.jpg" alt="scratch verification placeholder image" width="1280" height="720" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>A6 Scratch Verify (temp pipeline proof)</h1><p class="post-meta">September 30, 2026 at 8:23 AM ET &middot; 13 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Temporary pipeline-proof scratch post (long version for QA).</p>
+        </aside>
+        
+        <div class="post-body prose">
+<p>This is a scratch verification post for the item-12 end-to-end pipeline proof. It exists only to exercise the real production path: portal draft creation, feature-image upload, publish queueing, the static build via build_post.py, the GitHub push, the Pages deploy, and the live-site verification of the post page, feed.xml, blog index cards, homepage cards, and sitemap.xml. It will be deleted immediately after the proof completes, leaving no trace.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.<figure class="post-inline"><img src="../images/a6-scratch-verify-img2.jpg" alt="scratch verification inline placeholder 2" width="1280" height="720" loading="lazy" /></figure></p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.<figure class="post-inline"><img src="../images/a6-scratch-verify-img3.jpg" alt="scratch verification inline placeholder 3" width="1280" height="720" loading="lazy" /></figure></p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+<p>This scratch section exists only to give the item-12 pipeline proof enough body copy to clear the production QA gate, which requires a minimum of eight hundred words and two or more inline images per post. Every sentence here is deliberately neutral filler. The post is a canary for the publishing pipeline: portal draft creation, feature-image upload, publish queueing, static build with build_post.py, feed.xml regeneration, blog index card rendering, homepage card rendering, llms.txt update, sitemap regeneration, the GitHub push, the Pages deploy, and the live-site verification. Nothing in this text is a real opinion, a real claim, or representative of David's voice. It is filler, repeated with slight variation, until the word count clears the gate. Once the proof is done the scratch post and all of its generated images are deleted from the site and the pipeline history, leaving no trace on the live site, in feed.xml, in the blog index, on the homepage, or in sitemap.xml. The canary sings, the gate opens, the post goes live, the proof completes, and the canary flies home.</p>
+        </div>
+        <p class="post-tags"><span>scratch</span> <span>pipeline-proof</span></p>
+        <div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fa6-scratch-verify.html&text=A6%20Scratch%20Verify%20%28temp%20pipeline%20proof%29" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fa6-scratch-verify.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fa6-scratch-verify.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/a6-scratch-verify.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="open-source-erp-and-the-who-do-i-call-at-2-am-question.html"><img src="../images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" alt="" loading="lazy" /><span class="rel-card-title">Open-Source ERP: Who Do I Call at 2 AM?</span></a><a class="rel-card" href="rock-star-dad-guitar-cable-company-sales.html"><img src="../images/rock-star-dad-guitar-cable-company-sales.jpg" alt="" loading="lazy" /><span class="rel-card-title">Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a></div></section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+</body>
+</html>
