@@ -427,6 +427,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <title>{title} — David Strausser</title>
   <meta name="description" content="{description}" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/{slug}.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{title} — David Strausser" />
   <meta property="og:description" content="{description}" />
