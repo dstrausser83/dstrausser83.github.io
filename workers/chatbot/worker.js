@@ -265,6 +265,9 @@ function systemPrompt(persona, avail, pageUrl, knowledge) {
   return [
     `You are ${persona.name}, an AI virtual assistant for Dead Brands, LLC — never a human, never David, never a sales rep. Say so if asked.`,
     `Personality: ${persona.style}`,
+    `FIRST MESSAGE RULE: on the very first message of a conversation, begin your reply by introducing yourself, e.g. "Hey! I'm ${persona.name}, an AI assistant here at Dead Brands." Then answer naturally.`,
+    `KNOWLEDGE IS YOUR SOURCE OF TRUTH: the knowledge block below contains verified facts about Dead Brands' services, pricing policy, booking, and contact info. When a knowledge entry covers the visitor's question, base your answer on it. NEVER deflect a visitor to a third-party/vendor website when a knowledge entry answers the question.`,
+    `PRICING RULE: Dead Brands does not publish fixed pricing — every engagement is scoped. When asked about pricing or cost, say so plainly and point to the free consult booking link. Never invent a price and never send visitors to vendor sites for pricing.`,
     `Company context: ${SERVICES_BLURB}`,
     `Team hand-off: the warm sales rep is "Deacon from our team" — route warm hand-offs to him by name and role.`,
     `Self-serve booking link (always works): ${APOLLO_LINK} — offer it freely whenever someone wants time with David.`,
@@ -297,6 +300,31 @@ function validLead(a) {
   return !!a && !!a.name && a.name.trim().length > 1 &&
     !!a.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a.email.trim());
 }
+// Deterministic server-side lead extraction — fallback for when the model
+// doesn't emit the [[LEAD_CAPTURE]] tag. Scans the VISITOR's own message
+// only; never the model's output.
+const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
+const NAME_PATTERNS = [
+  /(?:my name is|i am|i'm|this is|call me)\s+([A-Z][a-zA-Z'.-]+(?:\s+[A-Z][a-zA-Z'.-]+){0,2})/i,
+  /(?:^|[\s,])name\s*[:=]\s*([A-Z][a-zA-Z'.-]+(?:\s+[A-Z][a-zA-Z'.-]+){0,2})/i,
+];
+const COMPANY_RE = /(?:company(?:\s+is)?|work for|work at|with)\s+([A-Z][\w&'.-]+(?:\s+[\w&'.-]+){0,2})/i;
+function extractLeadFromUserText(text) {
+  const t = String(text || "");
+  const em = t.match(EMAIL_RE);
+  if (!em) return null;
+  let name = null;
+  for (const re of NAME_PATTERNS) {
+    const m = t.match(re);
+    if (m && m[1] && m[1].trim().length > 1) { name = m[1].trim(); break; }
+  }
+  if (!name) return null;
+  // Guard against capturing the email local-part as a name.
+  if (name.toLowerCase().replace(/[^a-z]/g, "") === em[0].split("@")[0].toLowerCase().replace(/[^a-z]/g, "")) return null;
+  const cm = t.match(COMPANY_RE);
+  return { name, email: em[0].trim(), company: cm && cm[1] ? cm[1].trim() : "" };
+}
+
 // The fp8 model occasionally emits meta-chatter about tool/function calls
 // instead of a real reply. Never let that reach a visitor.
 function looksBroken(reply) {
@@ -341,6 +369,10 @@ async function handleChat(env, req, body) {
   let reply = "";
   const actions = [];
   const raw = ai && ai.response ? String(ai.response) : "";
+  const isFirstTurn = !(s.turns && s.turns.length);
+  let leadCapturedId = s.leadCaptured || null;
+  const convForLead = () => [...history, { role: "user", content: String(message) }]
+    .map(m => `${m.role}: ${m.content}`).join("\n").slice(-3000);
   if (looksBroken(raw)) {
     // Model emitted tool-call meta-chatter (or nothing) — substitute a clean,
     // in-character greeting instead of leaking internals to the visitor.
@@ -349,19 +381,42 @@ async function handleChat(env, req, body) {
     const { clean, attrs } = parseLeadTag(raw);
     reply = clean || `Hey! I'm ${persona.name}, one of the AI assistants here at Dead Brands. What can I help you with today?`;
     if (attrs && validLead(attrs)) {
-      const conv = [...history, { role: "user", content: String(message) }]
-        .map(m => `${m.role}: ${m.content}`).join("\n").slice(-3000);
       const lead = await storeLead(env, {
         name: attrs.name.trim(), email: attrs.email.trim(),
         company: (attrs.company || "").trim() || null,
         need: (attrs.need || "").trim() || null,
         pageUrl: pageUrl || null, persona: persona.name,
-        summary: (attrs.need || "").trim() || null, conversation: conv,
+        summary: (attrs.need || "").trim() || null, conversation: convForLead(),
       });
+      leadCapturedId = lead.id;
       actions.push({ type: "lead_captured", leadId: lead.id, persisted: lead._persisted });
+    } else if (!leadCapturedId) {
+      // Deterministic fallback: the visitor may have typed their name+email
+      // even though the model didn't emit the tag. Scan the visitor's own
+      // message — never trust the model for this.
+      const fb = extractLeadFromUserText(message);
+      if (fb && validLead(fb)) {
+        const firstTopic = (s.turns && s.turns[0] && s.turns[0].u) || String(message);
+        const lead = await storeLead(env, {
+          name: fb.name.trim(), email: fb.email.trim(),
+          company: fb.company || null,
+          need: firstTopic.slice(0, 200),
+          pageUrl: pageUrl || null, persona: persona.name,
+          summary: firstTopic.slice(0, 200), conversation: convForLead(),
+        });
+        leadCapturedId = lead.id;
+        actions.push({ type: "lead_captured", leadId: lead.id, persisted: lead._persisted, via: "server_fallback" });
+      }
     }
-    // Invalid/empty tag (or none): no lead stored, conversation just continues.
+    // Invalid/empty tag and no fallback match: no lead stored, conversation continues.
   }
+
+  // First-turn identity: make sure the visitor hears the persona's name.
+  if (isFirstTurn && !new RegExp(persona.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i").test(reply)) {
+    reply = `Hey! I'm ${persona.name}, an AI assistant here at Dead Brands. ` + reply;
+  }
+
+  if (leadCapturedId) s.leadCaptured = leadCapturedId;
 
   s.turns = [...(s.turns || []), { u: String(message).slice(0, 500), a: reply.slice(0, 500) }].slice(-10);
   const saved = await kvPut(env, "DB_CACHE", skey, JSON.stringify(s), SESSION_TTL_S);
