@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prospecting — Dead Brands OS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/os/os.css">
+<style>
+.pr-tabs { display:flex; gap:8px; margin:12px 0 16px; }
+.pr-tabs .btn.active { outline:2px solid #e8c874; }
+.twrap { overflow-x:auto; margin:12px 0; }
+.twrap table { width:100%; min-width:600px; border-collapse:collapse; font-size:14px; }
+.twrap th, .twrap td { text-align:left; padding:8px 10px; border-bottom:1px solid #2a2a2a; vertical-align:top; }
+.twrap th { color:#e8c874; font-size:12px; text-transform:uppercase; letter-spacing:.05em; }
+.pill.task { background:#e8c87433; color:#e8c874; }
+.pill.email { background:#8ab4f833; color:#8ab4f8; }
+.step { border:1px solid #2a2a2a; border-radius:8px; padding:10px 12px; margin:8px 0; }
+.step .meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.step .acts { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.seqitem { display:flex; gap:10px; align-items:center; justify-content:space-between; border:1px solid #2a2a2a; border-radius:8px; padding:10px 12px; margin:8px 0; flex-wrap:wrap; }
+.inline-form { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+@media (max-width:640px){ .inline-form { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<script src="/os/app.js"></script>
+<script>
+OS.page("prospect", "Prospecting", async function (view) {
+  var state = { tab: "prospects", openSeq: null, enStatus: "", prQ: "", prStatus: "" };
+
+  view.innerHTML =
+    '<p class="muted">Fill the pipeline without the cold sweat. Prospects in, sequences out — emails send themselves, follow-up tasks land on your plate.</p>' +
+    '<div class="pr-tabs">' +
+    '<button class="btn small" data-tab="prospects">Prospects</button>' +
+    '<button class="btn small" data-tab="sequences">Sequences</button>' +
+    '<button class="btn small" data-tab="enrollments">Enrollments</button>' +
+    "</div>" + '<div id="tabview"></div>';
+
+  view.querySelectorAll("[data-tab]").forEach(function (b) {
+    b.onclick = function () { state.tab = b.getAttribute("data-tab"); draw(); };
+  });
+
+  function draw() {
+    view.querySelectorAll("[data-tab]").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-tab") === state.tab);
+    });
+    var tv = document.getElementById("tabview");
+    if (state.tab === "prospects") return renderProspects(tv);
+    if (state.tab === "sequences") return renderSequences(tv);
+    return renderEnrollments(tv);
+  }
+
+  function apiErr(e) { OS.toast(e.message || "request failed", true); }
+
+  /* ================= PROSPECTS ================= */
+  async function renderProspects(tv) {
+    tv.innerHTML = "<p class=\"muted\">Loading prospects…</p>";
+    var q = "?limit=100&offset=0" +
+      (state.prStatus ? "&status=" + encodeURIComponent(state.prStatus) : "") +
+      (state.prQ ? "&q=" + encodeURIComponent(state.prQ) : "");
+    var d;
+    try { d = await OS.api("GET", "/api/prospect/prospects" + q); }
+    catch (e) { tv.innerHTML = '<div class="card"><p><b>Couldn\'t load prospects.</b></p></div>'; return; }
+
+    var rows = d.items.map(function (p) {
+      var name = [p.first_name, p.last_name].filter(Boolean).join(" ") || "—";
+      return "<tr><td><b>" + OS.esc(name) + "</b><br><span class=\"muted small\">" + OS.esc(p.email || "") + "</span></td>" +
+        "<td>" + OS.esc(p.company || "—") + "<br><span class=\"muted small\">" + OS.esc(p.title || "") + "</span></td>" +
+        "<td><span class=\"pill\">" + OS.esc(p.status || "new") + "</span></td>" +
+        '<td><button class="btn small danger" data-del="' + OS.esc(p.id) + '">Delete</button></td></tr>';
+    }).join("");
+
+    tv.innerHTML =
+      '<div class="card"><h3 style="margin-top:0">Find people</h3>' +
+      '<div class="inline-form">' +
+      OS.field("Search name, email, or company", OS.input("pr_q", state.prQ, "text", ' placeholder="acme"')) +
+      OS.field("Status", OS.select("pr_status", state.prStatus, [["", "all"], ["new", "new"], ["enrolled", "enrolled"], ["replied", "replied"], ["booked", "booked"], ["dead", "dead"]])) +
+      "</div>" +
+      '<button class="btn small" id="pr_search">Search</button> ' +
+      '<button class="btn small ghost" id="pr_clear">Clear</button></div>' +
+      '<div class="card"><h3 style="margin-top:0">Prospects <span class="muted small">(' + d.total + ")</span></h3>" +
+      '<div class="twrap"><table><tr><th>Name</th><th>Company</th><th>Status</th><th></th></tr>' + rows + "</table></div></div>" +
+      '<div class="card"><h3 style="margin-top:0">Add one</h3>' +
+      '<div class="inline-form">' +
+      OS.field("First name", OS.input("np_first", "")) +
+      OS.field("Last name", OS.input("np_last", "")) +
+      OS.field("Email *", OS.input("np_email", "", "email")) +
+      OS.field("Company", OS.input("np_company", "")) +
+      OS.field("Title", OS.input("np_title", "")) +
+      OS.field("Source", OS.input("np_source", "", "text", ' placeholder="linkedin, referral…"')) +
+      "</div>" +
+      OS.field("Notes", OS.textarea("np_notes", "", ' rows="2"')) +
+      '<button class="btn" id="np_add">Add prospect</button></div>' +
+      '<div class="card"><h3 style="margin-top:0">Bulk import</h3>' +
+      '<p class="muted small">One per line: <b>First, Last, email, Company, Title</b>. Rows without an email get skipped; duplicates get skipped too.</p>' +
+      OS.field("Paste lines", OS.textarea("imp_lines", "", ' rows="6" placeholder="Jane, Doe, jane@acme.com, Acme, CEO"')) +
+      '<button class="btn" id="imp_go">Import</button> <span class="muted small" id="imp_res"></span></div>';
+
+    tv.querySelector("#pr_search").onclick = function () {
+      state.prQ = tv.querySelector('[name="pr_q"]').value.trim();
+      state.prStatus = tv.querySelector('[name="pr_status"]').value;
+      renderProspects(tv);
+    };
+    tv.querySelector("#pr_clear").onclick = function () { state.prQ = ""; state.prStatus = ""; renderProspects(tv); };
+    tv.querySelector("#np_add").onclick = async function () {
+      var v = function (n) { return tv.querySelector('[name="' + n + '"]').value.trim(); };
+      if (!v("np_email")) { OS.toast("Email is the one required field.", true); return; }
+      try {
+        await OS.api("POST", "/api/prospect/prospects", {
+          first_name: v("np_first"), last_name: v("np_last"), email: v("np_email"),
+          company: v("np_company"), title: v("np_title"), source: v("np_source"), notes: v("np_notes")
+        });
+        OS.toast("Prospect added.");
+        renderProspects(tv);
+      } catch (e) { apiErr(e); }
+    };
+    tv.querySelector("#imp_go").onclick = async function () {
+      var raw = tv.querySelector('[name="imp_lines"]').value;
+      var arr = raw.split("\n").map(function (ln) { return ln.trim(); }).filter(Boolean).map(function (ln) {
+        var p = ln.split(",").map(function (s) { return s.trim(); });
+        return { first_name: p[0] || "", last_name: p[1] || "", email: p[2] || "", company: p[3] || "", title: p[4] || "" };
+      });
+      if (!arr.length) { OS.toast("Paste at least one line.", true); return; }
+      try {
+        var r = await OS.api("POST", "/api/prospect/prospects/import", { prospects: arr });
+        tv.querySelector("#imp_res").textContent = "Added " + r.added + ", skipped " + r.skipped + ".";
+        OS.toast("Imported: " + r.added + " added, " + r.skipped + " skipped.");
+        renderProspects(tv);
+      } catch (e) { apiErr(e); }
+    };
+    tv.querySelectorAll("[data-del]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Delete this prospect?")) return;
+        try { await OS.api("DELETE", "/api/prospect/prospects/" + encodeURIComponent(b.getAttribute("data-del"))); OS.toast("Deleted."); renderProspects(tv); }
+        catch (e) { apiErr(e); }
+      };
+    });
+  }
+
+  /* ================= SEQUENCES ================= */
+  async function renderSequences(tv) {
+    if (state.openSeq) return renderSequenceBuilder(tv, state.openSeq);
+    tv.innerHTML = "<p class=\"muted\">Loading sequences…</p>";
+    var d;
+    try { d = await OS.api("GET", "/api/prospect/sequences"); }
+    catch (e) { tv.innerHTML = '<div class="card"><p><b>Couldn\'t load sequences.</b></p></div>'; return; }
+    var items = d.items.map(function (s) {
+      var pill = s.active ? '<span class="pill green">active</span>' : '<span class="pill">paused</span>';
+      return '<div class="seqitem"><div><b>' + OS.esc(s.name) + "</b> " + pill +
+        '<br><span class="muted small">' + OS.esc(s.step_count) + " step" + (s.step_count == 1 ? "" : "s") +
+        (s.description ? " · " + OS.esc(s.description) : "") + "</span></div>" +
+        '<div><button class="btn small" data-open="' + OS.esc(s.id) + '">Open</button> ' +
+        '<button class="btn small danger" data-del="' + OS.esc(s.id) + '">Delete</button></div></div>';
+    }).join("");
+    tv.innerHTML =
+      '<div class="card"><h3 style="margin-top:0">Sequences</h3>' +
+      (items || '<p class="muted">No sequences yet. Build your first below.</p>') + "</div>" +
+      '<div class="card"><h3 style="margin-top:0">New sequence</h3>' +
+      OS.field("Name *", OS.input("ns_name", "", "text", ' placeholder="Cold outreach — ERP owners"')) +
+      OS.field("Description", OS.textarea("ns_desc", "", ' rows="2"')) +
+      '<button class="btn" id="ns_go">Create sequence</button></div>';
+
+    tv.querySelector("#ns_go").onclick = async function () {
+      var name = tv.querySelector('[name="ns_name"]').value.trim();
+      var desc = tv.querySelector('[name="ns_desc"]').value.trim();
+      if (!name) { OS.toast("Give it a name first.", true); return; }
+      try {
+        var r = await OS.api("POST", "/api/prospect/sequences", { name: name, description: desc });
+        state.openSeq = r.item.id;
+        renderSequences(tv);
+      } catch (e) { apiErr(e); }
+    };
+    tv.querySelectorAll("[data-open]").forEach(function (b) {
+      b.onclick = function () { state.openSeq = b.getAttribute("data-open"); renderSequences(tv); };
+    });
+    tv.querySelectorAll("[data-del]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Delete this sequence and its steps? (Live enrollments block this.)")) return;
+        try { await OS.api("DELETE", "/api/prospect/sequences/" + encodeURIComponent(b.getAttribute("data-del"))); OS.toast("Deleted."); renderSequences(tv); }
+        catch (e) { apiErr(e); }
+      };
+    });
+  }
+
+  async function renderSequenceBuilder(tv, seqId) {
+    tv.innerHTML = "<p class=\"muted\">Loading sequence…</p>";
+    var d;
+    try { d = await OS.api("GET", "/api/prospect/sequences/" + encodeURIComponent(seqId)); }
+    catch (e) { state.openSeq = null; renderSequences(tv); return; }
+    var s = d.item, steps = d.steps;
+
+    var stepHtml = steps.map(function (st, i) {
+      var kindPill = st.kind === "email" ? '<span class="pill email">email</span>' : '<span class="pill task">task</span>';
+      var title = st.kind === "email" ? (st.subject || "(no subject)") : (st.task_title || "(no title)");
+      return '<div class="step"><div class="meta">' + kindPill +
+        "<b>Step " + (i + 1) + "</b><span class=\"muted small\">day +" + (st.delay_days || 0) + "</span></div>" +
+        '<div style="margin-top:6px">' + OS.esc(title) + "</div>" +
+        (st.kind === "email" && st.body ? '<div class="muted small" style="margin-top:4px">' + OS.esc(st.body.slice(0, 120)) + (st.body.length > 120 ? "…" : "") + "</div>" : "") +
+        '<div class="acts">' +
+        (i > 0 ? '<button class="btn small ghost" data-up="' + OS.esc(st.id) + '">↑</button>' : "") +
+        (i < steps.length - 1 ? '<button class="btn small ghost" data-down="' + OS.esc(st.id) + '">↓</button>' : "") +
+        '<button class="btn small danger" data-sdel="' + OS.esc(st.id) + '">Delete</button>' +
+        "</div></div>";
+    }).join("");
+
+    tv.innerHTML =
+      '<button class="btn small ghost" id="seq_back">← All sequences</button>' +
+      '<div class="card"><h3 style="margin-top:0">' + OS.esc(s.name) + "</h3>" +
+      OS.field("Name", OS.input("sq_name", s.name || "")) +
+      OS.field("Description", OS.textarea("sq_desc", s.description || "", ' rows="2"')) +
+      OS.field("Status", OS.select("sq_active", s.active ? "1" : "0", [["1", "Active — enrollments allowed"], ["0", "Paused — no new enrollments"]])) +
+      '<button class="btn small" id="sq_save">Save</button></div>' +
+      '<div class="card"><h3 style="margin-top:0">Steps <span class="muted small">(' + steps.length + ")</span></h3>" +
+      (stepHtml || '<p class="muted">No steps yet. Add the first one below — day 0 goes out the moment someone enrolls.</p>') + "</div>" +
+      '<div class="card"><h3 style="margin-top:0">Add a step</h3>' +
+      OS.field("Kind", '<div><label><input type="radio" name="st_kind" value="email" checked> Email</label> &nbsp; <label><input type="radio" name="st_kind" value="task"> Follow-up task</label></div>') +
+      OS.field("Delay (days after previous step)", OS.input("st_delay", "0", "number", ' min="0"')) +
+      '<div id="st_email_fields">' +
+      OS.field("Subject *", OS.input("st_subject", "", "text", ' placeholder="Quick question, {{first_name}}"')) +
+      OS.field("Body *", OS.textarea("st_body", "", ' rows="5" placeholder="Hi {{first_name}}, … You can use {{first_name}} {{last_name}} {{company}} {{email}} {{booking_link}}."')) +
+      "</div>" +
+      '<div id="st_task_fields" style="display:none">' +
+      OS.field("Task title *", OS.input("st_ttitle", "", "text", ' placeholder="Call them — no answer after 3 emails"')) +
+      OS.field("Task notes", OS.textarea("st_tnotes", "", ' rows="3"')) +
+      "</div>" +
+      '<button class="btn" id="st_add">Add step</button></div>';
+
+    tv.querySelector("#seq_back").onclick = function () { state.openSeq = null; renderSequences(tv); };
+    tv.querySelector("#sq_save").onclick = async function () {
+      try {
+        await OS.api("PUT", "/api/prospect/sequences/" + encodeURIComponent(seqId), {
+          name: tv.querySelector('[name="sq_name"]').value.trim(),
+          description: tv.querySelector('[name="sq_desc"]').value.trim(),
+          active: tv.querySelector('[name="sq_active"]').value === "1"
+        });
+        OS.toast("Saved.");
+      } catch (e) { apiErr(e); }
+    };
+    tv.querySelectorAll('input[name="st_kind"]').forEach(function (r) {
+      r.onchange = function () {
+        var email = tv.querySelector('input[name="st_kind"]:checked').value === "email";
+        tv.querySelector("#st_email_fields").style.display = email ? "" : "none";
+        tv.querySelector("#st_task_fields").style.display = email ? "none" : "";
+      };
+    });
+    tv.querySelector("#st_add").onclick = async function () {
+      var kind = tv.querySelector('input[name="st_kind"]:checked').value;
+      var v = function (n) { return tv.querySelector('[name="' + n + '"]').value.trim(); };
+      var payload = { kind: kind, delay_days: parseInt(v("st_delay") || "0", 10) || 0 };
+      if (kind === "email") { payload.subject = v("st_subject"); payload.body = v("st_body"); }
+      else { payload.task_title = v("st_ttitle"); payload.task_notes = v("st_tnotes"); }
+      try {
+        await OS.api("POST", "/api/prospect/sequences/" + encodeURIComponent(seqId) + "/steps", payload);
+        OS.toast("Step added.");
+        renderSequenceBuilder(tv, seqId);
+      } catch (e) { apiErr(e); }
+    };
+    tv.querySelectorAll("[data-sdel]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Delete this step?")) return;
+        try { await OS.api("DELETE", "/api/prospect/steps/" + encodeURIComponent(b.getAttribute("data-sdel"))); OS.toast("Deleted."); renderSequenceBuilder(tv, seqId); }
+        catch (e) { apiErr(e); }
+      };
+    });
+    var reorder = function (id, dir) {
+      var order = steps.map(function (x) { return x.id; });
+      var i = order.indexOf(id);
+      var j = i + dir;
+      if (i < 0 || j < 0 || j >= order.length) return;
+      var t = order[i]; order[i] = order[j]; order[j] = t;
+      OS.api("POST", "/api/prospect/sequences/" + encodeURIComponent(seqId) + "/steps/reorder", { order: order })
+        .then(function () { renderSequenceBuilder(tv, seqId); })
+        .catch(apiErr);
+    };
+    tv.querySelectorAll("[data-up]").forEach(function (b) { b.onclick = function () { reorder(b.getAttribute("data-up"), -1); }; });
+    tv.querySelectorAll("[data-down]").forEach(function (b) { b.onclick = function () { reorder(b.getAttribute("data-down"), 1); }; });
+  }
+
+  /* ================= ENROLLMENTS ================= */
+  async function renderEnrollments(tv) {
+    tv.innerHTML = "<p class=\"muted\">Loading enrollments…</p>";
+    var seqs, prs, ens;
+    try {
+      seqs = await OS.api("GET", "/api/prospect/sequences");
+      prs = await OS.api("GET", "/api/prospect/prospects?limit=200");
+      var q = "?limit=100" + (state.enStatus ? "&status=" + encodeURIComponent(state.enStatus) : "");
+      ens = await OS.api("GET", "/api/prospect/enrollments" + q);
+    } catch (e) { tv.innerHTML = '<div class="card"><p><b>Couldn\'t load enrollments.</b></p></div>'; return; }
+
+    var rows = ens.items.map(function (e) {
+      var name = [e.first_name, e.last_name].filter(Boolean).join(" ") || e.prospect_email || "—";
+      var stepTxt = Math.min(e.current_step + 1, e.step_total) + "/" + e.step_total;
+      var when = e.next_run_at ? new Date(e.next_run_at).toLocaleString() : "—";
+      var acts = "";
+      if (e.status === "active") acts += '<button class="btn small ghost" data-pause="' + OS.esc(e.id) + '">Pause</button> ';
+      if (e.status === "paused") acts += '<button class="btn small" data-resume="' + OS.esc(e.id) + '">Resume</button> ';
+      if (e.status === "active" || e.status === "paused") acts += '<button class="btn small danger" data-un="' + OS.esc(e.id) + '">Unenroll</button>';
+      return "<tr><td><b>" + OS.esc(name) + "</b><br><span class=\"muted small\">" + OS.esc(e.company || "") + "</span></td>" +
+        "<td>" + OS.esc(e.sequence_name || "") + "</td>" +
+        "<td>" + OS.esc(stepTxt) + "</td><td class=\"small\">" + OS.esc(when) + "</td>" +
+        "<td><span class=\"pill\">" + OS.esc(e.status) + "</span></td><td>" + acts + "</td></tr>";
+    }).join("");
+
+    var seqOpts = seqs.items.filter(function (s) { return s.active; }).map(function (s) { return [s.id, s.name + " (" + s.step_count + " steps)"]; });
+    var prOpts = prs.items.map(function (p) {
+      var n = [p.first_name, p.last_name].filter(Boolean).join(" ") || p.email;
+      return [p.id, n + " — " + (p.company || p.status || "")];
+    });
+
+    tv.innerHTML =
+      '<div class="card" style="border-color:#e8c874"><h3 style="margin-top:0">Run the sequence engine</h3>' +
+      '<p class="muted small">Fires every due enrollment: sends the next email, files the next follow-up task. Auto-runner needs a cron slot — the account is at the free limit; this button is the manual fallback.</p>' +
+      '<button class="btn" id="run_now">Run due steps now</button> <span class="muted small" id="run_res"></span></div>' +
+      '<div class="card"><h3 style="margin-top:0">Enroll someone</h3>' +
+      '<div class="inline-form">' +
+      OS.field("Sequence", OS.select("en_seq", "", seqOpts)) +
+      OS.field("Prospect", OS.select("en_pr", "", prOpts)) +
+      "</div>" +
+      '<button class="btn" id="en_go">Enroll</button></div>' +
+      '<div class="card"><h3 style="margin-top:0">Enrollments <span class="muted small">(' + ens.total + ")</span></h3>" +
+      '<div style="margin-bottom:8px">' + OS.select("en_status", state.enStatus, [["", "all"], ["active", "active"], ["paused", "paused"], ["done", "done"], ["unenrolled", "unenrolled"]]) + "</div>" +
+      '<div class="twrap"><table><tr><th>Prospect</th><th>Sequence</th><th>Step</th><th>Next run</th><th>Status</th><th></th></tr>' + rows + "</table></div></div>";
+
+    tv.querySelector('[name="en_status"]').onchange = function (ev) { state.enStatus = ev.target.value; renderEnrollments(tv); };
+    tv.querySelector("#run_now").onclick = async function () {
+      var btn = tv.querySelector("#run_now");
+      btn.disabled = true;
+      tv.querySelector("#run_res").textContent = "Running…";
+      try {
+        var r = await OS.api("POST", "/api/prospect/run");
+        var msg = "Done — processed " + r.processed + ", sent " + r.sent + ", tasks " + r.tasks +
+          (r.deferred ? ", deferred " + r.deferred : "") + (r.skipped ? ", skipped " + r.skipped : "") + ".";
+        tv.querySelector("#run_res").textContent = msg;
+        OS.toast(msg);
+        renderEnrollments(tv);
+      } catch (e) { apiErr(e); tv.querySelector("#run_res").textContent = ""; }
+      finally { btn.disabled = false; }
+    };
+    tv.querySelector("#en_go").onclick = async function () {
+      var sq = tv.querySelector('[name="en_seq"]').value;
+      var pr = tv.querySelector('[name="en_pr"]').value;
+      if (!sq || !pr) { OS.toast("Pick a sequence and a prospect.", true); return; }
+      try {
+        await OS.api("POST", "/api/prospect/enroll", { sequence_id: sq, prospect_id: pr });
+        OS.toast("Enrolled — first step fires on the next run.");
+        renderEnrollments(tv);
+      } catch (e) { apiErr(e); }
+    };
+    tv.querySelectorAll("[data-pause]").forEach(function (b) {
+      b.onclick = async function () {
+        try { await OS.api("POST", "/api/prospect/enrollments/" + encodeURIComponent(b.getAttribute("data-pause")) + "/pause"); OS.toast("Paused."); renderEnrollments(tv); }
+        catch (e) { apiErr(e); }
+      };
+    });
+    tv.querySelectorAll("[data-resume]").forEach(function (b) {
+      b.onclick = async function () {
+        try { await OS.api("POST", "/api/prospect/enrollments/" + encodeURIComponent(b.getAttribute("data-resume")) + "/resume"); OS.toast("Resumed."); renderEnrollments(tv); }
+        catch (e) { apiErr(e); }
+      };
+    });
+    tv.querySelectorAll("[data-un]").forEach(function (b) {
+      b.onclick = async function () {
+        var reason = prompt("Unenroll — reason (optional):") || "";
+        try {
+          await OS.api("POST", "/api/prospect/enrollments/" + encodeURIComponent(b.getAttribute("data-un")) + "/unenroll", { reason: reason });
+          OS.toast("Unenrolled.");
+          renderEnrollments(tv);
+        } catch (e) { apiErr(e); }
+      };
+    });
+  }
+
+  draw();
+});
+</script>
+</body>
+</html>
