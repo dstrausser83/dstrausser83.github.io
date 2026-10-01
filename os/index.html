@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Dead Brands OS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/os/os.css">
+</head>
+<body>
+<script src="/os/app.js"></script>
+<script>
+OS.page("home", "Command Deck", async function (view) {
+  var d = await OS.api("GET", "/api/stats");
+  var s = d.stats;
+  function stat(n, l, href) {
+    return '<a href="' + href + '" style="text-decoration:none;color:inherit"><div class="stat"><div class="n">' + n + '</div><div class="l">' + l + "</div></div></a>";
+  }
+  view.innerHTML =
+    '<div class="grid cols2 cols4">' +
+      stat(s.contacts, "contacts", "crm.html") +
+      stat(s.deals_open, "open deals", "crm.html#deals") +
+      stat("$" + Number(s.pipeline_value).toLocaleString(), "pipeline", "crm.html#deals") +
+      stat(s.tasks_due, "tasks due", "crm.html#tasks") +
+      stat(s.campaigns_sent, "campaigns sent", "email.html") +
+      stat(s.sequences_active, "live sequences", "prospect.html") +
+      stat(s.enrollments_active, "in sequences", "prospect.html") +
+      stat(s.posts_published, "posts live", "cms.html") +
+    "</div>" +
+    '<div class="card"><h2 style="margin-top:0">Today</h2>' +
+    '<p class="muted">This is your whole business on one screen. Pick a lane above — contacts, deals, email, prospecting, content. Everything runs on Cloudflare\u2019s free tier, no PC required.</p>' +
+    '<div class="row"><a class="btn" href="crm.html">Open CRM</a>' +
+    '<a class="btn ghost" href="email.html">Send a campaign</a>' +
+    '<a class="btn ghost" href="prospect.html">Work prospects</a></div></div>' +
+    (s.tasks_due > 0
+      ? '<div class="card"><h2 style="margin-top:0">⚠ ' + s.tasks_due + ' task' + (s.tasks_due === 1 ? "" : "s") + ' due</h2><p class="muted">Head to the CRM tasks tab to clear them.</p></div>'
+      : "");
+});
+</script>
+</body>
+</html>
