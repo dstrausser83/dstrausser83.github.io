@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM — Dead Brands OS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/os/os.css">
+<style>
+.dealpipe{display:flex;gap:.6rem;overflow-x:auto;padding:.2rem 0 .8rem;align-items:flex-start;-webkit-overflow-scrolling:touch}
+.stagecol{min-width:235px;flex:0 0 235px;border:1px solid #ffffff22;border-radius:10px;padding:.5rem;background:#ffffff08}
+.stagehead{display:flex;align-items:center;gap:.4rem;margin-bottom:.5rem;font-weight:700}
+.dot{width:.7rem;height:.7rem;border-radius:50%;display:inline-block;flex:none}
+.dealcard{background:#00000033;border:1px solid #ffffff18;border-radius:8px;padding:.5rem;margin-bottom:.5rem}
+.dealcard .t{font-weight:700;overflow-wrap:anywhere}
+.dealcard .v{color:#7dd3a8;font-weight:700}
+.dealmove{display:flex;gap:.35rem;margin-top:.4rem}
+.dealmove select{flex:1;min-width:0;font-size:.85rem}
+.taskrow{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem;border:1px solid #ffffff18;border-radius:8px;margin-bottom:.5rem}
+.taskrow.overdue{border-color:#c96a6a;background:#c96a6a14}
+.taskrow.done{opacity:.55}
+.kindpill{display:inline-block;padding:.12rem .55rem;border-radius:999px;font-size:.72rem;background:#ffffff1f;white-space:nowrap}
+.duered{color:#ff9a9a;font-weight:700}
+.logform label{font-size:.8rem;color:#aaa}
+.logform input,.logform select,.logform textarea{width:100%;margin:.2rem 0 .6rem}
+.toolbar{display:flex;gap:.5rem;align-items:center}
+.inforow{display:flex;gap:.5rem;margin:.25rem 0}
+.inforow .l{color:#999;min-width:5.5rem;flex:none}
+details.card summary{cursor:pointer}
+details.card summary b{font-size:1rem}
+</style>
+</head>
+<body>
+<script src="/os/app.js"></script>
+<script>
+OS.page("crm", "CRM", async function (view) {
+  "use strict";
+  var S = { tab: "contacts", cq: "", gq: "", contactId: null, companyId: null };
+  var stages = [];
+  var companyOpts = [];
+  var contactOpts = [];
+
+  function money(v) {
+    v = Number(v || 0);
+    if (!isFinite(v)) v = 0;
+    return "$" + Math.round(v).toLocaleString("en-US");
+  }
+  function dstr(iso) { return iso ? String(iso).slice(0, 10) : ""; }
+  function personName(c) {
+    return OS.esc(((c.first_name || "") + " " + (c.last_name || "")).trim() || "(no name)");
+  }
+  function formData(form) {
+    var out = {};
+    new FormData(form).forEach(function (v, k) { out[k] = String(v); });
+    return out;
+  }
+  function dueISO(dateVal) {
+    return dateVal ? dateVal + "T23:59:59" : "";
+  }
+  function stageById(id) {
+    for (var i = 0; i < stages.length; i++) if (stages[i].id === id) return stages[i];
+    return null;
+  }
+  function sortedStages() {
+    return stages.slice().sort(function (a, b) { return a.position - b.position; });
+  }
+  function nextStage(id) {
+    var s = sortedStages();
+    for (var i = 0; i < s.length - 1; i++) if (s[i].id === id) return s[i + 1];
+    return null;
+  }
+  function stageOpts(sel) {
+    return sortedStages().map(function (st) {
+      return '<option value="' + OS.esc(st.id) + '"' +
+        (st.id === sel ? " selected" : "") + ">" + OS.esc(st.name) + "</option>";
+    }).join("");
+  }
+  function kindPill(kind) {
+    var colors = { call: "#8ab4f8", email: "#b39ddb", meeting: "#7dd3a8", note: "#e8c874", task: "#f0a35e" };
+    var c = colors[kind] || "#999";
+    return '<span class="kindpill" style="border-left:3px solid ' + c + '">' + OS.esc(kind) + "</span>";
+  }
+  function infoRow(label, valHtml) {
+    if (!valHtml) return "";
+    return '<div class="inforow"><span class="l">' + label + "</span><span>" + valHtml + "</span></div>";
+  }
+  function mailLink(email) {
+    return '<a href="mailto:' + OS.esc(email) + '">' + OS.esc(email) + "</a>";
+  }
+  function telLink(phone) {
+    return '<a href="tel:' + OS.esc(phone.replace(/[^+\d]/g, "")) + '">' + OS.esc(phone) + "</a>";
+  }
+
+  async function lookups() {
+    var s = await OS.api("GET", "/api/crm/stages");
+    stages = s.items;
+    var c = await OS.api("GET", "/api/crm/companies?limit=200");
+    companyOpts = [["", "— none —"]].concat(c.items.map(function (x) { return [x.id, x.name]; }));
+    var p = await OS.api("GET", "/api/crm/contacts?limit=200");
+    contactOpts = [["", "— none —"]].concat(p.items.map(function (x) {
+      return [x.id, ((x.first_name || "") + " " + (x.last_name || "")).trim() || x.email || x.id];
+    }));
+  }
+
+  /* ================= activity rows (shared) ================= */
+
+  function activityRow(a, showContact) {
+    var done = !!a.done_at;
+    var h = '<div class="taskrow' + (done ? " done" : "") + '">' + kindPill(a.kind) +
+      '<div style="flex:1;min-width:0"><b>' + OS.esc(a.subject || "(no subject)") + "</b>" +
+      (showContact && a.contact_name && String(a.contact_name).trim()
+        ? ' <span class="small muted">· ' + OS.esc(String(a.contact_name).trim()) + "</span>" : "") +
+      (a.body ? '<div class="small muted">' + OS.esc(a.body) + "</div>" : "") +
+      '<div class="small muted">' + dstr(a.created_at) +
+      (a.due_at ? " · due " + dstr(a.due_at) : "") +
+      (a.done_at ? ' · <span class="green">done ' + dstr(a.done_at) + "</span>" : "") +
+      "</div></div>";
+    if (a.kind === "task" && !done)
+      h += '<button class="btn small" data-done="' + a.id + '">done ✓</button>';
+    h += '<button class="btn small ghost danger" data-adel="' + a.id + '">×</button></div>';
+    return h;
+  }
+
+  function wireActivityButtons(scope, rerender) {
+    scope.querySelectorAll("[data-done]").forEach(function (b) {
+      b.onclick = async function () {
+        try { await OS.api("POST", "/api/crm/activities/" + b.getAttribute("data-done") + "/done"); rerender(); }
+        catch (e) { OS.toast(e.message, true); }
+      };
+    });
+    scope.querySelectorAll("[data-adel]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Delete this entry?")) return;
+        try { await OS.api("DELETE", "/api/crm/activities/" + b.getAttribute("data-adel")); OS.toast("Deleted."); rerender(); }
+        catch (e) { OS.toast(e.message, true); }
+      };
+    });
+  }
+
+  function logFormHtml(prefix, contactId, companyId) {
+    return '<form id="' + prefix + '" class="logform">' +
+      OS.field("Kind", OS.select("kind", "note",
+        [["call", "Call"], ["email", "Email"], ["meeting", "Meeting"], ["note", "Note"], ["task", "Task"]])) +
+      OS.field("Subject", OS.input("subject", "", "text", ' placeholder="What happened / what needs doing"')) +
+      OS.field("Notes", OS.textarea("body", "", ' rows="3"')) +
+      OS.field("Due date", OS.input("due_at", "", "date"), "Only matters for tasks.") +
+      (contactId ? '<input type="hidden" name="contact_id" value="' + OS.esc(contactId) + '">' : "") +
+      (companyId ? '<input type="hidden" name="company_id" value="' + OS.esc(companyId) + '">' : "") +
+      '<button class="btn small" type="submit">Log it</button></form>';
+  }
+
+  function wireLogForm(prefix, rerender) {
+    var f = document.getElementById(prefix);
+    if (!f) return;
+    f.onsubmit = async function (e) {
+      e.preventDefault();
+      var d = formData(f);
+      d.due_at = dueISO(d.due_at);
+      try {
+        await OS.api("POST", "/api/crm/activities", d);
+        OS.toast("Logged.");
+        rerender();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+  }
+
+  /* ================= tab shell ================= */
+
+  var tabBody = null;
+
+  function renderShell() {
+    var defs = [["contacts", "Contacts"], ["companies", "Companies"], ["deals", "Deals"], ["tasks", "Tasks"]];
+    view.innerHTML = '<div class="toolbar" style="flex-wrap:wrap;margin-bottom:.8rem">' +
+      defs.map(function (d) {
+        return '<button class="btn small' + (S.tab === d[0] ? "" : " ghost") + '" data-tab="' + d[0] + '">' + d[1] + "</button>";
+      }).join("") + "</div>" + '<div id="tabbody"></div>';
+    view.querySelectorAll("[data-tab]").forEach(function (b) {
+      b.onclick = function () {
+        S.tab = b.getAttribute("data-tab");
+        S.contactId = null; S.companyId = null;
+        renderTab();
+      };
+    });
+    tabBody = view.querySelector("#tabbody");
+  }
+
+  async function renderTab() {
+    try {
+      if (S.tab === "contacts") await renderContacts();
+      else if (S.tab === "companies") await renderCompanies();
+      else if (S.tab === "deals") await renderDeals();
+      else await renderTasks();
+    } catch (e) { OS.toast(e.message, true); }
+  }
+
+  /* ================= contacts ================= */
+
+  async function renderContacts() {
+    if (S.contactId) { await renderContactDetail(); return; }
+    tabBody.innerHTML =
+      '<div class="toolbar" style="margin-bottom:.6rem">' +
+      '<input id="cq" type="search" placeholder="Search people — name, email, company" value="' + OS.esc(S.cq) + '" style="flex:1;min-width:0">' +
+      '<button class="btn small" id="qgo">Go</button></div>' +
+      '<details class="card"><summary><b>+ add person</b></summary>' +
+      '<form id="cform" class="logform">' +
+      '<div class="toolbar" style="flex-wrap:wrap">' +
+      '<div style="flex:1;min-width:8rem">' + OS.field("First name", OS.input("first_name", "")) + "</div>" +
+      '<div style="flex:1;min-width:8rem">' + OS.field("Last name", OS.input("last_name", "")) + "</div></div>" +
+      OS.field("Email", OS.input("email", "", "email")) +
+      OS.field("Phone", OS.input("phone", "", "tel")) +
+      OS.field("Title", OS.input("title", "")) +
+      OS.field("Company", OS.select("company_id", "", companyOpts)) +
+      OS.field("Source", OS.input("source", "", "text", ' placeholder="referral, site, cold…"')) +
+      OS.field("Tags", OS.input("tags", "", "text", ' placeholder="comma, separated"')) +
+      OS.field("Notes", OS.textarea("notes", "", ' rows="2"')) +
+      '<button class="btn small" type="submit">Add person</button></form></details>' +
+      '<div id="clist"></div>';
+    var go = function () { S.cq = tabBody.querySelector("#cq").value.trim(); loadList(); };
+    tabBody.querySelector("#qgo").onclick = go;
+    tabBody.querySelector("#cq").onkeydown = function (e) { if (e.key === "Enter") go(); };
+    tabBody.querySelector("#cform").onsubmit = async function (e) {
+      e.preventDefault();
+      var d = formData(e.target);
+      try {
+        await OS.api("POST", "/api/crm/contacts", d);
+        OS.toast("Person added.");
+        renderContacts();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+    await loadList();
+  }
+
+  async function loadList() {
+    var list = tabBody.querySelector("#clist");
+    list.innerHTML = '<p class="muted">Loading…</p>';
+    var qs = "?limit=50" + (S.cq ? "&q=" + encodeURIComponent(S.cq) : "");
+    var d = await OS.api("GET", "/api/crm/contacts" + qs);
+    if (!d.items.length) { list.innerHTML = '<p class="muted">Nobody here yet. Add your first person above.</p>'; return; }
+    list.innerHTML = "<p class='muted small'>" + d.total + " people</p>" +
+      d.items.map(function (c) {
+        return '<div class="card list-item" data-cid="' + c.id + '" style="cursor:pointer">' +
+          "<b>" + personName(c) + "</b>" +
+          (c.company_name ? ' <span class="muted">· ' + OS.esc(c.company_name) + "</span>" : "") +
+          (c.title ? '<div class="muted small">' + OS.esc(c.title) + "</div>" : "") +
+          (c.email ? '<div class="small">' + mailLink(c.email) + "</div>" : "") +
+          "</div>";
+      }).join("");
+    list.querySelectorAll("[data-cid]").forEach(function (el) {
+      el.onclick = function (e) {
+        if (e.target.tagName === "A") return;
+        S.contactId = el.getAttribute("data-cid");
+        renderContactDetail();
+      };
+    });
+  }
+
+  async function renderContactDetail() {
+    var d = await OS.api("GET", "/api/crm/contacts/" + encodeURIComponent(S.contactId));
+    var c = d.item;
+    var h = '<button class="btn small ghost" id="back">← all people</button>' +
+      '<div class="card"><h3 style="margin-top:0">' + personName(c) + "</h3>" +
+      infoRow("Company", c.company_id
+        ? '<a href="#" id="goco">' + OS.esc(c.company ? c.company.name : c.company_name || "") + "</a>"
+        : '<span class="muted">—</span>') +
+      infoRow("Title", c.title ? OS.esc(c.title) : "") +
+      infoRow("Email", c.email ? mailLink(c.email) : "") +
+      infoRow("Phone", c.phone ? telLink(c.phone) : "") +
+      infoRow("Source", c.source ? OS.esc(c.source) : "") +
+      infoRow("Tags", c.tags ? OS.esc(c.tags) : "") +
+      (c.notes ? '<p class="small">' + OS.esc(c.notes) + "</p>" : "") +
+      '<div style="margin-top:.6rem"><button class="btn small ghost" id="cedit">edit</button> ' +
+      '<button class="btn small ghost danger" id="cdel">delete</button></div>' +
+      '<div id="ceditform" style="display:none;margin-top:.6rem"></div></div>';
+
+    if (c.open_deals && c.open_deals.length) {
+      h += '<div class="card"><h3 style="margin-top:0">Open deals (' + c.open_deals.length + ")</h3>" +
+        c.open_deals.map(function (dl) {
+          var st = stageById(dl.stage_id);
+          return '<div class="inforow"><span>' + (st ? kindPill(st.name) : "") + "</span>" +
+            '<span style="flex:1"><b>' + OS.esc(dl.title) + "</b> · " + money(dl.value) + "</span></div>";
+        }).join("") + "</div>";
+    }
+
+    h += '<div class="card"><h3 style="margin-top:0">History</h3><div id="ahist">' +
+      (c.activities && c.activities.length
+        ? c.activities.map(function (a) { return activityRow(a, false); }).join("")
+        : '<p class="muted small">Nothing logged yet — start below.</p>') +
+      "</div></div>" +
+      '<div class="card"><h3 style="margin-top:0">Log something</h3>' +
+      logFormHtml("logform", c.id, null) + "</div>";
+
+    tabBody.innerHTML = h;
+    tabBody.querySelector("#back").onclick = function () { S.contactId = null; renderContacts(); };
+    var goco = tabBody.querySelector("#goco");
+    if (goco) goco.onclick = function (e) { e.preventDefault(); S.contactId = null; S.companyId = c.company_id; S.tab = "companies"; renderShell(); renderTab(); };
+
+    var ef = tabBody.querySelector("#ceditform");
+    tabBody.querySelector("#cedit").onclick = function () {
+      if (ef.style.display === "none") {
+        ef.style.display = "block";
+        ef.innerHTML = '<form id="ceform" class="logform">' +
+          '<div class="toolbar" style="flex-wrap:wrap">' +
+          '<div style="flex:1;min-width:8rem">' + OS.field("First name", OS.input("first_name", c.first_name || "")) + "</div>" +
+          '<div style="flex:1;min-width:8rem">' + OS.field("Last name", OS.input("last_name", c.last_name || "")) + "</div></div>" +
+          OS.field("Email", OS.input("email", c.email || "", "email")) +
+          OS.field("Phone", OS.input("phone", c.phone || "", "tel")) +
+          OS.field("Title", OS.input("title", c.title || "")) +
+          OS.field("Company", OS.select("company_id", c.company_id || "", companyOpts)) +
+          OS.field("Source", OS.input("source", c.source || "")) +
+          OS.field("Tags", OS.input("tags", c.tags || "")) +
+          OS.field("Notes", OS.textarea("notes", c.notes || "", ' rows="2"')) +
+          '<button class="btn small" type="submit">Save</button></form>';
+        ef.querySelector("#ceform").onsubmit = async function (e) {
+          e.preventDefault();
+          var fd = formData(e.target);
+          try {
+            await OS.api("PUT", "/api/crm/contacts/" + encodeURIComponent(c.id), fd);
+            OS.toast("Saved.");
+            renderContactDetail();
+          } catch (err) { OS.toast(err.message, true); }
+        };
+      } else ef.style.display = "none";
+    };
+    tabBody.querySelector("#cdel").onclick = async function () {
+      if (!confirm("Delete this person? Their history stays, just unlinked.")) return;
+      try {
+        await OS.api("DELETE", "/api/crm/contacts/" + encodeURIComponent(c.id));
+        OS.toast("Deleted.");
+        S.contactId = null;
+        renderContacts();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+    wireLogForm("logform", renderContactDetail);
+    wireActivityButtons(tabBody.querySelector("#ahist"), renderContactDetail);
+  }
+
+  /* ================= companies ================= */
+
+  async function renderCompanies() {
+    if (S.companyId) { await renderCompanyDetail(); return; }
+    tabBody.innerHTML =
+      '<div class="toolbar" style="margin-bottom:.6rem">' +
+      '<input id="gq" type="search" placeholder="Search companies" value="' + OS.esc(S.gq) + '" style="flex:1;min-width:0">' +
+      '<button class="btn small" id="ggo">Go</button></div>' +
+      '<details class="card"><summary><b>+ add company</b></summary>' +
+      '<form id="gform" class="logform">' +
+      OS.field("Company name *", OS.input("name", "")) +
+      OS.field("Domain", OS.input("domain", "", "text", ' placeholder="acme.com"')) +
+      OS.field("Industry", OS.input("industry", "")) +
+      OS.field("Size", OS.input("size", "", "text", ' placeholder="1–10, 50, enterprise…"')) +
+      OS.field("Notes", OS.textarea("notes", "", ' rows="2"')) +
+      '<button class="btn small" type="submit">Add company</button></form></details>' +
+      '<div id="glist"></div>';
+    var go = function () { S.gq = tabBody.querySelector("#gq").value.trim(); loadGList(); };
+    tabBody.querySelector("#ggo").onclick = go;
+    tabBody.querySelector("#gq").onkeydown = function (e) { if (e.key === "Enter") go(); };
+    tabBody.querySelector("#gform").onsubmit = async function (e) {
+      e.preventDefault();
+      var d = formData(e.target);
+      if (!d.name.trim()) { OS.toast("Company name is required.", true); return; }
+      try {
+        await OS.api("POST", "/api/crm/companies", d);
+        OS.toast("Company added.");
+        renderCompanies();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+    await loadGList();
+  }
+
+  async function loadGList() {
+    var list = tabBody.querySelector("#glist");
+    list.innerHTML = '<p class="muted">Loading…</p>';
+    var qs = "?limit=50" + (S.gq ? "&q=" + encodeURIComponent(S.gq) : "");
+    var d = await OS.api("GET", "/api/crm/companies" + qs);
+    if (!d.items.length) { list.innerHTML = '<p class="muted">No companies yet. Add your first above.</p>'; return; }
+    list.innerHTML = "<p class='muted small'>" + d.total + " companies</p>" +
+      d.items.map(function (g) {
+        return '<div class="card list-item" data-gid="' + g.id + '" style="cursor:pointer">' +
+          "<b>" + OS.esc(g.name) + "</b>" +
+          (g.domain ? ' <span class="muted small">· ' + OS.esc(g.domain) + "</span>" : "") +
+          (g.industry ? '<div class="muted small">' + OS.esc(g.industry) + "</div>" : "") +
+          "</div>";
+      }).join("");
+    list.querySelectorAll("[data-gid]").forEach(function (el) {
+      el.onclick = function () { S.companyId = el.getAttribute("data-gid"); renderCompanyDetail(); };
+    });
+  }
+
+  async function renderCompanyDetail() {
+    var d = await OS.api("GET", "/api/crm/companies/" + encodeURIComponent(S.companyId));
+    var g = d.item;
+    var h = '<button class="btn small ghost" id="back">← all companies</button>' +
+      '<div class="card"><h3 style="margin-top:0">' + OS.esc(g.name) + "</h3>" +
+      infoRow("Domain", g.domain ? '<a href="https://' + OS.esc(g.domain) + '" target="_blank" rel="noopener">' + OS.esc(g.domain) + "</a>" : "") +
+      infoRow("Industry", g.industry ? OS.esc(g.industry) : "") +
+      infoRow("Size", g.size ? OS.esc(g.size) : "") +
+      (g.notes ? '<p class="small">' + OS.esc(g.notes) + "</p>" : "") +
+      '<div style="margin-top:.6rem"><button class="btn small ghost" id="gedit">edit</button> ' +
+      '<button class="btn small ghost danger" id="gdel">delete</button></div>' +
+      '<div id="geditform" style="display:none;margin-top:.6rem"></div></div>';
+
+    h += '<div class="card"><h3 style="margin-top:0">People (' + (g.contacts ? g.contacts.length : 0) + ")</h3>" +
+      ((g.contacts && g.contacts.length)
+        ? g.contacts.map(function (c) {
+          return '<div class="inforow" data-cgo="' + c.id + '" style="cursor:pointer"><span style="flex:1"><b>' +
+            personName(c) + "</b>" + (c.title ? ' <span class="muted small">· ' + OS.esc(c.title) + "</span>" : "") + "</span></div>";
+        }).join("")
+        : '<p class="muted small">Nobody linked yet.</p>') + "</div>";
+
+    h += '<div class="card"><h3 style="margin-top:0">Deals (' + (g.deals ? g.deals.length : 0) + ")</h3>" +
+      ((g.deals && g.deals.length)
+        ? g.deals.map(function (dl) {
+          var st = stageById(dl.stage_id);
+          return '<div class="inforow"><span style="flex:1"><b>' + OS.esc(dl.title) + "</b> · " + money(dl.value) + "</span>" +
+            (st ? kindPill(st.name) : "") + "</div>";
+        }).join("")
+        : '<p class="muted small">No deals yet.</p>') + "</div>";
+
+    tabBody.innerHTML = h;
+    tabBody.querySelector("#back").onclick = function () { S.companyId = null; renderCompanies(); };
+    tabBody.querySelectorAll("[data-cgo]").forEach(function (el) {
+      el.onclick = function () {
+        S.companyId = null; S.contactId = el.getAttribute("data-cgo");
+        S.tab = "contacts"; renderShell(); renderTab();
+      };
+    });
+    var ef = tabBody.querySelector("#geditform");
+    tabBody.querySelector("#gedit").onclick = function () {
+      if (ef.style.display === "none") {
+        ef.style.display = "block";
+        ef.innerHTML = '<form id="geform" class="logform">' +
+          OS.field("Company name *", OS.input("name", g.name || "")) +
+          OS.field("Domain", OS.input("domain", g.domain || "")) +
+          OS.field("Industry", OS.input("industry", g.industry || "")) +
+          OS.field("Size", OS.input("size", g.size || "")) +
+          OS.field("Notes", OS.textarea("notes", g.notes || "", ' rows="2"')) +
+          '<button class="btn small" type="submit">Save</button></form>';
+        ef.querySelector("#geform").onsubmit = async function (e) {
+          e.preventDefault();
+          var fd = formData(e.target);
+          if (!fd.name.trim()) { OS.toast("Name can't go blank.", true); return; }
+          try {
+            await OS.api("PUT", "/api/crm/companies/" + encodeURIComponent(g.id), fd);
+            OS.toast("Saved.");
+            lookups().then(renderCompanyDetail);
+          } catch (err) { OS.toast(err.message, true); }
+        };
+      } else ef.style.display = "none";
+    };
+    tabBody.querySelector("#gdel").onclick = async function () {
+      if (!confirm("Delete " + g.name + "? Blocked if it still has deals.")) return;
+      try {
+        await OS.api("DELETE", "/api/crm/companies/" + encodeURIComponent(g.id));
+        OS.toast("Deleted.");
+        S.companyId = null;
+        lookups().then(renderCompanies);
+      } catch (err) { OS.toast(err.message, true); }
+    };
+  }
+
+  /* ================= deals ================= */
+
+  async function renderDeals() {
+    var d = await OS.api("GET", "/api/crm/deals?limit=200");
+    var deals = d.items;
+    var sorted = sortedStages();
+    var h = '<details class="card"><summary><b>+ new deal</b></summary>' +
+      '<form id="dform" class="logform">' +
+      OS.field("Title *", OS.input("title", "")) +
+      OS.field("Company", OS.select("company_id", "", companyOpts)) +
+      OS.field("Contact", OS.select("contact_id", "", contactOpts)) +
+      '<div class="toolbar" style="flex-wrap:wrap">' +
+      '<div style="flex:1;min-width:8rem">' + OS.field("Stage", OS.select("stage_id", "st_new", stages.map(function (s) { return [s.id, s.name]; }))) + "</div>" +
+      '<div style="flex:1;min-width:8rem">' + OS.field("Value ($)", OS.input("value", "", "number", ' min="0" step="0.01"')) + "</div>" +
+      '<div style="flex:1;min-width:8rem">' + OS.field("Win %", OS.input("probability", "", "number", ' min="0" max="100" step="1"')) + "</div></div>" +
+      OS.field("Expected close", OS.input("expected_close", "", "date")) +
+      OS.field("Notes", OS.textarea("notes", "", ' rows="2"')) +
+      '<button class="btn small" type="submit">Add deal</button></form></details>' +
+      '<div class="dealpipe">';
+    sorted.forEach(function (st) {
+      var mine = deals.filter(function (x) { return x.stage_id === st.id; });
+      var sum = mine.reduce(function (a, x) { return a + Number(x.value || 0); }, 0);
+      h += '<div class="stagecol"><div class="stagehead"><span class="dot" style="background:' +
+        OS.esc(st.color || "#888") + '"></span>' + OS.esc(st.name) +
+        ' <span class="muted small">' + mine.length + "</span></div>";
+      mine.forEach(function (dl) {
+        var nx = nextStage(dl.stage_id);
+        h += '<div class="dealcard">' +
+          '<div class="t">' + OS.esc(dl.title) + "</div>" +
+          (dl.company_name ? '<div class="small muted">' + OS.esc(dl.company_name) + "</div>" : "") +
+          (dl.contact_name && String(dl.contact_name).trim() ? '<div class="small muted">' + OS.esc(String(dl.contact_name).trim()) + "</div>" : "") +
+          '<div class="v">' + money(dl.value) + "</div>" +
+          (dl.expected_close ? '<div class="small muted">close ~' + dstr(dl.expected_close) + "</div>" : "") +
+          '<div class="dealmove">' +
+          '<select data-mv="' + dl.id + '">' + stageOpts(dl.stage_id) + "</select>" +
+          (nx ? '<button class="btn small" data-adv="' + dl.id + '" data-nx="' + nx.id + '" title="Advance to ' + OS.esc(nx.name) + '">→</button>' : "") +
+          '<button class="btn small ghost danger" data-ddel="' + dl.id + '">×</button>' +
+          "</div></div>";
+      });
+      h += '<div class="small muted">' + money(sum) + " in this stage</div></div>";
+    });
+    h += "</div>";
+    tabBody.innerHTML = h;
+
+    tabBody.querySelector("#dform").onsubmit = async function (e) {
+      e.preventDefault();
+      var fd = formData(e.target);
+      if (!fd.title.trim()) { OS.toast("Give the deal a title.", true); return; }
+      try {
+        await OS.api("POST", "/api/crm/deals", fd);
+        OS.toast("Deal added.");
+        renderDeals();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+    var moveDeal = async function (id, stageId) {
+      try {
+        await OS.api("POST", "/api/crm/deals/" + id + "/move", { stage_id: stageId });
+        OS.toast("Moved.");
+        renderDeals();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+    tabBody.querySelectorAll("[data-mv]").forEach(function (sel) {
+      sel.onchange = function () { moveDeal(sel.getAttribute("data-mv"), sel.value); };
+    });
+    tabBody.querySelectorAll("[data-adv]").forEach(function (b) {
+      b.onclick = function () { moveDeal(b.getAttribute("data-adv"), b.getAttribute("data-nx")); };
+    });
+    tabBody.querySelectorAll("[data-ddel]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Delete this deal?")) return;
+        try {
+          await OS.api("DELETE", "/api/crm/deals/" + b.getAttribute("data-ddel"));
+          OS.toast("Deleted.");
+          renderDeals();
+        } catch (err) { OS.toast(err.message, true); }
+      };
+    });
+  }
+
+  /* ================= tasks ================= */
+
+  async function renderTasks() {
+    tabBody.innerHTML =
+      '<details class="card"><summary><b>+ add task</b></summary>' +
+      '<form id="tform" class="logform">' +
+      OS.field("What needs doing *", OS.input("subject", "", "text", ' placeholder="Call them back, send the proposal…"')) +
+      OS.field("For (person)", OS.select("contact_id", "", contactOpts)) +
+      OS.field("Due", OS.input("due_at", "", "date")) +
+      OS.field("Notes", OS.textarea("body", "", ' rows="2"')) +
+      '<button class="btn small" type="submit">Add task</button></form></details>' +
+      '<div id="tlist"><p class="muted">Loading…</p></div>';
+
+    tabBody.querySelector("#tform").onsubmit = async function (e) {
+      e.preventDefault();
+      var d = formData(e.target);
+      if (!d.subject.trim()) { OS.toast("Say what the task is.", true); return; }
+      d.kind = "task";
+      d.due_at = dueISO(d.due_at);
+      try {
+        await OS.api("POST", "/api/crm/activities", d);
+        OS.toast("Task added.");
+        renderTasks();
+      } catch (err) { OS.toast(err.message, true); }
+    };
+
+    var list = tabBody.querySelector("#tlist");
+    var t = await OS.api("GET", "/api/crm/activities?open_tasks=1&limit=200");
+    var now = new Date().toISOString();
+    if (!t.items.length) { list.innerHTML = '<p class="muted">Nothing open. Enjoy it — it won\'t last.</p>'; return; }
+    list.innerHTML = "<p class='muted small'>" + t.total + " open tasks</p>" +
+      t.items.map(function (a) {
+        var overdue = a.due_at && a.due_at <= now;
+        return '<div class="taskrow' + (overdue ? " overdue" : "") + '">' +
+          '<div style="flex:1;min-width:0"><b>' + OS.esc(a.subject || "(no subject)") + "</b>" +
+          (a.contact_name && String(a.contact_name).trim()
+            ? ' <span class="small muted">· ' + OS.esc(String(a.contact_name).trim()) + "</span>" : "") +
+          (a.body ? '<div class="small muted">' + OS.esc(a.body) + "</div>" : "") +
+          '<div class="small">' + (a.due_at
+            ? (overdue
+              ? '<span class="duered">overdue — was due ' + dstr(a.due_at) + "</span>"
+              : '<span class="muted">due ' + dstr(a.due_at) + "</span>")
+            : '<span class="muted">no due date</span>') + "</div></div>" +
+          '<button class="btn small" data-done="' + a.id + '">done ✓</button>' +
+          '<button class="btn small ghost danger" data-adel="' + a.id + '">×</button></div>';
+      }).join("");
+    wireActivityButtons(list, renderTasks);
+  }
+
+  /* ================= boot ================= */
+
+  try {
+    await lookups();
+  } catch (e) {
+    OS.toast("Couldn't load CRM data: " + e.message, true);
+  }
+  renderShell();
+  await renderTab();
+});
+</script>
+</body>
+</html>
