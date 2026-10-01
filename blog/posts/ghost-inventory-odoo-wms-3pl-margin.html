@@ -386,5 +386,15 @@
     b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
   })();
   </script>
+  <script>
+  // view counter (Cloudflare worker, no cookies/PII)
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("ghost-inventory-odoo-wms-3pl-margin");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
+  })();
+  </script>
 </body>
 </html>
