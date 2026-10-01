@@ -5,8 +5,35 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2026 18:53:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 11:57:58 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)</title>
+      <link>https://deadbrands.co/blog/posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html</guid>
+      <description>Why sales teams abandon Odoo’s pipeline setup. Real steps that match daily work. No fluff.</description>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>crm</category>
+      <category>sales</category>
+      <category>pipeline</category>
+      <category>open-source</category>
+    </item>
+    <item>
+      <title>Ghost Inventory Is Eating Your 3PL's Margin — How Odoo WMS Hunts It Down</title>
+      <link>https://deadbrands.co/blog/posts/ghost-inventory-odoo-wms-3pl-margin.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/ghost-inventory-odoo-wms-3pl-margin.html</guid>
+      <description>Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.</description>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/ghost-inventory-odoo-wms-3pl-margin.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>odoo-wms</category>
+      <category>3pl</category>
+      <category>inventory</category>
+      <category>warehouse-management</category>
+      <category>distribution</category>
+    </item>
     <item>
       <title>The Odoo Apps I'd Install on Day One for a 20-Person Company</title>
       <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
@@ -239,7 +266,7 @@
       <category>sap-business-one</category>
     </item>
     <item>
-      <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream — David Strausser</title>
+      <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream</title>
       <link>https://deadbrands.co/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</guid>
       <description>How to avoid ERP chaos in 90 days: practical steps to get your team actually using the system, with no jargon and no empty promises.</description>
@@ -281,7 +308,7 @@
       <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</guid>
-      <description>A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
+      <description>A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" type="image/jpeg" />
       <category>erp</category>
@@ -299,6 +326,17 @@
       <enclosure url="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" type="image/jpeg" />
       <category>welcome</category>
       <category>dead-brands</category>
+    </item>
+    <item>
+      <title>The Dad's Playbook for Getting More Done Before 9 AM</title>
+      <link>https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</guid>
+      <description>A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/dad-playbook-productive-mornings.jpg" type="image/jpeg" />
+      <category>productivity</category>
+      <category>dad</category>
+      <category>business-growth</category>
     </item>
     <item>
       <title>What Playing Guitar Taught Me About Running a Business</title>
@@ -353,17 +391,6 @@
       <enclosure url="https://deadbrands.co/blog/images/sap-business-one-add-ons-worth-the-money.jpg" type="image/jpeg" />
       <category>sap-business-one</category>
       <category>erp</category>
-    </item>
-    <item>
-      <title>The Dad's Playbook for Getting More Done Before 9 AM</title>
-      <link>https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</guid>
-      <description>A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/dad-playbook-productive-mornings.jpg" type="image/jpeg" />
-      <category>productivity</category>
-      <category>dad</category>
-      <category>business-growth</category>
     </item>
   </channel>
 </rss>

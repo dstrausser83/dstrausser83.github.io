@@ -1,5 +1,24 @@
 [
   {
+    "slug": "odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales",
+    "title": "Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)",
+    "date": "2026-10-01",
+    "published_at": "2026-10-01T11:57:58Z",
+    "tags": [
+      "odoo",
+      "crm",
+      "sales",
+      "pipeline",
+      "open-source"
+    ],
+    "excerpt": "Sales reps ignore your CRM pipeline setup because it\u2019s too complicated. Here\u2019s what actually gets used, and here is why Odoo\u2019s approach works.",
+    "description": "Why sales teams abandon Odoo\u2019s pipeline setup. Real steps that match daily work. No fluff.",
+    "image": "images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg",
+    "video": "",
+    "url": "posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html",
+    "reading_time": 5
+  },
+  {
     "slug": "ghost-inventory-odoo-wms-3pl-margin",
     "title": "Ghost Inventory Is Eating Your 3PL's Margin \u2014 How Odoo WMS Hunts It Down",
     "date": "2026-10-01",
@@ -360,7 +379,7 @@
   },
   {
     "slug": "the-90-day-erp-adoption-plan-getting-your-team-to-actually-u",
-    "title": "The 90-Day ERP Plan That Doesn't Make Your Team Scream \u2014 David Strausser",
+    "title": "The 90-Day ERP Plan That Doesn't Make Your Team Scream",
     "date": "2026-09-24",
     "published_at": "2026-09-24T17:55:42Z",
     "tags": [
@@ -427,12 +446,12 @@
       "go-live",
       "testing"
     ],
-    "excerpt": "A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
-    "description": "A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+    "excerpt": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+    "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
     "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
     "video": "",
     "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html",
-    "reading_time": 7
+    "reading_time": 8
   },
   {
     "slug": "welcome-to-the-blog-tips-tricks-and-straight-talk",
@@ -448,7 +467,24 @@
     "image": "images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg",
     "video": "",
     "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html",
-    "reading_time": 5
+    "reading_time": 6
+  },
+  {
+    "slug": "dad-playbook-productive-mornings",
+    "title": "The Dad's Playbook for Getting More Done Before 9 AM",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T17:12:51Z",
+    "tags": [
+      "productivity",
+      "dad",
+      "business-growth"
+    ],
+    "excerpt": "Dad, CEO, podcaster, guitarist \u2014 here's the actual morning system that lets me run a business and be present for my kid.",
+    "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
+    "image": "images/dad-playbook-productive-mornings.jpg",
+    "video": "",
+    "url": "posts/dad-playbook-productive-mornings.html",
+    "reading_time": 6
   },
   {
     "slug": "what-playing-guitar-taught-me-about-business",
@@ -532,23 +568,6 @@
     "image": "images/sap-business-one-add-ons-worth-the-money.jpg",
     "video": "",
     "url": "posts/sap-business-one-add-ons-worth-the-money.html",
-    "reading_time": 6
-  },
-  {
-    "slug": "dad-playbook-productive-mornings",
-    "title": "The Dad's Playbook for Getting More Done Before 9 AM",
-    "date": "2026-09-22",
-    "published_at": "2026-09-22T17:12:51Z",
-    "tags": [
-      "productivity",
-      "dad",
-      "business-growth"
-    ],
-    "excerpt": "Dad, CEO, podcaster, guitarist \u2014 here's the actual morning system that lets me run a business and be present for my kid.",
-    "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
-    "image": "images/dad-playbook-productive-mornings.jpg",
-    "video": "",
-    "url": "posts/dad-playbook-productive-mornings.html",
     "reading_time": 6
   }
 ]

@@ -626,6 +626,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     b.addEventListener("click", function() {{ window.scrollTo({{top: 0, behavior: "smooth"}}); }});
   }})();
   </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {{
+    try {{
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("{slug}");
+      if (navigator.sendBeacon) {{ navigator.sendBeacon(u); }}
+      else {{ fetch(u, {{method: "POST", mode: "no-cors", keepalive: true}}).catch(function(){{}}); }}
+    }} catch (e) {{}}
+  }})();
+  </script>
 </body>
 </html>
 """
