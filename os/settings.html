@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Dead Brands OS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/os/os.css">
+</head>
+<body>
+<script src="/os/app.js"></script>
+<script>
+OS.page("settings", "Settings", async function (view) {
+  var d = await OS.api("GET", "/api/settings");
+  var map = {};
+  d.items.forEach(function (i) { map[i.key] = i; });
+  function row(key, label, hint, secret) {
+    var it = map[key] || { value: "" };
+    var shown = secret ? (it.configured ? "" : "") : (it.value || "");
+    var note = secret
+      ? (it.configured ? '<span class="pill green">key saved</span>' : '<span class="pill red">not set — sending stays dark</span>')
+      : "";
+    return '<div class="card"><h3 style="margin-top:0">' + OS.esc(label) + " " + note + "</h3>" +
+      OS.field(secret ? "Brevo API key (starts with xkeysib-)" : label,
+        OS.input("k_" + key, secret ? "" : shown, secret ? "password" : "text",
+          ' placeholder="' + (secret ? "paste key to enable sending" : "") + '"'),
+        hint) +
+      '<button class="btn small" data-save="' + key + '">Save</button></div>';
+  }
+  view.innerHTML =
+    "<h2>Email sending (Brevo)</h2>" +
+    row("brevo_key", "Brevo API key", "One paste and you're live. Until this is set, every send button stays dark — nothing can go out by accident.", true) +
+    row("mail_from_name", "From name", "Shown on every email you send.", false) +
+    row("mail_from_email", "From email", "Must be a sender you've verified in Brevo.", false) +
+    row("mail_footer_address", "Footer address", "CAN-SPAM needs a physical address on every bulk email.", false) +
+    '<div class="card"><h3 style="margin-top:0">Test the connection</h3>' +
+    '<p class="muted small">Sends one email to an address you choose, so you know the key works before any campaign goes out.</p>' +
+    OS.field("Send test to", OS.input("test_to", "", "email", ' placeholder="you@example.com"')) +
+    '<button class="btn" id="testsend">Send test email</button></div>' +
+    "<h2>Business</h2>" +
+    row("booking_link", "Booking link", "Dropped into sequence emails as {{booking_link}}.", false);
+
+  view.querySelectorAll("[data-save]").forEach(function (btn) {
+    btn.onclick = async function () {
+      var key = btn.getAttribute("data-save");
+      var inp = view.querySelector('[name="k_' + key + '"]');
+      var v = inp.value;
+      if (key === "brevo_key" && !v) { OS.toast("Paste a key or leave settings alone — empty won't save over the stored key.", true); return; }
+      try {
+        await OS.api("PUT", "/api/settings", { key: key, value: v });
+        OS.toast("Saved.");
+        if (key === "brevo_key") inp.value = "";
+      } catch (e) { OS.toast(e.message, true); }
+    };
+  });
+  document.getElementById("testsend").onclick = async function () {
+    var to = view.querySelector('[name="test_to"]').value.trim();
+    if (!to) { OS.toast("Enter an address first.", true); return; }
+    try {
+      var r = await OS.api("POST", "/api/email/test-send", { to: to });
+      OS.toast(r.message || "Test sent.");
+    } catch (e) { OS.toast(e.message, true); }
+  };
+});
+</script>
+</body>
+</html>
