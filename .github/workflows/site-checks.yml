@@ -54,6 +54,8 @@ jobs:
             --exclude 'https://www\.fiverr\.com.*'
             --exclude 'https://app\.retention\.com.*'
             --exclude 'cdn-cgi/l/email-protection.*'
+            --exclude 'https://\.cannonsports\.com.*'
+            --exclude 'https://\.firewiresurfboards\.com.*'
             --max-retries 3
             --retry-wait-time 5
             --max-redirects 5
