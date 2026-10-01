@@ -49,6 +49,7 @@ jobs:
             --exclude 'http://127.0.0.1*'
             --max-redirects 5
             --timeout 20
+            --root-dir .
             '**/*.html'
           fail: true
         env:
