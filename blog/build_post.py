@@ -347,7 +347,8 @@ def related_posts_html(slug):
     cards = []
     for p in picks:
         img = p.get("image") or ""
-        img_tag = (f'<img src="../{html_escape_attr(img)}" alt="" loading="lazy" />'
+        title_attr = html_escape_attr(p.get("title") or "")
+        img_tag = (f'<img src="../{html_escape_attr(img)}" alt="{title_attr}" loading="lazy" />'
                    if img else "")
         # url in posts.json is blog-relative ("posts/<slug>.html"); post pages
         # live in posts/ itself, so link by bare filename.
