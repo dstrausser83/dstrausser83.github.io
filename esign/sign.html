@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign Document | Dead Brands eSign</title>
+<meta name="description" content="Review and sign your Dead Brands document electronically. No account needed." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/styles.css?v=20261001" />
+<style>
+  :root { --db-ink:#221610; --db-muted:#6f5b4d; --db-line:#e9dcc8; --db-bg:#fff8ef; --db-raised:#fffdf8; --db-accent:#b3541e; --db-accent-deep:#8f3f14; --db-ok:#1e7a3c; }
+  body { background:var(--db-bg); color:var(--db-ink); font-family:'Inter',system-ui,sans-serif; margin:0; }
+  .wrap { max-width:900px; margin:0 auto; padding:0 1rem; }
+  header.dash-head { padding:1.1rem 0; border-bottom:1px solid var(--db-line); background:var(--db-raised); }
+  header.dash-head h1 { font-family:'Anton',sans-serif; font-size:1.5rem; letter-spacing:.02em; margin:0; }
+  header.dash-head h1 a { color:inherit; text-decoration:none; }
+  main.wrap { padding:1.5rem 1rem 4rem; }
+  .card { background:var(--db-raised); border:1px solid var(--db-line); border-radius:14px; padding:1.4rem; margin:0 0 1.25rem; box-shadow:0 4px 18px rgba(34,22,16,.05); }
+  .card h2 { font-family:'Anton',sans-serif; font-size:1.2rem; letter-spacing:.02em; margin:0 0 .8rem; }
+  .btn { font:inherit; font-weight:700; border-radius:999px; padding:.65rem 1.3rem; border:2px solid var(--db-accent-deep); cursor:pointer; }
+  .btn-primary { background:var(--db-accent-deep); color:#fff; }
+  .btn-ghost { background:#fff; color:var(--db-ink); }
+  .btn-xl { font-size:1.05rem; padding:.8rem 2rem; }
+  .btn:disabled { opacity:.5; cursor:not-allowed; }
+  .btn-sm { padding:.4rem .85rem; font-size:.85rem; }
+  input[type=text], input[type=email] { font:inherit; width:100%; box-sizing:border-box; padding:.6rem .7rem; border:1.5px solid var(--db-line); border-radius:9px; background:#fff; color:var(--db-ink); }
+  label.f { display:block; font-size:.85rem; font-weight:600; margin:.7rem 0 .3rem; }
+  .status { font-size:.92rem; margin:.6rem 0 0; min-height:1.3em; }
+  .status.ok { color:var(--db-ok); } .status.bad { color:#a11; }
+  .pdf-stage { background:#3a3a3a; border-radius:10px; padding:1rem; }
+  .page-wrap { position:relative; margin:0 auto 1rem; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.35); max-width:100%; }
+  .page-wrap canvas.pdf { display:block; width:100%; height:auto; }
+  .my-field { position:absolute; box-sizing:border-box; border:2px dashed var(--db-accent-deep); border-radius:4px; background:rgba(179,84,30,.08); }
+  .my-field.done { border-style:solid; background:rgba(30,122,60,.10); border-color:var(--db-ok); }
+  .my-field .tag { position:absolute; top:-1.35em; left:0; font-size:11px; font-weight:700; color:var(--db-accent-deep); white-space:nowrap; }
+  .my-field.done .tag { color:var(--db-ok); }
+  .my-field button.fill-btn { position:absolute; inset:0; width:100%; height:100%; background:transparent; border:0; cursor:pointer; font:inherit; font-weight:700; color:var(--db-accent-deep); font-size:.85rem; }
+  .my-field.done button.fill-btn { color:var(--db-ok); }
+  .my-field input.fill-text { position:absolute; inset:0; width:100%; height:100%; box-sizing:border-box; border:0; background:transparent; font:inherit; padding:2px 6px; color:var(--db-ink); }
+  .consent-box { background:#fff7e8; border:1.5px solid #e8c874; border-radius:12px; padding:1rem 1.25rem; font-size:.88rem; line-height:1.65; color:#6b5518; margin:1rem 0; }
+  .agree-line { display:flex; gap:.6rem; align-items:flex-start; font-size:.92rem; margin:.8rem 0; cursor:pointer; }
+  .agree-line input { width:1.2rem; height:1.2rem; margin-top:.15rem; flex:none; }
+  .modal-back { position:fixed; inset:0; background:rgba(20,12,8,.6); display:flex; align-items:center; justify-content:center; z-index:50; padding:1rem; }
+  .modal { background:#fff; border-radius:16px; max-width:520px; width:100%; padding:1.4rem; max-height:92vh; overflow:auto; }
+  .modal h3 { font-family:'Anton',sans-serif; margin:0 0 .8rem; font-size:1.2rem; }
+  .sig-tabs { display:flex; gap:.5rem; margin-bottom:.8rem; }
+  .sig-tabs button { font:inherit; font-size:.88rem; font-weight:600; padding:.5rem 1rem; border-radius:999px; border:2px solid var(--db-line); background:#fff; cursor:pointer; }
+  .sig-tabs button[aria-selected="true"] { border-color:var(--db-accent-deep); background:var(--db-accent-deep); color:#fff; }
+  #sig-canvas { width:100%; height:180px; border:2px solid var(--db-line); border-radius:10px; background:#fff; touch-action:none; cursor:crosshair; }
+  #typed-preview { width:100%; height:180px; border:2px solid var(--db-line); border-radius:10px; background:#fff; }
+  .hidden { display:none !important; }
+  .confirm-check { display:inline-block; width:2.6rem; height:2.6rem; line-height:2.6rem; text-align:center; border-radius:50%; background:var(--db-ok); color:#fff; font-size:1.4rem; font-weight:700; margin-right:.7rem; vertical-align:middle; }
+  table.audit-table { width:100%; border-collapse:collapse; font-size:.9rem; margin:.8rem 0; }
+  table.audit-table th, table.audit-table td { text-align:left; padding:.5rem; border-bottom:1px solid var(--db-line); vertical-align:top; }
+  table.audit-table th { color:var(--db-muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; width:11rem; }
+  .hash-box { font-family:ui-monospace,monospace; font-size:.75rem; word-break:break-all; background:#f6f1e8; border-radius:8px; padding:.5rem .7rem; }
+  .spinner { display:inline-block; width:1rem; height:1rem; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin .7s linear infinite; vertical-align:-2px; margin-right:.5rem; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+<header class="dash-head"><div class="wrap"><h1><a href="/esign/">Dead Brands eSign</a></h1></div></header>
+<main class="wrap" id="app">
+  <div class="card" id="loading-card"><h2>Loading document…</h2><p class="status" id="load-status"></p></div>
+</main>
+
+<!-- signature adoption modal -->
+<div class="modal-back hidden" id="sig-modal" role="dialog" aria-modal="true" aria-labelledby="sig-modal-title">
+  <div class="modal">
+    <h3 id="sig-modal-title">Adopt your signature</h3>
+    <p style="font-size:.88rem;color:var(--db-muted);margin-top:0">This signature will be applied to every signature &amp; initials field assigned to you in this document.</p>
+    <div class="sig-tabs" role="tablist">
+      <button role="tab" data-tab="draw" aria-selected="true">✍️ Draw</button>
+      <button role="tab" data-tab="type" aria-selected="false">⌨️ Type</button>
+      <button role="tab" data-tab="upload" aria-selected="false">🖼️ Upload</button>
+    </div>
+    <div id="tab-draw">
+      <canvas id="sig-canvas" aria-label="Draw your signature"></canvas>
+      <div style="display:flex;gap:.5rem;margin-top:.6rem">
+        <button class="btn btn-ghost btn-sm" id="sig-clear" type="button">Clear</button>
+      </div>
+      <p style="font-size:.82rem;color:var(--db-muted)">Draw with your mouse, or your finger on touch screens.</p>
+    </div>
+    <div id="tab-type" class="hidden">
+      <label class="f" for="type-name">Type your full name</label>
+      <input type="text" id="type-name" maxlength="80" placeholder="Jane Appleseed" />
+      <div style="margin-top:.6rem"><canvas id="typed-preview" width="480" height="180" aria-label="Typed signature preview"></canvas></div>
+    </div>
+    <div id="tab-upload" class="hidden">
+      <label class="f" for="sig-file">Upload a signature image (PNG/JPG, transparent background works best)</label>
+      <input type="file" id="sig-file" accept="image/png,image/jpeg" />
+      <div style="margin-top:.6rem"><canvas id="upload-preview" width="480" height="180" style="width:100%;height:180px;border:2px solid var(--db-line);border-radius:10px;background:#fff"></canvas></div>
+    </div>
+    <div style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+      <button class="btn btn-primary" id="adopt-btn" type="button">Adopt signature</button>
+      <button class="btn btn-ghost" id="sig-cancel" type="button">Cancel</button>
+    </div>
+    <p class="status bad" id="adopt-status"></p>
+  </div>
+</div>
+
+<script src="/assets/js/vendor/pdf.min.js"></script>
+<script src="/assets/js/vendor/pdf-lib.min.js"></script>
+<script>
+"use strict";
+/* Dead Brands eSign — signing ceremony. No account, no trackers. */
+const API_BASE = "https://deadbrands-esign.dstrausser83.workers.dev"; // worker name: deadbrands-esign
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/assets/js/vendor/pdf.worker.min.js";
+
+const $ = id => document.getElementById(id);
+const token = new URLSearchParams(location.search).get("t") || "";
+let session = null;          // /api/sign/:token response
+let pdfBytes = null;         // current PDF (original or latest sealed)
+let pagePts = [];
+let adoptedSig = null;       // { kind, dataUrl }
+let fieldState = {};         // fieldId -> { done, value }
+
+const CONSENT_TEXT = "I agree to do business electronically with Dead Brands, LLC and the other parties to this document. I agree that my electronic signature — however adopted below (drawn, typed, or uploaded), together with my printed name and my click on “Sign document” — is the legal equivalent of my handwritten signature, and that it shows my intent to sign this document and be bound by it. I confirm I have had the opportunity to review the entire document.";
+
+function esc(s) { return (s || "").toString().replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+async function init() {
+  if (!token) return showError("This signing link is missing its token. Please use the full link you were given.");
+  let r, data;
+  try {
+    r = await fetch(`${API_BASE}/api/sign/${encodeURIComponent(token)}`);
+    data = await r.json();
+  } catch { return showError("Could not reach the signing service. Check your connection and try again."); }
+  if (!r.ok || data.ok === false) return showError(data.error || "This signing link is invalid or has expired.");
+  session = data;
+  if (session.alreadySigned) return showAlreadySigned();
+  if (session.envelope.status === "completed") return showAlreadySigned();
+  if (session.envelope.status !== "sent") return showError("This document isn't out for signature yet. Please check back when the sender has sent it.");
+  if (!session.canSign && session.waitingOn) return showWaiting();
+  if (!session.canSign) return showError("You can't sign right now. " + (session.envelope.status || ""));
+  buildCeremony();
+}
+
+function showError(msg) {
+  $("app").innerHTML = `<div class="card"><h2>Can't open this document</h2><p>${esc(msg)}</p><p style="font-size:.9rem;color:var(--db-muted)">If you believe this is a mistake, ask the sender to reissue your signing link.</p></div>`;
+}
+function showWaiting() {
+  $("app").innerHTML = `<div class="card"><h2>Almost your turn</h2><p><strong>${esc(session.signer.name)}</strong>, this document signs in order — <strong>${esc(session.waitingOn)}</strong> needs to sign before you.</p><p style="font-size:.9rem;color:var(--db-muted)">You'll be able to sign as soon as they finish. Your link stays valid.</p></div>`;
+}
+function showAlreadySigned() {
+  const base = "https://deadbrands.co/esign";
+  $("app").innerHTML = `<div class="card"><h2><span class="confirm-check">✓</span>Already signed</h2>
+    <p><strong>${esc(session.signer.name)}</strong>, you signed this document${session.signer.signedAt ? " on " + esc(new Date(session.signer.signedAt).toLocaleString()) : ""}.</p>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem">
+      <a class="btn btn-primary" href="${API_BASE}/api/sign/${encodeURIComponent(token)}/download">Download signed PDF</a>
+      <a class="btn btn-ghost" href="${base}/certificate.html?t=${encodeURIComponent(token)}">Certificate of completion</a>
+    </div></div>`;
+}
+
+async function buildCeremony() {
+  const app = $("app");
+  app.innerHTML = `
+    <div class="card">
+      <h2>${esc(session.envelope.title)}</h2>
+      <p style="font-size:.92rem;color:var(--db-muted)">Signing as <strong>${esc(session.signer.name)}</strong> (${esc(session.signer.email)})</p>
+      ${session.envelope.message ? `<p style="font-size:.92rem;border-left:3px solid var(--db-line);padding-left:.8rem">${esc(session.envelope.message)}</p>` : ""}
+      <p style="font-size:.88rem">Fill every highlighted field, adopt your signature, check the consent box, then sign.</p>
+    </div>
+    <div class="card"><h2>Document</h2><div class="pdf-stage" id="pdf-stage"><p style="color:#fff">Loading…</p></div></div>
+    <div class="card">
+      <h2>Sign</h2>
+      <div id="adopt-row" style="margin-bottom:.6rem">
+        <button class="btn btn-ghost" id="adopt-open" type="button">✍️ Adopt your signature</button>
+        <span id="adopt-state" style="font-size:.9rem;margin-left:.6rem;color:var(--db-muted)">no signature adopted yet</span>
+      </div>
+      <label class="f" for="printed-name">Printed name (as it will appear in the audit trail)</label>
+      <input type="text" id="printed-name" maxlength="120" value="${esc(session.signer.name)}" />
+      <div class="consent-box">${esc(CONSENT_TEXT)}</div>
+      <label class="agree-line"><input type="checkbox" id="consent" /> <span>I have read the document above, I consent to do business electronically, and my electronic signature is the legal equivalent of my handwritten signature.</span></label>
+      <button class="btn btn-primary btn-xl" id="sign-btn" type="button">Sign document</button>
+      <p class="status" id="sign-status" role="status"></p>
+    </div>
+    <div class="card hidden" id="done-card">
+      <h2><span class="confirm-check">✓</span>Signed</h2>
+      <table class="audit-table"><tbody>
+        <tr><th>Signer</th><td id="d-name"></td></tr>
+        <tr><th>Document</th><td id="d-doc"></td></tr>
+        <tr><th>Signed at (UTC)</th><td id="d-time"></td></tr>
+        <tr><th>Document SHA-256</th><td><div class="hash-box" id="d-hash"></div></td></tr>
+      </tbody></table>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem">
+        <a class="btn btn-primary" id="d-download" href="#">Download signed PDF</a>
+        <a class="btn btn-ghost" id="d-cert" href="#">Certificate of completion</a>
+      </div>
+    </div>`;
+  $("adopt-open").addEventListener("click", openSigModal);
+  $("sign-btn").addEventListener("click", doSign);
+  await loadPdf();
+}
+
+async function loadPdf() {
+  const stage = $("pdf-stage");
+  try {
+    const r = await fetch(`${API_BASE}/api/sign/${encodeURIComponent(token)}/pdf`);
+    if (!r.ok) throw new Error("Could not load the document.");
+    pdfBytes = await r.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: pdfBytes.slice(0) }).promise;
+    stage.innerHTML = "";
+    pagePts = [];
+    for (let p = 1; p <= pdf.numPages; p++) {
+      const page = await pdf.getPage(p);
+      const base = page.getViewport({ scale: 1 });
+      pagePts[p] = { w: base.width, h: base.height };
+      const vp = page.getViewport({ scale: 1.5 });
+      const wrap = document.createElement("div");
+      wrap.className = "page-wrap"; wrap.dataset.page = p;
+      wrap.style.maxWidth = Math.min(vp.width, 800) + "px";
+      const canvas = document.createElement("canvas");
+      canvas.className = "pdf"; canvas.width = vp.width; canvas.height = vp.height;
+      wrap.appendChild(canvas);
+      stage.appendChild(wrap);
+      await page.render({ canvasContext: canvas.getContext("2d"), viewport: vp }).promise;
+    }
+    overlayMyFields();
+  } catch (e) { stage.innerHTML = `<p style="color:#fff">${esc(e.message)}</p>`; }
+}
+
+function overlayMyFields() {
+  document.querySelectorAll(".page-wrap").forEach(wrap => {
+    const page = Number(wrap.dataset.page);
+    const pts = pagePts[page];
+    (session.fields || []).filter(f => f.page === page).forEach(f => {
+      const d = document.createElement("div");
+      d.className = "my-field"; d.dataset.fid = f.id;
+      d.style.left = (f.x / pts.w * 100) + "%";
+      d.style.top = ((pts.h - f.y - f.h) / pts.h * 100) + "%";
+      d.style.width = (f.w / pts.w * 100) + "%";
+      d.style.height = (f.h / pts.h * 100) + "%";
+      const label = { signature: "Signature", initials: "Initials", date_signed: "Date signed", text: f.label || "Text", name: "Printed name" }[f.type] || f.type;
+      d.innerHTML = `<span class="tag">${esc(label)} — required</span>`;
+      if (f.type === "signature" || f.type === "initials") {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "fill-btn"; b.textContent = "Tap to sign here";
+        b.addEventListener("click", openSigModal);
+        d.appendChild(b);
+      } else if (f.type === "date_signed") {
+        const s = document.createElement("span");
+        s.style.cssText = "position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--db-muted)";
+        s.textContent = "Auto-filled at signing";
+        d.appendChild(s);
+        fieldState[f.id] = { done: true, value: "auto" };
+        d.classList.add("done"); d.querySelector(".tag").textContent = label + " ✓";
+      } else {
+        const inp = document.createElement("input");
+        inp.className = "fill-text"; inp.type = "text"; inp.maxLength = 200;
+        inp.placeholder = label;
+        if (f.type === "name") inp.value = session.signer.name;
+        inp.setAttribute("aria-label", label);
+        inp.addEventListener("input", () => {
+          const v = inp.value.trim();
+          fieldState[f.id] = { done: v.length > 0, value: inp.value };
+          d.classList.toggle("done", v.length > 0);
+          d.querySelector(".tag").textContent = label + (v.length ? " ✓" : " — required");
+        });
+        if (f.type === "name") { fieldState[f.id] = { done: true, value: inp.value }; d.classList.add("done"); }
+        d.appendChild(inp);
+      }
+      wrap.appendChild(d);
+    });
+  });
+}
+
+/* ---------------- signature adoption ---------------- */
+let drawStrokes = false;
+function openSigModal() {
+  $("sig-modal").classList.remove("hidden");
+  $("adopt-status").textContent = "";
+  sizeSigCanvas();
+}
+function sizeSigCanvas() {
+  const c = $("sig-canvas");
+  const r = c.getBoundingClientRect();
+  c.width = r.width * 2; c.height = 180 * 2;
+  c.getContext("2d").scale(2, 2);
+}
+document.querySelectorAll(".sig-tabs button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".sig-tabs button").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false"));
+  ["draw", "type", "upload"].forEach(t => $("tab-" + t).classList.toggle("hidden", t !== b.dataset.tab));
+}));
+$("sig-cancel").addEventListener("click", () => $("sig-modal").classList.add("hidden"));
+
+(function initDrawPad() {
+  const c = $("sig-canvas");
+  const ctx = c.getContext("2d");
+  let drawing = false, last = null, hasInk = false;
+  function pos(e) { const r = c.getBoundingClientRect(); const p = e.touches ? e.touches[0] : e; return { x: p.clientX - r.left, y: p.clientY - r.top }; }
+  function start(e) { e.preventDefault(); drawing = true; last = pos(e); }
+  function move(e) {
+    if (!drawing) return; e.preventDefault();
+    const p = pos(e);
+    ctx.strokeStyle = "#1a1a1a"; ctx.lineWidth = 2.4; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+    last = p; hasInk = true;
+  }
+  function end() { drawing = false; }
+  c.addEventListener("mousedown", start); c.addEventListener("mousemove", move); window.addEventListener("mouseup", end);
+  c.addEventListener("touchstart", start, { passive: false }); c.addEventListener("touchmove", move, { passive: false }); c.addEventListener("touchend", end);
+  $("sig-clear").addEventListener("click", () => { ctx.clearRect(0, 0, c.width, c.height); hasInk = false; });
+  c._hasInk = () => hasInk;
+  c._reset = () => { hasInk = false; };
+})();
+
+$("type-name").addEventListener("input", () => {
+  const c = $("typed-preview"), ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, c.width, c.height);
+  const v = $("type-name").value.trim() || "Your Name";
+  ctx.font = "64px 'Brush Script MT','Segoe Script',cursive";
+  ctx.fillStyle = "#1a1a1a"; ctx.textBaseline = "middle";
+  ctx.fillText(v, 24, 95);
+});
+$("type-name").dispatchEvent(new Event("input"));
+
+$("sig-file").addEventListener("change", () => {
+  const f = $("sig-file").files[0]; if (!f) return;
+  const img = new Image();
+  img.onload = () => {
+    const c = $("upload-preview"), ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    const s = Math.min(c.width / img.width, c.height / img.height);
+    const w = img.width * s, h = img.height * s;
+    ctx.drawImage(img, (c.width - w) / 2, (c.height - h) / 2, w, h);
+    URL.revokeObjectURL(img.src);
+  };
+  img.src = URL.createObjectURL(f);
+});
+
+function activeSigTab() {
+  return document.querySelector(".sig-tabs button[aria-selected='true']").dataset.tab;
+}
+$("adopt-btn").addEventListener("click", () => {
+  const tab = activeSigTab();
+  const kind = { draw: "drawn", type: "typed", upload: "uploaded" }[tab];
+  let dataUrl = null;
+  if (tab === "draw") {
+    const c = $("sig-canvas");
+    if (!c._hasInk()) { $("adopt-status").textContent = "Draw your signature first."; return; }
+    dataUrl = c.toDataURL("image/png");
+  } else if (tab === "type") {
+    const v = $("type-name").value.trim();
+    if (!v) { $("adopt-status").textContent = "Type your name first."; return; }
+    dataUrl = $("typed-preview").toDataURL("image/png");
+  } else {
+    if (!$("sig-file").files[0]) { $("adopt-status").textContent = "Choose an image first."; return; }
+    dataUrl = $("upload-preview").toDataURL("image/png");
+  }
+  adoptedSig = { kind, dataUrl };
+  $("sig-modal").classList.add("hidden");
+  $("adopt-state").textContent = "signature adopted ✓ (" + kind + ")";
+  $("adopt-state").style.color = "var(--db-ok)";
+  document.querySelectorAll(".my-field").forEach(d => {
+    const f = (session.fields || []).find(x => x.id === d.dataset.fid);
+    if (f && (f.type === "signature" || f.type === "initials")) {
+      fieldState[f.id] = { done: true, value: "adopted" };
+      d.classList.add("done");
+      const btn = d.querySelector(".fill-btn");
+      if (btn) { btn.innerHTML = ""; const img = document.createElement("img"); img.src = dataUrl; img.alt = "Your adopted signature"; img.style.cssText = "max-width:100%;max-height:100%;object-fit:contain"; btn.appendChild(img); }
+      d.querySelector(".tag").textContent = (f.type === "signature" ? "Signature" : "Initials") + " ✓";
+    }
+  });
+});
+
+/* ---------------- seal + submit ---------------- */
+function setSignStatus(msg, cls) { const el = $("sign-status"); el.textContent = msg; el.className = "status" + (cls ? " " + cls : ""); }
+
+async function doSign() {
+  const required = (session.fields || []).filter(f => f.required !== 0);
+  const missing = required.filter(f => !fieldState[f.id] || !fieldState[f.id].done);
+  if (missing.length) { setSignStatus(`Please complete ${missing.length} required field${missing.length > 1 ? "s" : ""} first.`, "bad"); return; }
+  if (!$("consent").checked) { setSignStatus("Please check the consent box to sign electronically.", "bad"); return; }
+  const printedName = $("printed-name").value.trim();
+  if (!printedName) { setSignStatus("Enter your printed name.", "bad"); return; }
+
+  const btn = $("sign-btn");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Sealing &amp; signing…';
+  setSignStatus("Embedding your signature into the document…");
+  try {
+    const sealed = await sealPdf();
+    setSignStatus("Uploading signed document…");
+    const form = new FormData();
+    form.append("pdf", new Blob([sealed], { type: "application/pdf" }), "signed.pdf");
+    form.append("meta", JSON.stringify({
+      consent: true,
+      printedName,
+      signatureKind: adoptedSig.kind,
+      signaturePng: adoptedSig.dataUrl,
+      fields: required.map(f => ({ id: f.id, value: fieldValueFor(f) })),
+    }));
+    const r = await fetch(`${API_BASE}/api/sign/${encodeURIComponent(token)}/sign`, { method: "POST", body: form });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok || data.ok === false) throw new Error(data.error || ("HTTP " + r.status));
+    // confirmation
+    $("done-card").classList.remove("hidden");
+    $("d-name").textContent = `${printedName} (${session.signer.email})`;
+    $("d-doc").textContent = session.envelope.title;
+    $("d-time").textContent = new Date(data.signedAt).toISOString();
+    const digest = await crypto.subtle.digest("SHA-256", sealed);
+    $("d-hash").textContent = [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
+    $("d-download").href = `${API_BASE}/api/sign/${encodeURIComponent(token)}/download`;
+    $("d-cert").href = `https://deadbrands.co/esign/certificate.html?t=${encodeURIComponent(token)}`;
+    setSignStatus(data.status === "completed" ? "Signed! All parties are done — the envelope is complete." : "Signed! We'll notify the next signer.", "ok");
+    btn.innerHTML = "Signed ✓";
+    document.getElementById("done-card").scrollIntoView({ behavior: "smooth" });
+  } catch (e) {
+    setSignStatus("Signing failed: " + e.message, "bad");
+    btn.disabled = false; btn.textContent = "Sign document";
+  }
+}
+
+function fieldValueFor(f) {
+  const st = fieldState[f.id] || {};
+  if (f.type === "date_signed") return new Date().toISOString().slice(0, 10);
+  return (st.value || "").toString();
+}
+
+function dataUrlToBytes(dataUrl) {
+  const b64 = dataUrl.split(",")[1];
+  const bin = atob(b64);
+  const u8 = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  return u8;
+}
+
+async function sealPdf() {
+  const { PDFDocument, StandardFonts, rgb } = PDFLib;
+  const pdfDoc = await PDFDocument.load(pdfBytes.slice(0));
+  const helv = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const sigImg = await pdfDoc.embedPng(dataUrlToBytes(adoptedSig.dataUrl));
+  const today = new Date().toISOString().slice(0, 10);
+  for (const f of (session.fields || [])) {
+    if (f.page < 1 || f.page > pdfDoc.getPageCount()) continue;
+    const page = pdfDoc.getPage(f.page - 1);
+    if (f.type === "signature" || f.type === "initials") {
+      page.drawImage(sigImg, { x: f.x, y: f.y, width: f.w, height: f.h });
+    } else {
+      const val = f.type === "date_signed" ? today : fieldValueFor(f);
+      const size = Math.min(12, f.h * 0.55);
+      // light white-out behind text so it stays readable over the doc
+      page.drawRectangle({ x: f.x, y: f.y, width: f.w, height: f.h, color: rgb(1, 1, 1), opacity: 0.85 });
+      page.drawText(val.slice(0, 120), { x: f.x + 3, y: f.y + f.h / 2 - size * 0.35, size, font: helv, color: rgb(0.1, 0.1, 0.1) });
+    }
+  }
+  return await pdfDoc.save();
+}
+
+init();
+</script>
+</body>
+</html>
