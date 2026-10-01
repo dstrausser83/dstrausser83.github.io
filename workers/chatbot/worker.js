@@ -144,6 +144,67 @@ async function getAvailability(env) {
   return null;
 }
 
+// --------------------------------- service interest / mailing-list buckets ---
+const CANONICAL_INTERESTS = [
+  "odoo", "sap-business-one", "erp-selection", "erp-implementation",
+  "ai-automation", "sales", "marketing", "business-development",
+  "podcast", "merch", "general",
+];
+
+// Normalize whatever the model emitted into one canonical bucket key.
+function normServiceInterest(v) {
+  const s = String(v || "").trim().toLowerCase().replace(/[\s_]+/g, "-");
+  if (CANONICAL_INTERESTS.includes(s)) return s;
+  if (/^sap[\s_-]?b1?$/.test(s)) return "sap-business-one";
+  return "general";
+}
+
+// Deterministic keyword scan of the conversation so a consented subscriber
+// lands in the right service bucket even when the model tagged "general"
+// or nothing. Returns a canonical key, or null when nothing matched.
+function inferServiceInterest(text) {
+  const t = String(text || "").toLowerCase();
+  if (!t) return null;
+  const rules = [
+    ["odoo", "odoo"],
+    ["sap-business-one", /\bsap[\s_-]?(business[\s_-]?one|b1)\b/],
+    ["podcast", /podcast|shark[\s_-]?bite[\s_-]?biz/],
+    ["merch", /merch|merchandise|\bshirt\b|\bt-shirt\b|apparel|swag/],
+    ["ai-automation", /\bai\b|artificial intelligence|automat\w*|chatbot|workflow/],
+    ["erp-implementation", /implement\w*|migration|go[\s_-]?live|rollout/],
+    ["erp-selection", /select\w*|choos\w*|compar\w*|evaluat\w*|which erp|demo/],
+    ["business-development", /business development|partnership|partner|reseller|referral/],
+    ["sales", /\bsales\b|sell\w*|pipeline|prospect|quota|cold (email|call|outreach)/],
+    ["marketing", /market\w*|seo|social media|brand|campaign|content/],
+  ];
+  for (const [key, pat] of rules) {
+    if (typeof pat === "string" ? t.includes(pat) : pat.test(t)) return key;
+  }
+  return null;
+}
+
+// Resolve the bucket interest for a mailing-list record: keep a real model
+// tag when it exists, otherwise infer from the conversation, else "general".
+function bucketInterest(rec) {
+  const tagged = normServiceInterest(rec.serviceInterest);
+  if (tagged !== "general") return tagged;
+  return inferServiceInterest(rec.conversation || rec.need || "") || "general";
+}
+
+// Write BOTH mailing-list records for an explicitly consented lead:
+//   mailinglist:<id>                       — the general bucket
+//   mailinglist-service:<interest>:<id>     — the service-specific bucket
+// Never call this without an explicit yes.
+async function writeMailingListRecords(env, rec) {
+  const body = JSON.stringify({
+    id: rec.id, name: rec.name, firstName: rec.firstName,
+    lastName: rec.lastName, email: rec.email, phone: rec.phone,
+    company: rec.company, serviceInterest: bucketInterest(rec), ts: rec.ts,
+  });
+  await kvPut(env, "DB_LEADS", `mailinglist:${rec.id}`, body);
+  await kvPut(env, "DB_LEADS", `mailinglist-service:${bucketInterest(rec)}:${rec.id}`, body);
+}
+
 // ------------------------------------------------------- lead capture -------
 async function storeLead(env, lead) {
   const record = {
@@ -161,13 +222,11 @@ async function storeLead(env, lead) {
   };
   const ok = await kvPut(env, "DB_LEADS", `outbox:${todayUTC()}:${record.id}`, JSON.stringify(record));
   await kvPut(env, "DB_LEADS", `lead:${record.id}`, JSON.stringify(record));
-  // Mailing-list bucket: separate key prefix so the list is pullable on its own.
+  // Mailing-list bucket: separate key prefixes so the list is pullable on its
+  // own — general bucket plus a service-specific bucket.
   if (record.mailingList) {
-    await kvPut(env, "DB_LEADS", `mailinglist:${record.id}`, JSON.stringify({
-      id: record.id, name: record.name, firstName: record.firstName,
-      lastName: record.lastName, email: record.email, phone: record.phone,
-      serviceInterest: record.serviceInterest, ts: record.ts,
-    }));
+    record.serviceInterest = bucketInterest(record);
+    await writeMailingListRecords(env, record);
   }
   record._persisted = ok;
   return record;
@@ -244,7 +303,8 @@ async function syncOutbox(env) {
 // firstName/lastName/email/phone/company/need/serviceInterest/mailingList.
 // If the model re-emits the tag with updated details (added phone, mailing-list
 // answer), the server MERGES into the existing record — never duplicates.
-// Consented mailing-list signups also land under a mailinglist: key prefix
+// Consented mailing-list signups land under mailinglist: and
+// mailinglist-service:<interest>: key prefixes (writeMailingListRecords).
 // (the mailing-list bucket). A reply sanitizer catches any residual tool-call
 // meta-talk and substitutes a clean greeting.
 
@@ -385,11 +445,11 @@ async function mergeLead(env, id, fields) {
   await kvPut(env, "DB_LEADS", `lead:${id}`, body);
   await kvPut(env, "DB_LEADS", `outbox:${rec.ts.slice(0, 10)}:${id}`, body);
   if (rec.mailingList) {
-    await kvPut(env, "DB_LEADS", `mailinglist:${id}`, JSON.stringify({
-      id: rec.id, name: rec.name, firstName: rec.firstName,
-      lastName: rec.lastName, email: rec.email, phone: rec.phone,
-      serviceInterest: rec.serviceInterest, ts: rec.ts,
-    }));
+    rec.serviceInterest = bucketInterest(rec);
+    const updated = JSON.stringify(rec);
+    await kvPut(env, "DB_LEADS", `lead:${id}`, updated);
+    await kvPut(env, "DB_LEADS", `outbox:${rec.ts.slice(0, 10)}:${id}`, updated);
+    await writeMailingListRecords(env, rec);
   }
   return rec;
 }
