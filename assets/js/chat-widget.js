@@ -12,13 +12,6 @@
 (function () {
   "use strict";
 
-  /* KILL-SWITCH (2026-10-01): widget hidden from public pages until the
-   * chatbot backend stops emitting tool-call garbage. Initializes ONLY on
-   * the hidden test page /chat-test* or when ?chat=1 is in the URL. */
-  var __p = location.pathname || "", __q = location.search || "";
-  if (__p.indexOf("/chat-test") !== 0 && __q.indexOf("chat=1") === -1) return;
-
-
   /* ------------------------------ config ------------------------------ */
   // TODO(parent): set to the deployed worker URL, e.g.
   // "https://deadbrands-chatbot.<account>.workers.dev"
