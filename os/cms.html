@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content — Dead Brands OS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/os/os.css">
+<style>
+.tabs{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:700;padding:.5rem 1.1rem;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.editor{display:none}.editor.open{display:block}
+.coverprev{max-width:220px;max-height:140px;border-radius:10px;border:1px solid var(--line);margin-top:.4rem;display:none}
+.mediagrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem}
+.mediaitem{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.mediaitem img{width:100%;height:100px;object-fit:cover;display:block}
+.mediaitem .mrow{padding:.45rem .55rem;display:flex;gap:.4rem;align-items:center;justify-content:space-between}
+.mediaitem .fname{font-size:.72rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100px}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:1.2rem;text-align:center;background:#fff;cursor:pointer}
+.drop:hover{border-color:var(--gold)}
+.note-how{border-left:4px solid var(--gold)}
+</style>
+</head>
+<body>
+<script src="/os/app.js"></script>
+<script>
+OS.page("cms", "Content", async function (view) {
+  var API = OS.apiBase();
+  var token = sessionStorage.getItem("os_token") || "";
+  var tab = "posts";
+  var editingPost = null, editingPage = null, slugTouched = false;
+
+  function pill(s) {
+    return s === "published" ? '<span class="pill green">published</span>' : '<span class="pill">draft</span>';
+  }
+  function when(s) {
+    return s ? new Date(s).toLocaleDateString() : "—";
+  }
+
+  view.innerHTML =
+    '<div class="tabs" id="tabs">' +
+      '<button data-tab="posts" class="on">Posts</button>' +
+      '<button data-tab="pages">Pages</button>' +
+      '<button data-tab="media">Media</button>' +
+    "</div>" +
+    '<div id="tab-posts">' +
+      '<div class="row" style="margin-bottom:.8rem"><button class="btn small" id="newpost">+ New post</button>' +
+      '<select name="fstatus" id="fstatus"><option value="">all</option><option value="draft">drafts</option><option value="published">published</option></select></div>' +
+      '<div class="card editor" id="posteditor"></div>' +
+      '<div class="card" id="postlist"></div>' +
+    "</div>" +
+    '<div id="tab-pages" style="display:none">' +
+      '<div class="row" style="margin-bottom:.8rem"><button class="btn small" id="newpage">+ New page</button></div>' +
+      '<div class="card editor" id="pageeditor"></div>' +
+      '<div class="card" id="pagelist"></div>' +
+    "</div>" +
+    '<div id="tab-media" style="display:none">' +
+      '<div class="card"><h3 style="margin-top:0">Upload an image</h3>' +
+        '<div class="drop" id="drop">Tap to pick a file — png, jpg, webp, gif, 5MB max<input type="file" id="filepick" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none"></div>' +
+        '<p class="muted small" id="upmsg"></p></div>' +
+      '<div class="card"><h3 style="margin-top:0">Uploaded assets</h3><div class="mediagrid" id="mediagrid"></div></div>' +
+    "</div>" +
+    '<div class="card note-how"><h3 style="margin-top:0">How publishing goes live</h3>' +
+    '<p class="small">Hitting <b>Publish</b> here flips the item to <b>published</b> in the OS and stamps today\'s date on it. ' +
+    "That's it for the OS side — deadbrands.co picks it up from the public feed <code>GET /api/cms/feed</code> " +
+    "the next time the site builds (bridge documented in DEPLOY.md). Drafts never leave the OS.</p></div>";
+
+  /* ---------- tabs ---------- */
+  view.querySelectorAll("#tabs button").forEach(function (b) {
+    b.onclick = function () {
+      tab = b.getAttribute("data-tab");
+      view.querySelectorAll("#tabs button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      ["posts", "pages", "media"].forEach(function (t) {
+        document.getElementById("tab-" + t).style.display = t === tab ? "" : "none";
+      });
+      if (tab === "media") loadMedia();
+    };
+  });
+
+  /* ---------- posts ---------- */
+  async function loadPosts() {
+    var st = document.getElementById("fstatus").value;
+    var d = await OS.api("GET", "/api/cms/posts" + (st ? "?status=" + st : "") + "&limit=100");
+    var el = document.getElementById("postlist");
+    if (!d.items.length) { el.innerHTML = '<p class="muted">Nothing here yet. Write something worth reading.</p>'; return; }
+    el.innerHTML = d.items.map(function (p) {
+      return '<div class="list-item"><div class="row" style="justify-content:space-between">' +
+        '<div><b>' + OS.esc(p.title) + "</b> " + pill(p.status) + "<br>" +
+        '<span class="muted small">' + OS.esc(p.slug) + " · " + when(p.published_at) + "</span></div>" +
+        '<button class="btn small ghost" data-edit-post="' + p.id + '">Edit</button></div></div>';
+    }).join("");
+    el.querySelectorAll("[data-edit-post]").forEach(function (b) {
+      b.onclick = function () { openPostEditor(b.getAttribute("data-edit-post")); };
+    });
+  }
+
+  function postForm(p) {
+    p = p || {};
+    return OS.field("Title", OS.input("p_title", p.title, "text", ' id="p_title"')) +
+      OS.field("Slug (the URL bit — auto-made from the title)", OS.input("p_slug", p.slug, "text", ' id="p_slug"'), "lowercase, letters, numbers, hyphens") +
+      OS.field("Excerpt", OS.textarea("p_excerpt", p.excerpt, ' rows="2"'), "one or two lines that sell the click") +
+      OS.field("Tags (comma separated)", OS.input("p_tags", p.tags)) +
+      OS.field("Cover image", OS.input("p_cover", p.cover_url, "text", ' id="p_cover" placeholder="https://… or upload below"') +
+        '<img id="p_coverprev" class="coverprev" alt="">' +
+        '<div class="row" style="margin-top:.5rem"><input type="file" id="p_coverpick" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none">' +
+        '<button class="btn small ghost" id="p_coverbtn">Upload cover</button><span class="muted small" id="p_covermsg"></span></div>',
+        "shows at the top of the post") +
+      OS.field("Body", OS.textarea("p_body", p.body_html, ' rows="12" id="p_body"'), "HTML welcome — <p>, <h2>, <ul>, whatever it needs") +
+      '<div class="row">' +
+      (p.id ? '<button class="btn small ghost" id="p_delete">Delete</button>' : "") +
+      '<span style="flex:1"></span>' +
+      '<button class="btn small ghost" id="p_cancel">Cancel</button>' +
+      '<button class="btn small" id="p_savedraft">' + (p.status === "published" ? "Save" : "Save draft") + "</button>" +
+      (p.status === "published"
+        ? '<button class="btn small" id="p_unpublish" style="background:var(--blue)">Unpublish</button>'
+        : '<button class="btn small" id="p_publish">Publish</button>') +
+      "</div>";
+  }
+
+  async function openPostEditor(id) {
+    var ed = document.getElementById("posteditor");
+    slugTouched = false;
+    if (id) {
+      var d = await OS.api("GET", "/api/cms/posts/" + id);
+      editingPost = d.item;
+    } else {
+      editingPost = {};
+    }
+    ed.innerHTML = "<h3 style=\"margin-top:0\">" + (id ? "Edit post" : "New post") + "</h3>" + postForm(editingPost);
+    ed.classList.add("open");
+    ed.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    var titleInp = document.getElementById("p_title"), slugInp = document.getElementById("p_slug");
+    slugInp.addEventListener("input", function () { slugTouched = true; });
+    titleInp.addEventListener("input", function () {
+      if (!slugTouched) slugInp.value = titleInp.value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 120);
+    });
+    wireCoverUpload("p_cover", "p_coverpick", "p_coverbtn", "p_covermsg", "p_coverprev");
+
+    var vals = function () {
+      return {
+        title: titleInp.value.trim(),
+        slug: slugInp.value.trim(),
+        excerpt: ed.querySelector('[name="p_excerpt"]').value,
+        tags: ed.querySelector('[name="p_tags"]').value,
+        cover_url: document.getElementById("p_cover").value.trim(),
+        body_html: document.getElementById("p_body").value,
+      };
+    };
+    var save = async function (status) {
+      try {
+        var body = vals();
+        body.status = status;
+        if (editingPost.id) await OS.api("PUT", "/api/cms/posts/" + editingPost.id, body);
+        else await OS.api("POST", "/api/cms/posts", body);
+        OS.toast(status === "published" ? "Live. Nice." : "Saved as draft.");
+        ed.classList.remove("open"); editingPost = null; loadPosts();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+    document.getElementById("p_savedraft").onclick = function () { save("draft"); };
+    document.getElementById("p_publish").onclick = async function () {
+      try {
+        var body = vals();
+        if (editingPost.id) await OS.api("POST", "/api/cms/posts/" + editingPost.id + "/publish", body);
+        else { body.status = "published"; await OS.api("POST", "/api/cms/posts", body); }
+        OS.toast("Published — deadbrands.co picks it up on the next build.");
+        ed.classList.remove("open"); editingPost = null; loadPosts();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+    var unp = document.getElementById("p_unpublish");
+    if (unp) unp.onclick = async function () {
+      try {
+        await OS.api("POST", "/api/cms/posts/" + editingPost.id + "/unpublish");
+        OS.toast("Back to draft — it's off the public feed.");
+        ed.classList.remove("open"); editingPost = null; loadPosts();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+    document.getElementById("p_cancel").onclick = function () { ed.classList.remove("open"); editingPost = null; };
+    var del = document.getElementById("p_delete");
+    if (del) del.onclick = async function () {
+      if (!confirm("Delete this post for good?")) return;
+      try {
+        await OS.api("DELETE", "/api/cms/posts/" + editingPost.id);
+        OS.toast("Deleted.");
+        ed.classList.remove("open"); editingPost = null; loadPosts();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+  }
+
+  document.getElementById("newpost").onclick = function () { openPostEditor(null); };
+  document.getElementById("fstatus").onchange = loadPosts;
+
+  /* ---------- pages ---------- */
+  async function loadPages() {
+    var d = await OS.api("GET", "/api/cms/pages?limit=100");
+    var el = document.getElementById("pagelist");
+    if (!d.items.length) { el.innerHTML = '<p class="muted">No pages yet.</p>'; return; }
+    el.innerHTML = d.items.map(function (p) {
+      return '<div class="list-item"><div class="row" style="justify-content:space-between">' +
+        '<div><b>' + OS.esc(p.title) + "</b> " + pill(p.status) + "<br>" +
+        '<span class="muted small">' + OS.esc(p.slug) + " · updated " + when(p.updated_at) + "</span></div>" +
+        '<button class="btn small ghost" data-edit-page="' + p.id + '">Edit</button></div></div>';
+    }).join("");
+    el.querySelectorAll("[data-edit-page]").forEach(function (b) {
+      b.onclick = function () { openPageEditor(b.getAttribute("data-edit-page")); };
+    });
+  }
+
+  function pageForm(p) {
+    p = p || {};
+    return OS.field("Title", OS.input("g_title", p.title, "text", ' id="g_title"')) +
+      OS.field("Slug (the URL bit)", OS.input("g_slug", p.slug, "text", ' id="g_slug"'), "lowercase, letters, numbers, hyphens") +
+      OS.field("Body", OS.textarea("g_body", p.body_html, ' rows="12" id="g_body"'), "HTML welcome") +
+      '<div class="row">' +
+      (p.id ? '<button class="btn small ghost" id="g_delete">Delete</button>' : "") +
+      '<span style="flex:1"></span>' +
+      '<button class="btn small ghost" id="g_cancel">Cancel</button>' +
+      '<button class="btn small" id="g_savedraft">' + (p.status === "published" ? "Save" : "Save draft") + "</button>" +
+      (p.status === "published"
+        ? '<button class="btn small" id="g_unpublish" style="background:var(--blue)">Unpublish</button>'
+        : '<button class="btn small" id="g_publish">Publish</button>') +
+      "</div>";
+  }
+
+  async function openPageEditor(id) {
+    var ed = document.getElementById("pageeditor");
+    slugTouched = false;
+    if (id) {
+      var d = await OS.api("GET", "/api/cms/pages/" + id);
+      editingPage = d.item;
+    } else {
+      editingPage = {};
+    }
+    ed.innerHTML = "<h3 style=\"margin-top:0\">" + (id ? "Edit page" : "New page") + "</h3>" + pageForm(editingPage);
+    ed.classList.add("open");
+    ed.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    var titleInp = document.getElementById("g_title"), slugInp = document.getElementById("g_slug");
+    slugInp.addEventListener("input", function () { slugTouched = true; });
+    titleInp.addEventListener("input", function () {
+      if (!slugTouched) slugInp.value = titleInp.value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 120);
+    });
+
+    var vals = function () {
+      return {
+        title: titleInp.value.trim(),
+        slug: slugInp.value.trim(),
+        body_html: document.getElementById("g_body").value,
+      };
+    };
+    var save = async function (status) {
+      try {
+        var body = vals(); body.status = status;
+        if (editingPage.id) await OS.api("PUT", "/api/cms/pages/" + editingPage.id, body);
+        else await OS.api("POST", "/api/cms/pages", body);
+        OS.toast(status === "published" ? "Live. Nice." : "Saved as draft.");
+        ed.classList.remove("open"); editingPage = null; loadPages();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+    document.getElementById("g_savedraft").onclick = function () { save("draft"); };
+    document.getElementById("g_publish").onclick = function () { save("published"); };
+    var unp = document.getElementById("g_unpublish");
+    if (unp) unp.onclick = function () { save("draft"); };
+    document.getElementById("g_cancel").onclick = function () { ed.classList.remove("open"); editingPage = null; };
+    var del = document.getElementById("g_delete");
+    if (del) del.onclick = async function () {
+      if (!confirm("Delete this page for good?")) return;
+      try {
+        await OS.api("DELETE", "/api/cms/pages/" + editingPage.id);
+        OS.toast("Deleted.");
+        ed.classList.remove("open"); editingPage = null; loadPages();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+  }
+
+  document.getElementById("newpage").onclick = function () { openPageEditor(null); };
+
+  /* ---------- media ---------- */
+  async function uploadFile(file) {
+    var fd = new FormData();
+    fd.append("file", file);
+    var res = await fetch(API + "/api/cms/upload", {
+      method: "POST",
+      headers: { "authorization": "Bearer " + token },
+      body: fd,
+    });
+    var data = await res.json().catch(function () { return null; });
+    if (!res.ok || !data || !data.ok) throw new Error((data && data.error) || "upload failed");
+    return data;
+  }
+
+  function wireCoverUpload(urlId, pickId, btnId, msgId, prevId) {
+    var urlInp = document.getElementById(urlId);
+    var prev = document.getElementById(prevId);
+    var showPrev = function () {
+      var v = urlInp.value.trim();
+      if (v) { prev.src = v; prev.style.display = "block"; } else { prev.style.display = "none"; }
+    };
+    urlInp.addEventListener("input", showPrev);
+    showPrev();
+    document.getElementById(btnId).onclick = function () { document.getElementById(pickId).click(); };
+    document.getElementById(pickId).onchange = async function (e) {
+      var f = e.target.files[0];
+      if (!f) return;
+      var msg = document.getElementById(msgId);
+      msg.textContent = "Uploading…";
+      try {
+        var r = await uploadFile(f);
+        urlInp.value = r.url;
+        showPrev();
+        msg.textContent = "Uploaded.";
+      } catch (err) { msg.textContent = err.message; }
+    };
+  }
+
+  async function loadMedia() {
+    var grid = document.getElementById("mediagrid");
+    grid.innerHTML = '<p class="muted">Loading…</p>';
+    try {
+      var d = await OS.api("GET", "/api/cms/uploads?limit=60");
+      if (!d.items.length) { grid.innerHTML = '<p class="muted">No uploads yet — put something up there.</p>'; return; }
+      grid.innerHTML = d.items.map(function (a) {
+        var name = a.key.split("-").slice(1).join("-") || a.key;
+        return '<div class="mediaitem"><img src="' + OS.esc(a.url) + '" alt="" loading="lazy">' +
+          '<div class="mrow"><span class="fname" title="' + OS.esc(a.key) + '">' + OS.esc(name) + "</span>" +
+          '<button class="btn small ghost" data-copy="' + OS.esc(a.url) + '">copy URL</button></div></div>';
+      }).join("");
+      grid.querySelectorAll("[data-copy]").forEach(function (b) {
+        b.onclick = function () {
+          var url = b.getAttribute("data-copy");
+          var done = function () { OS.toast("URL copied."); };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(done, function () { OS.toast(url); });
+          } else { OS.toast(url); }
+        };
+      });
+    } catch (e) { grid.innerHTML = '<p class="muted">' + OS.esc(e.message) + "</p>"; }
+  }
+
+  document.getElementById("drop").onclick = function () { document.getElementById("filepick").click(); };
+  document.getElementById("filepick").onchange = async function (e) {
+    var f = e.target.files[0];
+    if (!f) return;
+    var msg = document.getElementById("upmsg");
+    msg.textContent = "Uploading " + f.name + "…";
+    try {
+      var r = await uploadFile(f);
+      msg.textContent = "Uploaded: " + r.key;
+      OS.toast("Uploaded.");
+      loadMedia();
+    } catch (err) { msg.textContent = err.message; OS.toast(err.message, true); }
+    e.target.value = "";
+  };
+
+  /* ---------- boot ---------- */
+  try { await loadPosts(); } catch (e) { OS.toast(e.message, true); }
+  try { await loadPages(); } catch (e) { /* loaded lazily */ }
+});
+</script>
+</body>
+</html>
