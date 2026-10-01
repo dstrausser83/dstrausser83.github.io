@@ -9,29 +9,24 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Go-Live Checklist Nobody Gives You | Dead Brands, LLC</title>
-  <meta name="description" content="A dad&#x27;s practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
+  <title>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser — David Strausser</title>
+  <meta name="description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
-  <meta property="og:type" content="article" />
   <meta property="og:url" content="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" />
-  <meta property="og:site_name" content="Dead Brands, LLC" />
-  <meta property="og:title" content="The Go-Live Checklist Nobody Gives You | Dead Brands, LLC" />
-  <meta property="og:description" content="A dad&#x27;s practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser — David Strausser" />
+  <meta property="og:description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" />
   <meta property="og:image:width" content="1024" />
   <meta property="og:image:height" content="572" />
-  <meta property="article:published_time" content="2026-09-23T13:40:04Z" />
-  <meta property="article:author" content="David Strausser" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@dstrausser83" />
-  <meta name="twitter:title" content="The Go-Live Checklist Nobody Gives You | Dead Brands, LLC" />
-  <meta name="twitter:description" content="A dad&#x27;s practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
+  <meta name="twitter:title" content="The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser — David Strausser" />
+  <meta name="twitter:description" content="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" />
-  <meta name="twitter:image:alt" content="IT engineer in a server room studying a large wall of system monitoring dashboards" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-    <link rel="preload" as="image" href="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="preload" as="image" href="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -42,11 +37,11 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-inline { margin: 1.75rem auto; max-width: 620px; }
     .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
     .post-body img { max-width: 100%; height: auto; }
-    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
-    .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
       background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
     .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
@@ -67,6 +62,7 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
     .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
     .back-to-top[hidden] { display: none; }
     .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
@@ -77,6 +73,11 @@
       a { color: #000; }
       a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
     }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
     .post-share-label { font-weight: 700; margin-right: 0.4rem; }
     .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
@@ -89,25 +90,28 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
-    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
-    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
-    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
-    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
-    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
-    .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
     .post-cta h2 { margin-top: 0; }
     .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
     .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
     .cta-btn:hover { filter: brightness(1.1); }
-    /* Author box: red sharpie marker border (David 2026-09-30 - hand-drawn
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
        marker look; keep in build script so regenerations carry it). */
     .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
     .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
 
   </style>
   <script type="application/ld+json">
@@ -154,8 +158,8 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP",
-  "description": "A dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+  "headline": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP \u2014 David Strausser",
+  "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
   "datePublished": "2026-09-23T13:40:04Z",
   "author": {
     "@type": "Person",
@@ -172,7 +176,7 @@
   "image": "https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg"
 }
 </script>
-
+  
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -185,7 +189,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About Us</a>
+        <a href="/about.html" class="">About</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -211,7 +215,9 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
   </header>
@@ -219,14 +225,13 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" alt="IT engineer in a server room studying a large wall of system monitoring dashboards" width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; 7 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" alt="A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works." width="1024" height="572" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP — David Strausser</h1><p class="post-meta">September 23, 2026 at 9:40 AM ET &middot; 8 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Before any ERP go-live, test data sync, user permissions, and edge cases with real data and real users. The failures that hurt most are rarely the big features. They are the small checks nobody ran. Budget a focused few days for this, not a few hours, and go-live day will be boring — which is exactly the goal.</p>
         </aside>
         <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#why-go-lives-go-sideways">Why go-lives go sideways</a></li><li><a href="#the-5-tests">The 5 tests</a></li><li><a href="#what-to-do-when-a-test-fails">What to do when a test fails</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
-<div class="post-body prose">
-
+        <div class="post-body prose">
 <h2 id="why-go-lives-go-sideways">Why go-lives go sideways</h2>
 <p>I have watched enough go-lives to know the pattern. The big demo went great. The training sessions went fine. Everybody signed off. Then Monday morning hits, the first real order comes in, and something small breaks — a tax code that did not carry over, a warehouse user who cannot post a receipt, a report the controller needs that nobody built. None of these are hard problems. Every one of them was catchable. They just never got tested because the testing plan covered the happy path and stopped there.</p>
 <p>The happy path always works. It worked in the demo, it worked in training, and it will work on go-live day. Your business does not run on the happy path. It runs on the messy middle: the partial shipments, the credit memos, the rush orders, the user who does things in a slightly different order than the manual says. That is what you test.</p>
@@ -235,8 +240,8 @@
 <p>This is the test teams skip most often, because the migration already "worked" once during the build. But the build migration ran months ago on a snapshot. Since then, the business kept running on the old system — new customers, new items, new open orders. The delta is where the surprises live. Run a fresh full load into a test company a week before go-live and reconcile it: total open AR in the old system versus the new, total open AP, inventory valuation by warehouse. If the numbers do not tie to the penny, you do not go live. Full stop.</p>
 <p><strong>2. User permissions.</strong> Log in as each role and try to do the job. Sales should not see payroll. Warehouse should not edit pricing. Permission screens always look right until you test them as the actual user.</p>
 <p>Do this literally: sit down, log in as the warehouse lead, and try to receive a purchase order, transfer stock, and print a pick list. Then try something they should not be able to do — void a posted invoice, change a price, run payroll. If the system lets them, your roles are wrong. I have seen warehouse staff with full admin rights because someone cloned the wrong template during setup and nobody checked. That is a segregation-of-duties problem that will embarrass you in an audit and cost you real money if someone makes an honest mistake with too much power.</p>
-<p>Test every role that touches the system, including the ones people forget: the outside sales rep who only logs in twice a month, the temp in shipping, the controller's assistant. Roles rot over time — someone gets extra access "just for this week" and it never gets revoked. Go-live is your one clean starting point. Start clean.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img2.jpg" alt="Barcode scanner aimed at boxes on warehouse shelves" width="2048" height="1152" loading="lazy" decoding="async" /></figure></p>
-<p><strong>3. Edge cases.</strong> Test the weird-but-real scenarios: a payment arriving after cutoff, a credit memo against a closed period, a customer with two ship-to addresses. Rare in testing, constant in production.</p>
+<p>Test every role that touches the system, including the ones people forget: the outside sales rep who only logs in twice a month, the temp in shipping, the controller's assistant. Roles rot over time — someone gets extra access "just for this week" and it never gets revoked. Go-live is your one clean starting point. Start clean.</p>
+<p><strong>3. Edge cases.</strong> Test the weird-but-real scenarios: a payment arriving after cutoff, a credit memo against a closed period, a customer with two ship-to addresses. Rare in testing, constant in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img2.jpg" alt="Barcode scanner aimed at boxes on warehouse shelves" width="1280" height="720" loading="lazy" /></figure></p>
 <p>Here is how to find your edge cases: ask the most experienced person in each department what annoys them about the current system. Not what is broken — what is annoying. The annoying stuff is the edge cases. "Every month I have to manually fix the freight on drop-ship orders." "Returns from last quarter always post to the wrong account." Those are your test scripts. Write each one down as a scenario, run it in the test company, and confirm the result posts where it should.</p>
 <p><strong>4. Real-time updates.</strong> Confirm changes show up when they should. If there is a sync delay between modules, find it now. That is how double shipments and double billing happen: one screen says the inventory moved and the other has not caught up yet.</p>
 <p>This matters most when you have integrations: the ERP talking to a web store, a warehouse management add-on, EDI with a big customer. Each of those has a sync rhythm — real-time, every fifteen minutes, nightly batch. Map every integration and its timing, then test the handoff under load. Create an order in the web store and time how long it takes to appear in the ERP. Receive inventory in the warehouse module and check when the available-to-promise number updates.</p>
@@ -245,7 +250,7 @@
 <p>Pick the person who will live in the system the most — usually someone in order entry, purchasing, or the warehouse — and shadow them for a full day in the test environment running real scenarios. Do not guide them. Do not explain. Just watch and take notes every time they hesitate, click the wrong thing, or ask "where do I find...?" Every hesitation is a training gap or a design problem, and every one of them becomes a support ticket on day two if you do not fix it now.</p>
 <p>This test also catches the missing-reports problem. Every implementation has a moment where someone asks for a report that was never in scope: the open-orders-by-sales-rep summary the owner looks at every morning, the margin-by-customer view the sales manager built in Excel for years. Find these before go-live, not after. Building a report in week one is a minor task. Discovering the business cannot operate without it on day two is a crisis.</p>
 <h2 id="what-to-do-when-a-test-fails">What to do when a test fails</h2>
-<p>A failed test before go-live is a gift. It is the system telling you exactly where it will break, on your schedule, with no customers watching. The wrong response is to argue the test was unrealistic. If a real user doing a real task hit it in testing, a real user will hit it in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img3.jpg" alt="Rocket launching into the sky representing a new system go-live" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
+<p>A failed test before go-live is a gift. It is the system telling you exactly where it will break, on your schedule, with no customers watching. The wrong response is to argue the test was unrealistic. If a real user doing a real task hit it in testing, a real user will hit it in production.<figure class="post-inline"><img src="../images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f-img3.jpg" alt="Rocket launching into the sky representing a new system go-live" width="1280" height="853" loading="lazy" /></figure></p>
 <p>And set the expectation with leadership now: the first week will surface things no test caught. That is normal. What is not normal is discovering them with no plan. Keep the partner on standby for the first two weeks, keep a daily fifteen-minute triage call on the calendar, and keep a single list where every issue goes. Most of them will be training. A few will be real. You will sort them out fast if you are looking.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>What is the biggest mistake teams make?</h3>
@@ -259,9 +264,9 @@
 <p>Go-live day should be boring. Run these five tests and it will be.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>sap</span> <span>odoo</span> <span>go-live</span> <span>testing</span></p>
-<div class="post-share">
+        <div class="post-share">
           <span class="post-share-label">Share this post</span>
-          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-go-live-checklist-nobody-gives-you-what-to-test-before-f.html&text=The%20go-live%20checklist%20nobody%20tells%20you%3A%205%20tests%20to%20run%20before%20flipping%20the%20switch%20on%20a%20new%20ERP" target="_blank" rel="noopener">X</a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-go-live-checklist-nobody-gives-you-what-to-test-before-f.html&text=The%20go-live%20checklist%20nobody%20tells%20you%3A%205%20tests%20to%20run%20before%20flipping%20the%20switch%20on%20a%20new%20ERP%20%E2%80%94%20David%20Strausser" target="_blank" rel="noopener">X</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-go-live-checklist-nobody-gives-you-what-to-test-before-f.html" target="_blank" rel="noopener">LinkedIn</a>
           <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html">Copy link</button>
@@ -291,15 +296,6 @@
           <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
         </section>
         <section class="post-shop">
-          <style>
-            .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
-            .post-shop h2 { margin: 0.25rem 0 0.5rem; }
-            .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
-            .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
-            .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
-            .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
-            .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
-          </style>
           <p class="eyebrow">Shop the brand</p>
           <h2>Take a piece of the bite with you</h2>
           <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
@@ -315,14 +311,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -334,23 +330,13 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
-<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="When SAP Business One is Overkill: What to Buy Instead" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" alt="The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser" loading="lazy" /><span class="rel-card-title">The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</span></a><a class="rel-card" href="sap-business-one-10-fp-2608-ai-web-client.html"><img src="../images/sap-business-one-10-fp-2608-ai-web-client.jpg" alt="SAP Business One FP 2608: AI arrives, but the Web Client wins" loading="lazy" /><span class="rel-card-title">SAP Business One FP 2608: AI arrives, but the Web Client wins</span></a></div></section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="When SAP Business One is Overkill: What to Buy Instead" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a><a class="rel-card" href="why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html"><img src="../images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" alt="The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser" loading="lazy" /><span class="rel-card-title">The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</span></a><a class="rel-card" href="the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="The Odoo Apps I'd Install on Day One for a 20-Person Company" loading="lazy" /><span class="rel-card-title">The Odoo Apps I'd Install on Day One for a 20-Person Company</span></a></div></section>
       </div>
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david&#64;deadbrands.co">david&#64;deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
@@ -371,6 +357,16 @@
     window.addEventListener("scroll", onScroll, {passive: true});
     onScroll();
     b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
+  })();
+  </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("the-go-live-checklist-nobody-gives-you-what-to-test-before-f");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
   })();
   </script>
 </body>
