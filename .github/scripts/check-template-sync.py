@@ -10,6 +10,9 @@ gets caught on the push that introduced it instead of by a human eyeballing
 the live site.
 
 Critical rules (signatures normalized: whitespace collapsed, case kept):
+
+Exempt: meta-refresh redirect stubs (e.g. a renamed post's old slug) — they
+carry no post body and must not be styled like posts.
 """
 import re
 import sys
@@ -43,6 +46,8 @@ def main() -> int:
     failures = {}
     for post in posts:
         html = post.read_text(encoding="utf-8")
+        if 'http-equiv="refresh"' in html:
+            continue  # redirect stub, exempt (no post body to style)
         blocks = STYLE_RE.findall(html)
         combined = normalize(" ".join(blocks))
         missing = [sig for sig in CRITICAL if normalize(sig) not in combined]
