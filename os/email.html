@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email — Dead Brands OS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/os/os.css">
+<style>
+.em-tabs{display:flex;gap:.5rem;margin-bottom:1rem}
+.em-tabs button{font:inherit;font-weight:700;border:2px solid var(--line);background:#fff;
+  border-radius:999px;padding:.5rem 1.2rem;cursor:pointer;color:var(--ink)}
+.em-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.em-list-card{cursor:pointer}
+.em-list-card:hover{border-color:var(--gold)}
+.em-big-send{width:100%;padding:.9rem;font-size:1.05rem;margin-top:.6rem}
+.em-test-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:flex-end}
+.em-test-row .field{flex:1;min-width:180px;margin-bottom:0}
+.em-note{background:#fff3d9;border:1px solid var(--gold);border-radius:10px;
+  padding:.7rem .9rem;margin:.8rem 0;font-size:.9rem}
+table.em-members td:last-child{white-space:nowrap}
+</style>
+</head>
+<body>
+<script src="/os/app.js"></script>
+<script>
+OS.page("email", "Email", async function (view) {
+  "use strict";
+
+  /* ---- settings (for the Brevo dark guard + from-line prefill) ---- */
+  var settings = {};
+  try {
+    var sd = await OS.api("GET", "/api/settings");
+    sd.items.forEach(function (i) { settings[i.key] = i.value; });
+  } catch (e) { /* page still renders; sends will fail loud */ }
+  var dark = settings.brevo_configured !== "1";
+
+  var S = { tab: "lists", listId: null, campId: null, campMode: "list" };
+
+  function pillFor(status) {
+    var cls = { draft: "", queued: "blue", sending: "blue", sent: "green", paused: "red",
+                active: "green", unsubscribed: "red", bounced: "red" }[status] || "";
+    return '<span class="pill ' + cls + '">' + OS.esc(status) + "</span>";
+  }
+
+  function darkNote() {
+    if (!dark) return "";
+    return '<div class="em-note">⚠️ <b>Sending is dark.</b> Paste your Brevo key in ' +
+      '<a href="settings.html">Settings</a> — nothing can send until then.</div>';
+  }
+
+  /* ================= shell ================= */
+  function render() {
+    view.innerHTML =
+      '<div class="em-tabs">' +
+      '<button data-tab="lists"' + (S.tab === "lists" ? ' class="active"' : "") + ">Lists</button>" +
+      '<button data-tab="campaigns"' + (S.tab === "campaigns" ? ' class="active"' : "") + ">Campaigns</button>" +
+      "</div>" + darkNote() + '<div id="pane"><p class="muted">Loading…</p></div>';
+    view.querySelectorAll("[data-tab]").forEach(function (b) {
+      b.onclick = function () {
+        S.tab = b.getAttribute("data-tab");
+        S.listId = null; S.campId = null; S.campMode = "list";
+        render();
+      };
+    });
+    var pane = view.querySelector("#pane");
+    if (S.tab === "lists") {
+      if (S.listId) renderListDetail(pane, S.listId);
+      else renderLists(pane);
+    } else {
+      if (S.campMode === "edit") renderComposer(pane, S.campId);
+      else if (S.campMode === "stats") renderStats(pane, S.campId);
+      else renderCampaigns(pane);
+    }
+  }
+
+  function backBtn(label, fn) {
+    return '<button class="btn small ghost" id="backbtn">← ' + OS.esc(label || "Back") + "</button>";
+  }
+  function wireBack(scope, fn) {
+    var b = scope.querySelector("#backbtn");
+    if (b) b.onclick = fn;
+  }
+
+  /* ================= LISTS ================= */
+  async function renderLists(pane) {
+    var d;
+    try { d = await OS.api("GET", "/api/email/lists?limit=100"); }
+    catch (e) { pane.innerHTML = '<div class="card">Couldn\u2019t load lists: ' + OS.esc(e.message) + "</div>"; return; }
+    var cards = d.items.map(function (l) {
+      return '<div class="card em-list-card" data-open="' + OS.esc(l.id) + '">' +
+        "<h3 style='margin-top:0'>" + OS.esc(l.name) + "</h3>" +
+        (l.description ? '<p class="muted small">' + OS.esc(l.description) + "</p>" : "") +
+        '<span class="pill blue">' + l.member_count + " member" + (l.member_count === 1 ? "" : "s") + "</span>" +
+        ' <button class="btn small ghost" data-del="' + OS.esc(l.id) + '">Delete</button></div>';
+    }).join("");
+    pane.innerHTML =
+      '<div class="card"><h3 style="margin-top:0">New list</h3>' +
+      OS.field("Name", OS.input("nl_name", "", "text", ' placeholder="e.g. Newsletter"')) +
+      OS.field("Description", OS.input("nl_desc", "", "text")) +
+      '<button class="btn small" id="nl_create">Create list</button></div>' +
+      (cards || '<div class="card"><p class="muted">No lists yet — make one above. 🤘</p></div>');
+
+    pane.querySelector("#nl_create").onclick = async function () {
+      var name = pane.querySelector('[name="nl_name"]').value.trim();
+      var desc = pane.querySelector('[name="nl_desc"]').value.trim();
+      if (!name) { OS.toast("Give the list a name.", true); return; }
+      try {
+        await OS.api("POST", "/api/email/lists", { name: name, description: desc });
+        OS.toast("List created.");
+        render();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+    pane.querySelectorAll("[data-open]").forEach(function (c) {
+      c.onclick = function (ev) {
+        if (ev.target.hasAttribute("data-del")) return;
+        S.listId = c.getAttribute("data-open");
+        render();
+      };
+    });
+    pane.querySelectorAll("[data-del]").forEach(function (b) {
+      b.onclick = async function (ev) {
+        ev.stopPropagation();
+        if (!confirm("Delete this list and all its members?")) return;
+        try {
+          await OS.api("DELETE", "/api/email/lists/" + b.getAttribute("data-del"));
+          OS.toast("List deleted.");
+          render();
+        } catch (e) { OS.toast(e.message, true); }
+      };
+    });
+  }
+
+  async function renderListDetail(pane, id) {
+    var l, m;
+    try {
+      l = (await OS.api("GET", "/api/email/lists/" + id)).item;
+      m = await OS.api("GET", "/api/email/lists/" + id + "/members?limit=200");
+    } catch (e) { pane.innerHTML = '<div class="card">Couldn\u2019t load list: ' + OS.esc(e.message) + "</div>"; return; }
+
+    var rows = m.items.map(function (x) {
+      return "<tr><td>" + OS.esc(x.email) + "</td><td>" + OS.esc(x.name || "—") + "</td>" +
+        "<td>" + pillFor(x.status) + "</td>" +
+        '<td><button class="btn small danger" data-mdel="' + OS.esc(x.id) + '">Remove</button></td></tr>';
+    }).join("");
+
+    pane.innerHTML = backBtn("Lists", function () { S.listId = null; render(); }) +
+      '<div class="card"><h3 style="margin-top:0">' + OS.esc(l.name) + "</h3>" +
+      (l.description ? '<p class="muted small">' + OS.esc(l.description) + "</p>" : "") +
+      '<span class="pill blue">' + m.total + " member" + (m.total === 1 ? "" : "s") + "</span></div>" +
+
+      '<div class="card"><h3 style="margin-top:0">Add one</h3><div class="em-test-row">' +
+      OS.field("Email", OS.input("am_email", "", "email", ' placeholder="them@example.com"')) +
+      OS.field("Name", OS.input("am_name", "", "text", ' placeholder="First Last"')) +
+      "</div>" + '<button class="btn small" id="am_add" style="margin-top:.6rem">Add member</button></div>' +
+
+      '<div class="card"><h3 style="margin-top:0">Bulk import</h3>' +
+      OS.field("One per line", OS.textarea("im_text", "",
+        ' placeholder="Jane Doe <jane@example.com>\nbob@example.com" rows="5"'),
+        'Format: "Name <email>" or just "email". Dupes are skipped.') +
+      '<button class="btn small" id="im_go">Import</button></div>' +
+
+      '<div class="card"><h3 style="margin-top:0">Members</h3>' +
+      '<div style="overflow-x:auto"><table class="em-members"><thead><tr>' +
+      "<th>Email</th><th>Name</th><th>Status</th><th></th>" +
+      "</tr></thead><tbody>" + (rows || '<tr><td colspan="4" class="muted">Nobody here yet.</td></tr>') +
+      "</tbody></table></div></div>";
+
+    wireBack(pane, function () { S.listId = null; render(); });
+
+    pane.querySelector("#am_add").onclick = async function () {
+      var email = pane.querySelector('[name="am_email"]').value.trim();
+      var name = pane.querySelector('[name="am_name"]').value.trim();
+      if (!email) { OS.toast("Email is required.", true); return; }
+      try {
+        await OS.api("POST", "/api/email/lists/" + id + "/members", { email: email, name: name });
+        OS.toast("Member added.");
+        render();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+
+    pane.querySelector("#im_go").onclick = async function () {
+      var parsed = pane.querySelector('[name="im_text"]').value.split("\n").map(function (line) {
+        line = line.trim();
+        if (!line) return null;
+        var mm = line.match(/^(.*?)\s*<([^<>]+)>\s*$/);
+        if (mm) return { name: mm[1].trim(), email: mm[2].trim() };
+        if (line.indexOf("@") > 0) return { name: "", email: line };
+        return null;
+      }).filter(Boolean);
+      if (!parsed.length) { OS.toast("Nothing to import.", true); return; }
+      try {
+        var r = await OS.api("POST", "/api/email/lists/" + id + "/import", { members: parsed });
+        OS.toast("Imported " + r.added + ", skipped " + r.skipped + ".");
+        render();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+
+    pane.querySelectorAll("[data-mdel]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Remove this member?")) return;
+        try {
+          await OS.api("DELETE", "/api/email/members/" + b.getAttribute("data-mdel"));
+          OS.toast("Removed.");
+          render();
+        } catch (e) { OS.toast(e.message, true); }
+      };
+    });
+  }
+
+  /* ================= CAMPAIGNS ================= */
+  async function renderCampaigns(pane) {
+    var d;
+    try { d = await OS.api("GET", "/api/email/campaigns?limit=100"); }
+    catch (e) { pane.innerHTML = '<div class="card">Couldn\u2019t load campaigns: ' + OS.esc(e.message) + "</div>"; return; }
+    var cards = d.items.map(function (c) {
+      var actions = '<button class="btn small ghost" data-stats="' + OS.esc(c.id) + '">Stats</button> ';
+      if (c.status === "draft") {
+        actions += '<button class="btn small" data-edit="' + OS.esc(c.id) + '">Edit</button> ' +
+          '<button class="btn small danger" data-cdel="' + OS.esc(c.id) + '">Delete</button>';
+      }
+      return '<div class="card"><h3 style="margin-top:0">' + OS.esc(c.name) + " " + pillFor(c.status) + "</h3>" +
+        (c.subject ? '<p class="small"><b>Subject:</b> ' + OS.esc(c.subject) + "</p>" : "") +
+        '<p class="muted small">' + OS.esc(c.list_name || "no list") +
+        (c.sent_count ? " · " + c.sent_count + " sent" : "") + "</p>" + actions + "</div>";
+    }).join("");
+    pane.innerHTML = '<button class="btn" id="nc_new" style="margin-bottom:1rem">+ New campaign</button>' +
+      (cards || '<div class="card"><p class="muted">No campaigns yet — write the first one. 🤘</p></div>');
+
+    pane.querySelector("#nc_new").onclick = function () { S.campId = null; S.campMode = "edit"; render(); };
+    pane.querySelectorAll("[data-edit]").forEach(function (b) {
+      b.onclick = function () { S.campId = b.getAttribute("data-edit"); S.campMode = "edit"; render(); };
+    });
+    pane.querySelectorAll("[data-stats]").forEach(function (b) {
+      b.onclick = function () { S.campId = b.getAttribute("data-stats"); S.campMode = "stats"; render(); };
+    });
+    pane.querySelectorAll("[data-cdel]").forEach(function (b) {
+      b.onclick = async function () {
+        if (!confirm("Delete this draft?")) return;
+        try {
+          await OS.api("DELETE", "/api/email/campaigns/" + b.getAttribute("data-cdel"));
+          OS.toast("Draft deleted.");
+          render();
+        } catch (e) { OS.toast(e.message, true); }
+      };
+    });
+  }
+
+  async function renderComposer(pane, id) {
+    var lists, camp = null;
+    try {
+      lists = (await OS.api("GET", "/api/email/lists?limit=200")).items;
+      if (id) camp = (await OS.api("GET", "/api/email/campaigns/" + id)).item;
+    } catch (e) { pane.innerHTML = '<div class="card">Couldn\u2019t load: ' + OS.esc(e.message) + "</div>"; return; }
+    if (camp && camp.status !== "draft") {
+      pane.innerHTML = backBtn("Campaigns", function () { S.campMode = "list"; S.campId = null; render(); }) +
+        '<div class="card"><p>This campaign already went out — it\u2019s read-only now. Check <b>Stats</b> for the numbers.</p></div>';
+      wireBack(pane, function () { S.campMode = "list"; S.campId = null; render(); });
+      return;
+    }
+    var c = camp || {};
+    var listOpts = lists.map(function (l) { return [l.id, l.name + " (" + l.member_count + ")"]; });
+
+    pane.innerHTML = backBtn("Campaigns", function () { S.campMode = "list"; S.campId = null; render(); }) +
+      '<div class="card"><h3 style="margin-top:0">' + (id ? "Edit draft" : "New campaign") + "</h3>" +
+      OS.field("Name", OS.input("c_name", c.name || "", "text", ' placeholder="e.g. October newsletter"')) +
+      OS.field("List", OS.select("c_list", c.list_id || "", listOpts.length ? listOpts : [["", "— make a list first —"]])) +
+      OS.field("Subject", OS.input("c_subject", c.subject || "", "text",
+        ' placeholder="You can use {{first_name}} in here"')) +
+      OS.field("From name", OS.input("c_from_name", c.from_name || settings.mail_from_name || "", "text")) +
+      OS.field("From email", OS.input("c_from_email", c.from_email || settings.mail_from_email || "", "email")) +
+      OS.field("HTML body", OS.textarea("c_html", c.html_body || "",
+        ' rows="10" placeholder="<p>Hi {{first_name}},</p>..."'),
+        "Tokens: {{first_name}} {{last_name}} {{company}} {{booking_link}} {{unsubscribe_url}}") +
+      OS.field("Plain-text body", OS.textarea("c_text", c.text_body || "", ' rows="5"')) +
+      "</div>" +
+
+      '<div class="card"><h3 style="margin-top:0">Send a test</h3><div class="em-test-row">' +
+      OS.field("To", OS.input("t_to", "", "email", ' placeholder="you@example.com"')) +
+      "</div>" + '<button class="btn small ghost" id="t_go" style="margin-top:.6rem">Send test</button></div>' +
+
+      '<div class="card"><button class="btn ghost" id="c_save">Save draft</button>' +
+      '<button class="btn em-big-send" id="c_send"' + (dark ? " disabled" : "") + ">🚀 SEND CAMPAIGN</button>" +
+      (dark ? '<p class="muted small" style="margin-top:.5rem">Paste your Brevo key in Settings — nothing can send until then.</p>' : "") +
+      "</div>";
+
+    wireBack(pane, function () { S.campMode = "list"; S.campId = null; render(); });
+
+    function gather() {
+      return {
+        name: pane.querySelector('[name="c_name"]').value.trim(),
+        list_id: pane.querySelector('[name="c_list"]').value || null,
+        subject: pane.querySelector('[name="c_subject"]').value,
+        from_name: pane.querySelector('[name="c_from_name"]').value.trim(),
+        from_email: pane.querySelector('[name="c_from_email"]').value.trim(),
+        html_body: pane.querySelector('[name="c_html"]').value,
+        text_body: pane.querySelector('[name="c_text"]').value,
+      };
+    }
+
+    pane.querySelector("#c_save").onclick = async function () {
+      var body = gather();
+      if (!body.name) { OS.toast("Name it first.", true); return; }
+      try {
+        var r = id
+          ? await OS.api("PUT", "/api/email/campaigns/" + id, body)
+          : await OS.api("POST", "/api/email/campaigns", body);
+        S.campId = r.item.id;
+        OS.toast("Draft saved.");
+        render();
+      } catch (e) { OS.toast(e.message, true); }
+    };
+
+    pane.querySelector("#t_go").onclick = async function () {
+      var to = pane.querySelector('[name="t_to"]').value.trim();
+      if (!to) { OS.toast("Enter an address first.", true); return; }
+      var curId = id;
+      if (!curId) {
+        var body = gather();
+        if (!body.name) { OS.toast("Save the draft first (it needs a name).", true); return; }
+        try { curId = (await OS.api("POST", "/api/email/campaigns", body)).item.id; S.campId = curId; }
+        catch (e) { OS.toast(e.message, true); return; }
+      }
+      try {
+        var r = await OS.api("POST", "/api/email/campaigns/" + curId + "/test", { to: to });
+        OS.toast(r.message || "Test sent.");
+      } catch (e) { OS.toast(e.message, true); }
+    };
+
+    var sendBtn = pane.querySelector("#c_send");
+    if (sendBtn && !dark) {
+      sendBtn.onclick = async function () {
+        var curId = id;
+        if (!curId) {
+          var body = gather();
+          if (!body.name) { OS.toast("Save the draft first (it needs a name).", true); return; }
+          try { curId = (await OS.api("POST", "/api/email/campaigns", body)).item.id; }
+          catch (e) { OS.toast(e.message, true); return; }
+        }
+        if (!confirm("Send this campaign to the whole list? No undo.")) return;
+        sendBtn.disabled = true;
+        sendBtn.textContent = "Sending…";
+        try {
+          var r = await OS.api("POST", "/api/email/campaigns/" + curId + "/send");
+          OS.toast("Sent to " + r.sent + (r.failed ? " (" + r.failed + " failed)" : "") + ". 🤘");
+          S.campId = curId; S.campMode = "stats";
+          render();
+        } catch (e) {
+          OS.toast(e.message, true);
+          sendBtn.disabled = false;
+          sendBtn.textContent = "🚀 SEND CAMPAIGN";
+        }
+      };
+    }
+  }
+
+  async function renderStats(pane, id) {
+    var camp, st;
+    try {
+      camp = (await OS.api("GET", "/api/email/campaigns/" + id)).item;
+      st = (await OS.api("GET", "/api/email/campaigns/" + id + "/stats")).stats;
+    } catch (e) { pane.innerHTML = '<div class="card">Couldn\u2019t load stats: ' + OS.esc(e.message) + "</div>"; return; }
+    function stat(n, l) {
+      return '<div class="stat"><div class="n">' + n + '</div><div class="l">' + l + "</div></div>";
+    }
+    pane.innerHTML = backBtn("Campaigns", function () { S.campMode = "list"; S.campId = null; render(); }) +
+      '<div class="card"><h3 style="margin-top:0">' + OS.esc(camp.name) + " " + pillFor(camp.status) + "</h3>" +
+      (camp.subject ? '<p class="small muted">' + OS.esc(camp.subject) + "</p>" : "") + "</div>" +
+      '<div class="grid cols2">' +
+      stat(st.sent, "Sent") + stat(st.unique_opens, "Unique opens") +
+      stat(st.clicks, "Clicks") + stat(st.unsubs, "Unsubs") +
+      "</div>" +
+      '<p class="muted small">Total opens (incl. repeats): ' + st.opens +
+      (st.bounces ? " · Bounces: " + st.bounces : "") + "</p>";
+    wireBack(pane, function () { S.campMode = "list"; S.campId = null; render(); });
+  }
+
+  render();
+});
+</script>
+</body>
+</html>
