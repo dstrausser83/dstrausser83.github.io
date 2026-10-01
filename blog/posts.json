@@ -1,5 +1,25 @@
 [
   {
+    "slug": "ghost-inventory-odoo-wms-3pl-margin",
+    "title": "Ghost Inventory Is Eating Your 3PL's Margin \u2014 How Odoo WMS Hunts It Down",
+    "date": "2026-10-01",
+    "published_at": "2026-10-01T11:00:35Z",
+    "tags": [
+      "odoo",
+      "odoo-wms",
+      "3pl",
+      "inventory",
+      "warehouse-management",
+      "distribution"
+    ],
+    "excerpt": "Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.",
+    "description": "Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.",
+    "image": "images/ghost-inventory-odoo-wms-3pl-margin.jpg",
+    "video": "",
+    "url": "posts/ghost-inventory-odoo-wms-3pl-margin.html",
+    "reading_time": 8
+  },
+  {
     "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
     "title": "The Odoo Apps I'd Install on Day One for a 20-Person Company",
     "date": "2026-09-30",
