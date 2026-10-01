@@ -9,30 +9,24 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Data Migration Horror: How to Avoid One | Dead Brands, LLC</title>
+  <title>Data Migration Horror Stories: How to Avoid Becoming One — David Strausser</title>
   <meta name="description" content="ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring." />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html" />
-  <meta property="og:type" content="article" />
   <meta property="og:url" content="https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html" />
-  <meta property="og:site_name" content="Dead Brands, LLC" />
-  <meta property="og:title" content="Data Migration Horror: How to Avoid One | Dead Brands, LLC" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Data Migration Horror Stories: How to Avoid Becoming One — David Strausser" />
   <meta property="og:description" content="ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring." />
   <meta property="og:image" content="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" />
-  <meta property="og:image:width" content="2048" />
-  <meta property="og:image:height" content="1152" />
-  <meta property="article:published_time" content="2026-09-25T11:51:07Z" />
-  <meta property="article:author" content="David Strausser" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@dstrausser83" />
-  <meta name="twitter:title" content="Data Migration Horror: How to Avoid One | Dead Brands, LLC" />
+  <meta name="twitter:title" content="Data Migration Horror Stories: How to Avoid Becoming One — David Strausser" />
   <meta name="twitter:description" content="ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" />
-  <meta name="twitter:image:alt" content="Crumpled paper and tangled cables morphing into glowing red data charts and network graphs — messy data becoming structured insight" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
-    <link rel="preload" as="image" href="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="preload" as="image" href="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
@@ -43,11 +37,11 @@
     .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
     .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
     .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-inline { margin: 1.75rem auto; max-width: 620px; }
     .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
     .post-body img { max-width: 100%; height: auto; }
-    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
-    .post-hero-card img { width: 100%; height: auto; display: block; }
     .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
       background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
     .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
@@ -68,6 +62,7 @@
     .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
       font-size: 1.5rem; color: #fff; background: var(--accent-deep);
       padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
     .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
     .back-to-top[hidden] { display: none; }
     .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
@@ -78,6 +73,11 @@
       a { color: #000; }
       a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
     }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
     .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
     .post-share-label { font-weight: 700; margin-right: 0.4rem; }
     .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
@@ -90,25 +90,28 @@
     .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
     .rel-card:hover { border-color: var(--accent); }
     @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
-    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
-    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
-    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
-    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
-    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
-    .back-link { display: inline-block; margin-bottom: 1.5rem; }
 
     .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
     .post-cta h2 { margin-top: 0; }
     .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
     .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
     .cta-btn:hover { filter: brightness(1.1); }
-    /* Author box: red sharpie marker border (David 2026-09-30 - hand-drawn
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
        marker look; keep in build script so regenerations carry it). */
     .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
     .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
     .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
     .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
     .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
 
   </style>
   <script type="application/ld+json">
@@ -173,7 +176,7 @@
   "image": "https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg"
 }
 </script>
-
+  
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -186,7 +189,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/about.html" class="">About Us</a>
+        <a href="/about.html" class="">About</a>
         <div class="nav-drop">
           <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nav-drop-menu" role="menu" aria-label="Services">
@@ -212,7 +215,9 @@
         </div>
         <a href="/resources.html" class="">Resource Center</a>
         <a href="/blog/index.html" class="active">Blog</a>
-        <a href="/index.html#contact" class="nav-cta">Work With Us</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
       </nav>
     </div>
   </header>
@@ -220,15 +225,14 @@
     <article class="section">
       <div class="wrap narrow">
         <a class="back-link" href="../index.html">&larr; All posts</a>
-        <figure class="post-hero-card"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" alt="Crumpled paper and tangled cables morphing into glowing red data charts and network graphs — messy data becoming structured insight" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Data Migration Horror Stories: How to Avoid Becoming One</h1><p class="post-meta">September 26, 2026 at 1:16 PM ET &middot; 6 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <figure class="post-hero-card"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" alt="ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring." width="1280" height="720" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Data Migration Horror Stories: How to Avoid Becoming One</h1><p class="post-meta">September 25, 2026 at 7:51 AM ET &middot; 6 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
         <aside class="post-summary" aria-label="Executive Summary">
           <p class="post-summary-label"><span>Executive Summary</span></p>
           <p>Data migrations fail for boring reasons: dirty source data nobody cleaned, no one defined what "done" looks like, testing happened once instead of three times, and the business assumed the software would magically fix bad data. Avoid those four traps — clean early, define done, migrate in rehearsal rounds, and never expect the new system to fix what the old process broke — and you'll be ahead of most projects.</p>
         </aside>
         <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#the-dirty-data-trap">The dirty-data trap</a></li><li><a href="#the-well-fix-it-in-the-new-system-fantasy">The "we'll fix it in the new system" fantasy</a></li><li><a href="#the-one-rehearsal-mistake">The one-rehearsal mistake</a></li><li><a href="#the-mapping-nobody-wrote-down">The mapping nobody wrote down</a></li><li><a href="#the-reconciliation-nobody-did">The reconciliation nobody did</a></li><li><a href="#open-transactions-deserve-special-respect">Open transactions deserve special respect</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li><li><a href="#the-bottom-line">The bottom line</a></li></ul></nav>
-<div class="post-body prose">
+        <div class="post-body prose">
 <p>Every ERP implementer has a drawer full of data migration war stories. I'll spare you mine — they all rhyme. The names change, the industries change, but the failure patterns are the same every single time. Learn the patterns and you can dodge nearly all of them.</p>
-
 <h2 id="the-dirty-data-trap">The dirty-data trap</h2>
 <p>Here's the uncomfortable truth about every migration: your data is worse than you think it is. Every company believes their data is "pretty clean." Almost none of them are right.</p>
 <p>Duplicate customer records. Vendors with three different spellings. Items with no unit of measure. Open orders pointing at customers that were deactivated years ago. Chart of accounts with dead limbs nobody pruned. This stuff accumulates quietly for a decade, and it all surfaces the week you're trying to load it into a new system that is far less forgiving than the spreadsheet chaos everyone got used to.</p>
@@ -236,9 +240,9 @@
 <h2 id="the-well-fix-it-in-the-new-system-fantasy">The "we'll fix it in the new system" fantasy</h2>
 <p>This is the single most expensive sentence in ERP: "we'll clean it up after go-live." No, you won't. After go-live you're firefighting, training users, and closing your first month-end in a system nobody fully understands yet. Data cleanup drops to priority zero and stays there.</p>
 <p>Bad data doesn't just sit there looking ugly. It breaks processes. Duplicate vendors mean duplicate payments. Wrong item setups mean wrong costing, which means your financials lie to you for months before anyone notices.</p>
-<p>Rule: nothing goes into the new system that you wouldn't proudly show an auditor. If a record isn't worth cleaning, it isn't worth migrating — archive it or leave it behind.<figure class="post-inline"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one-img2.jpg" alt="Moving boxes with database icons migrating from an old server room to the cloud" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
+<p>Rule: nothing goes into the new system that you wouldn't proudly show an auditor. If a record isn't worth cleaning, it isn't worth migrating — archive it or leave it behind.</p>
 <h2 id="the-one-rehearsal-mistake">The one-rehearsal mistake</h2>
-<p>A data migration is a performance, and you don't open on Broadway without rehearsals. Yet project after project does exactly one test migration, declares victory, and then discovers at go-live that the script nobody re-ran breaks on the production dataset.</p>
+<p>A data migration is a performance, and you don't open on Broadway without rehearsals. Yet project after project does exactly one test migration, declares victory, and then discovers at go-live that the script nobody re-ran breaks on the production dataset.<figure class="post-inline"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one-img2.jpg" alt="Moving boxes with database icons migrating from an old server room to the cloud" width="1280" height="853" loading="lazy" /></figure></p>
 <p>Run at least three full rehearsal migrations. The first one finds the big structural problems. The second one validates the fixes and surfaces the weird edge cases. The third one is your dress rehearsal — timed, with the real team, on a production-like dataset. If the third rehearsal isn't boring, you're not ready.</p>
 <p>Time each rehearsal, too. Migrations have a clock: the business can only tolerate so many hours of downtime while you cut over. If your rehearsal takes fourteen hours and your cutover window is a weekend, you have a math problem to solve before go-live, not during it.</p>
 <h2 id="the-mapping-nobody-wrote-down">The mapping nobody wrote down</h2>
@@ -249,7 +253,7 @@
 <p>A migration without reconciliation is just a hope with a script. For every major data domain, you need a before-and-after: record counts, key totals (open AR, open AP, inventory value), and spot-checks on a sample of records. If the numbers don't tie, you don't proceed. Full stop.</p>
 <p>Build the reconciliation reports before the migration, not after. Decide in advance what tolerance is acceptable — and make it tight. A one-dollar difference in your trial balance is a red flag, not a rounding error. Small differences have a habit of being symptoms of big problems.</p>
 <h2 id="open-transactions-deserve-special-respect">Open transactions deserve special respect</h2>
-<p>Master data gets all the attention, but open transactions are where migrations actually bleed. Open sales orders, open purchase orders, open AR and AP, inventory balances, work in process — these are living things with dependencies between them, and they have to land in the new system in the right order with the right statuses.<figure class="post-inline"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one-img3.jpg" alt="Broken chain links with scattered puzzle pieces representing a data disaster" width="1920" height="1280" loading="lazy" decoding="async" /></figure></p>
+<p>Master data gets all the attention, but open transactions are where migrations actually bleed. Open sales orders, open purchase orders, open AR and AP, inventory balances, work in process — these are living things with dependencies between them, and they have to land in the new system in the right order with the right statuses.<figure class="post-inline"><img src="../images/data-migration-horror-stories-and-how-to-avoid-becoming-one-img3.jpg" alt="Broken chain links with scattered puzzle pieces representing a data disaster" width="1280" height="853" loading="lazy" /></figure></p>
 <p>Migrate them in dependency order, and reconcile each layer before moving to the next. Items before BOMs. Customers and vendors before open orders. Open orders before you even think about historical transactions — and question hard whether you need history at all. Most companies migrate far more history than anyone will ever look at. Two years of summary history plus open items covers the vast majority of real business needs, and it dramatically shrinks your risk surface.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <h3>Should we migrate all our historical data?</h3>
@@ -264,7 +268,7 @@
 <p>Data migration isn't a technical problem with a technical solution. It's a discipline problem. Clean data, documented mappings, rehearsed scripts, and ruthless reconciliation — that's the whole game. The projects that do the boring work have boring migrations, and boring migrations are the goal. Nobody ever got fired for a migration so smooth everyone forgot it happened.</p>
         </div>
         <p class="post-tags"><span>erp</span> <span>data-migration</span> <span>sap-business-one</span> <span>odoo</span> <span>implementation</span></p>
-<div class="post-share">
+        <div class="post-share">
           <span class="post-share-label">Share this post</span>
           <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fdata-migration-horror-stories-and-how-to-avoid-becoming-one.html&text=Data%20Migration%20Horror%20Stories%3A%20How%20to%20Avoid%20Becoming%20One" target="_blank" rel="noopener">X</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fdata-migration-horror-stories-and-how-to-avoid-becoming-one.html" target="_blank" rel="noopener">Facebook</a>
@@ -296,15 +300,6 @@
           <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
         </section>
         <section class="post-shop">
-          <style>
-            .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
-            .post-shop h2 { margin: 0.25rem 0 0.5rem; }
-            .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
-            .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
-            .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
-            .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
-            .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
-          </style>
           <p class="eyebrow">Shop the brand</p>
           <h2>Take a piece of the bite with you</h2>
           <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
@@ -320,14 +315,14 @@
             if (!ps.length) { el.innerHTML = ""; return; }
             var p = ps[Math.floor(Math.random() * ps.length)];
             var url = esc(p.url || "/merch/");
-            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" decoding="async" /></a>'
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
               + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
               + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
           }).catch(function () { el.innerHTML = ""; });
         })();
         </script>
         <section class="author-box">
-          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" decoding="async" />
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
           <div>
             <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
             <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
@@ -339,23 +334,13 @@
             &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
           </div>
         </section>
-<section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="customization-vs-configuration-the-line-that-quietly-kills-e.html"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser" loading="lazy" /><span class="rel-card-title">Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</span></a><a class="rel-card" href="odoo-implementation-7-things-nobody-tells-you.html"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Odoo Implementation: 7 Things Nobody Tells You Before You Start" loading="lazy" /><span class="rel-card-title">Odoo Implementation: 7 Things Nobody Tells You Before You Start</span></a><a class="rel-card" href="when-sap-business-one-is-overkill-and-what-to-buy-instead.html"><img src="../images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" alt="When SAP Business One is Overkill: What to Buy Instead" loading="lazy" /><span class="rel-card-title">When SAP Business One is Overkill: What to Buy Instead</span></a></div></section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="customization-vs-configuration-the-line-that-quietly-kills-e.html"><img src="../images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" alt="Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser" loading="lazy" /><span class="rel-card-title">Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</span></a><a class="rel-card" href="odoo-implementation-7-things-nobody-tells-you.html"><img src="../images/odoo-implementation-7-things-nobody-tells-you.jpg" alt="Odoo Implementation: 7 Things Nobody Tells You Before You Start" loading="lazy" /><span class="rel-card-title">Odoo Implementation: 7 Things Nobody Tells You Before You Start</span></a><a class="rel-card" href="the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html"><img src="../images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" alt="The Odoo Apps I'd Install on Day One for a 20-Person Company" loading="lazy" /><span class="rel-card-title">The Odoo Apps I'd Install on Day One for a 20-Person Company</span></a></div></section>
       </div>
     </article>
   </main>
   <footer class="site-footer">
-    <!-- FUTURE: Shark Bite Biz feature band goes here when David wants it prominent -->
-    <div class="wrap footer-inner">
-      <p class="footer-social">
-        <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dstrausser83" target="_blank" rel="noopener">Instagram</a>
-      </p>
-      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved.</p>
-      <p class="footer-contact">Dead Brands, LLC &middot; 213 N. Centre St. #1, Pottsville, PA 17901 &middot; <a href="tel:+16197792842">+1.619.779.2842</a> &middot; <a href="mailto:david&#64;deadbrands.co">david&#64;deadbrands.co</a></p>
-      <p class="footer-note">Built loud. No ads. &middot; <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
@@ -376,6 +361,16 @@
     window.addEventListener("scroll", onScroll, {passive: true});
     onScroll();
     b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
+  })();
+  </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("data-migration-horror-stories-and-how-to-avoid-becoming-one");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
   })();
   </script>
 </body>
