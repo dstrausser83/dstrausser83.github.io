@@ -10,6 +10,11 @@ Exempt: partials under tools/ (not pages) and meta-refresh redirect stubs
 (noindex; firing tracker pixels on a 0-second redirect would double-count
 the visit that lands on the real page a moment later).
 
+Also exempt: intentional standalone app/test surfaces that are not marketing
+pages and must not carry the site header/footer —
+chat-test.html (hidden chatbot test page), esign/ (DeadSign signing app),
+os/ (Business OS admin, behind Access).
+
 Run tools/enforce-base-template.py to fix violations, then re-run this.
 """
 import re
@@ -19,6 +24,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_RE = re.compile(r"<script[^>]*consent\.js")
 
+# Intentional standalone surfaces — not marketing pages, exempt by design.
+EXEMPT_FILES = {"chat-test.html"}
+EXEMPT_PREFIXES = ("esign/", "os/")
+
 
 def main() -> int:
     failures = {}
@@ -27,6 +36,8 @@ def main() -> int:
         rel = p.relative_to(ROOT).as_posix()
         if rel.startswith("tools/"):
             continue
+        if rel in EXEMPT_FILES or rel.startswith(EXEMPT_PREFIXES):
+            continue  # intentional standalone app/test surface
         h = p.read_text(encoding="utf-8")
         if 'http-equiv="refresh"' in h:
             continue  # redirect stub, exempt by design
