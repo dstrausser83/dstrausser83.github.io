@@ -5,20 +5,69 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Oct 2026 20:47:49 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 23:35:02 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>5 Odoo Automation Mistakes That Create More Work Than They Save</title>
-      <link>https://deadbrands.co/blog/posts/penny-odoo-automation-mistakes.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/penny-odoo-automation-mistakes.html</guid>
-      <description>Odoo's automated actions and scheduled jobs are powerful, but misconfigured automation creates more problems than it solves. Learn the five most common mistakes and how to avoid them.</description>
-      <pubDate>Mon, 05 Oct 2026 22:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/penny-odoo-automation-mistakes.jpg" type="image/jpeg" />
-      <category>[odoo</category>
-      <category>automation</category>
-      <category>workflow</category>
+      <title>What 10,000 hours of bad gigs taught me about sales rejection</title>
+      <link>https://deadbrands.co/blog/posts/what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection.html</guid>
+      <description>As a musician who's played for empty rooms and a CEO who sells ERP systems, I've learned that every 'no' is tuning data. Here's how bad gigs made me better at sales.</description>
+      <pubDate>Sat, 03 Oct 2026 20:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection.jpg" type="image/jpeg" />
+      <category>sales</category>
+      <category>musician</category>
+      <category>dadlife</category>
+      <category>rejection</category>
+      <category>business</category>
+    </item>
+    <item>
+      <title>SAP Business One Licensing: What You Actually Pay for (Not the Hype)</title>
+      <link>https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html</guid>
+      <description>SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon.</description>
+      <pubDate>Sat, 03 Oct 2026 16:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/sap-business-one-licensing-what-you-actually-pay-for.jpg" type="image/jpeg" />
+      <category>sap-business-one</category>
+      <category>licensing</category>
+      <category>business-software</category>
+      <category>cost-analysis</category>
+      <category>real-talk</category>
+    </item>
+    <item>
+      <title>The Odoo implementation mistakes I see every single time</title>
+      <link>https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html</guid>
+      <description>As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top five pitfalls with real-world fixes.</description>
+      <pubDate>Sat, 03 Oct 2026 12:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg" type="image/jpeg" />
+      <category>odoo</category>
       <category>erp</category>
-      <category>business-process]</category>
+      <category>implementation</category>
+      <category>smallbusiness</category>
+    </item>
+    <item>
+      <title>The School-Pickup CEO: Running a Business on a Kid's Schedule</title>
+      <link>https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</guid>
+      <description>David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.</description>
+      <pubDate>Fri, 02 Oct 2026 18:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-school-pickup-ceo.jpg" type="image/jpeg" />
+      <category>family</category>
+      <category>dad</category>
+      <category>business</category>
+      <category>work-life balance</category>
+    </item>
+    <item>
+      <title>SAP Business One implementation timeline: honest numbers</title>
+      <link>https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html</guid>
+      <description>Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal.</description>
+      <pubDate>Fri, 02 Oct 2026 14:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/sap-business-one-implementation-timeline-honest-numbers.jpg" type="image/jpeg" />
+      <category>sap-business-one</category>
+      <category>erp</category>
+      <category>implementation</category>
+      <category>smallbusiness</category>
     </item>
     <item>
       <title>Odoo 20: What's actually new (and what's just noise)</title>
@@ -47,6 +96,19 @@
       <category>erp</category>
       <category>ai</category>
       <category>small-business</category>
+    </item>
+    <item>
+      <title>5 Odoo Automation Mistakes That Create More Work Than They Save</title>
+      <link>https://deadbrands.co/blog/posts/penny-odoo-automation-mistakes.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/penny-odoo-automation-mistakes.html</guid>
+      <description>Odoo's automated actions and scheduled jobs are powerful, but misconfigured automation creates more problems than it solves. Learn the five most common mistakes and how to avoid them.</description>
+      <pubDate>Thu, 01 Oct 2026 22:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/penny-odoo-automation-mistakes.jpg" type="image/jpeg" />
+      <category>[odoo</category>
+      <category>automation</category>
+      <category>workflow</category>
+      <category>erp</category>
+      <category>business-process]</category>
     </item>
     <item>
       <title>First Contact: What Aliens Would Think of Your ERP</title>
