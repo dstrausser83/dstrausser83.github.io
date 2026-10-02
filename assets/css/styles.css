@@ -384,6 +384,27 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 @media (max-width: 860px) {
   .cards { grid-template-columns: 1fr; }
   .post-cards { grid-template-columns: 1fr; }
+  /* Mobile dropdown: in-flow accordion instead of absolute overlay —
+     no z-index fights, no clipping inside the scrollable nav panel. */
+  .nav-drop-menu {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    box-shadow: none;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    padding: 0.4rem 0 0.6rem;
+    background: transparent;
+  }
+  .nav-drop:hover .nav-drop-menu,
+  .nav-drop:focus-within .nav-drop-menu,
+  .nav-drop.open .nav-drop-menu {
+    transform: none;
+  }
+  .nav-drop-cols { grid-template-columns: 1fr; }
+  .nav-drop-menu a[role="menuitem"] { white-space: normal; }
   .nav-toggle { display: flex; }
   .site-nav {
     position: absolute; top: 72px; left: 0; right: 0;
