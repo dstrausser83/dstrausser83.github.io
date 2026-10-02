@@ -469,6 +469,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://deadbrands.co/blog/posts/sap-business-one-version-11-browser-erp-roadmap.html</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -511,8 +523,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deadbrands.co/blog/posts/the-school-pickup-ceo.html</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</loc>
     <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deadbrands.co/blog/posts/what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection.html</loc>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
