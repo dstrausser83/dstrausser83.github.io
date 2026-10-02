@@ -232,6 +232,12 @@ section[id], footer[id] { scroll-margin-top: 84px; }
   font-size: clamp(2.2rem, 7vw, 3.5rem); letter-spacing: 0.01em;
   margin-bottom: 1rem; line-height: 1; text-wrap: balance;
 }
+/* Blog post H1s: keep readable, not shouting — title case, smaller */
+.hero-title-overlay h1 {
+  font-family: var(--font-body); text-transform: none;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem); font-weight: 800;
+  line-height: 1.15; letter-spacing: 0;
+}
 .section h2 {
   font-family: var(--font-display); text-transform: uppercase;
   font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 0.01em;
@@ -341,6 +347,8 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 .cta-banner .eyebrow { color: #ffe8e6; }
 .cta-banner h2 { color: #fff; }
 .cta-banner p { color: #fff5f3; font-size: 1.08rem; max-width: 620px; margin-left: auto; margin-right: auto; }
+.cta-banner .cta-alt { margin-top: 0.9rem; font-size: 0.95rem; }
+.cta-banner .cta-alt a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Social ---------- */
 .social-grid {
