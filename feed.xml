@@ -5,27 +5,94 @@
     <link>https://deadbrands.co/blog/</link>
     <description>Straight talk on ERP, automation, AI, sales, and building a business — from David Strausser, CEO of Dead Brands, LLC.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2026 11:57:58 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 12:58:45 GMT</lastBuildDate>
     <atom:link href="https://deadbrands.co/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)</title>
-      <link>https://deadbrands.co/blog/posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html</guid>
-      <description>Why sales teams abandon Odoo’s pipeline setup. Real steps that match daily work. No fluff.</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg" type="image/jpeg" />
+      <title>5 Odoo Automation Mistakes That Create More Work Than They Save</title>
+      <link>https://deadbrands.co/blog/posts/penny-odoo-automation-mistakes.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/penny-odoo-automation-mistakes.html</guid>
+      <description>Odoo's automated actions and scheduled jobs are powerful, but misconfigured automation creates more problems than it solves. Learn the five most common mistakes and how to avoid them.</description>
+      <pubDate>Mon, 05 Oct 2026 22:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/penny-odoo-automation-mistakes.jpg" type="image/jpeg" />
+      <category>[odoo</category>
+      <category>automation</category>
+      <category>workflow</category>
+      <category>erp</category>
+      <category>business-process]</category>
+    </item>
+    <item>
+      <title>Odoo 20: What's actually new (and what's just noise)</title>
+      <link>https://deadbrands.co/blog/posts/odoo-20-whats-actually-new.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-20-whats-actually-new.html</guid>
+      <description>Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade.</description>
+      <pubDate>Fri, 02 Oct 2026 13:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-20-whats-actually-new.jpg" type="image/jpeg" />
+      <category>[erp</category>
       <category>odoo</category>
-      <category>crm</category>
+      <category>odoo 20</category>
+      <category>ai</category>
+      <category>accounting</category>
+      <category>payroll</category>
+      <category>pos]</category>
+    </item>
+    <item>
+      <title>Odoo 20: AI That Does the Work, Not Just the Talking</title>
+      <link>https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</guid>
+      <description>Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.</description>
+      <pubDate>Fri, 02 Oct 2026 11:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>odoo-20</category>
+      <category>erp</category>
+      <category>ai</category>
+      <category>small-business</category>
+    </item>
+    <item>
+      <title>First Contact: What Aliens Would Think of Your ERP</title>
+      <link>https://deadbrands.co/blog/posts/penny-aliens-erp-first-contact.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/penny-aliens-erp-first-contact.html</guid>
+      <description>A fun but pointed look at ERP data quality through alien eyes: if extraterrestrials audited your system tomorrow, what would they find? A Penny-style take on why clean data matters.</description>
+      <pubDate>Thu, 01 Oct 2026 22:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/penny-aliens-erp-first-contact.jpg" type="image/jpeg" />
+      <category>[penny</category>
+      <category>erp</category>
+      <category>humor</category>
+      <category>odoo</category>
+      <category>data-quality]</category>
+    </item>
+    <item>
+      <title>Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</title>
+      <link>https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</guid>
+      <description>David Strausser on Chromaleaf: discovered at NAMM around 2016, got custom cables built to shred like Joe Perry, then sold them SAP Business One. His ERP world and music world in one story.</description>
+      <pubDate>Thu, 01 Oct 2026 20:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/rock-star-dad-guitar-cable-company-sales.jpg" type="image/jpeg" />
+      <category>music</category>
       <category>sales</category>
-      <category>pipeline</category>
-      <category>open-source</category>
+      <category>small-business</category>
+      <category>dad</category>
+      <category>passion</category>
+    </item>
+    <item>
+      <title>SAP Business One FP 2608: AI arrives, but the Web Client wins</title>
+      <link>https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</guid>
+      <description>SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver.</description>
+      <pubDate>Thu, 01 Oct 2026 18:30:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/sap-business-one-10-fp-2608-ai-web-client.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>sap</category>
+      <category>sap business one</category>
+      <category>ai</category>
+      <category>business</category>
     </item>
     <item>
       <title>Ghost Inventory Is Eating Your 3PL's Margin — How Odoo WMS Hunts It Down</title>
       <link>https://deadbrands.co/blog/posts/ghost-inventory-odoo-wms-3pl-margin.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/ghost-inventory-odoo-wms-3pl-margin.html</guid>
       <description>Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.</description>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 01 Oct 2026 11:00:01 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/ghost-inventory-odoo-wms-3pl-margin.jpg" type="image/jpeg" />
       <category>odoo</category>
       <category>odoo-wms</category>
@@ -35,24 +102,24 @@
       <category>distribution</category>
     </item>
     <item>
-      <title>The Odoo Apps I'd Install on Day One for a 20-Person Company</title>
-      <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</guid>
-      <description>The exact Odoo apps I'd install on day one for a 20-person company, in priority order, refreshed days after the Odoo 20 launch. No bloat, no upsell, just what works.</description>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" type="image/jpeg" />
+      <title>Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)</title>
+      <link>https://deadbrands.co/blog/posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html</guid>
+      <description>Why sales teams abandon Odoo’s pipeline setup. Real steps that match daily work. No fluff.</description>
+      <pubDate>Thu, 01 Oct 2026 11:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg" type="image/jpeg" />
       <category>odoo</category>
-      <category>erp</category>
-      <category>small business</category>
-      <category>software</category>
-      <category>business</category>
+      <category>crm</category>
+      <category>sales</category>
+      <category>pipeline</category>
+      <category>open-source</category>
     </item>
     <item>
       <title>SAP Business One Version 11 Is Coming in 2027: Your Browser Is the ERP Now</title>
       <link>https://deadbrands.co/blog/posts/sap-business-one-version-11-browser-erp-roadmap.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-version-11-browser-erp-roadmap.html</guid>
       <description>SAP Business One Version 11 arrives in 2027 per SAP's public roadmap. David Strausser decodes what it means for SMB owners: the web client is the product now, the desktop client gets compliance, and the five moves to make before 2027.</description>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 30 Sep 2026 18:30:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/sap-business-one-version-11-browser-erp-roadmap.jpg" type="image/jpeg" />
       <category>erp</category>
       <category>sap</category>
@@ -65,7 +132,7 @@
       <link>https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html</guid>
       <description>Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight.</description>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 30 Sep 2026 11:00:01 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg" type="image/jpeg" />
       <category>open-source-erp</category>
       <category>odoo</category>
@@ -74,37 +141,24 @@
       <category>sme</category>
     </item>
     <item>
-      <title>Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies</title>
-      <link>https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/rock-star-dad-guitar-cable-company-sales.html</guid>
-      <description>David Strausser on Chromaleaf: discovered at NAMM around 2016, got custom cables built to shred like Joe Perry, then sold them SAP Business One. His ERP world and music world in one story.</description>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/rock-star-dad-guitar-cable-company-sales.jpg" type="image/jpeg" />
-      <category>music</category>
-      <category>sales</category>
-      <category>small-business</category>
-      <category>dad</category>
-      <category>passion</category>
-    </item>
-    <item>
-      <title>When SAP Business One is Overkill: What to Buy Instead</title>
-      <link>https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html</guid>
-      <description>SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype.</description>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" type="image/jpeg" />
-      <category>sap</category>
-      <category>businessone</category>
+      <title>The Odoo Apps I'd Install on Day One for a 20-Person Company</title>
+      <link>https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html</guid>
+      <description>The exact Odoo apps I'd install on day one for a 20-person company, in priority order, refreshed days after the Odoo 20 launch. No bloat, no upsell, just what works.</description>
+      <pubDate>Wed, 30 Sep 2026 11:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg" type="image/jpeg" />
       <category>odoo</category>
-      <category>smallbusiness</category>
       <category>erp</category>
+      <category>small business</category>
+      <category>software</category>
+      <category>business</category>
     </item>
     <item>
       <title>The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants</title>
       <link>https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html</guid>
       <description>How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters.</description>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 29 Sep 2026 20:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg" type="image/jpeg" />
       <category>automation</category>
       <category>time-saving</category>
@@ -113,24 +167,24 @@
       <category>dad</category>
     </item>
     <item>
-      <title>SAP Business One FP 2608: AI arrives, but the Web Client wins</title>
-      <link>https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-10-fp-2608-ai-web-client.html</guid>
-      <description>SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/sap-business-one-10-fp-2608-ai-web-client.jpg" type="image/jpeg" />
-      <category>erp</category>
+      <title>When SAP Business One is Overkill: What to Buy Instead</title>
+      <link>https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html</guid>
+      <description>SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype.</description>
+      <pubDate>Tue, 29 Sep 2026 18:30:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg" type="image/jpeg" />
       <category>sap</category>
-      <category>sap business one</category>
-      <category>ai</category>
-      <category>business</category>
+      <category>businessone</category>
+      <category>odoo</category>
+      <category>smallbusiness</category>
+      <category>erp</category>
     </item>
     <item>
       <title>AI won't fix a broken process, it'll just break it faster</title>
       <link>https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html</guid>
       <description>Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 28 Sep 2026 22:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg" type="image/jpeg" />
       <category>ai</category>
       <category>business</category>
@@ -143,7 +197,7 @@
       <link>https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html</guid>
       <description>Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it's not a giant's toy.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 28 Sep 2026 18:30:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg" type="image/jpeg" />
       <category>sap</category>
       <category>business-one</category>
@@ -152,24 +206,11 @@
       <category>implementation</category>
     </item>
     <item>
-      <title>Odoo 20: AI That Does the Work, Not Just the Talking</title>
-      <link>https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html</guid>
-      <description>Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>odoo-20</category>
-      <category>erp</category>
-      <category>ai</category>
-      <category>small-business</category>
-    </item>
-    <item>
       <title>What Playing Guitar Taught Me About Patience That Business Never Could</title>
       <link>https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-patience-that-bus.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-patience-that-bus.html</guid>
       <description>David Strausser on the patience lessons from playing guitar that business never taught him. A Sunday reflection.</description>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 27 Sep 2026 20:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/what-playing-guitar-taught-me-about-patience-that-bus.jpg" type="image/jpeg" />
       <category>guitar</category>
       <category>patience</category>
@@ -181,7 +222,7 @@
       <link>https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html</guid>
       <description>Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.</description>
-      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 26 Sep 2026 22:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg" type="image/jpeg" />
       <category>ai</category>
       <category>automation</category>
@@ -190,11 +231,35 @@
       <category>productivity</category>
     </item>
     <item>
+      <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</guid>
+      <description>Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.</description>
+      <pubDate>Sat, 26 Sep 2026 11:00:02 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" type="image/jpeg" />
+      <category>quickbooks</category>
+      <category>erp</category>
+      <category>odoo</category>
+      <category>migration</category>
+    </item>
+    <item>
+      <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</guid>
+      <description>David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.</description>
+      <pubDate>Sat, 26 Sep 2026 11:00:01 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>erp</category>
+      <category>excel</category>
+      <category>spreadsheets</category>
+    </item>
+    <item>
       <title>Odoo Studio: When Clicking Together an App Beats Writing Code</title>
       <link>https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html</guid>
       <description>Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.</description>
-      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sat, 26 Sep 2026 11:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg" type="image/jpeg" />
       <category>odoo</category>
       <category>studio</category>
@@ -203,48 +268,11 @@
       <category>smb</category>
     </item>
     <item>
-      <title>Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html</guid>
-      <description>David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.</description>
-      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>erp</category>
-      <category>excel</category>
-      <category>spreadsheets</category>
-    </item>
-    <item>
-      <title>50 QuickBooks Files That Stole My Sanity Before ERP Migration — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html</guid>
-      <description>Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.</description>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg" type="image/jpeg" />
-      <category>quickbooks</category>
-      <category>erp</category>
-      <category>odoo</category>
-      <category>migration</category>
-    </item>
-    <item>
-      <title>Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</guid>
-      <description>Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.</description>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" type="image/jpeg" />
-      <category>erp</category>
-      <category>inventory</category>
-      <category>odoo</category>
-      <category>business</category>
-      <category>metrics</category>
-    </item>
-    <item>
       <title>Data Migration Horror Stories: How to Avoid Becoming One</title>
       <link>https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html</guid>
       <description>ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Fri, 25 Sep 2026 18:30:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg" type="image/jpeg" />
       <category>erp</category>
       <category>data-migration</category>
@@ -253,24 +281,24 @@
       <category>implementation</category>
     </item>
     <item>
-      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
-      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
+      <title>Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html</guid>
+      <description>Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.</description>
+      <pubDate>Fri, 25 Sep 2026 11:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg" type="image/jpeg" />
       <category>erp</category>
-      <category>customization</category>
-      <category>implementation</category>
+      <category>inventory</category>
       <category>odoo</category>
-      <category>sap-business-one</category>
+      <category>business</category>
+      <category>metrics</category>
     </item>
     <item>
       <title>The 90-Day ERP Plan That Doesn't Make Your Team Scream</title>
       <link>https://deadbrands.co/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html</guid>
       <description>How to avoid ERP chaos in 90 days: practical steps to get your team actually using the system, with no jargon and no empty promises.</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 24 Sep 2026 18:30:01 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.jpg" type="image/jpeg" />
       <category>erp-adoption</category>
       <category>sap-business-one</category>
@@ -279,27 +307,27 @@
       <category>team-productivity</category>
     </item>
     <item>
+      <title>Customization vs. Configuration: The Line That Quietly Kills ERP Budgets — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/customization-vs-configuration-the-line-that-quietly-kills-e.html</guid>
+      <description>Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.</description>
+      <pubDate>Thu, 24 Sep 2026 18:30:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg" type="image/jpeg" />
+      <category>erp</category>
+      <category>customization</category>
+      <category>implementation</category>
+      <category>odoo</category>
+      <category>sap-business-one</category>
+    </item>
+    <item>
       <title>The Cheapest ERP Quote Isn’t the Best Deal: Why the Lowest Price Often Means the Highest Cost — David Strausser</title>
       <link>https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html</guid>
       <description>Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price.</description>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Thu, 24 Sep 2026 11:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg" type="image/jpeg" />
       <category>erp</category>
       <category>pricing</category>
-      <category>sap</category>
-      <category>odoo</category>
-      <category>business</category>
-    </item>
-    <item>
-      <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser</title>
-      <link>https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</guid>
-      <description>Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" type="image/jpeg" />
-      <category>implementation</category>
-      <category>timelines</category>
       <category>sap</category>
       <category>odoo</category>
       <category>business</category>
@@ -309,7 +337,7 @@
       <link>https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html</guid>
       <description>A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 11:00:01 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg" type="image/jpeg" />
       <category>erp</category>
       <category>sap</category>
@@ -318,79 +346,92 @@
       <category>testing</category>
     </item>
     <item>
+      <title>Your implementation partner is lying about the timeline — here's the real math — David Strausser</title>
+      <link>https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/your-implementation-partner-is-lying-about-the-timeline-here.html</guid>
+      <description>Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.</description>
+      <pubDate>Wed, 23 Sep 2026 11:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/your-implementation-partner-is-lying-about-the-timeline-here.jpg" type="image/jpeg" />
+      <category>implementation</category>
+      <category>timelines</category>
+      <category>sap</category>
+      <category>odoo</category>
+      <category>business</category>
+    </item>
+    <item>
       <title>Welcome to the blog — tips, tricks, and straight talk</title>
       <link>https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html</guid>
       <description>Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 22:00:00 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg" type="image/jpeg" />
       <category>welcome</category>
       <category>dead-brands</category>
-    </item>
-    <item>
-      <title>The Dad's Playbook for Getting More Done Before 9 AM</title>
-      <link>https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</guid>
-      <description>A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/dad-playbook-productive-mornings.jpg" type="image/jpeg" />
-      <category>productivity</category>
-      <category>dad</category>
-      <category>business-growth</category>
     </item>
     <item>
       <title>What Playing Guitar Taught Me About Running a Business</title>
       <link>https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-business.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/what-playing-guitar-taught-me-about-business.html</guid>
       <description>Lessons from decades of playing guitar applied to business: deliberate practice, timing, listening before soloing, and playing with people better than you.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 20:00:01 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/what-playing-guitar-taught-me-about-business.jpg" type="image/jpeg" />
       <category>business-growth</category>
       <category>mindset</category>
       <category>music</category>
     </item>
     <item>
-      <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start</title>
-      <link>https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</guid>
-      <description>Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>erp</category>
-      <category>implementation</category>
-    </item>
-    <item>
-      <title>You're Paying for 12 Apps. Odoo Replaces All of Them.</title>
-      <link>https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</guid>
-      <description>How consolidating a dozen disconnected SaaS subscriptions into Odoo cuts costs, kills double data entry, and gives you one version of the truth.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/stop-paying-for-12-apps-odoo-replaces-them.jpg" type="image/jpeg" />
-      <category>odoo</category>
-      <category>saas</category>
-      <category>cost-saving</category>
-    </item>
-    <item>
-      <title>5 Signs You've Outgrown QuickBooks (and What to Do About It)</title>
-      <link>https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</link>
-      <guid isPermaLink="true">https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</guid>
-      <description>Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg" type="image/jpeg" />
-      <category>sap-business-one</category>
-      <category>erp</category>
-      <category>quickbooks</category>
+      <title>The Dad's Playbook for Getting More Done Before 9 AM</title>
+      <link>https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/dad-playbook-productive-mornings.html</guid>
+      <description>A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.</description>
+      <pubDate>Tue, 22 Sep 2026 20:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/dad-playbook-productive-mornings.jpg" type="image/jpeg" />
+      <category>productivity</category>
+      <category>dad</category>
+      <category>business-growth</category>
     </item>
     <item>
       <title>SAP Business One Add-Ons Actually Worth Your Money</title>
       <link>https://deadbrands.co/blog/posts/sap-business-one-add-ons-worth-the-money.html</link>
       <guid isPermaLink="true">https://deadbrands.co/blog/posts/sap-business-one-add-ons-worth-the-money.html</guid>
       <description>A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on.</description>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 22 Sep 2026 18:30:01 GMT</pubDate>
       <enclosure url="https://deadbrands.co/blog/images/sap-business-one-add-ons-worth-the-money.jpg" type="image/jpeg" />
       <category>sap-business-one</category>
       <category>erp</category>
+    </item>
+    <item>
+      <title>5 Signs You've Outgrown QuickBooks (and What to Do About It)</title>
+      <link>https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/5-signs-youve-outgrown-quickbooks.html</guid>
+      <description>Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.</description>
+      <pubDate>Tue, 22 Sep 2026 18:30:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/5-signs-youve-outgrown-quickbooks.jpg" type="image/jpeg" />
+      <category>sap-business-one</category>
+      <category>erp</category>
+      <category>quickbooks</category>
+    </item>
+    <item>
+      <title>You're Paying for 12 Apps. Odoo Replaces All of Them.</title>
+      <link>https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/stop-paying-for-12-apps-odoo-replaces-them.html</guid>
+      <description>How consolidating a dozen disconnected SaaS subscriptions into Odoo cuts costs, kills double data entry, and gives you one version of the truth.</description>
+      <pubDate>Tue, 22 Sep 2026 11:00:01 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/stop-paying-for-12-apps-odoo-replaces-them.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>saas</category>
+      <category>cost-saving</category>
+    </item>
+    <item>
+      <title>Odoo Implementation: 7 Things Nobody Tells You Before You Start</title>
+      <link>https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</link>
+      <guid isPermaLink="true">https://deadbrands.co/blog/posts/odoo-implementation-7-things-nobody-tells-you.html</guid>
+      <description>Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.</description>
+      <pubDate>Tue, 22 Sep 2026 11:00:00 GMT</pubDate>
+      <enclosure url="https://deadbrands.co/blog/images/odoo-implementation-7-things-nobody-tells-you.jpg" type="image/jpeg" />
+      <category>odoo</category>
+      <category>erp</category>
+      <category>implementation</category>
     </item>
   </channel>
 </rss>
