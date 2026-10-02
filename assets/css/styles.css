@@ -220,7 +220,7 @@ section[id], footer[id] { scroll-margin-top: 84px; }
    5.5rem top padding left only ~16px of clearance, so eyebrows/titles clipped
    under the header on phones. */
 @media (max-width: 860px) {
-  main > .section:first-child { padding-top: calc(5.5rem + 44px); }
+  main > .section:first-child { padding-top: calc(3.5rem + 44px); }
 }
 .section-alt {
   background: var(--bg-alt);
@@ -228,6 +228,11 @@ section[id], footer[id] { scroll-margin-top: 84px; }
   border-bottom: 2px dashed var(--line);
 }
 
+.section h1 {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(2.2rem, 7vw, 3.5rem); letter-spacing: 0.01em;
+  margin-bottom: 1rem; line-height: 1; text-wrap: balance;
+}
 .section h2 {
   font-family: var(--font-display); text-transform: uppercase;
   font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 0.01em;
