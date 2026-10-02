@@ -1,0 +1,43 @@
+/* Dead Brands gated blog comments — matches site theme vars */
+#db-comments { margin: 2.5rem 0 1rem; }
+#db-comments h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+.dbc-list { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1rem; }
+.dbc-comment { background: var(--card, #fff); border: 1.5px solid var(--line, #ecdcc4);
+  border-radius: var(--radius, 14px); padding: 1rem 1.25rem; }
+.dbc-comment-head { display: flex; justify-content: space-between; gap: 1rem;
+  margin-bottom: 0.4rem; font-size: 0.9rem; }
+.dbc-comment-name { font-weight: 700; }
+.dbc-comment-date { color: var(--muted, #6f5f52); font-size: 0.85rem; white-space: nowrap; }
+.dbc-comment p { margin: 0; line-height: 1.55; }
+.dbc-gate, .dbc-form-wrap { background: var(--card, #fff); border: 1.5px solid var(--line, #ecdcc4);
+  border-radius: var(--radius, 14px); padding: 1.5rem; }
+.dbc-gate h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.dbc-consent { background: var(--bg-alt, #fdeeda); border: 1.5px dashed var(--accent-deep, #c1121f);
+  border-radius: 10px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.95rem; line-height: 1.5; }
+.dbc-consent strong { color: var(--accent-deep, #c1121f); }
+.dbc-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0.75rem 0; }
+.dbc-row input[type="text"], .dbc-row input[type="email"] {
+  flex: 1 1 200px; padding: 0.6rem 0.8rem; border: 1.5px solid var(--line, #ecdcc4);
+  border-radius: 10px; font: inherit; background: #fff; color: var(--text, #221610); }
+.dbc-btn { display: inline-block; padding: 0.6rem 1.4rem; border: none; border-radius: 999px;
+  background: var(--accent-deep, #c1121f); color: #fff; font: inherit; font-weight: 700;
+  cursor: pointer; text-decoration: none; }
+.dbc-btn:hover { filter: brightness(1.08); }
+.dbc-btn:disabled { opacity: 0.6; cursor: wait; }
+.dbc-oauth { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.75rem; }
+.dbc-oauth a { display: inline-block; padding: 0.55rem 1.1rem; border: 1.5px solid var(--line, #ecdcc4);
+  border-radius: 999px; text-decoration: none; color: var(--text, #221610); background: #fff;
+  font-size: 0.92rem; font-weight: 600; }
+.dbc-oauth a:hover { border-color: var(--accent, #e63946); }
+.dbc-or { text-align: center; color: var(--muted, #6f5f52); margin: 0.9rem 0 0.2rem; font-size: 0.9rem; }
+.dbc-form textarea { width: 100%; min-height: 110px; padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--line, #ecdcc4); border-radius: 10px; font: inherit; resize: vertical; }
+.dbc-msg { margin: 0.75rem 0 0; font-size: 0.95rem; }
+.dbc-msg.ok { color: #1a7f37; font-weight: 600; }
+.dbc-msg.err { color: var(--accent-deep, #c1121f); font-weight: 600; }
+.dbc-signedin { display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; margin-bottom: 0.75rem; font-size: 0.95rem; flex-wrap: wrap; }
+.dbc-signedin a { font-size: 0.88rem; }
+.dbc-hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.dbc-empty { color: var(--muted, #6f5f52); font-style: italic; }
+@media print { #db-comments { display: none !important; } }
