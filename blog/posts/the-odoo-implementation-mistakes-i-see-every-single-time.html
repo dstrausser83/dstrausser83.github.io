@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Odoo implementation mistakes I see every single time — David Strausser</title>
+  <meta name="description" content="As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top five pitfalls with real-world fixes." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Odoo implementation mistakes I see every single time — David Strausser" />
+  <meta property="og:description" content="As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top five pitfalls with real-world fixes." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Odoo implementation mistakes I see every single time — David Strausser" />
+  <meta name="twitter:description" content="As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top five pitfalls with real-world fixes." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="stylesheet" href="../../assets/css/blog-comments.css" />
+  <link rel="preload" as="image" href="../images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+    .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
+    .back-to-top[hidden] { display: none; }
+    .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
+    @media print {
+      .site-header, .site-footer, .post-share, .post-related, .post-cta, .post-shop, .back-to-top, .post-toc { display: none !important; }
+      body { background: #fff; color: #000; }
+      .wrap { max-width: 100%; }
+      a { color: #000; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+    }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
+       marker look; keep in build script so regenerations carry it). */
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Odoo implementation mistakes I see every single time",
+  "description": "As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top five pitfalls with real-world fixes.",
+  "datePublished": "2026-10-03T12:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html",
+  "keywords": "odoo, erp, implementation, smallbusiness",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".executive-summary",
+      "meta[name='description']"
+    ]
+  },
+  "image": "https://deadbrands.co/blog/images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg"
+}
+</script>
+  
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg" alt="As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top fiv" width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>The Odoo implementation mistakes I see every single time</h1><p class="post-meta">October 3, 2026 at 8:00 AM ET &middot; 5 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Most small businesses rush into Odoo without fixing their messy processes first. Here's what I see every single time — and how to avoid the chaos.</p>
+        </aside>
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#executive-summary">Executive Summary</a></li><li><a href="#lifting-and-shifting-broken-processes">Lifting and shifting broken processes</a></li><li><a href="#customizing-everything-on-day-one">Customizing everything on day one</a></li><li><a href="#data-migration-as-an-afterthought">Data migration as an afterthought</a></li><li><a href="#no-internal-champion-no-training">No internal champion, no training</a></li><li><a href="#big-bang-go-live-with-every-module">Big-bang go-live with every module</a></li><li><a href="#the-pattern-underneath">The pattern underneath</a></li></ul></nav>
+        <div class="post-body prose">
+<h2 id="executive-summary">Executive Summary</h2>
+<p>I've been doing Odoo implementations for small businesses for years, and every single time there's a pattern: companies try to force their broken processes into Odoo instead of fixing them first. They customize everything on day one before testing standard features. Data migration gets shuffled to the back of the queue. They skip training and hope users figure it out. And they go live with every module at once. The result? Chaos. This post covers exactly what I see every single time — and how to dodge each trap without blowing up your business.</p>
+<p>Slow down at the start so you can speed up later. That's the whole secret.</p>
+<p>[HERO IMAGE: the-odoo-implementation-mistakes-i-see-every-single-time.jpg — office paper chaos, the mess that walks in before the software does]</p>
+<h2 id="lifting-and-shifting-broken-processes">Lifting and shifting broken processes</h2>
+<p>In my experience, the first thing businesses do when they get an Odoo quote is lift and shift their broken processes into the system. "We'll just move our old way of doing things into Odoo." That's like trying to fit a square peg into a round hole.</p>
+<p>What it looks like: salespeople manually enter orders into spreadsheets, then email them to accounting. Then they ask Odoo to replicate that exact flow — with custom fields for "spreadsheet" and "email."</p>
+<p>Why it hurts: you get inconsistent data nobody trusts. Sales and accounting read different numbers. Orders fall through the cracks because the system doesn't really know they exist.</p>
+<p>What to do instead: fix the process before you touch the software. Take one workflow — order entry, say — make it sane in the real world, then let Odoo support the fixed version. SAP Business One shops hit this same wall, by the way. This mistake isn't Odoo-specific. Any ERP will happily automate your mess; Odoo just lets you make the mistake faster and cheaper.</p>
+<h2 id="customizing-everything-on-day-one">Customizing everything on day one</h2>
+<p>Here's what I see: businesses jump into Odoo and start customizing fields, reports, and workflows before they've even tested what ships in the box.</p>
+<p>What it looks like: a custom client form with fields for "emergency contact" and "preferred payment method" on week one, because someone decided standard wasn't good enough.</p>
+<p>Why it hurts: early customization means bugs, upgrade pain, slower performance, and users who never learn the standard flow underneath. Every custom field is a small mortgage on your future upgrades.</p>
+<p>What to do instead: live with standard for a few weeks. Run real transactions through it. Then customize the gaps that actually hurt — not the ones you imagined in a conference room. Same rule applies on SAP Business One, where the SDK tempts people into custom objects on day one. Standard first, custom later. Universal law.</p>
+<p>[IMAGE 2: the-odoo-implementation-mistakes-i-see-every-single-time-img2.jpg — jammed printer spitting paper, the custom-everything tax in physical form]</p>
+<h2 id="data-migration-as-an-afterthought">Data migration as an afterthought</h2>
+<p>In my experience, data migration gets treated like packing for a move — something you'll "get to" the night before. Businesses plan to import years of spreadsheet history at the last minute.</p>
+<p>What it looks like: a Friday-afternoon CSV dump of messy, duplicated, half-labeled data, loaded hours before go-live.</p>
+<p>Why it hurts: you go live with errors baked in on day one. Sales sees one inventory number, accounting sees another, and trust in the new system dies in the first week.</p>
+<p>What to do instead: start data cleanup early — like, during discovery, not during hypercare. Migrate in phases, validate with a small group of real users, and reconcile before you flip the switch. Clean data is the cheapest implementation insurance there is.</p>
+<h2 id="no-internal-champion-no-training">No internal champion, no training</h2>
+<p>Here's what I see: the owner gets a "Odoo is live!" email, nobody gets trained, and there's no internal person who owns the system. Then everyone quietly goes back to spreadsheets.</p>
+<p>What it looks like: users clicking around, getting stuck, asking nobody, and building shadow processes within a month.</p>
+<p>Why it hurts: an ERP nobody uses is just an expensive database. Adoption is the whole game, and adoption comes from humans, not software.</p>
+<p>What to do instead: name your internal champion before the project starts — a manager or sharp operator who learns it first and becomes the go-to. Train in role-based sessions, not one giant "Odoo overview" nobody remembers. And budget training like it's part of the license, because it is.</p>
+<p>[IMAGE 3: the-odoo-implementation-mistakes-i-see-every-single-time-img3.jpg — desk buried in sticky notes and printouts, what "no training" looks like from above]</p>
+<h2 id="big-bang-go-live-with-every-module">Big-bang go-live with every module</h2>
+<p>In my experience, the biggest mistake is flipping the switch on everything — sales, inventory, accounting, purchasing — all on the same Monday.</p>
+<p>What it looks like: fifty confused users, a help queue from hell, and a system groaning under transactions nobody tested end to end.</p>
+<p>Why it hurts: when everything breaks at once, you can't tell which module caused it. Rollback becomes impossible. Morale craters.</p>
+<p>What to do instead: phase it. Start with one module — usually sales or inventory — stabilize it, then layer in the next. Each phase teaches you something that makes the next one smoother. Boring? Yes. Effective? Every time.</p>
+<h2 id="the-pattern-underneath">The pattern underneath</h2>
+<p>Notice the thread: every one of these mistakes is about rushing. Rushing past process design, rushing past standard features, rushing past data cleanup, rushing past training, rushing the go-live. Odoo rewards patience and punishes haste — which, honestly, describes every ERP I've ever touched, SAP Business One included.</p>
+<p>Slow down at the start so you can speed up later. That's the whole secret.</p>
+<p><em>David Strausser is a business development executive at Dead Brands LLC, specializing in ERP solutions — SAP Business One and Odoo — for small and mid-sized businesses.</em></p>
+<p>Book a working session at deadbrands.co and let's dodge these mistakes together.</p>
+<p>P.S. — Dead Brands merch: "Fix the process first" tee. Wear it to your next implementation meeting. Instant credibility.</p>
+<p>#Odoo #ERP #SmallBusiness #ERPImplementation #BusinessSystems</p>
+        </div>
+        <p class="post-tags"><span>odoo</span> <span>erp</span> <span>implementation</span> <span>smallbusiness</span></p>
+        <div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-odoo-implementation-mistakes-i-see-every-single-time.html&text=The%20Odoo%20implementation%20mistakes%20I%20see%20every%20single%20time" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-odoo-implementation-mistakes-i-see-every-single-time.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fthe-odoo-implementation-mistakes-i-see-every-single-time.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/the-odoo-implementation-mistakes-i-see-every-single-time.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="the-school-pickup-ceo.html"><img src="../images/the-school-pickup-ceo.jpg" alt="The School-Pickup CEO: Running a Business on a Kid's Schedule" loading="lazy" /><span class="rel-card-title">The School-Pickup CEO: Running a Business on a Kid's Schedule</span></a><a class="rel-card" href="sap-business-one-implementation-timeline-honest-numbers.html"><img src="../images/sap-business-one-implementation-timeline-honest-numbers.jpg" alt="SAP Business One implementation timeline: honest numbers" loading="lazy" /><span class="rel-card-title">SAP Business One implementation timeline: honest numbers</span></a><a class="rel-card" href="odoo-20-whats-actually-new.html"><img src="../images/odoo-20-whats-actually-new.jpg" alt="Odoo 20: What's actually new (and what's just noise)" loading="lazy" /><span class="rel-card-title">Odoo 20: What's actually new (and what's just noise)</span></a></div></section>
+        <section id="db-comments" aria-label="Comments"></section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+  <script src="../../assets/js/blog-comments.js" defer></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+  <div class="read-progress" id="readProgress" aria-hidden="true"></div>
+  <script>
+  (function() {
+    var b = document.getElementById("backToTop");
+    var bar = document.getElementById("readProgress");
+    function onScroll() {
+      b.hidden = window.scrollY < 600;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", onScroll, {passive: true});
+    onScroll();
+    b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
+  })();
+  </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("the-odoo-implementation-mistakes-i-see-every-single-time");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
+  })();
+  </script>
+</body>
+</html>
