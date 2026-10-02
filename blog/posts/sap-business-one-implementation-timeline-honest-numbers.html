@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAP Business One implementation timeline: honest numbers — David Strausser</title>
+  <meta name="description" content="Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="SAP Business One implementation timeline: honest numbers — David Strausser" />
+  <meta property="og:description" content="Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/sap-business-one-implementation-timeline-honest-numbers.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SAP Business One implementation timeline: honest numbers — David Strausser" />
+  <meta name="twitter:description" content="Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/sap-business-one-implementation-timeline-honest-numbers.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="stylesheet" href="../../assets/css/blog-comments.css" />
+  <link rel="preload" as="image" href="../images/sap-business-one-implementation-timeline-honest-numbers.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+    .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
+    .back-to-top[hidden] { display: none; }
+    .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
+    @media print {
+      .site-header, .site-footer, .post-share, .post-related, .post-cta, .post-shop, .back-to-top, .post-toc { display: none !important; }
+      body { background: #fff; color: #000; }
+      .wrap { max-width: 100%; }
+      a { color: #000; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+    }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
+       marker look; keep in build script so regenerations carry it). */
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SAP Business One implementation timeline: honest numbers",
+  "description": "Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal.",
+  "datePublished": "2026-10-02T14:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html",
+  "keywords": "sap-business-one, erp, implementation, smallbusiness",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".executive-summary",
+      "meta[name='description']"
+    ]
+  },
+  "image": "https://deadbrands.co/blog/images/sap-business-one-implementation-timeline-honest-numbers.jpg"
+}
+</script>
+  
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/sap-business-one-implementation-timeline-honest-numbers.jpg" alt="Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One implementation timeline: honest numbers</h1><p class="post-meta">October 2, 2026 at 10:00 AM ET &middot; 5 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>What actually drives your SAP Business One timeline? Scope, data quality, and decision speed — not the number on the proposal.</p>
+        </aside>
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#executive-summary">Executive Summary</a></li><li><a href="#what-actually-drives-the-timeline">What actually drives the timeline</a></li><li><a href="#realistic-phase-breakdown">Realistic phase breakdown</a></li><li><a href="#the-three-things-that-blow-up-timelines-every-time">The three things that blow up timelines every time</a></li><li><a href="#how-to-compress-the-timeline-without-cutting-corners">How to compress the timeline without cutting corners</a></li><li><a href="#red-flags-in-a-partners-proposal">Red flags in a partner's proposal</a></li><li><a href="#the-odoo-question">The Odoo question</a></li></ul></nav>
+        <div class="post-body prose">
+<h2 id="executive-summary">Executive Summary</h2>
+<p>The biggest timeline mistake I see in SAP Business One projects is treating the proposal number like a promise instead of a range. Scope creep, messy data, and slow decisions can easily stretch an 8-week plan into 16 weeks. This post breaks down what actually moves the needle — realistic week-ranges for each phase, the three things that blow up timelines every time, how to compress without cutting corners, and red flags to watch for in a partner's proposal. No fluff, no sales math.</p>
+<h2 id="what-actually-drives-the-timeline">What actually drives the timeline</h2>
+<p>Most stalled ERP projects aren't stuck on technology. They're stuck on four things:</p>
+<ul>
+<li><strong>Scope.</strong> SAP Business One is powerful, but configuring all of it when you need a third of it wastes weeks. Most timeline pain I see comes from scope being too broad, not from the software being slow.</li>
+<li><strong>Data quality.</strong> Inconsistent product names, duplicate vendors, five years of spreadsheet history — messy data is the biggest time sink in any rollout. Cleaning it isn't really a "phase." It's a reality check that takes as long as it takes.</li>
+<li><strong>Decision speed.</strong> If one approval takes two weeks, the timeline takes two weeks longer. I've watched single sign-off delays add weeks to a rollout. The software was ready. The humans weren't.</li>
+<li><strong>Customization debates.</strong> Not customizations themselves — the <em>debates</em> about them. Teams burn weeks arguing whether a field change counts as "custom." Most SMBs need far less customization than they think; the argument costs more than the work would have.</li>
+</ul>
+<p>Get scope, data, and decisions right and the timeline mostly takes care of itself.</p>
+<h2 id="realistic-phase-breakdown">Realistic phase breakdown</h2>
+<p>These are honest ranges for a typical SMB — not promises. Your mileage depends on the four drivers above.</p>
+<h3>Discovery and design (weeks 1–4)</h3>
+<p>Clarify what you actually need before anyone configures anything. Map your real processes, inventory your data sources, decide what's staying standard, and lock the scope in writing. Teams that rush this phase pay for it twice — once in rework, once in morale. Don't skip it.</p>
+<h3>Build and configure (weeks 5–8)</h3>
+<p>Set up the core modules — financials, sales, purchasing, inventory — against the locked scope. Configure tax rules, warehouses, and approval flows. Then test the basic flows early: order to cash, procure to pay. Finding a broken workflow in week 6 is cheap. Finding it in week 17 is not.</p>
+<h3>Data migration (weeks 9–12)</h3>
+<p>Clean, validate, then migrate — in that order, with fallbacks. If your data was messy going in, this is where you pay the bill. Reconcile record counts before and after every load. The goal isn't just moved data; it's <em>trusted</em> data on day one.</p>
+<h3>Testing and training (weeks 13–16)</h3>
+<p>Run real-world scenarios, not happy-path demos. Then train by role — warehouse staff don't need the financial close walkthrough. Untrained users invent shadow processes within a month, and then you're implementing twice.</p>
+<h3>Go-live and hypercare (weeks 17–20)</h3>
+<p>Go live with support standing by, not on vacation. The first two weeks after go-live decide whether the system sticks. Answer questions fast, fix small issues same-day, and resist the urge to add scope during hypercare.</p>
+<p><strong>The honest math:</strong> clean data, fast decisions, minimal customization — you're looking at 8–10 weeks. Messy data and slow approvals — 16-plus. Both are normal. Only one gets talked about in sales meetings.</p>
+<h2 id="the-three-things-that-blow-up-timelines-every-time">The three things that blow up timelines every time</h2>
+<ol>
+<li><strong>Dirty data.</strong> Inconsistent, duplicated, half-labeled history. Every rollout I've seen underestimates cleanup by half.</li>
+<li><strong>Endless customization debates.</strong> The argument about whether something is "standard or custom" routinely outlasts the actual build.</li>
+<li><strong>No internal project owner.</strong> Without one person empowered to make decisions, everything queues behind the busiest executive's calendar.</li>
+</ol>
+<p>Kill these three and your timeline stops being a fantasy.</p>
+<h2 id="how-to-compress-the-timeline-without-cutting-corners">How to compress the timeline without cutting corners</h2>
+<ul>
+<li><strong>Clean data before configuration starts</strong>, not during it. This alone saves weeks.</li>
+<li><strong>Default to standard.</strong> Configure the gap list, not the wish list. You can customize in phase two with real usage data.</li>
+<li><strong>Name one decision-maker</strong> with actual authority. "The committee will review" is where timelines go to die.</li>
+</ul>
+<p>Faster comes from fewer surprises, not fewer steps.</p>
+<h2 id="red-flags-in-a-partners-proposal">Red flags in a partner's proposal</h2>
+<ul>
+<li><strong>"Live in 4 weeks."</strong> For a real SMB rollout, that's skipped steps — usually data cleanup and testing. Run.</li>
+<li><strong>"We'll figure it out together."</strong> Vague isn't collaborative; it's unplanned. A good partner shows you the phases, the assumptions, and what happens when reality intrudes.</li>
+<li><strong>No mention of your data.</strong> If the proposal doesn't ask about your data quality, they haven't thought about the hardest part.</li>
+</ul>
+<p>A trustworthy timeline has ranges, assumptions, and an honest list of what could move it. Anything else is a sales number.</p>
+<h2 id="the-odoo-question">The Odoo question</h2>
+<p>I'll be straight: Odoo is the better fit for some companies. Small team, simple needs, starting from scratch, tight budget — Odoo's modular approach gets you running fast without the weight. But for inventory-heavy SMBs that need tight financial controls, multi-warehouse logic, and audit-grade books, SAP Business One is usually the stronger choice. Pick the tool that fits the business you have, not the one with the slicker demo.</p>
+<p>David Strausser, CEO of Dead Brands LLC — ERP consultant specializing in SAP Business One and Odoo.</p>
+<p>Book a working session at deadbrands.co and let's scope your timeline honestly.</p>
+<p>P.S. — Dead Brands merch: the "Trust the Timeline" tee. For everyone who's ever watched a go-live date move.</p>
+<p>#SAPBusinessOne #ERP #Implementation #SmallBusiness #ERPTips</p>
+        </div>
+        <p class="post-tags"><span>sap-business-one</span> <span>erp</span> <span>implementation</span> <span>smallbusiness</span></p>
+        <div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-implementation-timeline-honest-numbers.html&text=SAP%20Business%20One%20implementation%20timeline%3A%20honest%20numbers" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-implementation-timeline-honest-numbers.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-implementation-timeline-honest-numbers.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/sap-business-one-implementation-timeline-honest-numbers.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="odoo-20-whats-actually-new.html"><img src="../images/odoo-20-whats-actually-new.jpg" alt="Odoo 20: What's actually new (and what's just noise)" loading="lazy" /><span class="rel-card-title">Odoo 20: What's actually new (and what's just noise)</span></a><a class="rel-card" href="odoo-20-ai-that-does-the-work-not-just-the-talking.html"><img src="../images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg" alt="Odoo 20: AI That Does the Work, Not Just the Talking" loading="lazy" /><span class="rel-card-title">Odoo 20: AI That Does the Work, Not Just the Talking</span></a><a class="rel-card" href="penny-odoo-automation-mistakes.html"><img src="../images/penny-odoo-automation-mistakes.jpg" alt="5 Odoo Automation Mistakes That Create More Work Than They Save" loading="lazy" /><span class="rel-card-title">5 Odoo Automation Mistakes That Create More Work Than They Save</span></a></div></section>
+        <section id="db-comments" aria-label="Comments"></section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+  <script src="../../assets/js/blog-comments.js" defer></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+  <div class="read-progress" id="readProgress" aria-hidden="true"></div>
+  <script>
+  (function() {
+    var b = document.getElementById("backToTop");
+    var bar = document.getElementById("readProgress");
+    function onScroll() {
+      b.hidden = window.scrollY < 600;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", onScroll, {passive: true});
+    onScroll();
+    b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
+  })();
+  </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("sap-business-one-implementation-timeline-honest-numbers");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
+  })();
+  </script>
+</body>
+</html>
