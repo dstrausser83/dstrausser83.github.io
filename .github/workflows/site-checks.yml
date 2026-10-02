@@ -47,20 +47,8 @@ jobs:
             --exclude 'mailto:*'
             --exclude 'http://localhost*'
             --exclude 'http://127.0.0.1*'
-            --exclude 'https://x\.com.*'
-            --exclude 'https://(www\.)?linkedin\.com.*'
-            --exclude 'https://www\.sap\.com.*'
-            --exclude 'https://www\.seidor\.com.*'
-            --exclude 'https://www\.fiverr\.com.*'
-            --exclude 'https://app\.retention\.com.*'
-            --exclude 'cdn-cgi/l/email-protection.*'
-            --exclude 'https://cannonsports\.com.*'
-            --exclude 'https://firewiresurfboards\.com.*'
-            --max-retries 3
-            --retry-wait-time 5
             --max-redirects 5
             --timeout 20
-            --root-dir .
             '**/*.html'
           fail: true
         env:

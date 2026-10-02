@@ -196,6 +196,10 @@ def article_jsonld(title, description, slug, post_date, image_rel, tags):
         },
         "mainEntityOfPage": f"https://deadbrands.co/blog/posts/{slug}.html",
         "keywords": ", ".join(tags),
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".executive-summary", "meta[name='description']"],
+        },
     }
     if image_rel:
         data["image"] = f"https://deadbrands.co/blog/{image_rel}"
@@ -468,6 +472,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="stylesheet" href="../../assets/css/blog-comments.css" />
   {hero_preload}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -598,6 +603,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         {shop_block}
         {author_box}
         {related}
+        {comments}
       </div>
     </article>
   </main>
@@ -609,6 +615,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/consent.js" defer></script>
+  <script src="../../assets/js/blog-comments.js" defer></script>
   <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
   <div class="read-progress" id="readProgress" aria-hidden="true"></div>
   <script>
@@ -680,7 +687,7 @@ def inline_figure_html(rel, alt_raw, dims):
 
 
 def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
-          cta_name=None, cta_custom=None):
+          cta_name=None, cta_custom=None, published_at_override=None):
     # image_srcs: list of image files — [hero, inline1, inline2, inline3].
     # Backcompat: a single string is treated as [hero].
     with open(draft_path, encoding="utf-8") as f:
@@ -705,6 +712,10 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
     # an existing post's timestamp — preserve the live posts.json value for
     # existing slugs. Frontmatter published_at still overrides (backfills).
     published_at = fm.get("published_at")
+    # David 2026-10-02 TIMESTAMP INTEGRITY: explicit --published-at (from scheduler
+    # slot time) wins over everything except frontmatter.
+    if not published_at and published_at_override:
+        published_at = published_at_override
     if not published_at and os.path.exists(INDEX_JSON):
         try:
             with open(INDEX_JSON, encoding="utf-8") as _pf:
@@ -854,6 +865,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
         cta=cta_html(slug, cta_name, cta_custom), author_box=author_box_html(), cta_css=CTA_CSS,
         shop_block=shop_block_html(), shop_css=SHOP_CSS,
         share_row=share_row_html(slug, title), related=related_posts_html(slug),
+        comments='<section id="db-comments" aria-label="Comments"></section>',
         toc=toc,
     )
     # Resolve shared-nav active tokens: generated posts are always blog pages.
@@ -886,7 +898,7 @@ def build(draft_path, image_srcs=None, video_src=None, image_alts=None,
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("usage: build_post.py <draft.md> [--image <file.jpg>]... [--video <file.mp4>] [--image-alt <text>]... [--cta <template-name>] [--cta-custom <heading>|<body>|<button>|<url>]"); sys.exit(1)
+        print("usage: build_post.py <draft.md> [--image <file.jpg>]... [--video <file.mp4>] [--image-alt <text>]... [--cta <template-name>] [--cta-custom <heading>|<body>|<button>|<url>] [--published-at <ISO>]"); sys.exit(1)
     argv = sys.argv[2:]
     imgs = [argv[j + 1] for j in range(len(argv) - 1) if argv[j] == "--image" and j + 1 < len(argv)]
     alts = [argv[j + 1] for j in range(len(argv) - 1) if argv[j] == "--image-alt" and j + 1 < len(argv)]
@@ -897,4 +909,7 @@ if __name__ == "__main__":
         parts = argv[argv.index("--cta-custom") + 1].split("|")
         if len(parts) == 4:
             cta_custom = {"heading": parts[0], "body": parts[1], "button": parts[2], "url": parts[3]}
-    build(sys.argv[1], imgs or None, vid, alts or None, cta_name, cta_custom)
+    # David 2026-10-02 TIMESTAMP INTEGRITY: scheduler passes slot time so posts
+    # get stamped with their slot, not the build time.
+    pub_at = argv[argv.index("--published-at") + 1] if "--published-at" in argv and argv.index("--published-at") + 1 < len(argv) else None
+    build(sys.argv[1], imgs or None, vid, alts or None, cta_name, cta_custom, pub_at)

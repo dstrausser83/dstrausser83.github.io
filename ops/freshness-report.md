@@ -1,4 +1,4 @@
-# Page-freshness report — 2026-09-24
+# Page-freshness report — 2026-10-01
 
 Rule: no page goes longer than 90 days without a minor improvement.
 Tweaks stay Rock-reviewed before publish — proposals below are drafts.
