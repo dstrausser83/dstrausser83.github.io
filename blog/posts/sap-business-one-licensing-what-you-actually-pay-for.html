@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAP Business One Licensing: What You Actually Pay for (Not the Hype) — David Strausser</title>
+  <meta name="description" content="SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="SAP Business One Licensing: What You Actually Pay for (Not the Hype) — David Strausser" />
+  <meta property="og:description" content="SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/sap-business-one-licensing-what-you-actually-pay-for.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1152" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SAP Business One Licensing: What You Actually Pay for (Not the Hype) — David Strausser" />
+  <meta name="twitter:description" content="SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/sap-business-one-licensing-what-you-actually-pay-for.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="stylesheet" href="../../assets/css/blog-comments.css" />
+  <link rel="preload" as="image" href="../images/sap-business-one-licensing-what-you-actually-pay-for.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+    .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
+    .back-to-top[hidden] { display: none; }
+    .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
+    @media print {
+      .site-header, .site-footer, .post-share, .post-related, .post-cta, .post-shop, .back-to-top, .post-toc { display: none !important; }
+      body { background: #fff; color: #000; }
+      .wrap { max-width: 100%; }
+      a { color: #000; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+    }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
+       marker look; keep in build script so regenerations carry it). */
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SAP Business One Licensing: What You Actually Pay for (Not the Hype)",
+  "description": "SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon.",
+  "datePublished": "2026-10-03T16:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html",
+  "keywords": "sap-business-one, licensing, business-software, cost-analysis, real-talk",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".executive-summary",
+      "meta[name='description']"
+    ]
+  },
+  "image": "https://deadbrands.co/blog/images/sap-business-one-licensing-what-you-actually-pay-for.jpg"
+}
+</script>
+  
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/sap-business-one-licensing-what-you-actually-pay-for.jpg" alt="SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon." width="2048" height="1152" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>SAP Business One Licensing: What You Actually Pay for (Not the Hype)</h1><p class="post-meta">October 3, 2026 at 12:00 PM ET &middot; 3 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>You pay per user for SAP Business One, not per module. The base license covers finance and inventory. CRM, HR, and advanced modules cost extra. Don't let anyone sell you an "enterprise" package your 12-person company doesn't need.</p>
+        </aside>
+        <nav class="post-toc" aria-label="Table of contents"><p class="post-toc-title">On this page</p><ul><li><a href="#executive-summary">Executive Summary</a></li><li><a href="#the-per-user-truth">The per-user truth</a></li><li><a href="#whats-actually-in-the-base-license">What's actually in the base license</a></li><li><a href="#the-odoo-comparison-honest-version">The Odoo comparison (honest version)</a></li><li><a href="#red-flags-in-a-licensing-quote">Red flags in a licensing quote</a></li><li><a href="#the-bottom-line">The bottom line</a></li></ul></nav>
+        <div class="post-body prose">
+<h2 id="executive-summary">Executive Summary</h2>
+<p>SAP Business One licensing confuses almost every small business owner I talk to. Here's the straight version: you pay per user, not per module. The base license covers financials and inventory — no extra fees for those. Need CRM, HR, or project management? Those are add-ons at extra cost. There's no "small business discount" — the pricing is the pricing. This post breaks down what's actually included, where the costs hide, and when Odoo's simpler model is the smarter buy.</p>
+<h2 id="the-per-user-truth">The per-user truth</h2>
+<p>SAP's sales team loves the word "modular." It sounds flexible. What it actually means: the base license gets you financials and inventory, and everything else is a line item. The price scales with user count — every person who logs in needs a license, and there's no volume break for being small.</p>
+<p>This trips people up because they're used to software where you pay for features. SAP Business One flips it: the features are mostly there, you're paying for seats. A 10-user company and a 100-user company buy the same software. The 100-user company just buys more chairs.</p>
+<h2 id="whats-actually-in-the-base-license">What's actually in the base license</h2>
+<p>Financials — the full accounting core, not a lite version. Inventory and warehousing. Basic CRM (contact management, sales opportunities — enough for most SMBs, not a Salesforce replacement). Purchasing and sales order processing.</p>
+<p>What costs extra: HR and payroll modules, project management, advanced reporting and analytics, industry-specific add-ons, and any custom development through the SDK.</p>
+<h2 id="the-odoo-comparison-honest-version">The Odoo comparison (honest version)</h2>
+<p>Odoo's pricing is simpler: flat per-user, per-month, all modules included. No license tiers, no add-on math. For a small team that needs core ERP without the enterprise weight, Odoo usually wins on price — sometimes dramatically.</p>
+<p>Where SAP Business One earns its premium: tighter financial controls, audit-grade books, multi-warehouse inventory logic that actually works at scale, and a partner ecosystem that's been doing this for decades. If you're inventory-heavy and growing, the extra cost buys you room to grow without reimplementing in three years.</p>
+<p>My rule: under 15 users with straightforward needs, price out Odoo first. Over that, or with complex inventory, get a real SAP Business One quote — and make the partner show you the per-user math in writing before you sign anything.</p>
+<h2 id="red-flags-in-a-licensing-quote">Red flags in a licensing quote</h2>
+<p><strong>"Enterprise bundle."</strong> For an SMB, this usually means modules you'll never open. Ask for the base license plus only the add-ons you need, priced separately.</p>
+<p><strong>Vague user counts.</strong> "Approximately 20 users" in a quote becomes 30 users on the invoice. Nail down exactly who needs a license — not everyone needs full access. Limited-function users cost less.</p>
+<p><strong>No mention of annual maintenance.</strong> SAP Business One has yearly maintenance fees on top of the license. If the quote doesn't show them, it's not the full price.</p>
+<h2 id="the-bottom-line">The bottom line</h2>
+<p>As a dad running a business, I've learned the best tools are the ones that fit your life — not the ones that fit someone's sales pitch. SAP Business One's pricing is straightforward once you know the rules: per user, base covers finance and inventory, everything else is extra. Don't overpay for seats you don't need or modules you'll never open.</p>
+<p>If you're staring at a quote right now and can't tell what you're actually buying, that's the problem. A good partner explains the math. A bad one hides behind the word "modular."</p>
+        </div>
+        <p class="post-tags"><span>sap-business-one</span> <span>licensing</span> <span>business-software</span> <span>cost-analysis</span> <span>real-talk</span></p>
+        <div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-licensing-what-you-actually-pay-for.html&text=SAP%20Business%20One%20Licensing%3A%20What%20You%20Actually%20Pay%20for%20%28Not%20the%20Hype%29" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-licensing-what-you-actually-pay-for.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fsap-business-one-licensing-what-you-actually-pay-for.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/sap-business-one-licensing-what-you-actually-pay-for.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
+        <section class="post-cta">
+          <h2>Let's talk about your business</h2>
+          <p>Running on spreadsheets, QuickBooks, or an ERP that fights you? Grab a free 30-minute call — I'll tell you straight whether SAP Business One or Odoo is the right move, and what it really costs.</p>
+          <a class="cta-btn" href="https://app.apollo.io/#/meet/david_strausser_175" target="_blank" rel="noopener">Book a Meeting with Me</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="the-odoo-implementation-mistakes-i-see-every-single-time.html"><img src="../images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg" alt="The Odoo implementation mistakes I see every single time" loading="lazy" /><span class="rel-card-title">The Odoo implementation mistakes I see every single time</span></a><a class="rel-card" href="the-school-pickup-ceo.html"><img src="../images/the-school-pickup-ceo.jpg" alt="The School-Pickup CEO: Running a Business on a Kid's Schedule" loading="lazy" /><span class="rel-card-title">The School-Pickup CEO: Running a Business on a Kid's Schedule</span></a><a class="rel-card" href="sap-business-one-implementation-timeline-honest-numbers.html"><img src="../images/sap-business-one-implementation-timeline-honest-numbers.jpg" alt="SAP Business One implementation timeline: honest numbers" loading="lazy" /><span class="rel-card-title">SAP Business One implementation timeline: honest numbers</span></a></div></section>
+        <section id="db-comments" aria-label="Comments"></section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+  <script src="../../assets/js/blog-comments.js" defer></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+  <div class="read-progress" id="readProgress" aria-hidden="true"></div>
+  <script>
+  (function() {
+    var b = document.getElementById("backToTop");
+    var bar = document.getElementById("readProgress");
+    function onScroll() {
+      b.hidden = window.scrollY < 600;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", onScroll, {passive: true});
+    onScroll();
+    b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
+  })();
+  </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("sap-business-one-licensing-what-you-actually-pay-for");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
+  })();
+  </script>
+</body>
+</html>
