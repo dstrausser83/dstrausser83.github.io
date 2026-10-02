@@ -781,3 +781,28 @@ main { counter-reset: fignum; }
 .post-inline { margin: 1.75rem auto; max-width: 620px; }
 .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
 .post-body img { max-width: 100%; height: auto; }
+
+/* ---------- Card title links: NEVER render as default blue links (David 2026-10-02) ---------- */
+/* Bulletproof override — blog cards, home cards, any card title anchor. */
+.post-card h3 a,
+.post-card-body h3 a,
+.card h3 a,
+article.post-card h3 a,
+article.card h3 a,
+#home-blog-cards h3 a,
+#cards h3 a {
+  color: var(--text, #221610) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+.post-card h3 a:hover,
+.post-card-body h3 a:hover,
+.card h3 a:hover {
+  color: var(--accent-deep, #c1121f) !important;
+  text-decoration: none !important;
+}
+.post-card h3 a:visited,
+.post-card-body h3 a:visited,
+.card h3 a:visited {
+  color: var(--text, #221610) !important;
+}
