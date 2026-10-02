@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Consent defaults: analytics stays off until the visitor accepts (assets/js/consent.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', analytics_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo 20: What's actually new (and what's just noise) — David Strausser</title>
+  <meta name="description" content="Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade." />
+  <link rel="canonical" href="https://deadbrands.co/blog/posts/odoo-20-whats-actually-new.html" />
+  <meta property="og:url" content="https://deadbrands.co/blog/posts/odoo-20-whats-actually-new.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Odoo 20: What's actually new (and what's just noise) — David Strausser" />
+  <meta property="og:description" content="Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade." />
+  <meta property="og:image" content="https://deadbrands.co/blog/images/odoo-20-whats-actually-new.jpg" />
+  <meta property="og:image:width" content="1113" />
+  <meta property="og:image:height" content="431" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odoo 20: What's actually new (and what's just noise) — David Strausser" />
+  <meta name="twitter:description" content="Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade." />
+  <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-20-whats-actually-new.jpg" />
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
+  <link rel="stylesheet" href="../../assets/css/blog-comments.css" />
+  <link rel="preload" as="image" href="../images/odoo-20-whats-actually-new.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" />
+  <style>
+    .post-hero img { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); }
+    .post-hero video { width: 100%; border-radius: var(--radius); border: 1.5px solid var(--line); margin-bottom: 1rem; }
+    .post-meta { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.5rem; }
+    .post-tags span { display: inline-block; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.8rem; font-size: 0.85rem; margin-right: 0.4rem; }
+    .post-body h2 { margin-top: 2rem; } .post-body h3 { margin-top: 1.5rem; }
+    .post-body blockquote { border-left: 3px solid var(--accent); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--muted); font-style: italic; }
+    .post-hero-card { position: relative; border-radius: var(--radius); overflow: hidden; margin: 1.5rem 0 0; }
+    .post-hero-card img { width: 100%; height: auto; display: block; }
+    .post-inline { margin: 1.75rem auto; max-width: 620px; }
+    .post-inline img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: 0 10px 28px rgba(34,22,16,.12); }
+    .post-body img { max-width: 100%; height: auto; }
+    .post-hero-card .hero-title-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1.75rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,5,3,0.88) 0%, rgba(10,5,3,0.45) 55%, rgba(10,5,3,0) 100%); }
+    .post-hero-card .hero-title-overlay h1 { color: #fff; margin: 0 0 0.5rem; font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.15; }
+    .post-hero-card .post-meta { color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; }
+    .post-hero-card .post-meta a { color: #fff; }
+    @media (max-width: 640px) {
+      .post-hero-card img { height: 380px; object-fit: cover; }
+      .post-hero-card .hero-title-overlay { padding: 3rem 1.25rem 1.25rem; }
+      .post-hero-card .hero-title-overlay h1 { font-size: 1.4rem; line-height: 1.2; }
+      .post-hero-card .post-meta { font-size: 0.85rem; }
+    }
+    .post-summary { position: relative; background: var(--accent-deep); color: #fff;
+      border: 3px solid #1a1a1a;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1.75rem 1.75rem 1.25rem; margin: 2rem 0 0; }
+    .post-summary p { margin: 0.35rem 0; color: #fff; }
+    .post-summary .post-summary-label { position: absolute; top: -1.35rem; left: 1.25rem; margin: 0; }
+    .post-summary .post-summary-label span { font-family: 'Permanent Marker', 'Segoe Print', cursive;
+      font-size: 1.5rem; color: #fff; background: var(--accent-deep);
+      padding: 0 0.6rem; text-transform: none; letter-spacing: 0.02em; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; }
+    .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.25rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 50; }
+    .back-to-top[hidden] { display: none; }
+    .read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 60; }
+    @media print {
+      .site-header, .site-footer, .post-share, .post-related, .post-cta, .post-shop, .back-to-top, .post-toc { display: none !important; }
+      body { background: #fff; color: #000; }
+      .wrap { max-width: 100%; }
+      a { color: #000; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+    }
+    .post-toc { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.5rem 0 0; }
+    .post-toc-title { font-weight: 700; margin: 0 0 0.5rem; }
+    .post-toc ul { margin: 0; padding-left: 1.25rem; columns: 2; }
+    .post-toc li { margin: 0.25rem 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { .post-toc ul { columns: 1; } }
+    .post-share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 0.9rem 1.1rem; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+    .post-share-label { font-weight: 700; margin-right: 0.4rem; }
+    .post-share a, .post-share button { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.9rem; background: #fff; color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .post-share a:hover, .post-share button:hover { border-color: var(--accent); }
+    .post-related { margin: 2.5rem 0 1rem; }
+    .post-related h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .rel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rel-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; background: var(--card); }
+    .rel-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .rel-card-title { display: block; padding: 0.7rem 0.9rem; font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+    .rel-card:hover { border-color: var(--accent); }
+    @media (max-width: 640px) { .rel-cards { grid-template-columns: 1fr; } .rel-card img { height: 160px; } }
+
+    .post-cta { background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0 1rem; text-align: center; }
+    .post-cta h2 { margin-top: 0; }
+    .post-cta p { color: var(--muted); max-width: 34rem; margin: 0.5rem auto 1.25rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 0.8rem 1.75rem; border-radius: 999px; text-decoration: none; }
+    .cta-btn:hover { filter: brightness(1.1); }
+    /* Author box: red sharpie marker border (David 2026-09-30 — hand-drawn
+       marker look; keep in build script so regenerations carry it). */
+    .author-box { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 3px solid #e11d2e; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; transform: rotate(-0.4deg); box-shadow: 3px 4px 0 rgba(225, 29, 46, 0.12); }
+    .author-box img { border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #e11d2e; }
+    .author-box p { margin: 0.4rem 0; color: var(--muted); font-size: 0.95rem; }
+    .author-box .author-name { font-size: 1.05rem; color: inherit; font-weight: 700; }
+    .author-links a { font-size: 0.9rem; }
+
+
+    .post-shop { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
+    .post-shop h2 { margin: 0.25rem 0 0.5rem; }
+    .post-shop-card { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1rem auto; max-width: 26rem; text-align: left; min-height: 96px; }
+    .post-shop-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .post-shop-name { font-weight: 700; margin: 0 0 0.25rem; }
+    .post-shop-price { color: var(--accent-deep); font-weight: 700; margin: 0; }
+    .post-shop-all { display: inline-block; margin-top: 0.5rem; font-weight: 700; }
+
+  </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Odoo 20: What's actually new (and what's just noise)",
+  "description": "Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade.",
+  "datePublished": "2026-10-02T12:57:42Z",
+  "author": {
+    "@type": "Person",
+    "name": "David Strausser",
+    "url": "https://deadbrands.co/",
+    "jobTitle": "CEO of Dead Brands, LLC; Head of Sales for Quaint Business Solutions (SAP Business One & Odoo)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dead Brands, LLC"
+  },
+  "mainEntityOfPage": "https://deadbrands.co/blog/posts/odoo-20-whats-actually-new.html",
+  "keywords": "[erp, odoo, odoo 20, ai, accounting, payroll, pos]",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".executive-summary",
+      "meta[name='description']"
+    ]
+  },
+  "image": "https://deadbrands.co/blog/images/odoo-20-whats-actually-new.jpg"
+}
+</script>
+  
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../../index.html" aria-label="Dead Brands, LLC — home">
+        <img class="brand-logo" src="../../assets/img/dead-brands-logo.png" alt="Dead Brands logo" width="40" height="40" />
+        <span class="brand-name">Dead Brands <small>LLC</small></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="/about.html" class="">About</a>
+        <div class="nav-drop">
+          <button class="nav-drop-toggle " aria-haspopup="true" aria-expanded="false" type="button">Services <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-drop-menu" role="menu" aria-label="Services">
+            <div class="nav-drop-cols">
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Grow your business</p>
+                <a href="/services/dead-brands.html" class="" role="menuitem">Dead Brand Stuff</a>
+                <a href="/services/small-business-growth.html" class="" role="menuitem">Small Business Growth</a>
+                <a href="/services/sales-expert.html" class="" role="menuitem">Sales Expert</a>
+                <a href="/services/marketing-expert.html" class="" role="menuitem">Marketing Expert</a>
+                <a href="/services/business-development.html" class="" role="menuitem">Biz Dev</a>
+              </div>
+              <div class="nav-drop-col">
+                <p class="nav-drop-label">Technology &amp; ERP</p>
+                <a href="/services/tech-consulting.html" class="" role="menuitem">Tech Consulting</a>
+                <a href="/services/odoo.html" class="" role="menuitem">Odoo</a>
+                <a href="/services/sap-business-one.html" class="" role="menuitem">SAP Business One</a>
+                <a href="/services/erp.html" class="" role="menuitem">ERP</a>
+              </div>
+            </div>
+            <a href="/services.html" class="nav-drop-all ">View all services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <a href="/resources.html" class="">Resource Center</a>
+        <a href="/blog/index.html" class="active">Blog</a>
+        <a href="/case-studies/" class="">Case Studies</a>
+        <a href="/merch/" class="">Shop</a>
+        <a href="/index.html#contact" class="nav-cta">Work With Me</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="section">
+      <div class="wrap narrow">
+        <a class="back-link" href="../index.html">&larr; All posts</a>
+        <figure class="post-hero-card"><img src="../images/odoo-20-whats-actually-new.jpg" alt="Odoo 20 Planning app with field service integration" width="1113" height="431" loading="eager" fetchpriority="high" /><div class="hero-title-overlay"><h1>Odoo 20: What's actually new (and what's just noise)</h1><p class="post-meta">October 2, 2026 at 8:57 AM ET &middot; 16 min read &middot; by <a href="../author.html">David Strausser</a></p></div></figure>
+        <aside class="post-summary" aria-label="Executive Summary">
+          <p class="post-summary-label"><span>Executive Summary</span></p>
+          <p>Odoo 20, launched September 24, 2026 at the Odoo Experience in Brussels, is the kind of release I like: the headline features are fine, but the substance is in the unglamorous middle. The AI story is real and worth one chapter below, but it's the sizzle. The steak is <strong>accounting guardrails that catch expensive mistakes before they post</strong>, a <strong>payroll module that finally acts like payroll software</strong>, <strong>Field Service getting absorbed into Planning</strong> (one less app to maintain), a <strong>POS that handles multi-currency checkout and self-ordering properly</strong>, an <strong>Odoo Phone that grew into a real phone system</strong>, and a <strong>Light User tier</strong> that changes the math on per-seat pricing for your whole frontline.</p>
+<p>I implement both SAP Business One and Odoo, so I'm not here to sell you either one. Here's what v20 actually does, function by function, and where I'd tell a client to be careful.</p>
+        </aside>
+        
+        <div class="post-body prose">
+<h2 id="whats-actually-in-odoo-20">What's actually in Odoo 20</h2>
+<h3>Accounting: the guardrails get serious</h3>
+<p>Accounting is where v20 quietly does its best work. Most of these features will never make a keynote slide, and every single one of them prevents a kind of mistake I've watched cost a small business real money.</p>
+<p><strong>Pay your vendor bills straight from Odoo.</strong> The big one first: PISP (payment initiation) support means you can initiate bill payments directly from inside Odoo instead of keying them into your bank portal and hoping the amounts match. Fewer re-keying errors, fewer "I paid the wrong invoice" mornings.</p>
+<p><strong>The bank account consistency check.</strong> Journal entries that hit bank accounts must now originate from actual bank transactions, no more manual journal entries posted straight to a bank account that don't match anything real. Statement validation feedback got sharper too, so balance inconsistencies surface fast. This is the kind of boring control that stops both fraud and fat-finger errors cold, and it's the feature your controller will thank you for six months from now without remembering why.</p>
+<p><strong>A bank reconciliation summary report.</strong> Reconciliation has always been where Odoo's accounting felt like it was built by developers rather than accountants. A proper summary report of the reconciliation state, what matched, what didn't, what's outstanding, is the difference between a 20-minute month-end review and a two-hour archaeology dig.</p>
+<p>!<a href="02-accounting-reconciliation.jpg" target="_blank" rel="noopener">Odoo 20's bank matching view, where statement lines meet their journal entries</a></p>
+<p><strong>Cash journals get tamper-evident hashing.</strong> If your business handles cash, this matters: journal entries in cash journals are hashed upon reconciliation, so you can prove nobody edited history after the fact. That's an audit feature, and auditors notice.</p>
+<p><strong>Double-payment prevention and clearer payment statuses.</strong> Odoo got better at stopping you from paying the same bill twice, and payment statuses were renamed to say what they actually mean. Both sound trivial. Neither is, when you've got an AP clerk processing 200 bills a week.</p>
+<p><strong>Parent accounts replace account groups.</strong> The old account-group structure for the chart of accounts is gone, replaced by parent accounts, and account codes are now optional. If your chart of accounts has sprawled over the years (whose hasn't), this is how you get a P&L that reads like English again without renumbering everything.</p>
+<p><strong>Access rights without the record-rule spaghetti.</strong> This one's under the hood but it matters for anyone who's ever paid a consultant to untangle Odoo permissions: record rules are gone, replaced by domains set directly at the access-right level. Simpler to understand, simpler to audit, fewer weird "why can she see that?" tickets.</p>
+<p><strong>Valuation without the Inventory app, withholding breakdowns.</strong> Smaller companies can now run inventory valuation without installing the full Inventory app, and withholding tax reporting breaks down properly where it applies. Both lower the barrier for the 10-person company that needs real accounting but not a warehouse module.</p>
+<p>The honest summary: v20's accounting didn't get flashier, it got <em>safer</em>. That's worth more than any AI demo.</p>
+<h3>Payroll: it finally acts like payroll software</h3>
+<p>Odoo's Payroll app has always felt like the promising junior on the team. In v20 it got promoted.</p>
+<p><strong>A dashboard that leads with warnings.</strong> The payroll dashboard now surfaces problems first, missing data, employees with issues, things that will blow up the pay run, instead of making you hunt for them. Payroll is the one module where "surprise" is never good news.</p>
+<p><strong>Step-by-step pay runs with a test print.</strong> Pay runs are now guided, and you can do a one-click test print before anything is final. If you've ever had the cold-sweat moment of realizing a pay run posted wrong, you know exactly why this exists.</p>
+<p><strong>Net-to-gross salary simulation.</strong> Offer a candidate $X net and see what it costs you gross, right in the system. Recruiting and HR will use this weekly.</p>
+<p><strong>Send payslips when it makes sense, not when the run finishes.</strong> Payslip delivery timing is now controllable instead of tied to pay-run completion. Small thing, real professionalism upgrade.</p>
+<p><strong>The Planning-Payroll work-entries link is gone, and time-off types got merged.</strong> Odoo removed the automatic work-entries bridge between Planning and Payroll and consolidated the time-off types. Translation: fewer invisible dependencies between apps, which means fewer "why did my payslip change?" mysteries. I consider this a cleanup win, not a loss.</p>
+<p><strong>Day-hours working schedules.</strong> Schedules can now be defined in day-hours, which sounds minor until you're running shifts that don't fit the standard full-time template.</p>
+<p>If you're running payroll in Odoo today, v20 is the first version where I'd stop apologizing for the module.</p>
+<h3>Planning absorbs Field Service: one app instead of two</h3>
+<p>This is the headline structural change in v20, and it's the right call: <strong>the Field Service app is discontinued, and its features now live in Planning.</strong> If you run a service business, here's what that actually gives you:</p>
+<p><strong>Travel fees you can invoice.</strong> Distance-based travel fees or fixed travel-time fees, billed to the customer. Service companies have been hacking this together with manual lines forever; now it's native.</p>
+<p><strong>Customer equipment tracking tied to maintenance contracts.</strong> You can see whether a customer's equipment is covered by a maintenance contract (via Subscriptions) and pull up the equipment documentation right from the shift. The tech shows up knowing what's under contract and what the last visit found. That's the difference between a professional service visit and an expensive guess.</p>
+<p><strong>A live map of your technicians.</strong> Track where your techs are on a live map, see shift locations against technician availability in the map view, and choose between ordered routing (respect the stop sequence) and optimized routing (shortest path). Connect Mapbox and travel times show up in the Gantt view so scheduling accounts for drive time. This is dispatch software now, not just a calendar with names on it.</p>
+<p><strong>Auto-plan that respects customer locations and shift priorities.</strong> The auto-planning feature now factors in where customers actually are, and you can set shift priorities so the urgent jobs get scheduled first. Combined with drag-and-drop scheduling from the side panel, this is the closest Odoo has come to real dispatch automation.</p>
+<p><strong>Send shifts to techs over WhatsApp.</strong> Schedules go straight to employees' phones via WhatsApp. Your techs are already there; meeting them there beats another app they'll never open.</p>
+<p><strong>Shifts linked to project tasks.</strong> A shift can now be tied to a specific task, so field work flows into project tracking instead of living in a separate universe.</p>
+<p>The migration note that matters: if you're on Field Service today, start planning the move. The app is discontinued, which means no more updates, and the Planning-based workflow is where all future development goes. Test it on a copy of your database first, especially if you customized worksheets (they now use property fields instead of Studio fields).</p>
+<h3>POS: the retail workhorse levels up</h3>
+<p>Point of Sale got one of the longest feature lists in v20, and most of it is stuff retailers actually asked for:</p>
+<p><strong>Multi-currency checkout in the same POS.</strong> Tourist areas, border towns, anywhere customers pay in more than one currency, you can now accept multiple currencies at checkout without workarounds.</p>
+<p><strong>Self-ordering that acts like it.</strong> Customers scan an order-specific QR code, order from their phone, pay after the meal, leave notes that show on the kitchen display, and get their receipt via WhatsApp or SMS. Optional products show on mobile and kiosk. This is a complete self-service loop, not a demo feature.</p>
+<p><strong>Snooze products.</strong> 86 the salmon in one tap and it's gone from the POS and the self-ordering menu until you bring it back. Anyone who's worked a restaurant floor knows why this is on the list.</p>
+<p><strong>End-of-session accounting that makes sense.</strong> Closing a session now generates a single global sale instead of a pile of miscellaneous entries, which means your accountant stops asking what all those lines were.</p>
+<p><strong>Combo suggestions.</strong> The POS recommends converting order lines into combos when it makes the order simpler. Faster for big tables, fewer errors.</p>
+<p><strong>Printer management for real restaurants.</strong> Multiple printers per POS, choose which printer gets what, preparation tickets split per product. If you've got a kitchen, a bar, and a patio, this is your feature.</p>
+<p><strong>Service fees, Mercado Pago, and UPI QR payments.</strong> Add service fees via presets (shown on invoices), take Mercado Pago terminal QR payments (now including Chile), and accept static UPI QR payments. The payment coverage keeps getting more international, which matters if you sell across borders.</p>
+<p><strong>A "Supervised" access level.</strong> A new highly restrictive employee access tier for POS. Hand the register to the new hire without handing them the keys to the kingdom.</p>
+<p><strong>Simplified inventory without the Inventory app.</strong> Like eCommerce, POS can now run on a simple on-hand quantity per product with no required transfers. And for the Inventory app itself, reordering rules now <em>suggest</em> min/max levels based on demand history, coverage days, and order frequency:</p>
+<p>!<a href="03-inventory-reorder.jpg" target="_blank" rel="noopener">Odoo 20's replenishment dashboard with min/max levels and one-click ordering</a></p>
+<p>That's the system doing the math your purchasing person does in a spreadsheet today.</p>
+<h3>Odoo Phone: a real phone system now</h3>
+<p>Odoo's phone app has been quietly improving for years, and v20 is the version where I'd spec it for a client without caveats:</p>
+<p><strong>A call flow designer.</strong> Build real incoming-call flows with extensions, call menus, and time- and location-specific steps. That's PBX functionality, inside your ERP, tied to your contacts.</p>
+<p><strong>Auto-fill and auto-logging softphone.</strong> Calls log themselves against the right records, and the softphone pulls up who you're talking to. The floating, draggable widget means it stays out of the way until you need it.</p>
+<p><strong>Multiple numbers, your choice of caller ID.</strong> Assign several numbers to a user and let them pick which one shows on outbound calls. Sales teams with local presence numbers, this is for you.</p>
+<p><strong>Move calls between devices mid-call.</strong> Start on your desk, walk to your car, keep talking. Plus simultaneous calling (start or take a second call while on one), push notifications for incoming calls, and QR-code provisioning for Linphone.</p>
+<p>If you're paying for a separate phone system that doesn't talk to your ERP, run the math on this one.</p>
+<h3>WhatsApp: from notification channel to workflow</h3>
+<p>WhatsApp in Odoo v20 stops being a place you send receipts and becomes a place you run processes:</p>
+<p><strong>Interactive message templates.</strong> Templates with buttons and named parameters, plus default recipients, so messages go to the right person with the right data filled in. Simplified authentication to get it all connected.</p>
+<p><strong>Abandoned cart follow-up.</strong> Your eCommerce store can now nudge customers over WhatsApp when they bail on a cart. If you sell online, you know the stats on cart recovery; this is the highest-ROI message you'll ever send.</p>
+<p><strong>Shift schedules and self-order receipts.</strong> As covered above: techs get their shifts on WhatsApp, restaurant customers get their receipts there. The pattern is consistent, Odoo is meeting people where they already are instead of asking them to open another app.</p>
+<h3>The Light User tier: the seat math changes</h3>
+<p>This deserves its own section because it changes the pricing conversation for every Odoo quote I've ever written.</p>
+<p><strong>What it is:</strong> a new, cheaper user tier for employees who only need HR self-service and the specific apps their job requires. Odoo's own definition: any active user account designated as a "Light User," or any active employee record not linked to a full user account. Think: the warehouse worker who scans barcodes all day, the tech who checks their schedule and files worksheets, the retail associate who requests time off and runs the register. They don't need Studio, the external API, advanced configuration, or database management, and now they don't pay for full-seat pricing either.</p>
+<p><strong>What they can do:</strong> Odoo publishes the exact capability list. As users: My Time Off, My Expenses, My Appraisals, My Attendances, My Referrals, My Planning, Field Services, Inventory Barcode Operator, and read-only Knowledge. As employees: get payslips, use the Point of Sale, and use the Manufacturing shop floor. The v20 release notes give the concrete example: restrict a light user's access to just the Barcode module. The essentials work; the admin toys don't.</p>
+<p><strong>What it costs:</strong> US$8.90 per user per month on the US pricelist, a fraction of a full seat, and regional pricing varies, so check Odoo's pricing page for your market. One catch: you can't just click-to-buy it, Odoo routes Light User licensing through an advisor meeting for a customized quote.</p>
+<p><strong>Why it matters:</strong> in every Odoo implementation I've scoped, there's a moment where the client looks at the user count and winces, because half the "users" just clock in, scan things, and request vacation. The Light User tier is Odoo admitting that was always true and pricing for it. If you're re-quoting an existing Odoo deployment, re-run your seat mix against this tier before you renew. It might be the highest-ROI line item in v20.</p>
+<p><strong>The rest of the pricing picture:</strong> the Custom plan goes up about 20%, the first price change since 2022, which Odoo attributes to cumulative inflation. Standard stays put, and One App Free isn't going anywhere. Net: the top tier costs more, the bottom gets a new cheaper rung. Most SMBs I work with will land somewhere better than before. If you're an existing customer, check your agreement before panicking, Odoo's subscription terms cap renewal increases at 7% per year of the prior term, well below the new list price.</p>
+<h3>Under the hood: integrations and platform</h3>
+<p><strong>ShipStation joins the shipping stack.</strong> Shipping costs, labels, and tracking numbers directly in Odoo. If you fulfill your own eCommerce orders, that's one fewer tab open.</p>
+<p><strong>CRM lead generation gets serious.</strong> The Generate Leads feature now pulls from Dun & Bradstreet's company database instead of Clearbit, which means better worldwide coverage and data quality, and it suggests more ways to generate leads:</p>
+<p>!<a href="04-crm-lead-gen.jpg" target="_blank" rel="noopener">An opportunity created by Odoo's lead generation, with company data filled in</a></p>
+<p><strong>Record rules are retired.</strong> As mentioned in Accounting: access rights now carry their domain directly. If you've got custom modules with complex record rules, this is your upgrade homework. Test them on a database copy before you touch production.</p>
+<p><strong>Tracking values on the fly, Material Symbols icons, and /llms.txt.</strong> Smaller platform notes: field tracking values can now be computed dynamically, the icon set moves to Material Symbols (cleaner, more consistent UI), and you can publish an llms.txt file from website settings so AI models understand and use your site content properly. That last one is a quiet nod to the AI-search era, and it's smart.</p>
+<p><strong>A note on what's NOT new:</strong> the TikTok Shop and Lazada marketplace integrations show up in the v20 notes, but they're marked as available since 19.0. Don't let anyone sell you an upgrade on those.</p>
+<h3>The AI chapter: one honest chapter</h3>
+<p>Alright, the part the keynotes led with. Here's the straight version.</p>
+<p><strong>What the AI actually does now:</strong> agents can create records (including from an uploaded PDF of instructions), <em>update</em> records (new, and the one that matters), filter by time period when building views, generate images and website buttons, reprocess their sources on demand, and be summoned by automated or scheduled actions. Responses are interactive: when an agent needs a permission or has a question, you click a button instead of typing. If it hits its tool-call limit, it asks before continuing. Conversations are stored for 30 days. You can dictate requests by voice. And you can connect Odoo to anything via MCP.</p>
+<p><strong>The Accounting Assistant</strong> answers finance questions in plain language, "which projects cost us the most?", "show me the current cash flow status", and audits reconciliations.</p>
+<p><strong>What it costs:</strong> all AI features now consume credits bought via IAP (in-app purchase). This is the line most demos skip. Budget it like you'd budget any consumable, because it is one.</p>
+<p><strong>My honest test</strong>, the same one I use on every AI feature from every vendor: does it remove a step a real person does every day? "Update these 40 records from this PDF" passes. "Ask about cash flow without building a report" passes. An agent that drafts the email, updates the record, and asks permission before doing anything irreversible, that's useful software.</p>
+<p>What it isn't: a copilot that runs your company. The agents are good at narrow, well-defined tasks inside your data. Anyone telling you v20's AI will "transform" your business is selling you something, and you should check what.</p>
+<p>The framing I'd give a client: v20's AI is the best version of Odoo's AI so far because it's the first version where the agents can <em>write</em>, not just read. That's a real line crossed. It's just not the reason to upgrade. The accounting guardrails are the reason to upgrade. The AI is the bonus.</p>
+<h2 id="the-bottom-line">The bottom line</h2>
+<p>Odoo 20 is a grown-up release. The pattern across every section is the same: fewer workarounds, more guardrails, less admin overhead. Accounting that catches mistakes. Payroll you don't have to apologize for. One planning app instead of two. A phone system, a POS, and a WhatsApp integration that all act like they were designed this year. And a Light User tier that finally prices the frontline honestly.</p>
+<p>Should you upgrade? The usual rules apply, and I mean them: <strong>custom modules need compatibility work</strong>, because record rules are gone and several apps changed shape. <strong>Test on a copy of your database first</strong>, especially if you're on Field Service or have heavy Studio customizations on worksheets. Don't upgrade on release week just because there's a keynote.</p>
+<p>But if you're planning an upgrade in the next two quarters anyway, v20 is an easy target. It's the rare release where the boring features are the best features, and boring is what keeps a business running.</p>
+        </div>
+        <p class="post-tags"><span>[erp</span> <span>odoo</span> <span>odoo 20</span> <span>ai</span> <span>accounting</span> <span>payroll</span> <span>pos]</span></p>
+        <div class="post-share">
+          <span class="post-share-label">Share this post</span>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fodoo-20-whats-actually-new.html&text=Odoo%2020%3A%20What%27s%20actually%20new%20%28and%20what%27s%20just%20noise%29" target="_blank" rel="noopener">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fodoo-20-whats-actually-new.html" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdeadbrands.co%2Fblog%2Fposts%2Fodoo-20-whats-actually-new.html" target="_blank" rel="noopener">LinkedIn</a>
+          <button type="button" class="post-share-copy" data-url="https://deadbrands.co/blog/posts/odoo-20-whats-actually-new.html">Copy link</button>
+        </div>
+        <script>
+        (function () {
+          var b = document.querySelector(".post-share-copy");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            var u = b.getAttribute("data-url");
+            function done() { b.textContent = "Copied!"; setTimeout(function () { b.textContent = "Copy link"; }, 1600); }
+            function fallback() {
+              var t = document.createElement("textarea"); t.value = u;
+              document.body.appendChild(t); t.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(t);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(u).then(done).catch(fallback);
+            } else { fallback(); }
+          });
+        })();
+        </script>
+        <section class="post-cta">
+          <h2>Try Odoo free</h2>
+          <p>See why so many small businesses are ditching a dozen disconnected apps for one platform. Spin up Odoo and kick the tires yourself — no credit card, no sales call required.</p>
+          <a class="cta-btn" href="https://quaintbusiness.com/tryodoo?utm_source=deadbrands&amp;utm_medium=website&amp;utm_campaign=david-strausser&amp;utm_content=blog-cta-trial" target="_blank" rel="noopener">Start Your Free Odoo Trial</a>
+        </section>
+        <section class="post-shop">
+          <p class="eyebrow">Shop the brand</p>
+          <h2>Take a piece of the bite with you</h2>
+          <div class="post-shop-card" id="post-shop-card"><p>Loading the goods&hellip;</p></div>
+          <a class="post-shop-all" href="/merch/">View all in the store &rarr;</a>
+        </section>
+        <script>
+        (function () {
+          var el = document.getElementById("post-shop-card");
+          if (!el) return;
+          function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+          fetch("/assets/data/products.json").then(function (r) { return r.json(); }).then(function (d) {
+            var ps = (d.products || []).filter(function (p) { return p && p.image && p.name; });
+            if (!ps.length) { el.innerHTML = ""; return; }
+            var p = ps[Math.floor(Math.random() * ps.length)];
+            var url = esc(p.url || "/merch/");
+            el.innerHTML = '<a href="' + url + '"><img src="' + esc(p.image) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="96" height="96" /></a>'
+              + '<div><p class="post-shop-name"><a href="' + url + '">' + esc(p.name) + '</a></p>'
+              + '<p class="post-shop-price">$' + Number(p.price).toFixed(2) + '</p></div>';
+          }).catch(function () { el.innerHTML = ""; });
+        })();
+        </script>
+        <section class="author-box">
+          <img src="../../assets/photos/published/david-headshot-blazer.jpg" alt="David Strausser" width="96" height="96" loading="lazy" />
+          <div>
+            <p class="author-name">Written by <a href="../author.html">David Strausser</a></p>
+            <p>David is CEO of <strong>Dead Brands, LLC</strong> and Head of Sales
+            (contracted) for <strong>Quaint Business Solutions</strong> — an ERP
+            veteran of over a decade across <strong>SAP Business One</strong> and
+            <strong>Odoo</strong>. Ex-General Manager (Northeast) at Vision33 and
+            VP of Business Development at SEIDOR. Dad, guitarist, Eagles fan.</p>
+            <p class="author-links"><a href="https://x.com/dstrausser83" target="_blank" rel="noopener">X / Twitter</a>
+            &middot; <a href="https://open.spotify.com/show/1CZh0QdNr5Nn8CD8kInMAJ" target="_blank" rel="noopener">Shark Bite Biz podcast</a></p>
+          </div>
+        </section>
+        <section class="post-related" aria-label="Keep reading"><h2>Keep reading</h2><div class="rel-cards"><a class="rel-card" href="penny-aliens-erp-first-contact.html"><img src="../images/penny-aliens-erp-first-contact.jpg" alt="First Contact: What Aliens Would Think of Your ERP" loading="lazy" /><span class="rel-card-title">First Contact: What Aliens Would Think of Your ERP</span></a><a class="rel-card" href="odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html"><img src="../images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg" alt="Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)" loading="lazy" /><span class="rel-card-title">Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)</span></a><a class="rel-card" href="ghost-inventory-odoo-wms-3pl-margin.html"><img src="../images/ghost-inventory-odoo-wms-3pl-margin.jpg" alt="Ghost Inventory Is Eating Your 3PL's Margin — How Odoo WMS Hunts It Down" loading="lazy" /><span class="rel-card-title">Ghost Inventory Is Eating Your 3PL's Margin — How Odoo WMS Hunts It Down</span></a></div></section>
+        <section id="db-comments" aria-label="Comments"></section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Dead Brands, LLC. All rights reserved. &middot; <a href="/cookies.html">Cookie Policy</a> &middot; <a href="#" onclick="window.DBConsent && window.DBConsent.show(); return false;">Cookie settings</a></p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/consent.js" defer></script>
+  <script src="../../assets/js/blog-comments.js" defer></script>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>&uarr;</button>
+  <div class="read-progress" id="readProgress" aria-hidden="true"></div>
+  <script>
+  (function() {
+    var b = document.getElementById("backToTop");
+    var bar = document.getElementById("readProgress");
+    function onScroll() {
+      b.hidden = window.scrollY < 600;
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", onScroll, {passive: true});
+    onScroll();
+    b.addEventListener("click", function() { window.scrollTo({top: 0, behavior: "smooth"}); });
+  })();
+  </script>
+  <script>
+  /* Dead Brands view counter: counts a page view per post slug. No cookies, no PII. */
+  (function() {
+    try {
+      var u = "https://blog-views.dstrausser83.workers.dev/hit?slug=" + encodeURIComponent("odoo-20-whats-actually-new");
+      if (navigator.sendBeacon) { navigator.sendBeacon(u); }
+      else { fetch(u, {method: "POST", mode: "no-cors", keepalive: true}).catch(function(){}); }
+    } catch (e) {}
+  })();
+  </script>
+</body>
+</html>
