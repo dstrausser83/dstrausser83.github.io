@@ -1,632 +1,724 @@
 [
- {
-  "slug": "penny-odoo-automation-mistakes",
-  "title": "5 Odoo Automation Mistakes That Create More Work Than They Save",
-  "date": "2026-10-01",
-  "published_at": "2026-10-05T22:00:00Z",
-  "tags": [
-   "[odoo",
-   "automation",
-   "workflow",
-   "erp",
-   "business-process]"
-  ],
-  "excerpt": "Automation should remove work, not relocate it. Here are the five Odoo automation mistakes I see most often \u2014 and how to fix each one.",
-  "description": "Odoo's automated actions and scheduled jobs are powerful, but misconfigured automation creates more problems than it solves. Learn the five most common mistakes and how to avoid them.",
-  "image": "images/penny-odoo-automation-mistakes.jpg",
-  "video": "",
-  "url": "posts/penny-odoo-automation-mistakes.html",
-  "reading_time": 2
- },
- {
-  "slug": "odoo-20-whats-actually-new",
-  "title": "Odoo 20: What's actually new (and what's just noise)",
-  "date": "2026-10-02",
-  "published_at": "2026-10-02T13:00:00Z",
-  "tags": [
-   "[erp",
-   "odoo",
-   "odoo 20",
-   "ai",
-   "accounting",
-   "payroll",
-   "pos]"
-  ],
-  "excerpt": "Odoo 20 launched September 24, 2026, and the headlines all scream AI. The real story is quieter: accounting guardrails that stop expensive mistakes, payroll that grew up, Field Service folding into Planning, a phone system worth using, and a Light User tier that changes the seat math. Here's the deep dive.",
-  "description": "Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade.",
-  "image": "images/odoo-20-whats-actually-new.jpg",
-  "video": "",
-  "url": "posts/odoo-20-whats-actually-new.html",
-  "reading_time": 16
- },
- {
-  "slug": "penny-aliens-erp-first-contact",
-  "title": "First Contact: What Aliens Would Think of Your ERP",
-  "date": "2026-10-01",
-  "published_at": "2026-10-01T22:00:00Z",
-  "tags": [
-   "[penny",
-   "erp",
-   "humor",
-   "odoo",
-   "data-quality]"
-  ],
-  "excerpt": "If aliens landed tomorrow and asked to see how your business runs, would your ERP impress them \u2014 or would they assume we'd already been conquered by the spreadsheets?",
-  "description": "A fun but pointed look at ERP data quality through alien eyes: if extraterrestrials audited your system tomorrow, what would they find? A Penny-style take on why clean data matters.",
-  "image": "images/penny-aliens-erp-first-contact.jpg",
-  "video": "",
-  "url": "posts/penny-aliens-erp-first-contact.html",
-  "reading_time": 5
- },
- {
-  "slug": "odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales",
-  "title": "Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)",
-  "date": "2026-10-01",
-  "published_at": "2026-10-01T11:00:00Z",
-  "tags": [
-   "odoo",
-   "crm",
-   "sales",
-   "pipeline",
-   "open-source"
-  ],
-  "excerpt": "Sales reps ignore your CRM pipeline setup because it\u2019s too complicated. Here\u2019s what actually gets used, and here is why Odoo\u2019s approach works.",
-  "description": "Why sales teams abandon Odoo\u2019s pipeline setup. Real steps that match daily work. No fluff.",
-  "image": "images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg",
-  "video": "",
-  "url": "posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html",
-  "reading_time": 5
- },
- {
-  "slug": "ghost-inventory-odoo-wms-3pl-margin",
-  "title": "Ghost Inventory Is Eating Your 3PL's Margin \u2014 How Odoo WMS Hunts It Down",
-  "date": "2026-10-01",
-  "published_at": "2026-10-01T11:00:01Z",
-  "tags": [
-   "odoo",
-   "odoo-wms",
-   "3pl",
-   "inventory",
-   "warehouse-management",
-   "distribution"
-  ],
-  "excerpt": "Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.",
-  "description": "Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.",
-  "image": "images/ghost-inventory-odoo-wms-3pl-margin.jpg",
-  "video": "",
-  "url": "posts/ghost-inventory-odoo-wms-3pl-margin.html",
-  "reading_time": 8
- },
- {
-  "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
-  "title": "The Odoo Apps I'd Install on Day One for a 20-Person Company",
-  "date": "2026-09-30",
-  "published_at": "2026-09-30T11:00:00Z",
-  "tags": [
-   "odoo",
-   "erp",
-   "small business",
-   "software",
-   "business"
-  ],
-  "excerpt": "Twenty people, zero patience for bloat. Here are the Odoo apps I'd turn on first, in order, and the ones I'd leave alone until you actually need them.",
-  "description": "The exact Odoo apps I'd install on day one for a 20-person company, in priority order, refreshed days after the Odoo 20 launch. No bloat, no upsell, just what works.",
-  "image": "images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg",
-  "video": "",
-  "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html",
-  "reading_time": 11
- },
- {
-  "slug": "sap-business-one-version-11-browser-erp-roadmap",
-  "title": "SAP Business One Version 11 Is Coming in 2027: Your Browser Is the ERP Now",
-  "date": "2026-09-30",
-  "published_at": "2026-09-30T18:30:00Z",
-  "tags": [
-   "erp",
-   "sap",
-   "sap business one",
-   "web client",
-   "version 11"
-  ],
-  "excerpt": "SAP's public roadmap puts Version 11 in 2027, and every release between now and then is web-client-first. What the roadmap actually says, the under-the-radar features proving the browser already won, and the five things to do before 2027.",
-  "description": "SAP Business One Version 11 arrives in 2027 per SAP's public roadmap. David Strausser decodes what it means for SMB owners: the web client is the product now, the desktop client gets compliance, and the five moves to make before 2027.",
-  "image": "images/sap-business-one-version-11-browser-erp-roadmap.jpg",
-  "video": "",
-  "url": "posts/sap-business-one-version-11-browser-erp-roadmap.html",
-  "reading_time": 9
- },
- {
-  "slug": "open-source-erp-and-the-who-do-i-call-at-2-am-question",
-  "title": "Open-Source ERP: Who Do I Call at 2 AM?",
-  "date": "2026-09-30",
-  "published_at": "2026-09-30T11:00:01Z",
-  "tags": [
-   "open-source-erp",
-   "odoo",
-   "it-support",
-   "erp-support",
-   "sme"
-  ],
-  "excerpt": "When your Odoo server crashes at 2 AM and the support team is a ghost, open-source ERP becomes a double-edged sword. Here's what to do when the lights go out.",
-  "description": "Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight.",
-  "image": "images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg",
-  "video": "",
-  "url": "posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html",
-  "reading_time": 8
- },
- {
-  "slug": "rock-star-dad-guitar-cable-company-sales",
-  "title": "Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies",
-  "date": "2026-09-29",
-  "published_at": "2026-10-01T20:00:00Z",
-  "tags": [
-   "music",
-   "sales",
-   "small-business",
-   "dad",
-   "passion"
-  ],
-  "excerpt": "Back around 2016, I found Chromaleaf on the NAMM show floor while networking in Los Angeles. They custom-built me cables to chase Joe Perry's sound, and years later I sold them SAP Business One. Tech, work, and music, all in one story.",
-  "description": "David Strausser on Chromaleaf: discovered at NAMM around 2016, got custom cables built to shred like Joe Perry, then sold them SAP Business One. His ERP world and music world in one story.",
-  "image": "images/rock-star-dad-guitar-cable-company-sales.jpg",
-  "video": "",
-  "url": "posts/rock-star-dad-guitar-cable-company-sales.html",
-  "reading_time": 8
- },
- {
-  "slug": "when-sap-business-one-is-overkill-and-what-to-buy-instead",
-  "title": "When SAP Business One is Overkill: What to Buy Instead",
-  "date": "2026-09-29",
-  "published_at": "2026-09-29T18:30:00Z",
-  "tags": [
-   "sap",
-   "businessone",
-   "odoo",
-   "smallbusiness",
-   "erp"
-  ],
-  "excerpt": "SAP Business One's steep learning curve and high costs often overwhelm small teams. Here is when it is overkill and what actually works.",
-  "description": "SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype.",
-  "image": "images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg",
-  "video": "",
-  "url": "posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html",
-  "reading_time": 6
- },
- {
-  "slug": "the-5-hour-friday-automating-the-weekly-report-nobody-likes",
-  "title": "The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants",
-  "date": "2026-09-29",
-  "published_at": "2026-09-29T20:00:00Z",
-  "tags": [
-   "automation",
-   "time-saving",
-   "work-life",
-   "friday",
-   "dad"
-  ],
-  "excerpt": "Most people spend hours on reports nobody reads. Here is how I cut mine down and took my Friday back.",
-  "description": "How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters.",
-  "image": "images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg",
-  "video": "",
-  "url": "posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html",
-  "reading_time": 7
- },
- {
-  "slug": "sap-business-one-10-fp-2608-ai-web-client",
-  "title": "SAP Business One FP 2608: AI arrives, but the Web Client wins",
-  "date": "2026-09-28",
-  "published_at": "2026-10-01T18:30:00Z",
-  "tags": [
-   "erp",
-   "sap",
-   "sap business one",
-   "ai",
-   "business"
-  ],
-  "excerpt": "SAP Business One 10.0 Feature Package 2608 brings Ask AI and AI-assisted queries to small businesses. Here's what's real, what's hype, and why the browser-based Web Client matters more than the AI headlines.",
-  "description": "SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver.",
-  "image": "images/sap-business-one-10-fp-2608-ai-web-client.jpg",
-  "video": "",
-  "url": "posts/sap-business-one-10-fp-2608-ai-web-client.html",
-  "reading_time": 5
- },
- {
-  "slug": "ai-wont-fix-a-broken-process-itll-just-break-it-faster",
-  "title": "AI won't fix a broken process, it'll just break it faster",
-  "date": "2026-09-28",
-  "published_at": "2026-09-28T22:00:00Z",
-  "tags": [
-   "ai",
-   "business",
-   "process",
-   "automation",
-   "technology"
-  ],
-  "excerpt": "Everyone wants AI to save their business. But if your process is broken, AI just helps you fail at machine speed. Fix the process first.",
-  "description": "Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.",
-  "image": "images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg",
-  "video": "",
-  "url": "posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html",
-  "reading_time": 6
- },
- {
-  "slug": "sap-business-one-for-companies-that-think-sap-is-only-for-gi",
-  "title": "SAP Business One: Why Your Startup Doesn't Need a Giant to Use It",
-  "date": "2026-09-28",
-  "published_at": "2026-09-28T18:30:00Z",
-  "tags": [
-   "sap",
-   "business-one",
-   "small-business",
-   "software",
-   "implementation"
-  ],
-  "excerpt": "SAP Business One isn't for giants. It's built for your coffee shop, bakery, or consulting firm that needs real accounting without the corporate fluff.",
-  "description": "Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it's not a giant's toy.",
-  "image": "images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg",
-  "video": "",
-  "url": "posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html",
-  "reading_time": 7
- },
- {
-  "slug": "odoo-20-ai-that-does-the-work-not-just-the-talking",
-  "title": "Odoo 20: AI That Does the Work, Not Just the Talking",
-  "date": "2026-09-28T12:00:00",
-  "published_at": "2026-10-02T11:00:00Z",
-  "tags": [
-   "odoo",
-   "odoo-20",
-   "erp",
-   "ai",
-   "small-business"
-  ],
-  "excerpt": "Odoo 20 launched this week in Brussels, and the headline isn't another chatbot. The AI can now create and change real records in your ERP. Here's what that means for small businesses.",
-  "description": "Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.",
-  "image": "images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg",
-  "video": "",
-  "url": "posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html",
-  "reading_time": 7
- },
- {
-  "slug": "what-playing-guitar-taught-me-about-patience-that-bus",
-  "title": "What Playing Guitar Taught Me About Patience That Business Never Could",
-  "date": "2026-09-27T12:00:00",
-  "published_at": "2026-09-27T20:00:00Z",
-  "tags": [
-   "guitar",
-   "patience",
-   "business",
-   "life"
-  ],
-  "excerpt": "Business rewards speed. Guitar punishes it. Here is what twenty years of chasing tone taught me about slowing down, and why the best things in work and life refuse to be rushed.",
-  "description": "David Strausser on the patience lessons from playing guitar that business never taught him. A Sunday reflection.",
-  "image": "images/what-playing-guitar-taught-me-about-patience-that-bus.jpg",
-  "video": "",
-  "url": "posts/what-playing-guitar-taught-me-about-patience-that-bus.html",
-  "reading_time": 5
- },
- {
-  "slug": "the-first-ai-hire-what-to-automate-before-you-hire-your-next",
-  "title": "The First AI Hire: What to Automate Before You Hire Your Next Employee",
-  "date": "2026-09-26",
-  "published_at": "2026-09-26T22:00:00Z",
-  "tags": [
-   "ai",
-   "automation",
-   "hiring",
-   "smb",
-   "productivity"
-  ],
-  "excerpt": "Before you post that job listing, consider the hire that never sleeps, never quits, and costs less than your coffee budget. Here is what to automate first \u2014 and what to never hand to a machine.",
-  "description": "Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.",
-  "image": "images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg",
-  "video": "",
-  "url": "posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html",
-  "reading_time": 5
- },
- {
-  "slug": "odoo-studio-when-clicking-together-an-app-beats-writing-code",
-  "title": "Odoo Studio: When Clicking Together an App Beats Writing Code",
-  "date": "2026-09-26",
-  "published_at": "2026-09-26T11:00:00Z",
-  "tags": [
-   "odoo",
-   "studio",
-   "erp",
-   "customization",
-   "smb"
-  ],
-  "excerpt": "Not every business problem needs a developer. Odoo Studio lets you build simple apps by clicking instead of coding \u2014 here is where it shines, where it breaks, and how to know the difference.",
-  "description": "Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.",
-  "image": "images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg",
-  "video": "",
-  "url": "posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html",
-  "reading_time": 5
- },
- {
-  "slug": "odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m",
-  "title": "Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time \u2014 David Strausser",
-  "date": "2026-09-26T07:00:00",
-  "published_at": "2026-09-26T11:00:01Z",
-  "tags": [
-   "odoo",
-   "erp",
-   "excel",
-   "spreadsheets"
-  ],
-  "excerpt": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
-  "description": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
-  "image": "images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg",
-  "video": "",
-  "url": "posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html",
-  "reading_time": 7
- },
- {
-  "slug": "what-i-learned-auditing-50-messy-quickbooks-files-before-erp",
-  "title": "50 QuickBooks Files That Stole My Sanity Before ERP Migration \u2014 David Strausser",
-  "date": "2026-09-25T17:14:00-04:00",
-  "published_at": "2026-09-26T11:00:02Z",
-  "tags": [
-   "quickbooks",
-   "erp",
-   "odoo",
-   "migration"
-  ],
-  "excerpt": "David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo's simplicity versus SAP Business One's complexity. No fluff, just real talk.",
-  "description": "Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.",
-  "image": "images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg",
-  "video": "",
-  "url": "posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html",
-  "reading_time": 7
- },
- {
-  "slug": "inventory-accuracy-the-unsexy-metric-that-decides-whether-yo",
-  "title": "Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) \u2014 David Strausser",
-  "date": "2026-09-25",
-  "published_at": "2026-09-25T11:00:00Z",
-  "tags": [
-   "erp",
-   "inventory",
-   "odoo",
-   "business",
-   "metrics"
-  ],
-  "excerpt": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
-  "description": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
-  "image": "images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg",
-  "video": "",
-  "url": "posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html",
-  "reading_time": 7
- },
- {
-  "slug": "data-migration-horror-stories-and-how-to-avoid-becoming-one",
-  "title": "Data Migration Horror Stories: How to Avoid Becoming One",
-  "date": "2026-09-23",
-  "published_at": "2026-09-25T18:30:00Z",
-  "tags": [
-   "erp",
-   "data-migration",
-   "sap-business-one",
-   "odoo",
-   "implementation"
-  ],
-  "excerpt": "Data migration is where ERP projects go to die \u2014 not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale.",
-  "description": "ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.",
-  "image": "images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg",
-  "video": "",
-  "url": "posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html",
-  "reading_time": 6
- },
- {
-  "slug": "customization-vs-configuration-the-line-that-quietly-kills-e",
-  "title": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets \u2014 David Strausser",
-  "date": "2026-09-24",
-  "published_at": "2026-09-24T18:30:00Z",
-  "tags": [
-   "erp",
-   "customization",
-   "implementation",
-   "odoo",
-   "sap-business-one"
-  ],
-  "excerpt": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.",
-  "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.",
-  "image": "images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg",
-  "video": "",
-  "url": "posts/customization-vs-configuration-the-line-that-quietly-kills-e.html",
-  "reading_time": 6
- },
- {
-  "slug": "the-90-day-erp-adoption-plan-getting-your-team-to-actually-u",
-  "title": "The 90-Day ERP Plan That Doesn't Make Your Team Scream",
-  "date": "2026-09-24",
-  "published_at": "2026-09-24T18:30:01Z",
-  "tags": [
-   "erp-adoption",
-   "sap-business-one",
-   "odoo",
-   "business-process",
-   "team-productivity"
-  ],
-  "excerpt": "How to avoid ERP chaos in 90 days: practical steps to get your team using the system, no jargon, no promises.",
-  "description": "How to avoid ERP chaos in 90 days: practical steps to get your team actually using the system, with no jargon and no empty promises.",
-  "image": "images/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.jpg",
-  "video": "",
-  "url": "posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html",
-  "reading_time": 7
- },
- {
-  "slug": "why-the-cheapest-erp-quote-is-always-the-most-expensive-one",
-  "title": "The Cheapest ERP Quote Isn\u2019t the Best Deal: Why the Lowest Price Often Means the Highest Cost \u2014 David Strausser",
-  "date": "2026-09-24",
-  "published_at": "2026-09-24T11:00:00Z",
-  "tags": [
-   "erp",
-   "pricing",
-   "sap",
-   "odoo",
-   "business"
-  ],
-  "excerpt": "Why the lowest ERP quote often leads to costly headaches. David Strausser explains how cheap quotes hide hidden costs and why you should never pick the cheapest option.",
-  "description": "Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price.",
-  "image": "images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg",
-  "video": "",
-  "url": "posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html",
-  "reading_time": 7
- },
- {
-  "slug": "your-implementation-partner-is-lying-about-the-timeline-here",
-  "title": "Your implementation partner is lying about the timeline \u2014 here's the real math \u2014 David Strausser",
-  "date": "2026-09-23",
-  "published_at": "2026-09-23T11:00:00Z",
-  "tags": [
-   "implementation",
-   "timelines",
-   "sap",
-   "odoo",
-   "business"
-  ],
-  "excerpt": "Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they're stretching the truth about your project's completion date.",
-  "description": "Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.",
-  "image": "images/your-implementation-partner-is-lying-about-the-timeline-here.jpg",
-  "video": "",
-  "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html",
-  "reading_time": 7
- },
- {
-  "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
-  "title": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP \u2014 David Strausser",
-  "date": "2026-09-23",
-  "published_at": "2026-09-23T11:00:01Z",
-  "tags": [
-   "erp",
-   "sap",
-   "odoo",
-   "go-live",
-   "testing"
-  ],
-  "excerpt": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
-  "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
-  "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
-  "video": "",
-  "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html",
-  "reading_time": 8
- },
- {
-  "slug": "welcome-to-the-blog-tips-tricks-and-straight-talk",
-  "title": "Welcome to the blog \u2014 tips, tricks, and straight talk",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T22:00:00Z",
-  "tags": [
-   "welcome",
-   "dead-brands"
-  ],
-  "excerpt": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
-  "description": "Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.",
-  "image": "images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg",
-  "video": "",
-  "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html",
-  "reading_time": 6
- },
- {
-  "slug": "dad-playbook-productive-mornings",
-  "title": "The Dad's Playbook for Getting More Done Before 9 AM",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T20:00:00Z",
-  "tags": [
-   "productivity",
-   "dad",
-   "business-growth"
-  ],
-  "excerpt": "Dad, CEO, podcaster, guitarist \u2014 here's the actual morning system that lets me run a business and be present for my kid.",
-  "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
-  "image": "images/dad-playbook-productive-mornings.jpg",
-  "video": "",
-  "url": "posts/dad-playbook-productive-mornings.html",
-  "reading_time": 6
- },
- {
-  "slug": "what-playing-guitar-taught-me-about-business",
-  "title": "What Playing Guitar Taught Me About Running a Business",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T20:00:01Z",
-  "tags": [
-   "business-growth",
-   "mindset",
-   "music"
-  ],
-  "excerpt": "Thirty years of playing guitar taught me more about business than any MBA case study. Practice, timing, listening, and knowing when to solo.",
-  "description": "Lessons from decades of playing guitar applied to business: deliberate practice, timing, listening before soloing, and playing with people better than you.",
-  "image": "images/what-playing-guitar-taught-me-about-business.jpg",
-  "video": "",
-  "url": "posts/what-playing-guitar-taught-me-about-business.html",
-  "reading_time": 7
- },
- {
-  "slug": "odoo-implementation-7-things-nobody-tells-you",
-  "title": "Odoo Implementation: 7 Things Nobody Tells You Before You Start",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T11:00:00Z",
-  "tags": [
-   "odoo",
-   "erp",
-   "implementation"
-  ],
-  "excerpt": "Odoo can replace a dozen apps and save you a fortune \u2014 if you implement it right. Seven hard-won lessons from the trenches.",
-  "description": "Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.",
-  "image": "images/odoo-implementation-7-things-nobody-tells-you.jpg",
-  "video": "",
-  "url": "posts/odoo-implementation-7-things-nobody-tells-you.html",
-  "reading_time": 7
- },
- {
-  "slug": "stop-paying-for-12-apps-odoo-replaces-them",
-  "title": "You're Paying for 12 Apps. Odoo Replaces All of Them.",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T11:00:01Z",
-  "tags": [
-   "odoo",
-   "saas",
-   "cost-saving"
-  ],
-  "excerpt": "CRM here, accounting there, inventory somewhere else \u2014 the average SMB pays for a dozen disconnected apps. Odoo puts them under one roof for less.",
-  "description": "How consolidating a dozen disconnected SaaS subscriptions into Odoo cuts costs, kills double data entry, and gives you one version of the truth.",
-  "image": "images/stop-paying-for-12-apps-odoo-replaces-them.jpg",
-  "video": "",
-  "url": "posts/stop-paying-for-12-apps-odoo-replaces-them.html",
-  "reading_time": 7
- },
- {
-  "slug": "5-signs-youve-outgrown-quickbooks",
-  "title": "5 Signs You've Outgrown QuickBooks (and What to Do About It)",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T18:30:00Z",
-  "tags": [
-   "sap-business-one",
-   "erp",
-   "quickbooks"
-  ],
-  "excerpt": "QuickBooks is great \u2014 until it isn't. Five unmistakable signs your business has outgrown it, and why SAP Business One is the natural next step.",
-  "description": "Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.",
-  "image": "images/5-signs-youve-outgrown-quickbooks.jpg",
-  "video": "",
-  "url": "posts/5-signs-youve-outgrown-quickbooks.html",
-  "reading_time": 7
- },
- {
-  "slug": "sap-business-one-add-ons-worth-the-money",
-  "title": "SAP Business One Add-Ons Actually Worth Your Money",
-  "date": "2026-09-22",
-  "published_at": "2026-09-22T18:30:01Z",
-  "tags": [
-   "sap-business-one",
-   "erp"
-  ],
-  "excerpt": "The B1 add-on marketplace is huge and uneven. Here's how to tell the ones worth paying for from the shelfware \u2014 plus the categories that deliver.",
-  "description": "A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on.",
-  "image": "images/sap-business-one-add-ons-worth-the-money.jpg",
-  "video": "",
-  "url": "posts/sap-business-one-add-ons-worth-the-money.html",
-  "reading_time": 6
- }
+  {
+    "slug": "what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection",
+    "title": "What 10,000 hours of bad gigs taught me about sales rejection",
+    "date": "2026-10-03",
+    "published_at": "2026-10-03T20:00:00Z",
+    "tags": [
+      "sales",
+      "musician",
+      "dadlife",
+      "rejection",
+      "business"
+    ],
+    "excerpt": "10,000 hours of playing empty rooms taught me that sales rejection isn't about you \u2014 it's about the stage you're on.",
+    "description": "As a musician who's played for empty rooms and a CEO who sells ERP systems, I've learned that every 'no' is tuning data. Here's how bad gigs made me better at sales.",
+    "image": "images/what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection.jpg",
+    "video": "",
+    "url": "posts/what-10000-hours-of-bad-gigs-taught-me-about-sales-rejection.html",
+    "reading_time": 4
+  },
+  {
+    "slug": "sap-business-one-licensing-what-you-actually-pay-for",
+    "title": "SAP Business One Licensing: What You Actually Pay for (Not the Hype)",
+    "date": "2026-10-03",
+    "published_at": "2026-10-03T16:00:00Z",
+    "tags": [
+      "sap-business-one",
+      "licensing",
+      "business-software",
+      "cost-analysis",
+      "real-talk"
+    ],
+    "excerpt": "SAP Business One's pricing model trips up more business owners than you'd think. Here's what you truly pay for \u2014 no fluff.",
+    "description": "SAP Business One licensing costs what? David Strausser breaks down real costs vs. hype, modules, and where Odoo fits without sales jargon.",
+    "image": "images/sap-business-one-licensing-what-you-actually-pay-for.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-licensing-what-you-actually-pay-for.html",
+    "reading_time": 3
+  },
+  {
+    "slug": "the-odoo-implementation-mistakes-i-see-every-single-time",
+    "title": "The Odoo implementation mistakes I see every single time",
+    "date": "2026-10-03",
+    "published_at": "2026-10-03T12:00:00Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "implementation",
+      "smallbusiness"
+    ],
+    "excerpt": "Most small businesses rush into Odoo without fixing their messy processes first. Here's what I see every single time \u2014 and how to avoid the chaos.",
+    "description": "As an ERP consultant at Dead Brands LLC, I've watched small businesses repeat the same Odoo implementation mistakes for years. This post breaks down the top five pitfalls with real-world fixes.",
+    "image": "images/the-odoo-implementation-mistakes-i-see-every-single-time.jpg",
+    "video": "",
+    "url": "posts/the-odoo-implementation-mistakes-i-see-every-single-time.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "the-school-pickup-ceo",
+    "title": "The School-Pickup CEO: Running a Business on a Kid's Schedule",
+    "date": "2026-10-02",
+    "published_at": "2026-10-02T18:00:00Z",
+    "tags": [
+      "family",
+      "dad",
+      "business",
+      "work-life balance"
+    ],
+    "excerpt": "My calendar has two bosses: my clients and my kids' school schedule. Guess which one never accepts a reschedule. What being a dad taught me about running a business on someone else's clock.",
+    "description": "David Strausser on running a business around the school pickup line: why his kids' schedule is the real CEO, and what fatherhood taught him about presence.",
+    "image": "images/the-school-pickup-ceo.jpg",
+    "video": "",
+    "url": "posts/the-school-pickup-ceo.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "sap-business-one-implementation-timeline-honest-numbers",
+    "title": "SAP Business One implementation timeline: honest numbers",
+    "date": "2026-10-02",
+    "published_at": "2026-10-02T14:00:00Z",
+    "tags": [
+      "sap-business-one",
+      "erp",
+      "implementation",
+      "smallbusiness"
+    ],
+    "excerpt": "What actually drives your SAP Business One timeline? Scope, data quality, and decision speed \u2014 not the number on the proposal.",
+    "description": "Realistic SAP Business One timelines for SMBs: honest week-ranges per phase, the three things that blow up every rollout, and red flags in a partner's proposal.",
+    "image": "images/sap-business-one-implementation-timeline-honest-numbers.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-implementation-timeline-honest-numbers.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "odoo-20-whats-actually-new",
+    "title": "Odoo 20: What's actually new (and what's just noise)",
+    "date": "2026-10-02",
+    "published_at": "2026-10-02T13:00:00Z",
+    "tags": [
+      "[erp",
+      "odoo",
+      "odoo 20",
+      "ai",
+      "accounting",
+      "payroll",
+      "pos]"
+    ],
+    "excerpt": "Odoo 20 launched September 24, 2026, and the headlines all scream AI. The real story is quieter: accounting guardrails that stop expensive mistakes, payroll that grew up, Field Service folding into Planning, a phone system worth using, and a Light User tier that changes the seat math. Here's the deep dive.",
+    "description": "Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade.",
+    "image": "images/odoo-20-whats-actually-new.jpg",
+    "video": "",
+    "url": "posts/odoo-20-whats-actually-new.html",
+    "reading_time": 16
+  },
+  {
+    "slug": "odoo-20-ai-that-does-the-work-not-just-the-talking",
+    "title": "Odoo 20: AI That Does the Work, Not Just the Talking",
+    "date": "2026-09-28T12:00:00",
+    "published_at": "2026-10-02T11:00:00Z",
+    "tags": [
+      "odoo",
+      "odoo-20",
+      "erp",
+      "ai",
+      "small-business"
+    ],
+    "excerpt": "Odoo 20 launched this week in Brussels, and the headline isn't another chatbot. The AI can now create and change real records in your ERP. Here's what that means for small businesses.",
+    "description": "Odoo 20 is out: AI agents with write access, MCP connectivity, core upgrades. What the release changes for small-business ERP.",
+    "image": "images/odoo-20-ai-that-does-the-work-not-just-the-talking.jpg",
+    "video": "",
+    "url": "posts/odoo-20-ai-that-does-the-work-not-just-the-talking.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "penny-odoo-automation-mistakes",
+    "title": "5 Odoo Automation Mistakes That Create More Work Than They Save",
+    "date": "2026-10-01",
+    "published_at": "2026-10-01T22:00:00Z",
+    "tags": [
+      "[odoo",
+      "automation",
+      "workflow",
+      "erp",
+      "business-process]"
+    ],
+    "excerpt": "Automation should remove work, not relocate it. Here are the five Odoo automation mistakes I see most often \u2014 and how to fix each one.",
+    "description": "Odoo's automated actions and scheduled jobs are powerful, but misconfigured automation creates more problems than it solves. Learn the five most common mistakes and how to avoid them.",
+    "image": "images/penny-odoo-automation-mistakes.jpg",
+    "video": "",
+    "url": "posts/penny-odoo-automation-mistakes.html",
+    "reading_time": 2
+  },
+  {
+    "slug": "penny-aliens-erp-first-contact",
+    "title": "First Contact: What Aliens Would Think of Your ERP",
+    "date": "2026-10-01",
+    "published_at": "2026-10-01T22:00:00Z",
+    "tags": [
+      "[penny",
+      "erp",
+      "humor",
+      "odoo",
+      "data-quality]"
+    ],
+    "excerpt": "If aliens landed tomorrow and asked to see how your business runs, would your ERP impress them \u2014 or would they assume we'd already been conquered by the spreadsheets?",
+    "description": "A fun but pointed look at ERP data quality through alien eyes: if extraterrestrials audited your system tomorrow, what would they find? A Penny-style take on why clean data matters.",
+    "image": "images/penny-aliens-erp-first-contact.jpg",
+    "video": "",
+    "url": "posts/penny-aliens-erp-first-contact.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "rock-star-dad-guitar-cable-company-sales",
+    "title": "Rock Star Dad: What Chromaleaf Taught Me About Growing Small Music Companies",
+    "date": "2026-09-29",
+    "published_at": "2026-10-01T20:00:00Z",
+    "tags": [
+      "music",
+      "sales",
+      "small-business",
+      "dad",
+      "passion"
+    ],
+    "excerpt": "Back around 2016, I found Chromaleaf on the NAMM show floor while networking in Los Angeles. They custom-built me cables to chase Joe Perry's sound, and years later I sold them SAP Business One. Tech, work, and music, all in one story.",
+    "description": "David Strausser on Chromaleaf: discovered at NAMM around 2016, got custom cables built to shred like Joe Perry, then sold them SAP Business One. His ERP world and music world in one story.",
+    "image": "images/rock-star-dad-guitar-cable-company-sales.jpg",
+    "video": "",
+    "url": "posts/rock-star-dad-guitar-cable-company-sales.html",
+    "reading_time": 8
+  },
+  {
+    "slug": "sap-business-one-10-fp-2608-ai-web-client",
+    "title": "SAP Business One FP 2608: AI arrives, but the Web Client wins",
+    "date": "2026-09-28",
+    "published_at": "2026-10-01T18:30:00Z",
+    "tags": [
+      "erp",
+      "sap",
+      "sap business one",
+      "ai",
+      "business"
+    ],
+    "excerpt": "SAP Business One 10.0 Feature Package 2608 brings Ask AI and AI-assisted queries to small businesses. Here's what's real, what's hype, and why the browser-based Web Client matters more than the AI headlines.",
+    "description": "SAP Business One 10.0 FP 2608 brings Ask AI and AI-assisted SQL to SMBs, but the biggest win is the Web Client finally becoming a daily driver.",
+    "image": "images/sap-business-one-10-fp-2608-ai-web-client.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-10-fp-2608-ai-web-client.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "ghost-inventory-odoo-wms-3pl-margin",
+    "title": "Ghost Inventory Is Eating Your 3PL's Margin \u2014 How Odoo WMS Hunts It Down",
+    "date": "2026-10-01",
+    "published_at": "2026-10-01T11:00:01Z",
+    "tags": [
+      "odoo",
+      "odoo-wms",
+      "3pl",
+      "inventory",
+      "warehouse-management",
+      "distribution"
+    ],
+    "excerpt": "Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.",
+    "description": "Learn how Odoo WMS helps 3PLs reduce ghost inventory through accurate receiving, better on-hand visibility, disciplined cycle counting, and stronger warehouse management controls.",
+    "image": "images/ghost-inventory-odoo-wms-3pl-margin.jpg",
+    "video": "",
+    "url": "posts/ghost-inventory-odoo-wms-3pl-margin.html",
+    "reading_time": 8
+  },
+  {
+    "slug": "odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales",
+    "title": "Odoo CRM: Why Your Sales Pipeline Setup Isn't Working (And How to Fix It in 4 Steps)",
+    "date": "2026-10-01",
+    "published_at": "2026-10-01T11:00:00Z",
+    "tags": [
+      "odoo",
+      "crm",
+      "sales",
+      "pipeline",
+      "open-source"
+    ],
+    "excerpt": "Sales reps ignore your CRM pipeline setup because it\u2019s too complicated. Here\u2019s what actually gets used, and here is why Odoo\u2019s approach works.",
+    "description": "Why sales teams abandon Odoo\u2019s pipeline setup. Real steps that match daily work. No fluff.",
+    "image": "images/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.jpg",
+    "video": "",
+    "url": "posts/odoo-crm-the-pipeline-setup-that-actually-gets-used-by-sales.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "sap-business-one-version-11-browser-erp-roadmap",
+    "title": "SAP Business One Version 11 Is Coming in 2027: Your Browser Is the ERP Now",
+    "date": "2026-09-30",
+    "published_at": "2026-09-30T18:30:00Z",
+    "tags": [
+      "erp",
+      "sap",
+      "sap business one",
+      "web client",
+      "version 11"
+    ],
+    "excerpt": "SAP's public roadmap puts Version 11 in 2027, and every release between now and then is web-client-first. What the roadmap actually says, the under-the-radar features proving the browser already won, and the five things to do before 2027.",
+    "description": "SAP Business One Version 11 arrives in 2027 per SAP's public roadmap. David Strausser decodes what it means for SMB owners: the web client is the product now, the desktop client gets compliance, and the five moves to make before 2027.",
+    "image": "images/sap-business-one-version-11-browser-erp-roadmap.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-version-11-browser-erp-roadmap.html",
+    "reading_time": 9
+  },
+  {
+    "slug": "open-source-erp-and-the-who-do-i-call-at-2-am-question",
+    "title": "Open-Source ERP: Who Do I Call at 2 AM?",
+    "date": "2026-09-30",
+    "published_at": "2026-09-30T11:00:01Z",
+    "tags": [
+      "open-source-erp",
+      "odoo",
+      "it-support",
+      "erp-support",
+      "sme"
+    ],
+    "excerpt": "When your Odoo server crashes at 2 AM and the support team is a ghost, open-source ERP becomes a double-edged sword. Here's what to do when the lights go out.",
+    "description": "Who do you call when Odoo or SAP Business One goes down at 2 AM? A real triage playbook: Odoo Community vs Enterprise vs B1 support, drawn straight.",
+    "image": "images/open-source-erp-and-the-who-do-i-call-at-2-am-question.jpg",
+    "video": "",
+    "url": "posts/open-source-erp-and-the-who-do-i-call-at-2-am-question.html",
+    "reading_time": 8
+  },
+  {
+    "slug": "the-odoo-apps-id-install-on-day-one-for-a-20-person-company",
+    "title": "The Odoo Apps I'd Install on Day One for a 20-Person Company",
+    "date": "2026-09-30",
+    "published_at": "2026-09-30T11:00:00Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "small business",
+      "software",
+      "business"
+    ],
+    "excerpt": "Twenty people, zero patience for bloat. Here are the Odoo apps I'd turn on first, in order, and the ones I'd leave alone until you actually need them.",
+    "description": "The exact Odoo apps I'd install on day one for a 20-person company, in priority order, refreshed days after the Odoo 20 launch. No bloat, no upsell, just what works.",
+    "image": "images/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.jpg",
+    "video": "",
+    "url": "posts/the-odoo-apps-id-install-on-day-one-for-a-20-person-company.html",
+    "reading_time": 11
+  },
+  {
+    "slug": "the-5-hour-friday-automating-the-weekly-report-nobody-likes",
+    "title": "The 5-Hour Friday: How I Stop Writing the Weekly Report That Nobody Wants",
+    "date": "2026-09-29",
+    "published_at": "2026-09-29T20:00:00Z",
+    "tags": [
+      "automation",
+      "time-saving",
+      "work-life",
+      "friday",
+      "dad"
+    ],
+    "excerpt": "Most people spend hours on reports nobody reads. Here is how I cut mine down and took my Friday back.",
+    "description": "How I automated the weekly report nobody reads, from 10 hours to 5, and took my Friday afternoons back for what actually matters.",
+    "image": "images/the-5-hour-friday-automating-the-weekly-report-nobody-likes.jpg",
+    "video": "",
+    "url": "posts/the-5-hour-friday-automating-the-weekly-report-nobody-likes.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "when-sap-business-one-is-overkill-and-what-to-buy-instead",
+    "title": "When SAP Business One is Overkill: What to Buy Instead",
+    "date": "2026-09-29",
+    "published_at": "2026-09-29T18:30:00Z",
+    "tags": [
+      "sap",
+      "businessone",
+      "odoo",
+      "smallbusiness",
+      "erp"
+    ],
+    "excerpt": "SAP Business One's steep learning curve and high costs often overwhelm small teams. Here is when it is overkill and what actually works.",
+    "description": "SAP Business One's complexity makes it a poor fit for most small businesses. This post explains when to cut the cord and what simpler ERP options exist without the hype.",
+    "image": "images/when-sap-business-one-is-overkill-and-what-to-buy-instead.jpg",
+    "video": "",
+    "url": "posts/when-sap-business-one-is-overkill-and-what-to-buy-instead.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "ai-wont-fix-a-broken-process-itll-just-break-it-faster",
+    "title": "AI won't fix a broken process, it'll just break it faster",
+    "date": "2026-09-28",
+    "published_at": "2026-09-28T22:00:00Z",
+    "tags": [
+      "ai",
+      "business",
+      "process",
+      "automation",
+      "technology"
+    ],
+    "excerpt": "Everyone wants AI to save their business. But if your process is broken, AI just helps you fail at machine speed. Fix the process first.",
+    "description": "Why AI amplifies whatever process you feed it. Broken process in, faster broken results out. Fix the foundation before you automate.",
+    "image": "images/ai-wont-fix-a-broken-process-itll-just-break-it-faster.jpg",
+    "video": "",
+    "url": "posts/ai-wont-fix-a-broken-process-itll-just-break-it-faster.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "sap-business-one-for-companies-that-think-sap-is-only-for-gi",
+    "title": "SAP Business One: Why Your Startup Doesn't Need a Giant to Use It",
+    "date": "2026-09-28",
+    "published_at": "2026-09-28T18:30:00Z",
+    "tags": [
+      "sap",
+      "business-one",
+      "small-business",
+      "software",
+      "implementation"
+    ],
+    "excerpt": "SAP Business One isn't for giants. It's built for your coffee shop, bakery, or consulting firm that needs real accounting without the corporate fluff.",
+    "description": "Why small businesses can leverage SAP Business One without scaling up. Honest trade-offs, real modules, and why it's not a giant's toy.",
+    "image": "images/sap-business-one-for-companies-that-think-sap-is-only-for-gi.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-for-companies-that-think-sap-is-only-for-gi.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "what-playing-guitar-taught-me-about-patience-that-bus",
+    "title": "What Playing Guitar Taught Me About Patience That Business Never Could",
+    "date": "2026-09-27T12:00:00",
+    "published_at": "2026-09-27T20:00:00Z",
+    "tags": [
+      "guitar",
+      "patience",
+      "business",
+      "life"
+    ],
+    "excerpt": "Business rewards speed. Guitar punishes it. Here is what twenty years of chasing tone taught me about slowing down, and why the best things in work and life refuse to be rushed.",
+    "description": "David Strausser on the patience lessons from playing guitar that business never taught him. A Sunday reflection.",
+    "image": "images/what-playing-guitar-taught-me-about-patience-that-bus.jpg",
+    "video": "",
+    "url": "posts/what-playing-guitar-taught-me-about-patience-that-bus.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "the-first-ai-hire-what-to-automate-before-you-hire-your-next",
+    "title": "The First AI Hire: What to Automate Before You Hire Your Next Employee",
+    "date": "2026-09-26",
+    "published_at": "2026-09-26T22:00:00Z",
+    "tags": [
+      "ai",
+      "automation",
+      "hiring",
+      "smb",
+      "productivity"
+    ],
+    "excerpt": "Before you post that job listing, consider the hire that never sleeps, never quits, and costs less than your coffee budget. Here is what to automate first \u2014 and what to never hand to a machine.",
+    "description": "Your first AI hire should be a workflow, not a chatbot. The five things to automate before hiring your next employee, what to keep human, and the trap that turns AI into another pile of unused software.",
+    "image": "images/the-first-ai-hire-what-to-automate-before-you-hire-your-next.jpg",
+    "video": "",
+    "url": "posts/the-first-ai-hire-what-to-automate-before-you-hire-your-next.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "what-i-learned-auditing-50-messy-quickbooks-files-before-erp",
+    "title": "50 QuickBooks Files That Stole My Sanity Before ERP Migration \u2014 David Strausser",
+    "date": "2026-09-25T17:14:00-04:00",
+    "published_at": "2026-09-26T11:00:02Z",
+    "tags": [
+      "quickbooks",
+      "erp",
+      "odoo",
+      "migration"
+    ],
+    "excerpt": "David Strausser shares lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration. Focuses on Odoo's simplicity versus SAP Business One's complexity. No fluff, just real talk.",
+    "description": "Lessons from auditing 50 chaotic QuickBooks files ahead of ERP migration: the mess patterns, the cleanup order, and what Odoo vs SAP Business One demand.",
+    "image": "images/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.jpg",
+    "video": "",
+    "url": "posts/what-i-learned-auditing-50-messy-quickbooks-files-before-erp.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m",
+    "title": "Odoo vs the Spreadsheet Empire: Killing Excel Chaos One Module at a Time \u2014 David Strausser",
+    "date": "2026-09-26T07:00:00",
+    "published_at": "2026-09-26T11:00:01Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "excel",
+      "spreadsheets"
+    ],
+    "excerpt": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
+    "description": "David Strausser on replacing spreadsheet chaos with Odoo, one module at a time. Practical advice for SMBs drowning in Excel.",
+    "image": "images/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.jpg",
+    "video": "",
+    "url": "posts/odoo-vs-the-spreadsheet-empire-killing-excel-chaos-one-m.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "odoo-studio-when-clicking-together-an-app-beats-writing-code",
+    "title": "Odoo Studio: When Clicking Together an App Beats Writing Code",
+    "date": "2026-09-26",
+    "published_at": "2026-09-26T11:00:00Z",
+    "tags": [
+      "odoo",
+      "studio",
+      "erp",
+      "customization",
+      "smb"
+    ],
+    "excerpt": "Not every business problem needs a developer. Odoo Studio lets you build simple apps by clicking instead of coding \u2014 here is where it shines, where it breaks, and how to know the difference.",
+    "description": "Odoo Studio's visual builder handles most simple business apps in hours instead of weeks. Learn where clicking beats coding, where it falls apart, and the governance trap nobody warns you about.",
+    "image": "images/odoo-studio-when-clicking-together-an-app-beats-writing-code.jpg",
+    "video": "",
+    "url": "posts/odoo-studio-when-clicking-together-an-app-beats-writing-code.html",
+    "reading_time": 5
+  },
+  {
+    "slug": "data-migration-horror-stories-and-how-to-avoid-becoming-one",
+    "title": "Data Migration Horror Stories: How to Avoid Becoming One",
+    "date": "2026-09-23",
+    "published_at": "2026-09-25T18:30:00Z",
+    "tags": [
+      "erp",
+      "data-migration",
+      "sap-business-one",
+      "odoo",
+      "implementation"
+    ],
+    "excerpt": "Data migration is where ERP projects go to die \u2014 not because the software is bad, but because the data going in is a mess. Here's how to avoid becoming the next cautionary tale.",
+    "description": "ERP data migration horror stories: duplicated customers, broken history, silent corruption. The audit and reconciliation process that keeps your go-live boring.",
+    "image": "images/data-migration-horror-stories-and-how-to-avoid-becoming-one.jpg",
+    "video": "",
+    "url": "posts/data-migration-horror-stories-and-how-to-avoid-becoming-one.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "inventory-accuracy-the-unsexy-metric-that-decides-whether-yo",
+    "title": "Inventory accuracy: the metric that decides if your ERP works (and why it's unsexy) \u2014 David Strausser",
+    "date": "2026-09-25",
+    "published_at": "2026-09-25T11:00:00Z",
+    "tags": [
+      "erp",
+      "inventory",
+      "odoo",
+      "business",
+      "metrics"
+    ],
+    "excerpt": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
+    "description": "Why inventory accuracy matters more than you think for Odoo users. The quiet metric that keeps your ERP from failing without flashy reports.",
+    "image": "images/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.jpg",
+    "video": "",
+    "url": "posts/inventory-accuracy-the-unsexy-metric-that-decides-whether-yo.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "the-90-day-erp-adoption-plan-getting-your-team-to-actually-u",
+    "title": "The 90-Day ERP Plan That Doesn't Make Your Team Scream",
+    "date": "2026-09-24",
+    "published_at": "2026-09-24T18:30:01Z",
+    "tags": [
+      "erp-adoption",
+      "sap-business-one",
+      "odoo",
+      "business-process",
+      "team-productivity"
+    ],
+    "excerpt": "How to avoid ERP chaos in 90 days: practical steps to get your team using the system, no jargon, no promises.",
+    "description": "How to avoid ERP chaos in 90 days: practical steps to get your team actually using the system, with no jargon and no empty promises.",
+    "image": "images/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.jpg",
+    "video": "",
+    "url": "posts/the-90-day-erp-adoption-plan-getting-your-team-to-actually-u.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "customization-vs-configuration-the-line-that-quietly-kills-e",
+    "title": "Customization vs. Configuration: The Line That Quietly Kills ERP Budgets \u2014 David Strausser",
+    "date": "2026-09-24",
+    "published_at": "2026-09-24T18:30:00Z",
+    "tags": [
+      "erp",
+      "customization",
+      "implementation",
+      "odoo",
+      "sap-business-one"
+    ],
+    "excerpt": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a simple framework for deciding before the invoice decides for you.",
+    "description": "Configuration vs customization in ERP: what each really costs, when custom work earns its keep, and a framework for deciding before the invoice decides for you.",
+    "image": "images/customization-vs-configuration-the-line-that-quietly-kills-e.jpg",
+    "video": "",
+    "url": "posts/customization-vs-configuration-the-line-that-quietly-kills-e.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "why-the-cheapest-erp-quote-is-always-the-most-expensive-one",
+    "title": "The Cheapest ERP Quote Isn\u2019t the Best Deal: Why the Lowest Price Often Means the Highest Cost \u2014 David Strausser",
+    "date": "2026-09-24",
+    "published_at": "2026-09-24T11:00:00Z",
+    "tags": [
+      "erp",
+      "pricing",
+      "sap",
+      "odoo",
+      "business"
+    ],
+    "excerpt": "Why the lowest ERP quote often leads to costly headaches. David Strausser explains how cheap quotes hide hidden costs and why you should never pick the cheapest option.",
+    "description": "Why the lowest ERP quote leads to costly headaches: how cheap quotes hide costs in change orders, and the questions that reveal the real price.",
+    "image": "images/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.jpg",
+    "video": "",
+    "url": "posts/why-the-cheapest-erp-quote-is-always-the-most-expensive-one.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "the-go-live-checklist-nobody-gives-you-what-to-test-before-f",
+    "title": "The go-live checklist nobody tells you: 5 tests to run before flipping the switch on a new ERP \u2014 David Strausser",
+    "date": "2026-09-23",
+    "published_at": "2026-09-23T11:00:01Z",
+    "tags": [
+      "erp",
+      "sap",
+      "odoo",
+      "go-live",
+      "testing"
+    ],
+    "excerpt": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+    "description": "A single dad's practical guide to ERP go-live testing. Five checks that catch costly mistakes before production. No fluff, just what works.",
+    "image": "images/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.jpg",
+    "video": "",
+    "url": "posts/the-go-live-checklist-nobody-gives-you-what-to-test-before-f.html",
+    "reading_time": 8
+  },
+  {
+    "slug": "your-implementation-partner-is-lying-about-the-timeline-here",
+    "title": "Your implementation partner is lying about the timeline \u2014 here's the real math \u2014 David Strausser",
+    "date": "2026-09-23",
+    "published_at": "2026-09-23T11:00:00Z",
+    "tags": [
+      "implementation",
+      "timelines",
+      "sap",
+      "odoo",
+      "business"
+    ],
+    "excerpt": "Implementation partners often overpromise timelines. Discover the real math behind their delays and how to spot when they're stretching the truth about your project's completion date.",
+    "description": "Implementation partners overpromise timelines. The real math behind ERP delays, how to spot stretched estimates, and how to negotiate a date you can hit.",
+    "image": "images/your-implementation-partner-is-lying-about-the-timeline-here.jpg",
+    "video": "",
+    "url": "posts/your-implementation-partner-is-lying-about-the-timeline-here.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "welcome-to-the-blog-tips-tricks-and-straight-talk",
+    "title": "Welcome to the blog \u2014 tips, tricks, and straight talk",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T22:00:00Z",
+    "tags": [
+      "welcome",
+      "dead-brands"
+    ],
+    "excerpt": "Why I'm writing every day: Odoo how-tos, SAP Business One wisdom, and one wild card daily. No fluff, no jargon \u2014 just stuff that actually helps.",
+    "description": "Welcome to David Strausser's daily blog: Odoo how-tos, SAP Business One wisdom, and a daily wild card. What to expect and why it exists.",
+    "image": "images/welcome-to-the-blog-tips-tricks-and-straight-talk.jpg",
+    "video": "",
+    "url": "posts/welcome-to-the-blog-tips-tricks-and-straight-talk.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "what-playing-guitar-taught-me-about-business",
+    "title": "What Playing Guitar Taught Me About Running a Business",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T20:00:01Z",
+    "tags": [
+      "business-growth",
+      "mindset",
+      "music"
+    ],
+    "excerpt": "Thirty years of playing guitar taught me more about business than any MBA case study. Practice, timing, listening, and knowing when to solo.",
+    "description": "Lessons from decades of playing guitar applied to business: deliberate practice, timing, listening before soloing, and playing with people better than you.",
+    "image": "images/what-playing-guitar-taught-me-about-business.jpg",
+    "video": "",
+    "url": "posts/what-playing-guitar-taught-me-about-business.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "dad-playbook-productive-mornings",
+    "title": "The Dad's Playbook for Getting More Done Before 9 AM",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T20:00:00Z",
+    "tags": [
+      "productivity",
+      "dad",
+      "business-growth"
+    ],
+    "excerpt": "Dad, CEO, podcaster, guitarist \u2014 here's the actual morning system that lets me run a business and be present for my kid.",
+    "description": "A real morning routine for busy parents and founders: the night-before setup, the 5 AM power block, and the rules that protect family time.",
+    "image": "images/dad-playbook-productive-mornings.jpg",
+    "video": "",
+    "url": "posts/dad-playbook-productive-mornings.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "sap-business-one-add-ons-worth-the-money",
+    "title": "SAP Business One Add-Ons Actually Worth Your Money",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T18:30:01Z",
+    "tags": [
+      "sap-business-one",
+      "erp"
+    ],
+    "excerpt": "The B1 add-on marketplace is huge and uneven. Here's how to tell the ones worth paying for from the shelfware \u2014 plus the categories that deliver.",
+    "description": "A practical guide to SAP Business One add-ons: which categories deliver real ROI (warehouse, EDI, advanced reporting) and how to evaluate any add-on.",
+    "image": "images/sap-business-one-add-ons-worth-the-money.jpg",
+    "video": "",
+    "url": "posts/sap-business-one-add-ons-worth-the-money.html",
+    "reading_time": 6
+  },
+  {
+    "slug": "5-signs-youve-outgrown-quickbooks",
+    "title": "5 Signs You've Outgrown QuickBooks (and What to Do About It)",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T18:30:00Z",
+    "tags": [
+      "sap-business-one",
+      "erp",
+      "quickbooks"
+    ],
+    "excerpt": "QuickBooks is great \u2014 until it isn't. Five unmistakable signs your business has outgrown it, and why SAP Business One is the natural next step.",
+    "description": "Five signs you've outgrown QuickBooks: spreadsheet workarounds, inventory chaos, no real reporting, permission problems, and month-end dread.",
+    "image": "images/5-signs-youve-outgrown-quickbooks.jpg",
+    "video": "",
+    "url": "posts/5-signs-youve-outgrown-quickbooks.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "stop-paying-for-12-apps-odoo-replaces-them",
+    "title": "You're Paying for 12 Apps. Odoo Replaces All of Them.",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T11:00:01Z",
+    "tags": [
+      "odoo",
+      "saas",
+      "cost-saving"
+    ],
+    "excerpt": "CRM here, accounting there, inventory somewhere else \u2014 the average SMB pays for a dozen disconnected apps. Odoo puts them under one roof for less.",
+    "description": "How consolidating a dozen disconnected SaaS subscriptions into Odoo cuts costs, kills double data entry, and gives you one version of the truth.",
+    "image": "images/stop-paying-for-12-apps-odoo-replaces-them.jpg",
+    "video": "",
+    "url": "posts/stop-paying-for-12-apps-odoo-replaces-them.html",
+    "reading_time": 7
+  },
+  {
+    "slug": "odoo-implementation-7-things-nobody-tells-you",
+    "title": "Odoo Implementation: 7 Things Nobody Tells You Before You Start",
+    "date": "2026-09-22",
+    "published_at": "2026-09-22T11:00:00Z",
+    "tags": [
+      "odoo",
+      "erp",
+      "implementation"
+    ],
+    "excerpt": "Odoo can replace a dozen apps and save you a fortune \u2014 if you implement it right. Seven hard-won lessons from the trenches.",
+    "description": "Seven hard-won lessons about Odoo implementation: data cleanup, scope discipline, training, and the mistakes that blow up timelines.",
+    "image": "images/odoo-implementation-7-things-nobody-tells-you.jpg",
+    "video": "",
+    "url": "posts/odoo-implementation-7-things-nobody-tells-you.html",
+    "reading_time": 7
+  }
 ]
