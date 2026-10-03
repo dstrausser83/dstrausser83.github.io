@@ -459,6 +459,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{page_title}</title>
   <meta name="description" content="{description}" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:url" content="https://deadbrands.co/blog/posts/{slug}.html" />
   <meta property="og:type" content="article" />

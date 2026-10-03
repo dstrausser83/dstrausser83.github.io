@@ -417,7 +417,7 @@ section[id], footer[id] { scroll-margin-top: 84px; }
   .nav-drop-menu a[role="menuitem"] { white-space: normal; }
   .nav-toggle { display: flex; }
   .site-nav {
-    position: absolute; top: 72px; left: 0; right: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: rgba(255, 248, 239, 0.98);
     border-bottom: 2px solid var(--line);
@@ -803,7 +803,7 @@ main { counter-reset: fignum; }
 .btn-sm { padding: .55rem 1.1rem; font-size: .9rem; }
 .carousel-nav { display: flex; gap: .5rem; justify-content: center; margin-top: .5rem; }
 .carousel-btn {
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 48px; height: 48px; border-radius: 50%;
   background: #1c1c20; border: 1px solid #2a2a2e; color: #fff;
   font-size: 1.2rem; cursor: pointer; line-height: 1;
 }
@@ -845,3 +845,17 @@ article.card h3 a,
 .card h3 a:visited {
   color: var(--text, #221610) !important;
 }
+
+/* Mobile tap targets (2026-10-03 overnight pass) */
+.post-share a, .post-share button { display: inline-block !important; padding: 12px 8px !important; }
+a.rel-card { min-height: 44px; }
+
+/* Case-study cross-link strips (2026-10-03 overnight pass) */
+.case-more { margin: 3rem 0 1rem; }
+.case-more h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+.case-more-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.case-more-card { display: block; border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.2rem; text-decoration: none; color: inherit; background: var(--card); min-height: 44px; }
+.case-more-card strong { display: block; font-size: 1.05rem; margin-bottom: 0.25rem; }
+.case-more-card span { font-size: 0.92rem; opacity: 0.85; }
+.case-more-card:hover { border-color: var(--accent); }
+@media (max-width: 640px) { .case-more-grid { grid-template-columns: 1fr; } }

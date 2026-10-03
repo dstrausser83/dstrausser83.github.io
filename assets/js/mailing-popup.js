@@ -1,7 +1,7 @@
 // Dead Brands mailing list popup — no frameworks.
 //
 // Behavior:
-//   - Shows 5s after page load, auto-dismisses 10s later (10s visible),
+//   - Shows 5s after page load, auto-dismisses 20s later (20s visible),
 //     unless the visitor interacts with it.
 //   - Shows once per visitor (localStorage flag — not a cookie).
 //   - Never shows again after a successful signup.
@@ -19,7 +19,7 @@
   var MAILING_LIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbwnOSosh68et8uOajfznNiDPSvVFFJjE-EZ0yNvNTr_uPsWjP_jj0ZNJnJfDJzb6gMm/exec";
 
   var SHOW_DELAY_MS = 5000;    // delay after landing before the popup appears
-  var VISIBLE_MS = 10000;      // how long it stays up before auto-dismiss
+  var VISIBLE_MS = 20000;      // how long it stays up before auto-dismiss
   var LS_VISITED = "db_visited";
   var LS_DISMISSED = "db_mailing_dismissed";
   var LS_SUBSCRIBED = "db_mailing_subscribed";
@@ -50,7 +50,9 @@
     if (first) first.focus({ preventScroll: true });
     if (!preview) {
       autoHideTimer = setTimeout(function () {
-        if (!interacted) dismiss();
+        // Timer expiry only hides the popup; the dismissed flag is reserved
+        // for explicit closes (x / Escape / backdrop click).
+        if (!interacted) close();
       }, VISIBLE_MS);
     }
   }
