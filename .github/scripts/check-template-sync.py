@@ -43,6 +43,8 @@ def main() -> int:
     failures = {}
     for post in posts:
         html = post.read_text(encoding="utf-8")
+        if 'http-equiv="refresh"' in html:
+            continue  # redirect stub, exempt (no content to style)
         blocks = STYLE_RE.findall(html)
         combined = normalize(" ".join(blocks))
         missing = [sig for sig in CRITICAL if normalize(sig) not in combined]
