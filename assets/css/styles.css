@@ -396,6 +396,8 @@ section[id], footer[id] { scroll-margin-top: 84px; }
      no z-index fights, no clipping inside the scrollable nav panel. */
   .nav-drop-menu {
     position: static;
+    visibility: visible;
+    opacity: 1;
     transform: none;
     width: 100%;
     max-width: none;
