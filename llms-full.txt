@@ -71,7 +71,6 @@
 - Team (the digital team roster): https://deadbrands.co/team/
 - Podcast (Shark Bite Biz): https://deadbrands.co/podcast/
 - Free tools (ERP cost estimator and more): https://deadbrands.co/tools/
-- eSign (send and sign documents): https://deadbrands.co/esign/
 - Mailing list (newsletter signup): https://deadbrands.co/mailing-list/
 - Contact: https://deadbrands.co/contact.html
 - Book a free meeting with David: https://app.apollo.io/#/meet/david_strausser_175
@@ -141,13 +140,6 @@ Every public page on deadbrands.co, organized by section:
 ### Core (1 pages)
 
 - https://deadbrands.co/
-
-### Esign (4 pages)
-
-- https://deadbrands.co/esign/
-- https://deadbrands.co/esign/certificate.html
-- https://deadbrands.co/esign/dashboard.html
-- https://deadbrands.co/esign/sign.html
 
 ### Mailing List (1 pages)
 

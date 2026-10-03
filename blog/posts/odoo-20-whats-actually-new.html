@@ -25,6 +25,9 @@
   <meta name="twitter:description" content="Odoo 20 deep dive: accounting guardrails, grown-up payroll, Planning absorbing Field Service, POS and Odoo Phone upgrades, the new Light User tier, and one honest chapter on the AI. What's real, what's hype, and whether to upgrade." />
   <meta name="twitter:image" content="https://deadbrands.co/blog/images/odoo-20-whats-actually-new.jpg" />
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicon-16x16.png" />
+  <link rel="manifest" href="../../site.webmanifest" />
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css?v=20260926d" />
   <link rel="stylesheet" href="../../assets/css/blog-comments.css" />
@@ -188,7 +191,6 @@
         <a href="/resources.html">Resource Center</a>
         <a href="/case-studies/">Case Studies</a>
         <a href="/tools/">Tools</a>
-        <a href="/esign/">eSign</a>
         <a href="/blog/index.html" class="active">Blog</a>
         <a href="/case-studies/" class="">Case Studies</a>
         <a href="/merch/" class="">Shop</a>
@@ -214,7 +216,6 @@
 <p><strong>Pay your vendor bills straight from Odoo.</strong> The big one first: PISP (payment initiation) support means you can initiate bill payments directly from inside Odoo instead of keying them into your bank portal and hoping the amounts match. Fewer re-keying errors, fewer "I paid the wrong invoice" mornings.</p>
 <p><strong>The bank account consistency check.</strong> Journal entries that hit bank accounts must now originate from actual bank transactions, no more manual journal entries posted straight to a bank account that don't match anything real. Statement validation feedback got sharper too, so balance inconsistencies surface fast. This is the kind of boring control that stops both fraud and fat-finger errors cold, and it's the feature your controller will thank you for six months from now without remembering why.</p>
 <p><strong>A bank reconciliation summary report.</strong> Reconciliation has always been where Odoo's accounting felt like it was built by developers rather than accountants. A proper summary report of the reconciliation state, what matched, what didn't, what's outstanding, is the difference between a 20-minute month-end review and a two-hour archaeology dig.</p>
-<p>!<a href="02-accounting-reconciliation.jpg" target="_blank" rel="noopener">Odoo 20's bank matching view, where statement lines meet their journal entries</a></p>
 <p><strong>Cash journals get tamper-evident hashing.</strong> If your business handles cash, this matters: journal entries in cash journals are hashed upon reconciliation, so you can prove nobody edited history after the fact. That's an audit feature, and auditors notice.</p>
 <p><strong>Double-payment prevention and clearer payment statuses.</strong> Odoo got better at stopping you from paying the same bill twice, and payment statuses were renamed to say what they actually mean. Both sound trivial. Neither is, when you've got an AP clerk processing 200 bills a week.</p>
 <p><strong>Parent accounts replace account groups.</strong> The old account-group structure for the chart of accounts is gone, replaced by parent accounts, and account codes are now optional. If your chart of accounts has sprawled over the years (whose hasn't), this is how you get a P&L that reads like English again without renumbering everything.</p>
@@ -250,7 +251,6 @@
 <p><strong>Service fees, Mercado Pago, and UPI QR payments.</strong> Add service fees via presets (shown on invoices), take Mercado Pago terminal QR payments (now including Chile), and accept static UPI QR payments. The payment coverage keeps getting more international, which matters if you sell across borders.</p>
 <p><strong>A "Supervised" access level.</strong> A new highly restrictive employee access tier for POS. Hand the register to the new hire without handing them the keys to the kingdom.</p>
 <p><strong>Simplified inventory without the Inventory app.</strong> Like eCommerce, POS can now run on a simple on-hand quantity per product with no required transfers. And for the Inventory app itself, reordering rules now <em>suggest</em> min/max levels based on demand history, coverage days, and order frequency:</p>
-<p>!<a href="03-inventory-reorder.jpg" target="_blank" rel="noopener">Odoo 20's replenishment dashboard with min/max levels and one-click ordering</a></p>
 <p>That's the system doing the math your purchasing person does in a spreadsheet today.</p>
 <h3>Odoo Phone: a real phone system now</h3>
 <p>Odoo's phone app has been quietly improving for years, and v20 is the version where I'd spec it for a client without caveats:</p>
@@ -274,7 +274,6 @@
 <h3>Under the hood: integrations and platform</h3>
 <p><strong>ShipStation joins the shipping stack.</strong> Shipping costs, labels, and tracking numbers directly in Odoo. If you fulfill your own eCommerce orders, that's one fewer tab open.</p>
 <p><strong>CRM lead generation gets serious.</strong> The Generate Leads feature now pulls from Dun & Bradstreet's company database instead of Clearbit, which means better worldwide coverage and data quality, and it suggests more ways to generate leads:</p>
-<p>!<a href="04-crm-lead-gen.jpg" target="_blank" rel="noopener">An opportunity created by Odoo's lead generation, with company data filled in</a></p>
 <p><strong>Record rules are retired.</strong> As mentioned in Accounting: access rights now carry their domain directly. If you've got custom modules with complex record rules, this is your upgrade homework. Test them on a database copy before you touch production.</p>
 <p><strong>Tracking values on the fly, Material Symbols icons, and /llms.txt.</strong> Smaller platform notes: field tracking values can now be computed dynamically, the icon set moves to Material Symbols (cleaner, more consistent UI), and you can publish an llms.txt file from website settings so AI models understand and use your site content properly. That last one is a quiet nod to the AI-search era, and it's smart.</p>
 <p><strong>A note on what's NOT new:</strong> the TikTok Shop and Lazada marketplace integrations show up in the v20 notes, but they're marked as available since 19.0. Don't let anyone sell you an upgrade on those.</p>

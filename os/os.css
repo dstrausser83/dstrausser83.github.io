@@ -66,8 +66,15 @@ tr.tapped{background:#fff3d9}
 .gate input{font-size:1.05rem;text-align:center;letter-spacing:.02em}
 .list-item{padding:.7rem .2rem;border-bottom:1px solid var(--line)}
 .list-item:last-child{border-bottom:0}
-.kv{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;font-size:.9rem}
-.kv dt{color:var(--muted)}.kv dd{margin:0}
 .toolbar{position:sticky;bottom:0;background:#fff8efee;border-top:1px solid var(--line);
   padding:.6rem .9rem;display:flex;gap:.6rem;backdrop-filter:blur(4px)}
 pre.code{background:#2b2118;color:#ffe9c4;padding:.8rem;border-radius:10px;overflow:auto;font-size:.8rem}
+
+/* === MOBILE-AUDIT 2026-10-03 === */
+/* Stream 2 responsive audit (OS admin). Additive fixes only. */
+html,body{overflow-x:hidden}
+.os-burger{min-width:44px;min-height:44px}
+.os-nav a{padding:.7rem .9rem;min-height:44px;display:inline-flex;align-items:center}
+.btn{min-height:44px}
+.field input,.field select,.field textarea{font-size:16px}
+/* === END MOBILE-AUDIT 2026-10-03 === */

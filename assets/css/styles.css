@@ -677,7 +677,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
     width: 100%;
     color: var(--muted);
   }
-  .nav-drop-toggle.active { color: var(--ink); }
   .nav-drop-toggle.active::after { display: none; }
   .nav-drop-menu {
     position: static; transform: none;
@@ -711,8 +710,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 /* ---------- Service imagery (landing + long-form pages) ---------- */
 .svc-hero-figure { margin: 2rem auto 0; max-width: 960px; }
 .svc-hero-figure img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: var(--shadow); }
-.svc-figure { margin: 2.5rem 0; }
-.svc-figure img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
 .svc-hero-figure figcaption, .svc-figure figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
 .card-thumb { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); display: block; margin-bottom: 1rem; }
 
@@ -740,9 +737,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .fig-numbered figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
 .fig-numbered figcaption::before { content: "Fig. " counter(fignum, decimal-leading-zero) " — "; font-weight: 700; color: var(--text); }
 main { counter-reset: fignum; }
-.fig-left-align { max-width: 86%; margin: 2.5rem 0; }
-.fig-left-align img { width: 100%; height: auto; display: block; border-radius: var(--radius) 0 var(--radius) 0; }
-.fig-left-align figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.78rem; }
 @media (max-width: 720px) {
   .fig-sidenote { grid-template-columns: 1fr; }
   .fig-inset, .fig-frame { max-width: 100%; }
@@ -752,7 +746,6 @@ main { counter-reset: fignum; }
   .fig-hero-offset { max-width: 100%; }
   .fig-hero-offset img { border-radius: var(--radius); }
   .fig-hero-offset figcaption { text-align: left; }
-  .fig-left-align { max-width: 100%; }
 }
 
 /* ---------- Header hardening (mobile lockup) ---------- */
@@ -779,7 +772,6 @@ main { counter-reset: fignum; }
 .final-cta .section-lede { margin-left: auto; margin-right: auto; }
 
 /* ---------- Disabled / coming-soon buttons ---------- */
-.btn-disabled { background: #ccc; color: #666; border: 1px solid #ccc; cursor: not-allowed; opacity: 0.7; display: inline-block; }
 
 /* ---------- Homepage shop carousel ---------- */
 .shop-inner { max-width: 1200px; }
@@ -859,3 +851,43 @@ a.rel-card { min-height: 44px; }
 .case-more-card span { font-size: 0.92rem; opacity: 0.85; }
 .case-more-card:hover { border-color: var(--accent); }
 @media (max-width: 640px) { .case-more-grid { grid-template-columns: 1fr; } }
+
+/* === MOBILE-AUDIT 2026-10-03 === */
+/* Stream 2 responsive audit. Additive fixes only — no existing rule altered. */
+
+/* Text-size/overflow guards */
+html { -webkit-text-size-adjust: 100%; }
+pre { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+code, .prose a, .post-body a { overflow-wrap: anywhere; }
+
+/* Form controls: iOS-zoom-safe (>=16px), full-width, >=44px targets.
+   (chat.css and blog-comments.css load AFTER styles.css, so their overrides
+   carry !important where they touch the same property.) */
+.field select {
+  width: 100%; min-height: 48px; padding: 0.85rem 1rem; border-radius: 10px;
+  border: 1.5px solid var(--line); background: #fff; color: var(--ink);
+  font: inherit; font-size: 16px;
+}
+.db-chat-input { font-size: 16px !important; }
+.db-chat-send { width: 44px !important; height: 44px !important; }
+.db-chat-close { min-width: 44px; min-height: 44px; padding: 8px 12px; }
+.dbc-btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.dbc-oauth a { min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Touch targets that measured under 44px */
+.btn-sm { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.popup-close { min-width: 44px; min-height: 44px; padding: 8px 12px; }
+.site-nav .nav-cta { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.post-share a, .post-share button { min-height: 44px; }
+
+/* Full-bleed figure techniques (.fig-band/.fig-wide) can nudge past the
+   viewport on tablet widths — they were already neutralized <=720px. */
+@media (max-width: 860px) {
+  .fig-band, .fig-wide { margin-left: 0; margin-right: 0; max-width: 100%; }
+}
+
+/* Small-phone rhythm */
+@media (max-width: 480px) {
+  .hero-stats { gap: 1.25rem; }
+}
+/* === END MOBILE-AUDIT 2026-10-03 === */

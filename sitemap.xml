@@ -301,30 +301,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://deadbrands.co/esign/</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://deadbrands.co/esign/certificate.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://deadbrands.co/esign/dashboard.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://deadbrands.co/esign/sign.html</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://deadbrands.co/mailing-list/</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>

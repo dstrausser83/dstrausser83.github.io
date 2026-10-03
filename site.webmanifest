@@ -1,0 +1,32 @@
+{
+  "name": "Dead Brands, LLC",
+  "short_name": "Dead Brands",
+  "description": "Brand revival, ERP consulting (SAP Business One & Odoo), and AI/automation for small business \u2014 plus the Shark Bite Biz podcast.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff8ef",
+  "theme_color": "#fff8ef",
+  "icons": [
+    {
+      "src": "/assets/img/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicon.png",
+      "sizes": "180x164",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
